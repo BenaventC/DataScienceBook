@@ -1,0 +1,10 @@
+# Modèles linéaire {#LM}
+
+voir [blablacar](https://github.com/BenaventC/Covoiturage)
+
+```{r 1501, echo = TRUE, message=FALSE,warning=FALSE}
+
+
+```
+
+
