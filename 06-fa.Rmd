@@ -1,0 +1,231 @@
+---
+title: "Untitled"
+author: "cb"
+date: "22/09/2021"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(corrplot)
+
+library(psych)
+
+library(flextable)
+
+
+#une fonction utile pour FA
+
+
+flex <- function(data, title=NULL) {
+  # this grabs the data and converts it to a flextbale
+  flextable(data) %>%
+  # this makes the table fill the page width
+  set_table_properties(layout = "autofit", width = 1) %>%
+  # font size
+  fontsize(size=10, part="all") %>%
+    #this adds a ttitlecreates an automatic table number
+      set_caption(title, 
+                  autonum = officer::run_autonum(seq_id = "tab", 
+                                                 pre_label = "Table ", 
+                                                 post_label = "\n", 
+                                                 bkm = "anytable")) %>%
+  # font type
+  font(fontname="Times New Roman", part="all")
+}
+
+#et une seconde fonction
+
+
+fa_table <- function(x, cut) {
+  #get sorted loadings
+  loadings <- fa.sort(x)$loadings %>% round(3)
+  #supress loadings
+  loadings[loadings < cut] <- ""
+  #get additional info
+  add_info <- cbind(x$communality, 
+                    x$uniquenesses,
+                    x$complexity) %>%
+    # make it a data frame
+    as.data.frame() %>%
+    # column names
+    rename("Communality" = V1,
+           "Uniqueness" = V2,
+           "Complexity" = V3) %>%
+    #get the item names from the vector
+    rownames_to_column("item")
+  #build table
+  loadings %>%
+    unclass() %>%
+    as.data.frame() %>%
+    rownames_to_column("item") %>%
+    left_join(add_info) %>%
+    mutate(across(where(is.numeric), round, 3))
+}
+
+
+```
+
+l'objectif des méthodes d'analyses factorielles est de réduire un ensemble de variables à un petit nombre de dimensions qui résument l'essentiel de l'information.
+
+## Un peu de théorie
+
+deux grandes approches marquent le paysage
+
+la première est celle de l'ACP
+
+La seconde est celle des psychologues et en particulier le modèle en terme de facteurs communs et spécifiques. 
+
+
+## Application
+
+```{r 0601}
+df <- read_csv("./Data/ESS1-9e01_1.csv") %>%
+  rename(
+    V_creative=ipcrtiv,
+    V_richness= imprich,
+    V_justice =ipeqopt, 
+    V_admiration=ipshabt, 
+    V_security=impsafe, 
+    V_novelty=impdiff, 
+    V_conformism=ipfrule, 
+    V_openmindedness=ipudrst, 
+    V_modesty=ipmodst, 
+    V_fun=ipgdtim, 
+    V_autonomy=impfree, 
+    V_Care=iphlppl, 
+    V_Success=ipsuces,
+    V_Autority =ipstrgv, 
+    V_Adventures=ipadvnt,
+    V_wellbehavior=ipbhprp,
+    V_respect=iprspot,
+    V_loyalty=iplylfr,
+    V_environnement=impenv,
+    V_tradition=imptrad, 
+    V_pleasure=impfun)
+```
+
+
+ valeur de kahle
+
+
+IPCRTIV Important to think new ideas and being creative
+IMPRICH Important to be rich, have money and expensive things
+IPEQOPT Important that people are treated equally and have equal opportunities
+IPSHABT Important to show abilities and be admired
+IMPSAFE Important to live in secure and safe surroundings
+IMPDIFF Important to try new and different things in life
+IPFRULE Important to do what is told and follow rules
+IPUDRST Important to understand different people
+IPMODST Important to be humble and modest, not draw attention
+IPGDTIM Important to have a good time
+IMPFREE Important to make own decisions and be free
+IPHLPPL Important to help people and care for others well-being
+IPSUCES Important to be successful and that people recognise achievements
+IPSTRGV Important that government is strong and ensures safety
+IPADVNT Important to seek adventures and have an exciting life
+IPBHPRP Important to behave properly
+IPRSPOT Important to get respect from others
+IPLYLFR Important to be loyal to friends and devote to people close
+IMPENV Important to care for nature and environment
+IMPTRAD Important to follow traditions and customs
+IMPFUN Important to seek fun and things that give pleasure
+
+
+
+
+```{r 0602}
+
+foo1<-df %>% 
+  select( matches("V_.*"), cntry, essround) %>%
+  drop_na()
+
+```
+
+```{r 0603}
+
+foo<- foo1 %>% 
+  select(matches("V_.*"))
+
+M = cor(foo)
+M
+corrplot(M, method="circle", order="hclust") 
+
+hr <- hclust(as.dist(1-M), method="ward") # Clusters rows by Pearson correlation as distance method.
+plot(hr)
+```
+
+
+
+```{r 0604}
+
+fa <- fa(foo,4, rotate="oblimin")  #principal axis 
+fa
+
+fa_table(fa, .30)%>%
+  flex("A Pretty Factor Analysis Table")
+
+fa[["Vaccounted"]] %>%
+  as.data.frame() %>%
+  #select(1:5) %>% Use this if you have many factors and only want to show a certain number
+  rownames_to_column("Property") %>%
+    mutate(across(where(is.numeric), round, 3)) %>%
+    flex("Eigenvalues and Variance Explained for Rotated Factor Solution")
+
+
+
+```
+
+
+```{r 0605}
+
+loading<-fa$loading
+loading<-as.data.frame(unclass(loading))
+
+
+scores<-fa$scores
+scores<-as.data.frame(unclass(scores))
+
+df_typo<-cbind(foo1, scores)
+
+df_g <- df_typo %>% 
+  select(matches("V_.*"), essround)%>%
+  gather(variable, value,-essround)%>%
+  group_by(variable,essround)%>% 
+  summarize(value=mean(value))
+
+ggplot(df_g, aes(x=as.factor(essround), y=value, group=variable))+
+  geom_line(aes(color=variable))+
+  facet_wrap(vars(variable))
+
+df_g <- df_typo %>% 
+  select(matches("V_.*"), cntry)%>%
+  gather(variable, value,-cntry)%>%
+  group_by(variable,cntry)%>% 
+  summarize(value=mean(value))
+
+
+ggplot(df_g, aes(x=reorder(as.factor(variable), value), y=value, group=cntry))+
+  geom_line(aes(color=cntry))+ coord_flip() +
+  facet_wrap(vars(cntry)) +  theme(legend.position = "none")
+
+df_typo1<- df_typo %>% rename(F_Altruisme = MR1, 
+                       F_Conservatisme=MR2,
+                       F_Succes=MR4,
+                       F_Hedonisme=MR3)
+
+df_g <- df_typo1 %>% 
+  select(matches("F_.*"), cntry)%>%
+  gather(variable, value,-cntry)%>%
+  group_by(variable,cntry)%>% 
+  summarize(value=mean(value))
+
+
+ggplot(df_g, aes(x=reorder(as.factor(cntry), value), y=value, group=variable))+
+  geom_line(aes(color=variable), size=1.5)+ coord_flip()+ facet_wrap(vars(variable), ncol=2)
+
+
+```
+
+

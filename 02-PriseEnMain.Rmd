@@ -52,7 +52,6 @@ La première étape c'est la lecture des données. On commence par le plus simpl
  
 ```{r 202, echo = TRUE, message=FALSE,warning=FALSE}
 
-
 df <- read_csv("./Data/BXL_listings.csv")
 
 ```
