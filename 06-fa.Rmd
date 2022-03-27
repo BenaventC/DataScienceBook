@@ -521,7 +521,7 @@ Si ACP, AFC et AFCM ont pris le devant de la scène, bien d'autre méthodes anal
  
  
 
-# En conclusion
+## En conclusion
 
 1) une idée essentielle : réduire de nombreuses variables à un petit jeu de variables synthétiques
 
