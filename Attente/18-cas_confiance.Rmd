@@ -1,0 +1,210 @@
+# Cas confiance {#clus}
+
+
+## Objectif : evolution de la confiance en france
+
+
+
+## Etude de cas
+
+Le plan de recodage d'un jeu de données qu'on va employer dans les chapitre suivant. Il s'appuie sur le langage de base. 
+
+Un exercice peut être de le réécrire avec  dplyr.
+
+```{r 1801}
+df<-readRDS("./data/trustFrAll.rds")
+
+#quelques recodages
+#on renomme pour plus de clarte
+names(df)[names(df)=="trstun"] <- "NationsUnies" 
+names(df)[names(df)=="trstep"] <- "ParlementEurop" 
+names(df)[names(df)=="trstlgl"] <- "Justice" 
+names(df)[names(df)=="trstplc"] <- "Police" 
+names(df)[names(df)=="trstplt"] <- "Politiques" 
+names(df)[names(df)=="trstprl"] <-"Parlement" 
+names(df)[names(df)=="trstprt"] <- "Partis"
+names(df)[names(df)=="pplhlp"] <- "help"
+names(df)[names(df)=="pplfair"] <- "fair"
+names(df)[names(df)=="ppltrst"] <- "trust"
+
+#on construit les scores de confiance 
+df<-df %>% 
+  mutate(trust_institut=(Partis+Parlement+Politiques+Police+Justice+NationsUnies+ParlementEurop)*10/7,trust_interpersonnel=(help+fair+trust)*10/3)
+df$Year<-2000
+#recodage des variables independantes
+df$Year[df$essround==1]<-2002
+df$Year[df$essround==2]<-2004
+df$Year[df$essround==3]<-2006
+df$Year[df$essround==4]<-2008
+df$Year[df$essround==5]<-2010
+df$Year[df$essround==6]<-2012
+df$Year[df$essround==7]<-2014
+df$Year[df$essround==8]<-2016
+df$Year[df$essround==9]<-2018
+df$Year<-as.factor(df$Year) 
+
+df$OP<-" "
+#ggplot(df,aes(x=lrscale))+geom_histogram()
+df$OP[df$lrscale==0] <- "Extrême gauche" 
+df$OP[df$lrscale==1] <- "Gauche" 
+df$OP[df$lrscale==2] <- "Gauche" 
+df$OP[df$lrscale==3] <- "Centre Gauche" 
+df$OP[df$lrscale==4] <- "Centre Gauche" 
+df$OP[df$lrscale==5] <- "Ni G ni D" 
+df$OP[df$lrscale==6] <- "Centre Droit" 
+df$OP[df$lrscale==7] <- "Centre Droit" 
+df$OP[df$lrscale==8] <- "Droite" 
+df$OP[df$lrscale==9] <- "Droite" 
+df$OP[df$lrscale==10] <- "Extrême droite" 
+#la ligne suivante est pour ordonner les modalités de la variables
+df$OP<-factor(df$OP,levels=c("Extrême droite","Droite","Centre Droit","Ni G ni D","Centre Gauche","Gauche","Extrême gauche"))
+
+
+df$revenu<-" "
+df$revenu[df$hincfel>4] <- NA
+df$revenu[df$hincfel==1] <- "Vie confortable" 
+df$revenu[df$hincfel==2] <- "Se débrouille avec son revenu" 
+df$revenu[df$hincfel==3] <- "Revenu insuffisant" 
+df$revenu[df$hincfel==4] <- "Revenu très insuffisant" 
+df$revenu<-factor(df$revenu,levels=c("Vie confortable","Se débrouille avec son revenu","Revenu insuffisant","Revenu très insuffisant"))
+
+df$habitat<-" "
+
+df$habitat[df$domicil==1]<- "Big city"
+df$habitat[df$domicil==2]<-"Suburbs"
+df$habitat[df$domicil==3]<-"Town"
+df$habitat[df$domicil==4]<-"Village"
+df$habitat[df$domicil==5]<-"Countryside"
+df$habitat<-factor(df$habitat,levels=c("Big city","Suburbs","Town","Village","Countryside"))
+
+df$genre<-" "
+
+df$genre[df$gndr==1]<-"H"
+df$genre[df$gndr==2]<-"F"
+
+df$age<-" "
+
+df$age[df$agea<26]<-"25<"
+df$age[df$agea>25 & df$agea<36]<-"26-35"
+df$age[df$agea>35 & df$agea<46]<-"36-45"
+df$age[df$agea>45 & df$agea<66]<-"46-65"
+df$age[df$agea>65 & df$agea<76]<-"66-75"
+df$age[df$agea>75]<-"75>"
+df$age<-factor(df$age,levels=c("25<","26-35","36-45","46-65","66-75", "75>"))
+
+saveRDS(df, "./data/dfTrust.rds)")
+```
+
+# comparaison dans le temps
+
+voir aussi les données de l'OCDE
+
+https://data.oecd.org/fr/gga/confiance-envers-le-gouvernement.htm
+
+
+
+```{r 1801}
+
+foo<-df%>%
+  select(Year,cntry, trust_institut, trust_interpersonnel)%>%group_by(Year,cntry)%>%
+  summarise(Institutionnelle=mean(trust_institut, na.rm=TRUE), 
+            Interpersonnelle=mean(trust_interpersonnel, na.rm=TRUE),
+            sdi=sd(trust_institut/30, na.rm=TRUE),
+            sdp=sd(trust_interpersonnel/30, na.rm=TRUE))
+foo$Year<- as.character(foo$Year)
+foo$cntry<- as.character(foo$cntry)
+
+foo1<-foo%>%select(Year,cntry,Institutionnelle,Interpersonnelle)%>%
+  pivot_longer(!c(Year,cntry),names_to="Confiance", values_to="mean" )
+foo2<-foo%>%select(Year,cntry,sdi,sdp)%>%
+  pivot_longer(!c(Year,cntry),names_to="Confiance", values_to="sd" )
+foo3<-cbind(foo1,foo2[,4])%>%filter(Year!="2002")
+
+ggplot(foo3,aes(x=Year, y=mean, group=Confiance))+
+  geom_ribbon(aes(ymin = mean-sd, ymax = mean+sd), fill = "grey90")+
+    geom_line(stat="identity",aes(color=Confiance), size=1.2)+
+  facet_wrap(vars(cntry))+
+  scale_color_manual(values = c("Cyan3","Orange2"))+ theme(
+    legend.position = "bottom",
+    legend.justification = c("right", "top"),
+    legend.box.just = "right",
+    legend.margin = margin(6, 6, 6, 6)
+    )+ 
+  labs(title="Evolution de la confiance en France et en Allemagne", subtitle="Institutionnelle et interpersonnelle",
+       x=NULL, y="Degré (échelle de 1 à 100)")+
+  ylim(40,60)
+                                             
+```
+
+```{r 1802}
+
+foo<-df%>%
+  select(Year,cntry, trust_institut, trust_interpersonnel, revenu)%>%group_by(Year,cntry, revenu)%>%
+  summarise(Institutionnelle=mean(trust_institut, na.rm=TRUE), 
+            Interpersonnelle=mean(trust_interpersonnel, na.rm=TRUE),
+            sdi=sd(trust_institut/30, na.rm=TRUE),
+            sdp=sd(trust_interpersonnel/30, na.rm=TRUE))
+foo$Year<- as.character(foo$Year)
+foo$cntry<- as.character(foo$cntry)
+
+foo1<-foo%>%select(Year,cntry,revenu,Institutionnelle,Interpersonnelle)%>%
+  pivot_longer(!c(Year,cntry,revenu),names_to="Confiance", values_to="mean" )
+
+foo2<-foo%>%select(Year,cntry,revenu,sdi,sdp)%>%
+  pivot_longer(!c(Year,cntry, revenu), names_to="Confiance", values_to="sd" )
+
+foo3<-cbind(foo1,foo2[,5])%>%filter(Year!="2002") %>% filter(!is.na(revenu))
+
+ggplot(foo3,aes(x=Year, y=mean, group=revenu))+
+  geom_ribbon(aes(ymin = mean-sd, ymax = mean+sd), fill = "grey90")+
+    geom_line(stat="identity",aes(color=revenu), size=1.2)+
+  facet_grid(Confiance~cntry)+
+  scale_color_manual(values = c("Orange1","Orange2", "Orange3", "Orange4"))+ theme(
+    legend.position = "bottom",
+    legend.justification = c("right", "top"),
+    legend.box.just = "right",
+    legend.margin = margin(6, 6, 6, 6)
+    )+ 
+  labs(title="Evolution de la confiance en France et en Allemagne", subtitle="Institutionnelle et interpersonnelle",
+       x=NULL, y="Degré (échelle de 1 à 100)")+  ylim(20,60)
+
+ggplot(foo, aes(x= as.factor(revenu),  group=Year)) + 
+    geom_bar(aes(y = ..prop.., fill = factor(..x..)), stat="count", position = "dodge" ) +
+    geom_text(aes( label = scales::percent(..prop..),
+                   y= ..prop.. ), stat= "count", vjust = -.5) +
+    labs(y = "Percent", fill="day") +
+    facet_grid(~cntry) +
+    scale_y_continuous(labels = scales::percent)
+
+```
+
+```{r 1801}
+
+foo<-df%>%
+  select(Year,cntry, trust_institut, trust_interpersonnel, revenu)
+foo$Year<- as.numeric(foo$Year)
+foo$cntry<- as.character(foo$cntry)
+fit<-lm(trust_institut~revenu:cntry+poly(Year,2):cntry+cntry, foo)
+library(jtools)
+summ(fit)
+library(interactions)
+effect_plot(fit,pred=revenu)
+interact_plot(fit,pred=Year, modx=cntry,interval = TRUE)
+cat_plot(fit,pred=revenu, modx=cntry,geom = "line",interval = TRUE)
+
+
+foo<-df%>%
+  select(Year,cntry, trust_institut, trust_interpersonnel, revenu)
+foo$Year<- as.numeric(foo$Year)
+foo$cntry<- as.character(foo$cntry)
+fit<-lm(trust_interpersonnel~revenu:cntry+poly(Year,2):cntry+cntry, foo)
+library(jtools)
+summ(fit)
+library(interactions)
+effect_plot(fit,pred=revenu)
+interact_plot(fit,pred=Year, modx=cntry,interval = TRUE)
+cat_plot(fit,pred=revenu, modx=cntry,geom = "line",interval = TRUE)+coord_flip()
+
+
+```
+

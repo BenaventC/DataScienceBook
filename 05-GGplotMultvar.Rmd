@@ -1,0 +1,256 @@
+# Analyse graphique multivariée
+
+Dans ce chapitre, on généralise à des ensembles de variables.
+
+
+ 
+## La confiance institutionnelle, en détail
+
+On veut reprénter 6 variables, correspondant à 5 types d'habitats et 2 pays. 
+
+
+
+```{r 0501}
+df<-readRDS("./data/dfTrust.rds)")
+
+
+rad<-df %>% 
+  group_by (habitat,cntry) %>% 
+  summarize(Partis=mean(Partis, na.rm=TRUE),
+  Parlement=mean(Parlement, na.rm=TRUE),
+  Politiques=mean(Politiques, na.rm=TRUE),
+  Police=mean(Police, na.rm=TRUE),
+  Justice=mean(Justice, na.rm=TRUE),
+  NationsUnies=mean(NationsUnies, na.rm=TRUE),
+  ParlementEurop=mean(ParlementEurop, na.rm=TRUE)) %>% 
+  filter(!is.na(habitat)) %>%
+  gather(variable, value, -habitat, -cntry)
+
+ggplot(rad, aes(x=reorder(variable, value),y=value, group=habitat))+
+  geom_line(aes(color=habitat), size=2)+
+  facet_grid(.~cntry) +coord_flip()+
+  scale_color_brewer(type="div",palette=3)+labs(title= "Les éléments de la confiance institutionnelle", caption="ESS2002-2018",y= "confiance (de 1 à 10)",x="institutions") 
+
+```
+
+
+Une autre variante qui donne l'évolution de l'évolution de les éléments de la confiance institutionnelle 
+
+
+```{r 0503}
+rad<-df %>% 
+  group_by (Year,cntry) %>% 
+  summarize(Partis=mean(Partis, na.rm=TRUE),
+  Parlement=mean(Parlement, na.rm=TRUE),
+  Politiques=mean(Politiques, na.rm=TRUE),
+  Police=mean(Police, na.rm=TRUE),
+  Justice=mean(Justice, na.rm=TRUE),
+  NationsUnies=mean(NationsUnies, na.rm=TRUE),
+  ParlementEurop=mean(ParlementEurop, na.rm=TRUE)) %>% 
+  gather(variable, value, -Year, -cntry)
+
+ggplot(rad, aes(x=Year,y=value, group=variable))+
+  geom_line(aes(color=variable), size=1.2)+
+  facet_wrap(.~cntry, nrow=1) +
+  scale_color_brewer(palette="Spectral")+labs(title= "Les éléments de la confiance institutionnelle", caption="ESS2002-2018",y= "confiance (de 1 à 10)",x="institutions") 
+
+```
+
+La différence entre les deux pays est claire, la rupture est accusée plus fortement en France qu'en Allemagne. L'explication n'est sans doute pas culturelle mais démographique, un coup d'oeil à la carte des densité permet de comprendre mieux : https://www.populationdata.net/cartes/allemagne-france-densite-de-population-2011/.
+ 
+
+On pourra tenté un graphe en radar. Mais il n'est pas si convaincant.  
+
+```{r 0504}
+library(fmsb)
+
+rad<-df %>% filter(cntry=="FR") %>%
+  group_by (habitat) %>%
+  summarize(Partis=mean(Partis, na.rm=TRUE),
+  Parlement=mean(Parlement, na.rm=TRUE),
+  Politiques=mean(Politiques, na.rm=TRUE),
+  Police=mean(Police, na.rm=TRUE),
+  Justice=mean(Justice, na.rm=TRUE),
+  NationsUnies=mean(NationsUnies, na.rm=TRUE),
+  ParlementEurop=mean(ParlementEurop, na.rm=TRUE)) %>% 
+  filter(!is.na(habitat)) %>% 
+  dplyr::select(-habitat)
+
+#on doit indiquer les valeurs minimale et maximale - la fonction rep permet de repeter (ici 7 fois pour les 7 variables/col)
+data <- rbind(rep(7,7) , rep(3,7) , rad)
+#l'autre method c'est ce choisir maxmin=FALSE
+
+#rownames(rad) <- c("big city", "suburbs" ,"town","village", "countryside")
+radarchart(rad, axistype=0, seg=4, title="Moyenne par institution", maxmin=FALSE)
+legend(x=0.7, y=1, legend = rownames(rad), bty = "n",text.col = "grey", cex=1.2, pt.cex=3)
+```
+
+
+
+## Table de corrélation
+
+Comparer les moyennes est une chose, on souhaiter en plus savoir quelle structure de corrélation les caractérisent. Rien de plus simple
+
+
+
+```{r 0505}
+library(ggcorrplot)
+df<-readRDS("./data/dfTrust.rds)")%>%filter(Year==2018)
+
+foo<-df %>% dplyr::select(NationsUnies,ParlementEurop, Parlement, Justice, Police, Politiques, Partis) %>% 
+  drop_na()
+r<-cor(foo)
+
+ggcorrplot(r, hc.order = TRUE, type = "lower",
+   lab = TRUE)
+
+g<-paste0("./plot/g1",".jpg")
+ggsave(g,plot=last_plot(), width = 27, height = 19, units = "cm")
+
+
+```
+
+
+
+## Un cas plus complexe : présidentielle2020
+
+
+Nsppolls cumulent les sondages publiés des grands instituts. On utilise ces données , ainsi qu'une boucle, pour explorer différents paramètre d'un modèle de lissage. 
+
+Le but : mieux percevoir les tendance par une sorte de méta-analyse des différents sondages :
+
+
+## une boucle pour produire de multiple graphe en variant un paramètre
+
+
+```{r 0508}
+library(lubridate)
+alph<-.5
+
+for (alph in seq(from=0, to= 1, by=.05)){
+df_pol <- read_delim("https://raw.githubusercontent.com/nsppolls/nsppolls/master/presidentielle.csv", 
+                     delim = ",", escape_double = FALSE, trim_ws = TRUE)%>%
+  filter(tour=="Premier tour") %>%filter(candidat=="Eric Zemmour"|
+                                           candidat== "Marine Le Pen"|
+                                           candidat== "Emmanuel Macron"|
+                                           candidat== "Jean-Luc Mélenchon"|
+                                           candidat== "Yannick Jadot"|
+                                           candidat== "Valérie Pécresse"| 
+                                           candidat=="Fabien Roussel"|
+                                           candidat=="Anne Hidalgo") %>%
+  filter(fin_enquete>ymd("2022-01-09")) # on commence en septembre , octobre est-il meilleur ?
+
+
+table(df_pol$candidat)
+SensiP1<-c("pink", "orange", "gray20", "red","firebrick", "Royalblue", " skyblue", "Chartreuse")
+
+ggplot(df_pol, aes(y=intentions, x=fin_enquete))+
+  geom_point(aes(color=candidat), size=.5, alpha=1-alph)+
+  geom_smooth(span = alph, aes(col=candidat,fill=candidat), alpha=0.2)+
+  scale_color_manual(values=SensiP1)+  
+  scale_fill_manual(values=SensiP1)+ 
+  labs(title= "Evolution des intentions de vote #présidentielle2022 1er tour",
+       subtitle =paste("Lissage méthode loess. alpha=",alph, " - ci=95%"),
+       caption = "data @nsppolls viz @benavent",
+       x=NULL)+theme_minimal()+scale_x_date(date_breaks = "1 month", date_minor_breaks = "1 week",
+             date_labels = "%B")
+
+sondage_nsppolls<-paste0("./nsppolls/sondage_nsppolls", alph*20, ".jpg")
+ggsave(sondage_nsppolls,plot=last_plot(), width = 27, height = 19, units = "cm")
+
+}
+
+
+n<-df_pol%>%
+  mutate(n=1)%>%
+  group_by(id)%>%summarise(n=sum(n))
+#nombre de sondage
+n<-nrow(n)
+```
+
+Pour créer le gif on emplie magick. On a pris soin de sauvegarder les graphes dans un répertoire propre, ça facilite la lecture en boucle et la fabrication du gif.
+
+
+
+```{r 0509}
+
+library(magick)
+
+#gif                                                     
+
+#on constitue une liste des noms des fichier *.jpg que l'on veut associer                                                     
+frames <- paste0("./nsppolls/","sondage_nsppolls", 0:20,".jpg")
+
+#on lit et on stoke dans m les images
+m <- image_read(frames)
+
+#on fabrique et on sauvergarde le gif
+m <- image_animate(m, fps=1)
+image_write(m, "./plot/sondages_lissage.gif")
+
+```
+
+### effet sondeur
+
+pour anticiper sur le chapitre suivant
+
+```{r 0510}
+foo<-df_pol%>%
+  dplyr::select(candidat, intentions, fin_enquete, echantillon,nom_institut)%>%
+  group_by(nom_institut, candidat)%>%
+  summarise(moy=mean(intentions, na.rm=TRUE),
+            std=sd(intentions, na.rm=TRUE))
+
+
+SensiP2<-c("gray90","gray20", "Royalblue", "skyblue", "orange", "yellow", "pink", "firebrick", "green")
+
+
+g<-ggplot(foo,aes(x=candidat,y=moy))+
+  geom_segment(aes(x = candidat, 
+                   y = -std+moy, 
+                   xend = candidat, 
+                   yend = std+moy, 
+                   color = nom_institut), size=1.2)+
+    geom_point(aes(color=nom_institut), size=2)+
+  scale_color_manual(values = SensiP2)+
+  theme_minimal()+
+  coord_flip()
+g
+```
+
+## Modéliser le biais du sondeur
+
+
+http://www.stat.yale.edu/Courses/1997-98/101/anovareg.htm
+
+
+
+```{r biais}
+df_pol$tps<-2
+df_pol$tps[df_pol$fin_enquete < ymd("2022-01-31")]<-1
+
+df_pol$tps[df_pol$fin_enquete > ymd("2022-03-01")]<-3
+
+df_pol$tps<- as.factor(df_pol$tps)
+
+fit1<- lm(intentions~candidat*tps,data=df_pol)
+anova(fit1)
+fit2<- lm(intentions~candidat*tps+candidat*nom_institut,data=df_pol)
+anova(fit2)
+anova(fit1,fit2)
+
+summary(fit1)
+summary(fit2)
+library(jtools)
+
+library(interactions)
+cat_plot(fit2, pred=candidat,modx= nom_institut, color.class="Spectral")+
+  scale_color_manual(values = SensiP2)+coord_flip()
+
+cat_plot(fit2, pred= tps,modx=candidat, color.class="Spectral", dodge.width=0)+
+  scale_color_manual(values = SensiP2)+geom_line(aes(color=candidat))
+
+```
+
+
+

@@ -1,17 +1,14 @@
-# Introduction {#intro}
+# Introduction aux data sciences {#intro}
 
+## Objectif et sommaire
 
- 
-
-
-
-
+L'objet du manuel est de donner un aperçu général des méthodes d'analyses de données et de data science.
 
 ## Science ou technique ?
 
 Plûtôt que le terme consacré de Data sciences, il vaudrait mieux parler de data ingiénérie dans la mesure où le data scientiste participe à un processus de production qui va de l'acquisition des donnée à leur propagation dans l'organisation ou la société. La technique domine sur la science et l'unité se trouve dans l'intégration de ce processus. La révolution des données vient de l'interopérabilité croissante de ces techniques et d'une intégration qui fluidifie le passage d'une étape à une autre. Standards et langages en sont les éléments clés. 
 
-Du côté des sciences, ce dont bénéficie l'univers des data sciences, c'est l'héritage de cultures statistiques foissonante qui après s'être développée dans leur cocon displinaires, se retrouvent désormais rassemblée dans un même langage. Bien sur il y a de manière sous-jascente à ces cultures les mathématiques et les statistiques mathématiques qui construisent les fondements des modèles et des techniques. Mais le développement s'est fait souvent quand le scientifique se retrouve face à un problème où une observation. 
+Du côté des sciences, ce dont bénéficie l'univers des data sciences, c'est l'héritage de cultures statistiques foisonnantes qui après s'être développées dans leur cocon displinaire, se retrouvent désormais rassemblées dans un même langage. Bien sur il y a de manière sous-jascente à ces cultures les mathématiques et les statistiques mathématiques qui construisent les fondements des modèles et des techniques. Mais le développement s'est fait souvent quand le scientifique se retrouve face à un problème où une observation. 
 
 Prenons le cas des psychologues qui ont inventé l'analyse factorielle dans le but de pouvoir tester certains de leurs concepts : un degré d'intelligence, une personnalité, des attitudes. 
 
@@ -81,5 +78,11 @@ Des ressources abondantes sont ainsi disponibles et facilitent la formation des 
 Le troisième est la multiplication des sources de données et leur facilité d’accès. Les données privées, et en particulier celles des réseaux sociaux,  même si un péage doit être payé pour accéder aux APIs, popularisent le traitement de données massives. Le mouvement des données ouvertes (open data) proposent et facilitent l’accès à des milliers de corps de données : retards de la SNCF, grand débat, le formidable travail de l’Insee, european survey etc.
  
  
-## du ML à l'IA
+### du ML à l'IA
+
+Le retour au boites noires dans les années 2000. Ce qui distingue les statistiques traditionnelles de l'approche machine learning réside d'abord par une approche de la modèlisation différente. Les modèles statistiques et économétriques considèrent non seulement une structure ( moddèle linéaires par ex), la spécification du modèle, mais aussi des modèles de distribution qui définissent le cadre d'estimation. L'évaluation passe par le test du respects des hypothèses de constructions ( distribution des erreurs), et de la qualité d'ajustement. Le machine learning, se concentre sur la valeur prédictive, et considère n'importe quelle spécification même si elle est peu intelligible et comprend de grandes quantité de paramètres.  
+
+KNN, SVM, rf et le retour des réseaux de neurones. 
+
+La révolution des convolutions et la multiplication des architectures
 

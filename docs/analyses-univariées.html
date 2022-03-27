@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapitre 4 Analyses univariées | Introduction aux Data Sciences</title>
+  <meta name="description" content="Cours d’analyse de données et de Datascience" />
+  <meta name="generator" content="bookdown 0.22.3 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapitre 4 Analyses univariées | Introduction aux Data Sciences" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Cours d’analyse de données et de Datascience" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapitre 4 Analyses univariées | Introduction aux Data Sciences" />
+  
+  <meta name="twitter:description" content="Cours d’analyse de données et de Datascience" />
+  
+
+<meta name="author" content="Christophe Benavent - Université Paris Dauphine" />
+
+
+<meta name="date" content="2022-03-27" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="prise-en-main.html"/>
+<link rel="next" href="analyse-bi-variée.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">NLP en r et en français</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Préface</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#plan-du-manuel"><i class="fa fa-check"></i><b>1.1</b> Plan du manuel</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#les-jeux-de-données"><i class="fa fa-check"></i><b>1.2</b> Les jeux de données</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#le-cadre-technique-et-les-packages-utilisés"><i class="fa fa-check"></i><b>1.3</b> Le cadre technique et les packages utilisés</a></li>
+<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#a-faire"><i class="fa fa-check"></i><b>1.4</b> A faire</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction aux data sciences</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#objectif-et-sommaire"><i class="fa fa-check"></i><b>2.1</b> Objectif et sommaire</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#science-ou-technique"><i class="fa fa-check"></i><b>2.2</b> Science ou technique ?</a></li>
+<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#histoires-des-logiciels-statistiques"><i class="fa fa-check"></i><b>2.3</b> histoires des logiciels statistiques</a></li>
+<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#le-processus-de-traitement-des-données"><i class="fa fa-check"></i><b>2.4</b> Le processus de traitement des données</a></li>
+<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#les-facteurs-de-développement-des-datasciences"><i class="fa fa-check"></i><b>2.5</b> Les facteurs de développement des datasciences</a><ul>
+<li class="chapter" data-level="2.5.1" data-path="intro.html"><a href="intro.html#une-lingua-franca"><i class="fa fa-check"></i><b>2.5.1</b> Une lingua franca</a></li>
+<li class="chapter" data-level="2.5.2" data-path="intro.html"><a href="intro.html#une-communauté"><i class="fa fa-check"></i><b>2.5.2</b> Une communauté</a></li>
+<li class="chapter" data-level="2.5.3" data-path="intro.html"><a href="intro.html#la-multiplication-des-sources-de-données."><i class="fa fa-check"></i><b>2.5.3</b> La multiplication des sources de données.</a></li>
+<li class="chapter" data-level="2.5.4" data-path="intro.html"><a href="intro.html#du-ml-à-lia"><i class="fa fa-check"></i><b>2.5.4</b> du ML à l’IA</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="prise-en-main.html"><a href="prise-en-main.html"><i class="fa fa-check"></i><b>3</b> Prise en main</a><ul>
+<li class="chapter" data-level="3.1" data-path="prise-en-main.html"><a href="prise-en-main.html#la-convention-du-rmarkdown"><i class="fa fa-check"></i><b>3.1</b> La convention du Rmarkdown</a></li>
+<li class="chapter" data-level="3.2" data-path="prise-en-main.html"><a href="prise-en-main.html#lire-les-données"><i class="fa fa-check"></i><b>3.2</b> Lire les données</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="prise-en-main.html"><a href="prise-en-main.html#la-diversité-des-formats"><i class="fa fa-check"></i><b>3.2.1</b> La diversité des formats</a></li>
+<li class="chapter" data-level="3.2.2" data-path="prise-en-main.html"><a href="prise-en-main.html#les-autres-accès-aux-données"><i class="fa fa-check"></i><b>3.2.2</b> Les autres accès aux données</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="prise-en-main.html"><a href="prise-en-main.html#dplyr-pour-manipuler-les-données"><i class="fa fa-check"></i><b>3.3</b> <code>Dplyr</code> pour manipuler les données</a><ul>
+<li class="chapter" data-level="3.3.1" data-path="prise-en-main.html"><a href="prise-en-main.html#des-pipes"><i class="fa fa-check"></i><b>3.3.1</b> Des pipes %&gt;%</a></li>
+<li class="chapter" data-level="3.3.2" data-path="prise-en-main.html"><a href="prise-en-main.html#des-verbes"><i class="fa fa-check"></i><b>3.3.2</b> Des verbes</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="prise-en-main.html"><a href="prise-en-main.html#pour-aller-plus-loin"><i class="fa fa-check"></i><b>3.4</b> Pour aller plus loin</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="analyses-univariées.html"><a href="analyses-univariées.html"><i class="fa fa-check"></i><b>4</b> Analyses univariées</a><ul>
+<li class="chapter" data-level="4.1" data-path="analyses-univariées.html"><a href="analyses-univariées.html#la-grammaire-des-graphiques"><i class="fa fa-check"></i><b>4.1</b> La grammaire des graphiques</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="analyses-univariées.html"><a href="analyses-univariées.html#un-modèle-en-couche"><i class="fa fa-check"></i><b>4.1.1</b> Un modèle en couche</a></li>
+<li class="chapter" data-level="4.1.2" data-path="analyses-univariées.html"><a href="analyses-univariées.html#une-typologie-des-représentations"><i class="fa fa-check"></i><b>4.1.2</b> Une typologie des représentations</a></li>
+<li class="chapter" data-level="4.1.3" data-path="analyses-univariées.html"><a href="analyses-univariées.html#lesthétique"><i class="fa fa-check"></i><b>4.1.3</b> L’esthétique</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="analyses-univariées.html"><a href="analyses-univariées.html#une-étude-de-cas"><i class="fa fa-check"></i><b>4.2</b> Une étude de cas</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="analyses-univariées.html"><a href="analyses-univariées.html#le-cas-des-variables-quantitatives"><i class="fa fa-check"></i><b>4.2.1</b> Le cas des variables quantitatives</a></li>
+<li class="chapter" data-level="4.2.2" data-path="analyses-univariées.html"><a href="analyses-univariées.html#quand-la-variable-est-qualitative"><i class="fa fa-check"></i><b>4.2.2</b> Quand la variable est qualitative</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="analyse-bi-variée.html"><a href="analyse-bi-variée.html"><i class="fa fa-check"></i><b>5</b> Analyse bi variée</a><ul>
+<li class="chapter" data-level="5.1" data-path="analyse-bi-variée.html"><a href="analyse-bi-variée.html#diagrammes-xy---la-magie-des-corrélations"><i class="fa fa-check"></i><b>5.1</b> Diagrammes xy - la magie des corrélations</a></li>
+<li class="chapter" data-level="5.2" data-path="analyse-bi-variée.html"><a href="analyse-bi-variée.html#comparer-les-distributions-et-des-moyennes"><i class="fa fa-check"></i><b>5.2</b> Comparer les distributions et des moyennes</a><ul>
+<li class="chapter" data-level="5.2.1" data-path="analyse-bi-variée.html"><a href="analyse-bi-variée.html#comparaison-de-moyennes"><i class="fa fa-check"></i><b>5.2.1</b> Comparaison de moyennes</a></li>
+<li class="chapter" data-level="5.2.2" data-path="analyse-bi-variée.html"><a href="analyse-bi-variée.html#deux-variables-qualitatives"><i class="fa fa-check"></i><b>5.2.2</b> Deux variables qualitatives</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="analyse-graphique-multivariée.html"><a href="analyse-graphique-multivariée.html"><i class="fa fa-check"></i><b>6</b> Analyse graphique multivariée</a><ul>
+<li class="chapter" data-level="6.1" data-path="analyse-graphique-multivariée.html"><a href="analyse-graphique-multivariée.html#la-confiance-institutionnelle-en-détail"><i class="fa fa-check"></i><b>6.1</b> La confiance institutionnelle, en détail</a></li>
+<li class="chapter" data-level="6.2" data-path="analyse-graphique-multivariée.html"><a href="analyse-graphique-multivariée.html#table-de-corrélation"><i class="fa fa-check"></i><b>6.2</b> Table de corrélation</a></li>
+<li class="chapter" data-level="6.3" data-path="analyse-graphique-multivariée.html"><a href="analyse-graphique-multivariée.html#un-cas-plus-complexe-présidentielle2020"><i class="fa fa-check"></i><b>6.3</b> Un cas plus complexe : présidentielle2020</a></li>
+<li class="chapter" data-level="6.4" data-path="analyse-graphique-multivariée.html"><a href="analyse-graphique-multivariée.html#une-boucle-pour-produire-de-multiple-graphe-en-variant-un-paramètre"><i class="fa fa-check"></i><b>6.4</b> une boucle pour produire de multiple graphe en variant un paramètre</a><ul>
+<li class="chapter" data-level="6.4.1" data-path="analyse-graphique-multivariée.html"><a href="analyse-graphique-multivariée.html#effet-sondeur"><i class="fa fa-check"></i><b>6.4.1</b> effet sondeur</a></li>
+</ul></li>
+<li class="chapter" data-level="6.5" data-path="analyse-graphique-multivariée.html"><a href="analyse-graphique-multivariée.html#modéliser-le-biais-du-sondeur"><i class="fa fa-check"></i><b>6.5</b> Modéliser le biais du sondeur</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html"><i class="fa fa-check"></i><b>7</b> Analyses factorielles</a><ul>
+<li class="chapter" data-level="7.1" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#origine-et-histoire"><i class="fa fa-check"></i><b>7.1</b> Origine et histoire</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#une-petite-histoire-de-la-psychométrie"><i class="fa fa-check"></i><b>7.1.1</b> Une petite histoire de la psychométrie</a></li>
+<li class="chapter" data-level="7.1.2" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#lécole-française-de-lanalyse-des-données-appliquée-aux-sciences-sociales"><i class="fa fa-check"></i><b>7.1.2</b> L’école française de l’analyse des données appliquée aux sciences sociales</a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#le-modèle-factoriel-des-tests-psychologiques"><i class="fa fa-check"></i><b>7.2</b> Le modèle factoriel des tests psychologiques</a><ul>
+<li class="chapter" data-level="7.2.1" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#un-peu-de-théorie"><i class="fa fa-check"></i><b>7.2.1</b> Un peu de théorie</a></li>
+<li class="chapter" data-level="7.2.2" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#lestimation"><i class="fa fa-check"></i><b>7.2.2</b> L’estimation</a></li>
+<li class="chapter" data-level="7.2.3" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#ressources"><i class="fa fa-check"></i><b>7.2.3</b> Ressources</a></li>
+<li class="chapter" data-level="7.2.4" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#cas-dapplication"><i class="fa fa-check"></i><b>7.2.4</b> Cas d’application</a></li>
+</ul></li>
+<li class="chapter" data-level="7.3" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#examen-de-la-matrice-de-corrélation"><i class="fa fa-check"></i><b>7.3</b> Examen de la matrice de corrélation</a></li>
+<li class="chapter" data-level="7.4" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#modèle-factoriel"><i class="fa fa-check"></i><b>7.4</b> Modèle factoriel</a></li>
+<li class="chapter" data-level="7.5" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#lanalyse-en-composante-principale"><i class="fa fa-check"></i><b>7.5</b> L’analyse en composante principale</a><ul>
+<li class="chapter" data-level="7.5.1" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#le-problème-théorique"><i class="fa fa-check"></i><b>7.5.1</b> le problème théorique</a></li>
+<li class="chapter" data-level="7.5.2" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#une-représentation-symbolique"><i class="fa fa-check"></i><b>7.5.2</b> Une représentation symbolique</a></li>
+<li class="chapter" data-level="7.5.3" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#application"><i class="fa fa-check"></i><b>7.5.3</b> Application</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#une-généralisation-de-lacp-lafc"><i class="fa fa-check"></i><b>7.6</b> Une généralisation de l’ACP : l’AFC</a><ul>
+<li class="chapter" data-level="7.6.1" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#afcm-multiple"><i class="fa fa-check"></i><b>7.6.1</b> AFCM multiple</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#développements"><i class="fa fa-check"></i><b>7.7</b> Développements</a><ul>
+<li class="chapter" data-level="7.7.1" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#le-svd"><i class="fa fa-check"></i><b>7.7.1</b> le SVD</a></li>
+<li class="chapter" data-level="7.7.2" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#acm-analyse-canonique-analyse-discriminante"><i class="fa fa-check"></i><b>7.7.2</b> ACM , analyse canonique , analyse discriminante</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="en-conclusion.html"><a href="en-conclusion.html"><i class="fa fa-check"></i><b>8</b> En conclusion</a></li>
+<li class="chapter" data-level="9" data-path="clus.html"><a href="clus.html"><i class="fa fa-check"></i><b>9</b> Clustering</a><ul>
+<li class="chapter" data-level="9.1" data-path="clus.html"><a href="clus.html#les-méthodes-hiérarchiques-ascendantes"><i class="fa fa-check"></i><b>9.1</b> Les méthodes hiérarchiques ascendantes</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="clus.html"><a href="clus.html#mise-en-oeuvre"><i class="fa fa-check"></i><b>9.1.1</b> Mise en oeuvre</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="clus.html"><a href="clus.html#segmentation-simplifiée"><i class="fa fa-check"></i><b>9.2</b> segmentation simplifiée</a></li>
+<li class="chapter" data-level="9.3" data-path="clus.html"><a href="clus.html#tableaux-croisés-de-la-typologie-et-des-critères-sociaux-démos"><i class="fa fa-check"></i><b>9.3</b> tableaux croisés de la typologie et des critères sociaux démos</a></li>
+<li class="chapter" data-level="9.4" data-path="clus.html"><a href="clus.html#afcm-pour-une-synthèse"><i class="fa fa-check"></i><b>9.4</b> AFCM pour une synthèse</a><ul>
+<li class="chapter" data-level="9.4.1" data-path="clus.html"><a href="clus.html#forces-et-limites"><i class="fa fa-check"></i><b>9.4.1</b> Forces et limites</a></li>
+</ul></li>
+<li class="chapter" data-level="9.5" data-path="clus.html"><a href="clus.html#les-méthodes-non-hiérarchiques"><i class="fa fa-check"></i><b>9.5</b> Les méthodes non-hiérarchiques</a><ul>
+<li class="chapter" data-level="9.5.1" data-path="clus.html"><a href="clus.html#principe"><i class="fa fa-check"></i><b>9.5.1</b> principe</a></li>
+<li class="chapter" data-level="9.5.2" data-path="clus.html"><a href="clus.html#application-1"><i class="fa fa-check"></i><b>9.5.2</b> Application</a></li>
+<li class="chapter" data-level="9.5.3" data-path="clus.html"><a href="clus.html#le-problème-de-la-détermination-du-nombre-optimal-de-groupe"><i class="fa fa-check"></i><b>9.5.3</b> Le problème de la détermination du nombre optimal de groupe</a></li>
+</ul></li>
+<li class="chapter" data-level="9.6" data-path="clus.html"><a href="clus.html#autres-méthodes"><i class="fa fa-check"></i><b>9.6</b> Autres méthodes</a></li>
+<li class="chapter" data-level="9.7" data-path="clus.html"><a href="clus.html#conclusion"><i class="fa fa-check"></i><b>9.7</b> Conclusion</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction aux Data Sciences</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="analyses-univariées" class="section level1">
+<h1><span class="header-section-number">Chapitre 4</span> Analyses univariées</h1>
+<p>Nous avons appris à lire des données, à les manipuler, nous avons le droit d’être pressé de les représenter de manière immédiatement lisible, par des dataviz.</p>
+<p>On présente d’abord rapidement le concept de grammaire des graphiques</p>
+<p>On se concentre ensuite sur un cas d’étude</p>
+<p>On décline.</p>
+<div id="la-grammaire-des-graphiques" class="section level2">
+<h2><span class="header-section-number">4.1</span> La grammaire des graphiques</h2>
+<p>C’est sans doute une des percées conceptuelles laplus intéressante des datasciences. La représentation graphhiques des données fait l’objet à la fois d’une explosion créative mais aussi d’une synthèse théorique. C’est l’apport de la grammaire des graphiques.</p>
+<p>Ces outils s’appuient sur l’idée de <a href="https://www.goodreads.com/book/show/2549408.The_Grammar_of_Graphics">grammaire des graphiques</a>. En voici un <a href="https://cfss.uchicago.edu/notes/grammar-of-graphics/">clair résumé</a>.En français il y a toujours le <a href="http://larmarange.github.io/analyse-R/intro-ggplot2.html">larmarange</a></p>
+<div id="un-modèle-en-couche" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Un modèle en couche</h3>
+<p>Celle-ci met un ordre dans les éléments qui composent un graphique et les superpose.</p>
+<div class="figure">
+<img src="Images/graphiclayers.png" alt="layers" />
+<p class="caption">layers</p>
+</div>
+<ul>
+<li>l’aesthetic definit les éléments que l’on veut représenter : ce qu’on met en abscisse, ce qu’on met en ordonnné, les groupes que l’on veut distinguer.</li>
+<li>la geométrie (geom_x)qui définit la forme de représentation</li>
+<li>les échelles (scale_x)</li>
+<li>Labelisation (labs)</li>
+<li>les templates</li>
+<li>le facetting</li>
+</ul>
+<p>ggplot est construit selon cette structure. Voici le <a href="https://ggplot2-book.org/">book de référence</a>, qui est au centre de ce cours. On aura besoin de manière assez systématique de manipuler les données avant de les représenter, <a href="http://larmarange.github.io/analyse-R/manipuler-les-donnees-avec-dplyr.html">dplyr</a> nous permet de le faire aisément.</p>
+</div>
+<div id="une-typologie-des-représentations" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> Une typologie des représentations</h3>
+<p>Un point de départ fondamental est la <a href="https://www.r-graph-gallery.com/">gallery de ggplot</a>,, elle présente de manière synthétique la plupart les types de figures qui peuvent être représentées, avec du code facilement reproductible.</p>
+<p>Une classification simple</p>
+<ul>
+<li>Analyse univariée</li>
+<li>Analyse bi variée</li>
+<li>Analyse multivariée
+** les variables sont quantitatives : on analyse des matrices de corrélations
+** les variables sont qualitatives : on analyse des tableaux croisés</li>
+<li>Analyse geospatiale</li>
+<li>Analyse de réseaux</li>
+<li>analyse d’arbres</li>
+<li>Diagramme de flux</li>
+</ul>
+</div>
+<div id="lesthétique" class="section level3">
+<h3><span class="header-section-number">4.1.3</span> L’esthétique</h3>
+<p>L’art des couleurs tient dans les palettes on aimera celles de Wes Anderson, on peut adorer fishualize. on trouvera</p>
+</div>
+</div>
+<div id="une-étude-de-cas" class="section level2">
+<h2><span class="header-section-number">4.2</span> Une étude de cas</h2>
+<p>Les données sont extraites de l’ESS, une sélection est disponible <a href="">ici</a>. Elle couvre les 9 vagues et concernent la France et L’Allemagne. Les variables dépendantes (celles que l’on veut étudier et expliquer) sont les 9 items de la confiance, les variable considérées comme indépendantes (ou explicatives) sont une sélection de variables socio-démographiques : âge, genre, perception du pouvoir d’achat, orientation politique, type d’habitat.</p>
+<p>On fait quelques opérations de recodage et on renomme les variables avoir une lecture plus aisée des variables et de leurs catégories. Le plan de recodage d’un jeu de données qu’on va employer dans les chapitres suivants. Il s’appuie sur le langage de base.</p>
+<p>L’analyse univarié, comme son nom l’indique, ne s’intéresse qu’à une seule variable. Celle-ci peut être <strong>quantitative</strong> ou <strong>qualitative</strong> etne comporter qu’un nombre limité de modalités entre lesquels aucune comparaison de grandeur ne peut être faite. Les premières ont le plus souvent dans r un format numeric, les autres correspondent au format <em>factor</em>.</p>
+<p>(Un exercice peut être de le réécrire avec dplyr.)</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb11-1" title="1">df&lt;-<span class="kw">readRDS</span>(<span class="st">&quot;./data/trustFrAll.rds&quot;</span>)</a>
+<a class="sourceLine" id="cb11-2" title="2"></a>
+<a class="sourceLine" id="cb11-3" title="3"><span class="co">#quelques recodages</span></a>
+<a class="sourceLine" id="cb11-4" title="4"><span class="co">#on renomme pour plus de clarte</span></a>
+<a class="sourceLine" id="cb11-5" title="5"><span class="kw">names</span>(df)[<span class="kw">names</span>(df)<span class="op">==</span><span class="st">&quot;trstun&quot;</span>] &lt;-<span class="st"> &quot;NationsUnies&quot;</span> </a>
+<a class="sourceLine" id="cb11-6" title="6"><span class="kw">names</span>(df)[<span class="kw">names</span>(df)<span class="op">==</span><span class="st">&quot;trstep&quot;</span>] &lt;-<span class="st"> &quot;ParlementEurop&quot;</span> </a>
+<a class="sourceLine" id="cb11-7" title="7"><span class="kw">names</span>(df)[<span class="kw">names</span>(df)<span class="op">==</span><span class="st">&quot;trstlgl&quot;</span>] &lt;-<span class="st"> &quot;Justice&quot;</span> </a>
+<a class="sourceLine" id="cb11-8" title="8"><span class="kw">names</span>(df)[<span class="kw">names</span>(df)<span class="op">==</span><span class="st">&quot;trstplc&quot;</span>] &lt;-<span class="st"> &quot;Police&quot;</span> </a>
+<a class="sourceLine" id="cb11-9" title="9"><span class="kw">names</span>(df)[<span class="kw">names</span>(df)<span class="op">==</span><span class="st">&quot;trstplt&quot;</span>] &lt;-<span class="st"> &quot;Politiques&quot;</span> </a>
+<a class="sourceLine" id="cb11-10" title="10"><span class="kw">names</span>(df)[<span class="kw">names</span>(df)<span class="op">==</span><span class="st">&quot;trstprl&quot;</span>] &lt;-<span class="st">&quot;Parlement&quot;</span> </a>
+<a class="sourceLine" id="cb11-11" title="11"><span class="kw">names</span>(df)[<span class="kw">names</span>(df)<span class="op">==</span><span class="st">&quot;trstprt&quot;</span>] &lt;-<span class="st"> &quot;Partis&quot;</span></a>
+<a class="sourceLine" id="cb11-12" title="12"><span class="kw">names</span>(df)[<span class="kw">names</span>(df)<span class="op">==</span><span class="st">&quot;pplhlp&quot;</span>] &lt;-<span class="st"> &quot;help&quot;</span></a>
+<a class="sourceLine" id="cb11-13" title="13"><span class="kw">names</span>(df)[<span class="kw">names</span>(df)<span class="op">==</span><span class="st">&quot;pplfair&quot;</span>] &lt;-<span class="st"> &quot;fair&quot;</span></a>
+<a class="sourceLine" id="cb11-14" title="14"><span class="kw">names</span>(df)[<span class="kw">names</span>(df)<span class="op">==</span><span class="st">&quot;ppltrst&quot;</span>] &lt;-<span class="st"> &quot;trust&quot;</span></a>
+<a class="sourceLine" id="cb11-15" title="15"></a>
+<a class="sourceLine" id="cb11-16" title="16"><span class="co">#on construit les scores de confiance </span></a>
+<a class="sourceLine" id="cb11-17" title="17">df&lt;-df <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb11-18" title="18"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">trust_institut=</span>(Partis<span class="op">+</span>Parlement<span class="op">+</span>Politiques<span class="op">+</span>Police<span class="op">+</span>Justice<span class="op">+</span>NationsUnies<span class="op">+</span>ParlementEurop)<span class="op">*</span><span class="dv">10</span><span class="op">/</span><span class="dv">7</span>,<span class="dt">trust_interpersonnel=</span>(help<span class="op">+</span>fair<span class="op">+</span>trust)<span class="op">*</span><span class="dv">10</span><span class="op">/</span><span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb11-19" title="19">df<span class="op">$</span>Year&lt;-<span class="dv">2000</span></a>
+<a class="sourceLine" id="cb11-20" title="20"><span class="co">#recodage des variables independantes</span></a>
+<a class="sourceLine" id="cb11-21" title="21">df<span class="op">$</span>Year[df<span class="op">$</span>essround<span class="op">==</span><span class="dv">1</span>]&lt;-<span class="dv">2002</span></a>
+<a class="sourceLine" id="cb11-22" title="22">df<span class="op">$</span>Year[df<span class="op">$</span>essround<span class="op">==</span><span class="dv">2</span>]&lt;-<span class="dv">2004</span></a>
+<a class="sourceLine" id="cb11-23" title="23">df<span class="op">$</span>Year[df<span class="op">$</span>essround<span class="op">==</span><span class="dv">3</span>]&lt;-<span class="dv">2006</span></a>
+<a class="sourceLine" id="cb11-24" title="24">df<span class="op">$</span>Year[df<span class="op">$</span>essround<span class="op">==</span><span class="dv">4</span>]&lt;-<span class="dv">2008</span></a>
+<a class="sourceLine" id="cb11-25" title="25">df<span class="op">$</span>Year[df<span class="op">$</span>essround<span class="op">==</span><span class="dv">5</span>]&lt;-<span class="dv">2010</span></a>
+<a class="sourceLine" id="cb11-26" title="26">df<span class="op">$</span>Year[df<span class="op">$</span>essround<span class="op">==</span><span class="dv">6</span>]&lt;-<span class="dv">2012</span></a>
+<a class="sourceLine" id="cb11-27" title="27">df<span class="op">$</span>Year[df<span class="op">$</span>essround<span class="op">==</span><span class="dv">7</span>]&lt;-<span class="dv">2014</span></a>
+<a class="sourceLine" id="cb11-28" title="28">df<span class="op">$</span>Year[df<span class="op">$</span>essround<span class="op">==</span><span class="dv">8</span>]&lt;-<span class="dv">2016</span></a>
+<a class="sourceLine" id="cb11-29" title="29">df<span class="op">$</span>Year[df<span class="op">$</span>essround<span class="op">==</span><span class="dv">9</span>]&lt;-<span class="dv">2018</span></a>
+<a class="sourceLine" id="cb11-30" title="30">df<span class="op">$</span>Year&lt;-<span class="kw">as.factor</span>(df<span class="op">$</span>Year) </a>
+<a class="sourceLine" id="cb11-31" title="31"></a>
+<a class="sourceLine" id="cb11-32" title="32">df<span class="op">$</span>OP&lt;-<span class="st">&quot; &quot;</span></a>
+<a class="sourceLine" id="cb11-33" title="33"><span class="co">#ggplot(df,aes(x=lrscale))+geom_histogram()</span></a>
+<a class="sourceLine" id="cb11-34" title="34">df<span class="op">$</span>OP[df<span class="op">$</span>lrscale<span class="op">==</span><span class="dv">0</span>] &lt;-<span class="st"> &quot;Extrême gauche&quot;</span> </a>
+<a class="sourceLine" id="cb11-35" title="35">df<span class="op">$</span>OP[df<span class="op">$</span>lrscale<span class="op">==</span><span class="dv">1</span>] &lt;-<span class="st"> &quot;Gauche&quot;</span> </a>
+<a class="sourceLine" id="cb11-36" title="36">df<span class="op">$</span>OP[df<span class="op">$</span>lrscale<span class="op">==</span><span class="dv">2</span>] &lt;-<span class="st"> &quot;Gauche&quot;</span> </a>
+<a class="sourceLine" id="cb11-37" title="37">df<span class="op">$</span>OP[df<span class="op">$</span>lrscale<span class="op">==</span><span class="dv">3</span>] &lt;-<span class="st"> &quot;Centre Gauche&quot;</span> </a>
+<a class="sourceLine" id="cb11-38" title="38">df<span class="op">$</span>OP[df<span class="op">$</span>lrscale<span class="op">==</span><span class="dv">4</span>] &lt;-<span class="st"> &quot;Centre Gauche&quot;</span> </a>
+<a class="sourceLine" id="cb11-39" title="39">df<span class="op">$</span>OP[df<span class="op">$</span>lrscale<span class="op">==</span><span class="dv">5</span>] &lt;-<span class="st"> &quot;Ni G ni D&quot;</span> </a>
+<a class="sourceLine" id="cb11-40" title="40">df<span class="op">$</span>OP[df<span class="op">$</span>lrscale<span class="op">==</span><span class="dv">6</span>] &lt;-<span class="st"> &quot;Centre Droit&quot;</span> </a>
+<a class="sourceLine" id="cb11-41" title="41">df<span class="op">$</span>OP[df<span class="op">$</span>lrscale<span class="op">==</span><span class="dv">7</span>] &lt;-<span class="st"> &quot;Centre Droit&quot;</span> </a>
+<a class="sourceLine" id="cb11-42" title="42">df<span class="op">$</span>OP[df<span class="op">$</span>lrscale<span class="op">==</span><span class="dv">8</span>] &lt;-<span class="st"> &quot;Droite&quot;</span> </a>
+<a class="sourceLine" id="cb11-43" title="43">df<span class="op">$</span>OP[df<span class="op">$</span>lrscale<span class="op">==</span><span class="dv">9</span>] &lt;-<span class="st"> &quot;Droite&quot;</span> </a>
+<a class="sourceLine" id="cb11-44" title="44">df<span class="op">$</span>OP[df<span class="op">$</span>lrscale<span class="op">==</span><span class="dv">10</span>] &lt;-<span class="st"> &quot;Extrême droite&quot;</span> </a>
+<a class="sourceLine" id="cb11-45" title="45"><span class="co">#la ligne suivante est pour ordonner les modalités de la variables</span></a>
+<a class="sourceLine" id="cb11-46" title="46">df<span class="op">$</span>OP&lt;-<span class="kw">factor</span>(df<span class="op">$</span>OP,<span class="dt">levels=</span><span class="kw">c</span>(<span class="st">&quot;Extrême droite&quot;</span>,<span class="st">&quot;Droite&quot;</span>,<span class="st">&quot;Centre Droit&quot;</span>,<span class="st">&quot;Ni G ni D&quot;</span>,<span class="st">&quot;Centre Gauche&quot;</span>,<span class="st">&quot;Gauche&quot;</span>,<span class="st">&quot;Extrême gauche&quot;</span>))</a>
+<a class="sourceLine" id="cb11-47" title="47"></a>
+<a class="sourceLine" id="cb11-48" title="48"></a>
+<a class="sourceLine" id="cb11-49" title="49">df<span class="op">$</span>revenu&lt;-<span class="st">&quot; &quot;</span></a>
+<a class="sourceLine" id="cb11-50" title="50">df<span class="op">$</span>revenu[df<span class="op">$</span>hincfel<span class="op">&gt;</span><span class="dv">4</span>] &lt;-<span class="st"> </span><span class="ot">NA</span></a>
+<a class="sourceLine" id="cb11-51" title="51">df<span class="op">$</span>revenu[df<span class="op">$</span>hincfel<span class="op">==</span><span class="dv">1</span>] &lt;-<span class="st"> &quot;Vie confortable&quot;</span> </a>
+<a class="sourceLine" id="cb11-52" title="52">df<span class="op">$</span>revenu[df<span class="op">$</span>hincfel<span class="op">==</span><span class="dv">2</span>] &lt;-<span class="st"> &quot;Se débrouille avec son revenu&quot;</span> </a>
+<a class="sourceLine" id="cb11-53" title="53">df<span class="op">$</span>revenu[df<span class="op">$</span>hincfel<span class="op">==</span><span class="dv">3</span>] &lt;-<span class="st"> &quot;Revenu insuffisant&quot;</span> </a>
+<a class="sourceLine" id="cb11-54" title="54">df<span class="op">$</span>revenu[df<span class="op">$</span>hincfel<span class="op">==</span><span class="dv">4</span>] &lt;-<span class="st"> &quot;Revenu très insuffisant&quot;</span> </a>
+<a class="sourceLine" id="cb11-55" title="55">df<span class="op">$</span>revenu&lt;-<span class="kw">factor</span>(df<span class="op">$</span>revenu,<span class="dt">levels=</span><span class="kw">c</span>(<span class="st">&quot;Vie confortable&quot;</span>,<span class="st">&quot;Se débrouille avec son revenu&quot;</span>,<span class="st">&quot;Revenu insuffisant&quot;</span>,<span class="st">&quot;Revenu très insuffisant&quot;</span>))</a>
+<a class="sourceLine" id="cb11-56" title="56"></a>
+<a class="sourceLine" id="cb11-57" title="57">df<span class="op">$</span>habitat&lt;-<span class="st">&quot; &quot;</span></a>
+<a class="sourceLine" id="cb11-58" title="58"></a>
+<a class="sourceLine" id="cb11-59" title="59">df<span class="op">$</span>habitat[df<span class="op">$</span>domicil<span class="op">==</span><span class="dv">1</span>]&lt;-<span class="st"> &quot;Big city&quot;</span></a>
+<a class="sourceLine" id="cb11-60" title="60">df<span class="op">$</span>habitat[df<span class="op">$</span>domicil<span class="op">==</span><span class="dv">2</span>]&lt;-<span class="st">&quot;Suburbs&quot;</span></a>
+<a class="sourceLine" id="cb11-61" title="61">df<span class="op">$</span>habitat[df<span class="op">$</span>domicil<span class="op">==</span><span class="dv">3</span>]&lt;-<span class="st">&quot;Town&quot;</span></a>
+<a class="sourceLine" id="cb11-62" title="62">df<span class="op">$</span>habitat[df<span class="op">$</span>domicil<span class="op">==</span><span class="dv">4</span>]&lt;-<span class="st">&quot;Village&quot;</span></a>
+<a class="sourceLine" id="cb11-63" title="63">df<span class="op">$</span>habitat[df<span class="op">$</span>domicil<span class="op">==</span><span class="dv">5</span>]&lt;-<span class="st">&quot;Countryside&quot;</span></a>
+<a class="sourceLine" id="cb11-64" title="64">df<span class="op">$</span>habitat&lt;-<span class="kw">factor</span>(df<span class="op">$</span>habitat,<span class="dt">levels=</span><span class="kw">c</span>(<span class="st">&quot;Big city&quot;</span>,<span class="st">&quot;Suburbs&quot;</span>,<span class="st">&quot;Town&quot;</span>,<span class="st">&quot;Village&quot;</span>,<span class="st">&quot;Countryside&quot;</span>))</a>
+<a class="sourceLine" id="cb11-65" title="65"></a>
+<a class="sourceLine" id="cb11-66" title="66">df<span class="op">$</span>genre&lt;-<span class="st">&quot; &quot;</span></a>
+<a class="sourceLine" id="cb11-67" title="67"></a>
+<a class="sourceLine" id="cb11-68" title="68">df<span class="op">$</span>genre[df<span class="op">$</span>gndr<span class="op">==</span><span class="dv">1</span>]&lt;-<span class="st">&quot;H&quot;</span></a>
+<a class="sourceLine" id="cb11-69" title="69">df<span class="op">$</span>genre[df<span class="op">$</span>gndr<span class="op">==</span><span class="dv">2</span>]&lt;-<span class="st">&quot;F&quot;</span></a>
+<a class="sourceLine" id="cb11-70" title="70"></a>
+<a class="sourceLine" id="cb11-71" title="71">df<span class="op">$</span>age&lt;-<span class="st">&quot; &quot;</span></a>
+<a class="sourceLine" id="cb11-72" title="72"></a>
+<a class="sourceLine" id="cb11-73" title="73">df<span class="op">$</span>age[df<span class="op">$</span>agea<span class="op">&lt;</span><span class="dv">26</span>]&lt;-<span class="st">&quot;25&lt;&quot;</span></a>
+<a class="sourceLine" id="cb11-74" title="74">df<span class="op">$</span>age[df<span class="op">$</span>agea<span class="op">&gt;</span><span class="dv">25</span> <span class="op">&amp;</span><span class="st"> </span>df<span class="op">$</span>agea<span class="op">&lt;</span><span class="dv">36</span>]&lt;-<span class="st">&quot;26-35&quot;</span></a>
+<a class="sourceLine" id="cb11-75" title="75">df<span class="op">$</span>age[df<span class="op">$</span>agea<span class="op">&gt;</span><span class="dv">35</span> <span class="op">&amp;</span><span class="st"> </span>df<span class="op">$</span>agea<span class="op">&lt;</span><span class="dv">46</span>]&lt;-<span class="st">&quot;36-45&quot;</span></a>
+<a class="sourceLine" id="cb11-76" title="76">df<span class="op">$</span>age[df<span class="op">$</span>agea<span class="op">&gt;</span><span class="dv">45</span> <span class="op">&amp;</span><span class="st"> </span>df<span class="op">$</span>agea<span class="op">&lt;</span><span class="dv">66</span>]&lt;-<span class="st">&quot;46-65&quot;</span></a>
+<a class="sourceLine" id="cb11-77" title="77">df<span class="op">$</span>age[df<span class="op">$</span>agea<span class="op">&gt;</span><span class="dv">65</span> <span class="op">&amp;</span><span class="st"> </span>df<span class="op">$</span>agea<span class="op">&lt;</span><span class="dv">76</span>]&lt;-<span class="st">&quot;66-75&quot;</span></a>
+<a class="sourceLine" id="cb11-78" title="78">df<span class="op">$</span>age[df<span class="op">$</span>agea<span class="op">&gt;</span><span class="dv">75</span>]&lt;-<span class="st">&quot;75&gt;&quot;</span></a>
+<a class="sourceLine" id="cb11-79" title="79">df<span class="op">$</span>age&lt;-<span class="kw">factor</span>(df<span class="op">$</span>age,<span class="dt">levels=</span><span class="kw">c</span>(<span class="st">&quot;25&lt;&quot;</span>,<span class="st">&quot;26-35&quot;</span>,<span class="st">&quot;36-45&quot;</span>,<span class="st">&quot;46-65&quot;</span>,<span class="st">&quot;66-75&quot;</span>, <span class="st">&quot;75&gt;&quot;</span>))</a>
+<a class="sourceLine" id="cb11-80" title="80"></a>
+<a class="sourceLine" id="cb11-81" title="81"><span class="kw">saveRDS</span>(df, <span class="st">&quot;./data/dfTrust.rds)&quot;</span>)</a>
+<a class="sourceLine" id="cb11-82" title="82"></a>
+<a class="sourceLine" id="cb11-83" title="83">foo&lt;-df<span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb11-84" title="84"><span class="st">  </span>dplyr<span class="op">::</span><span class="kw">select</span>(Year,cntry, trust_institut, trust_interpersonnel)<span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb11-85" title="85"><span class="st">  </span><span class="kw">group_by</span>(Year,cntry)<span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb11-86" title="86"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">trust_institut=</span><span class="kw">mean</span>(trust_institut, <span class="dt">na.rm=</span><span class="ot">TRUE</span>), </a>
+<a class="sourceLine" id="cb11-87" title="87">            <span class="dt">trust_interpersonnel=</span><span class="kw">mean</span>(trust_interpersonnel, <span class="dt">na.rm=</span><span class="ot">TRUE</span>))</a>
+<a class="sourceLine" id="cb11-88" title="88">foo<span class="op">$</span>Year&lt;-<span class="st"> </span><span class="kw">as.character</span>(foo<span class="op">$</span>Year)</a>
+<a class="sourceLine" id="cb11-89" title="89">foo<span class="op">$</span>cntry&lt;-<span class="st"> </span><span class="kw">as.character</span>(foo<span class="op">$</span>cntry)</a>
+<a class="sourceLine" id="cb11-90" title="90"></a>
+<a class="sourceLine" id="cb11-91" title="91">foo&lt;-foo<span class="op">%&gt;%</span><span class="kw">pivot_longer</span>(<span class="op">!</span><span class="kw">c</span>(Year,cntry),<span class="dt">names_to=</span><span class="st">&quot;Trust&quot;</span>, <span class="dt">values_to=</span><span class="st">&quot;value&quot;</span> )</a>
+<a class="sourceLine" id="cb11-92" title="92"></a>
+<a class="sourceLine" id="cb11-93" title="93"></a>
+<a class="sourceLine" id="cb11-94" title="94"><span class="kw">ggplot</span>(foo,<span class="kw">aes</span>(<span class="dt">x=</span>Year, <span class="dt">y=</span>value, <span class="dt">group=</span>Trust))<span class="op">+</span></a>
+<a class="sourceLine" id="cb11-95" title="95"><span class="st">  </span><span class="kw">geom_line</span>(<span class="dt">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="kw">aes</span>(<span class="dt">color=</span>Trust), <span class="dt">size=</span><span class="fl">1.2</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb11-96" title="96"><span class="st">  </span><span class="kw">facet_wrap</span>(<span class="kw">vars</span>(cntry))<span class="op">+</span></a>
+<a class="sourceLine" id="cb11-97" title="97"><span class="st">  </span><span class="kw">scale_color_manual</span>(<span class="dt">values =</span> <span class="kw">c</span>(<span class="st">&quot;Cyan3&quot;</span>,<span class="st">&quot;Orange2&quot;</span>))<span class="op">+</span><span class="st"> </span><span class="kw">theme</span>(</a>
+<a class="sourceLine" id="cb11-98" title="98">    <span class="dt">legend.position =</span> <span class="st">&quot;bottom&quot;</span>,</a>
+<a class="sourceLine" id="cb11-99" title="99">    <span class="dt">legend.justification =</span> <span class="kw">c</span>(<span class="st">&quot;right&quot;</span>, <span class="st">&quot;top&quot;</span>),</a>
+<a class="sourceLine" id="cb11-100" title="100">    <span class="dt">legend.box.just =</span> <span class="st">&quot;right&quot;</span>,</a>
+<a class="sourceLine" id="cb11-101" title="101">    <span class="dt">legend.margin =</span> <span class="kw">margin</span>(<span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">6</span>)</a>
+<a class="sourceLine" id="cb11-102" title="102">    )<span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="ot">NULL</span>, <span class="dt">y=</span><span class="st">&quot;Niveau&quot;</span>)<span class="op">+</span><span class="kw">ylim</span>(<span class="dv">40</span>,<span class="dv">60</span>)</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/301-1.png" width="672" /></p>
+<div id="le-cas-des-variables-quantitatives" class="section level3">
+<h3><span class="header-section-number">4.2.1</span> Le cas des variables quantitatives</h3>
+<p>Les variables quantitatives décrivent une variable dont les valeurs décrivent les quantités d’une grandeur. Elle peuvent être discrètes (dénombrement du d’un nombre d’unités) - le nombre d’habitant), ou continue (le nombre de km parcourus). l’<strong>histogramme</strong> est l’outil de base pour représenter la distribution d’une telle variable. Il représente pour des intervalles de valeurs donnés, la fréquence des observations.</p>
+<p>Sa syntaxe simple comporte d’abord la définition de la variable et de la source de données, puis une des “géométrie” de ggplot : la fonction geom_histogram. Dans notre exemple, on va représenter le score de confiance institutionnelle pour la France en se concentrant sur la dernière vague d’enquête.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb12-1" title="1"><span class="co">#On charge le fichier recodé à la fin du chapitre précédent</span></a>
+<a class="sourceLine" id="cb12-2" title="2">df&lt;-<span class="kw">readRDS</span>(<span class="st">&quot;./data/dfTrust.rds)&quot;</span>)</a>
+<a class="sourceLine" id="cb12-3" title="3"></a>
+<a class="sourceLine" id="cb12-4" title="4"><span class="co">#filtrage sur 2018 et la France.</span></a>
+<a class="sourceLine" id="cb12-5" title="5"></a>
+<a class="sourceLine" id="cb12-6" title="6">foo&lt;-df<span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb12-7" title="7"><span class="st">  </span><span class="kw">filter</span>(Year<span class="op">==</span><span class="st">&quot;2018&quot;</span> <span class="op">&amp;</span><span class="st"> </span>cntry<span class="op">==</span><span class="st">&quot;FR&quot;</span> <span class="op">&amp;</span><span class="st"> </span><span class="op">!</span><span class="kw">is.na</span>(trust_institut)) </a>
+<a class="sourceLine" id="cb12-8" title="8"></a>
+<a class="sourceLine" id="cb12-9" title="9"><span class="co"># on stocke le diagramme dans l&#39;objet g00, pour le réutiliser ultérieurement et pouvoir le compléter.</span></a>
+<a class="sourceLine" id="cb12-10" title="10">g00&lt;-<span class="kw">ggplot</span>(foo,<span class="kw">aes</span>(<span class="dt">x=</span>trust_institut))<span class="op">+</span></a>
+<a class="sourceLine" id="cb12-11" title="11"><span class="st">  </span><span class="kw">geom_histogram</span>()</a>
+<a class="sourceLine" id="cb12-12" title="12"></a>
+<a class="sourceLine" id="cb12-13" title="13">g00</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/302-1.png" width="672" /></p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb13-1" title="1">g00<span class="op">+</span><span class="kw">labs</span>(<span class="dt">title=</span><span class="st">&quot;Distribution de la confiance institutionnelle en France et en 2018&quot;</span>,</a>
+<a class="sourceLine" id="cb13-2" title="2">         <span class="dt">x=</span><span class="st">&quot;Confiance institutionnelle&quot;</span>)</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/302-2.png" width="672" /></p>
+<p>On va améliorer l’aspect en</p>
+<ol style="list-style-type: lower-alpha">
+<li>modifiant la couleur et la largeur des barres,</li>
+<li>ajoutant un thème,</li>
+<li>en précisant les éléments textuels (titres, label)</li>
+<li>en calculant et en représentant la valeur moyenne et l’écart-type . Pour ces statistiques, on emploie les fonction de base : mean, sd et round.</li>
+</ol>
+<p>On notera que le titre est défini par la concaténation de plusieurs chaines de caractères avec la fonction paste0. On peut ainsi injecter dans le graphique des éléments externes au jeu de données.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" title="1"><span class="co">#on calcule la moyenne</span></a>
+<a class="sourceLine" id="cb14-2" title="2">moy=<span class="kw">mean</span>(foo<span class="op">$</span>trust_institut, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb14-3" title="3">sd=<span class="kw">sd</span>(foo<span class="op">$</span>trust_institut, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb14-4" title="4"></a>
+<a class="sourceLine" id="cb14-5" title="5"><span class="co">#avec tous les éléments</span></a>
+<a class="sourceLine" id="cb14-6" title="6">g01 &lt;-<span class="kw">ggplot</span>(foo,<span class="kw">aes</span>(<span class="dt">x=</span>trust_institut))<span class="op">+</span></a>
+<a class="sourceLine" id="cb14-7" title="7"><span class="st">  </span><span class="kw">geom_histogram</span>(<span class="dt">binwidth=</span><span class="dv">5</span>,<span class="dt">fill=</span><span class="st">&quot;pink&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb14-8" title="8"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span> <span class="st">&quot;Distribution de la confiance institutionnelle&quot;</span>, </a>
+<a class="sourceLine" id="cb14-9" title="9">       <span class="dt">subtitle=</span> <span class="kw">paste0</span>(<span class="st">&quot;moyenne = &quot;</span>,<span class="kw">round</span>(moy,<span class="dv">2</span>), <span class="st">&quot; ecart-type = &quot;</span>, <span class="kw">round</span>(sd,<span class="dv">2</span>)),</a>
+<a class="sourceLine" id="cb14-10" title="10">       <span class="dt">caption=</span><span class="st">&quot;ESS2002-2018&quot;</span>,</a>
+<a class="sourceLine" id="cb14-11" title="11">       <span class="dt">y=</span> <span class="st">&quot;frequence&quot;</span>,</a>
+<a class="sourceLine" id="cb14-12" title="12">       <span class="dt">x=</span><span class="st">&quot;confiance (index de 0 à 100)&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb14-13" title="13"><span class="st">    </span><span class="kw">geom_vline</span>(<span class="dt">xintercept=</span>moy, <span class="dt">color=</span><span class="st">&quot;red&quot;</span>,<span class="dt">size=</span><span class="fl">1.5</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb14-14" title="14"><span class="st">        </span><span class="kw">geom_segment</span>(<span class="dt">y =</span> <span class="dv">0</span>, <span class="dt">yend=</span><span class="dv">0</span>,<span class="dt">x=</span>moy<span class="op">-</span>sd,<span class="dt">xend=</span>moy<span class="op">+</span>sd, <span class="dt">color=</span><span class="st">&quot;orange&quot;</span>,<span class="dt">size=</span><span class="fl">1.5</span>)</a>
+<a class="sourceLine" id="cb14-15" title="15"></a>
+<a class="sourceLine" id="cb14-16" title="16">g01</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/303-1.png" width="672" /></p>
+<p>Diagramme de densité : Au lieu de représenter les effectifs, on ramène l’effectif total à 1.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" title="1">g04&lt;-<span class="kw">ggplot</span>(foo,<span class="kw">aes</span>(<span class="dt">x=</span>trust_institut))<span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb15-2" title="2"><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">fill=</span><span class="st">&quot;pink2&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb15-3" title="3"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span> <span class="st">&quot;Fonction de densité de probabilité&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;ESS2002-2018&quot;</span>,<span class="dt">y=</span> <span class="st">&quot;frequence&quot;</span>,<span class="dt">x=</span><span class="st">&quot;Confiance (index de 1 à 100)&quot;</span>) </a>
+<a class="sourceLine" id="cb15-4" title="4">g04</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/304-1.png" width="672" /></p>
+<p>enfin on peut examiner par rapport à une distribution théorique, en l’occurrence une distribution gaussienne, ou normale, de paramètres égaux à la moyenne et la variance empirique de la distribution. L’ajustement est convenable même si on observe une déviation sur la droite. C’est pourquoi on calcule aussi la Kurtosis et le skewness de la distribution.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb16-1" title="1"><span class="co">#On a déjà calculé la moyenne : mean</span></a>
+<a class="sourceLine" id="cb16-2" title="2"><span class="co">#il nous manque l&#39;écart-type et </span></a>
+<a class="sourceLine" id="cb16-3" title="3">sd&lt;-<span class="kw">sd</span>(foo<span class="op">$</span>trust_institut, <span class="dt">na.rm=</span><span class="ot">TRUE</span>)</a>
+<a class="sourceLine" id="cb16-4" title="4"><span class="kw">library</span>(moments)</a>
+<a class="sourceLine" id="cb16-5" title="5">sk&lt;-<span class="kw">skewness</span>(foo<span class="op">$</span>trust_institut)</a>
+<a class="sourceLine" id="cb16-6" title="6">ks&lt;-<span class="kw">kurtosis</span>(foo<span class="op">$</span>trust_institut)</a>
+<a class="sourceLine" id="cb16-7" title="7"></a>
+<a class="sourceLine" id="cb16-8" title="8"></a>
+<a class="sourceLine" id="cb16-9" title="9">g05&lt;-<span class="kw">ggplot</span>(foo,<span class="kw">aes</span>(<span class="dt">x=</span>trust_institut))<span class="op">+</span><span class="st">   </span></a>
+<a class="sourceLine" id="cb16-10" title="10"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span> <span class="st">&quot;Distribution de la confiance institutionnelle&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;ESS2002-2018&quot;</span>,<span class="dt">y=</span> <span class="st">&quot;frequence&quot;</span>,<span class="dt">x=</span><span class="st">&quot;confiance (index de 0 à 100)&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb16-11" title="11"><span class="st">  </span><span class="kw">geom_density</span>(<span class="dt">fill=</span><span class="st">&quot;pink2&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb16-12" title="12"><span class="st">  </span><span class="kw">stat_function</span>(<span class="dt">fun =</span> dnorm,<span class="dt">color=</span><span class="st">&quot;red&quot;</span>,<span class="dt">size=</span><span class="fl">1.2</span>, <span class="dt">args =</span> <span class="kw">list</span>(<span class="dt">mean =</span>moy, <span class="dt">sd=</span>sd))</a>
+<a class="sourceLine" id="cb16-13" title="13">   </a>
+<a class="sourceLine" id="cb16-14" title="14">g05</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/305-1.png" width="672" /></p>
+<p>Un grand classique du test de normalité d’une distribution est le diagramme QQ</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb17-1" title="1">g06 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(foo, <span class="kw">aes</span>(<span class="dt">sample =</span> trust_institut)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb17-2" title="2"><span class="st">  </span><span class="kw">stat_qq</span>() <span class="op">+</span><span class="st"> </span><span class="kw">stat_qq_line</span>()<span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb17-3" title="3"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span> <span class="st">&quot;QQplot confiance interpersonnelle&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;ESS2002-2018&quot;</span>,<span class="dt">y=</span> <span class="st">&quot;Echantillon&quot;</span>,<span class="dt">x=</span><span class="st">&quot;Théorique&quot;</span>) </a>
+<a class="sourceLine" id="cb17-4" title="4">g06</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/306-1.png" width="672" /></p>
+<p>On fini cette étude détaillée par l’ajustement d’abord d’un modèle (loi normale) aux données. Ensuite d’un modèle de mélange ( Mixture model) par lequel on défiit la loi de distribution sous jascente, comme un mélange entre deux populations normale de paramètres distincts.</p>
+<p><a href="https://tinyheero.github.io/2015/10/13/mixture-model.html" class="uri">https://tinyheero.github.io/2015/10/13/mixture-model.html</a></p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb18-1" title="1">df0&lt;-df <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">na.omit</span>() </a>
+<a class="sourceLine" id="cb18-2" title="2"><span class="kw">library</span>(MASS)</a>
+<a class="sourceLine" id="cb18-3" title="3">fit&lt;-<span class="kw">fitdistr</span>(df0<span class="op">$</span>trust_interpersonnel,<span class="st">&quot;normal&quot;</span>) </a>
+<a class="sourceLine" id="cb18-4" title="4">fit</a></code></pre></div>
+<pre><code>##       mean           sd     
+##   52.48548790   16.57617220 
+##  ( 0.09344363) ( 0.06607462)</code></pre>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb20-1" title="1">g07&lt;-<span class="st"> </span>g05<span class="op">+</span><span class="kw">stat_function</span>(<span class="dt">fun =</span>  dnorm ,<span class="dt">color=</span><span class="st">&quot;orange&quot;</span>,<span class="dt">size=</span><span class="fl">1.2</span>, <span class="dt">args =</span> <span class="kw">list</span>( <span class="dt">mean=</span><span class="fl">52.48</span>,  <span class="dt">sd=</span><span class="fl">16.57</span>))</a>
+<a class="sourceLine" id="cb20-2" title="2">g07</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/307-1.png" width="672" /></p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb21-1" title="1"><span class="kw">library</span>(mixtools)</a>
+<a class="sourceLine" id="cb21-2" title="2">trust =<span class="st"> </span>foo<span class="op">$</span>trust_institut</a>
+<a class="sourceLine" id="cb21-3" title="3">mixmdl =<span class="st"> </span><span class="kw">normalmixEM</span>(trust, <span class="dt">k=</span><span class="dv">2</span>)</a></code></pre></div>
+<pre><code>## number of iterations= 505</code></pre>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb23-1" title="1">mixmdl<span class="op">$</span>mu</a></code></pre></div>
+<pre><code>## [1] 39.23071 56.04167</code></pre>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb25-1" title="1">mixmdl<span class="op">$</span>sigma</a></code></pre></div>
+<pre><code>## [1] 17.90246 10.56093</code></pre>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb27-1" title="1">mixmdl<span class="op">$</span>lambda</a></code></pre></div>
+<pre><code>## [1] 0.6719499 0.3280501</code></pre>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb29-1" title="1"><span class="kw">plot</span>(mixmdl,<span class="dt">which=</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb29-2" title="2"><span class="kw">lines</span>(<span class="kw">density</span>(trust), <span class="dt">lty=</span><span class="dv">2</span>, <span class="dt">lwd=</span><span class="dv">2</span>)</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/307-2.png" width="672" /></p>
+<p>Finalement si notre distribution est univariée, car n’étudiant qu’une variable, on peut quand distinguer deux population distinctes.</p>
+<div id="dautres-méthodes" class="section level4">
+<h4><span class="header-section-number">4.2.1.1</span> D’autres méthodes</h4>
+<p>Il n’y a pas que l’histogram ou le diagramme de densité, d’autres méthodes sont utiles, surtout quand on veut comparer des groupes ( ce sera l’objet du prochain chapitre). Il s’agit du diagramme à moustache et du diagramme en violon.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb30-1" title="1">g0306 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(foo, <span class="kw">aes</span>(<span class="dt">y =</span> trust_institut, <span class="dt">x=</span><span class="dv">1</span>)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb30-2" title="2"><span class="kw">geom_boxplot</span>(<span class="dt">fill=</span><span class="st">&quot;Grey&quot;</span>) </a>
+<a class="sourceLine" id="cb30-3" title="3"></a>
+<a class="sourceLine" id="cb30-4" title="4">g0307 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(foo, <span class="kw">aes</span>(<span class="dt">x=</span><span class="dv">1</span>,<span class="dt">y =</span> trust_institut)) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb30-5" title="5"><span class="kw">geom_violin</span>(<span class="dt">fill=</span><span class="st">&quot;Gold&quot;</span>) <span class="op">+</span><span class="st"> </span><span class="kw">labs</span>(<span class="dt">x=</span><span class="st">&quot;density&quot;</span>)</a>
+<a class="sourceLine" id="cb30-6" title="6"></a>
+<a class="sourceLine" id="cb30-7" title="7"><span class="kw">plot_grid</span>(g0306, g0307, <span class="dt">labels =</span> <span class="kw">c</span>(<span class="st">&quot;Boxplot&quot;</span>,<span class="st">&quot;Violin plot&quot;</span>),</a>
+<a class="sourceLine" id="cb30-8" title="8">  <span class="dt">label_size =</span> <span class="dv">12</span></a>
+<a class="sourceLine" id="cb30-9" title="9">)</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/308a-1.png" width="672" /></p>
+</div>
+</div>
+<div id="quand-la-variable-est-qualitative" class="section level3">
+<h3><span class="header-section-number">4.2.2</span> Quand la variable est qualitative</h3>
+<p>Quand la variable est qualitative, que ses variables sont discrètes, la manière de représenter la plus commune est le fameux camembert que les experts écartent. Un diagramme en barre représente mieux les proportions.</p>
+<p>Un premier exemple pour représenter les vagues d’enquêtes</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb31-1" title="1">g08&lt;-<span class="kw">ggplot</span>(df,<span class="kw">aes</span>(<span class="dt">x=</span>age))<span class="op">+</span></a>
+<a class="sourceLine" id="cb31-2" title="2"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="dt">fill=</span><span class="st">&quot;skyblue&quot;</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb31-3" title="3"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span> <span class="st">&quot;Distribution par classe d&#39;âge&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;ESS2002-2018&quot;</span>,<span class="dt">y=</span> <span class="st">&quot;frequence&quot;</span>,<span class="dt">x=</span><span class="st">&quot;Vague d&#39;enquête&quot;) </span></a>
+<a class="sourceLine" id="cb31-4" title="4"><span class="st">g08</span></a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/308-1.png" width="672" /></p>
+<p>Avec quelques améliorations : contôle de la couleurs des barres, ajout des % et pivot pour une meilleure lecture.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb32-1" title="1">foo&lt;-df <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb32-2" title="2"><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(age))</a>
+<a class="sourceLine" id="cb32-3" title="3"></a>
+<a class="sourceLine" id="cb32-4" title="4">g10&lt;-<span class="kw">ggplot</span>(foo,<span class="kw">aes</span>(<span class="dt">x=</span>age, <span class="dt">y =</span> <span class="kw">prop.table</span>(<span class="kw">stat</span>(count)),<span class="dt">label =</span> scales<span class="op">::</span><span class="kw">percent</span>(<span class="kw">prop.table</span>(<span class="kw">stat</span>(count)))))<span class="op">+</span></a>
+<a class="sourceLine" id="cb32-5" title="5"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> age)) <span class="op">+</span><span class="st">  </span></a>
+<a class="sourceLine" id="cb32-6" title="6"><span class="st">  </span><span class="kw">coord_flip</span>()<span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb32-7" title="7"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span> <span class="st">&quot;Répartition de la population par classe d&#39;âge&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;ESS2002-2018&quot;</span>,<span class="dt">y=</span> <span class="st">&quot;%&quot;</span>,<span class="dt">x=</span><span class="st">&quot;classes d&#39;age&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb32-8" title="8"><span class="st">  </span><span class="kw">scale_y_continuous</span>(<span class="dt">labels =</span> scales<span class="op">::</span>percent)<span class="op">+</span><span class="st"> </span><span class="co">#contrôle de l&#39;échelle des % et du format</span></a>
+<a class="sourceLine" id="cb32-9" title="9"><span class="st">  </span><span class="kw">scale_fill_brewer</span>()<span class="op">+</span></a>
+<a class="sourceLine" id="cb32-10" title="10"><span class="st">  </span><span class="kw">geom_text</span>(<span class="dt">stat =</span> <span class="st">&#39;count&#39;</span>,<span class="dt">position =</span> <span class="kw">position_dodge</span>(.<span class="dv">9</span>),  <span class="dt">hjust =</span> <span class="dv">1</span>, <span class="dt">size =</span> <span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb32-11" title="11"></a>
+<a class="sourceLine" id="cb32-12" title="12"></a>
+<a class="sourceLine" id="cb32-13" title="13">g10</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/309-1.png" width="672" /></p>
+<p>si on tient au diagramme en secteur</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb33-1" title="1">foo&lt;-df <span class="op">%&gt;%</span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(age))</a>
+<a class="sourceLine" id="cb33-2" title="2">g10&lt;-<span class="kw">ggplot</span>(foo,<span class="kw">aes</span>(<span class="dt">x=</span><span class="st">&quot;&quot;</span>, <span class="dt">y =</span> <span class="kw">prop.table</span>(<span class="kw">stat</span>(count)),<span class="dt">label =</span> scales<span class="op">::</span><span class="kw">percent</span>(<span class="kw">prop.table</span>(<span class="kw">stat</span>(count)))))<span class="op">+</span></a>
+<a class="sourceLine" id="cb33-3" title="3"><span class="st">  </span><span class="kw">geom_bar</span>(<span class="kw">aes</span>(<span class="dt">fill =</span> age)) <span class="op">+</span><span class="st">  </span></a>
+<a class="sourceLine" id="cb33-4" title="4"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span> <span class="st">&quot;Répartition de la population par classe d&#39;âge&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;ESS2002-2018&quot;</span>,<span class="dt">y=</span> <span class="st">&quot;%&quot;</span>,<span class="dt">x=</span><span class="st">&quot;classes d&#39;age&quot;</span>) <span class="op">+</span></a>
+<a class="sourceLine" id="cb33-5" title="5"><span class="st">  </span><span class="kw">geom_text</span>(<span class="dt">stat =</span> <span class="st">&#39;count&#39;</span>,<span class="dt">position =</span> <span class="kw">position_dodge</span>(.<span class="dv">9</span>),  <span class="dt">hjust =</span> <span class="dv">1</span>, <span class="dt">size =</span> <span class="dv">3</span>) <span class="op">+</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb33-6" title="6"><span class="st">  </span><span class="kw">coord_polar</span>(<span class="st">&quot;y&quot;</span>, <span class="dt">start=</span><span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb33-7" title="7"></a>
+<a class="sourceLine" id="cb33-8" title="8"></a>
+<a class="sourceLine" id="cb33-9" title="9"></a>
+<a class="sourceLine" id="cb33-10" title="10">g10</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/310-1.png" width="672" />
+<a href="https://cran.r-project.org/web/packages/treemapify/vignettes/introduction-to-treemapify.html" class="uri">https://cran.r-project.org/web/packages/treemapify/vignettes/introduction-to-treemapify.html</a></p>
+<p>si on tient au diagramme en cercle, autant opter pour un treemap avec la bibliothèque treemapifi</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb34-1" title="1"><span class="kw">library</span>(treemapify)</a>
+<a class="sourceLine" id="cb34-2" title="2">tree1&lt;-df <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb34-3" title="3"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">n=</span><span class="dv">1</span>)<span class="op">%&gt;%</span><span class="kw">group_by</span>(age) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb34-4" title="4"><span class="st">  </span><span class="kw">summarize</span>(<span class="dt">n=</span><span class="kw">sum</span>(n)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb34-5" title="5"><span class="st">  </span><span class="kw">filter</span>(<span class="op">!</span><span class="kw">is.na</span>(age))</a>
+<a class="sourceLine" id="cb34-6" title="6"></a>
+<a class="sourceLine" id="cb34-7" title="7">g11 &lt;-<span class="st"> </span><span class="kw">ggplot</span>(tree1, <span class="kw">aes</span>(<span class="dt">area =</span> n, <span class="dt">fill=</span>n),<span class="dt">label=</span>age) <span class="op">+</span></a>
+<a class="sourceLine" id="cb34-8" title="8"><span class="st">  </span><span class="kw">geom_treemap</span>() <span class="op">+</span></a>
+<a class="sourceLine" id="cb34-9" title="9"><span class="st">  </span><span class="kw">geom_treemap_text</span>(<span class="kw">aes</span>(<span class="dt">label=</span>age),<span class="dt">colour =</span> <span class="st">&quot;white&quot;</span>, <span class="dt">place =</span> <span class="st">&quot;centre&quot;</span>,<span class="dt">grow =</span> <span class="ot">FALSE</span>)<span class="op">+</span></a>
+<a class="sourceLine" id="cb34-10" title="10"><span class="st">  </span><span class="kw">labs</span>(<span class="dt">title=</span> <span class="st">&quot;Répartition de la population par classe d&#39;âge&quot;</span>, <span class="dt">caption=</span><span class="st">&quot;ESS2002-2018&quot;</span>,<span class="dt">y=</span> <span class="ot">NULL</span>,<span class="dt">x=</span><span class="ot">NULL</span>) </a>
+<a class="sourceLine" id="cb34-11" title="11"></a>
+<a class="sourceLine" id="cb34-12" title="12">g11</a></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/311-1.png" width="672" /></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="prise-en-main.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="analyse-bi-variée.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-GGplotUnivar.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

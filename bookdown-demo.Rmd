@@ -1,0 +1,2502 @@
+--- 
+title: "Introduction aux Data Sciences"
+author: "Christophe Benavent - Université Paris Dauphine"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+output: bookdown::gitbook
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+github-repo: rstudio/bookdown-demo
+description: "Cours d'analyse de données et de Datascience"
+---
+
+
+# Préface
+
+![](./Images/ggridge.png)
+
+Ce bookdown reprend les éléments d'un cours de data science avec r. Il a pour but d'être reproductible, c'est pourquoi le choix de ce support et des jeux de données associés. Il sera dynamique, modifié à mesure de nos cours, séminaires et ateliers. 
+
+L'illustration représente l'évolution de la longueur des films de la base Imbd et raconte en chiffres une part de l'histoire du cinema. Jusqu'au années la longueur est hétérogène mais au tournant des années 30, la distribution se stabilise, les court-métragessont de l'ordre de 15mn, et voient leurs durée se raccourcir avec les décénnies, le genre menace de disparaitredans les années 80 et reprend du poil de la bête dans les années 2000. Les films longs voient leur longueur s'accroitre et se stabiliser autur de un peu moins de 100 mn, soit une heure et trente minutes. On observera enfin qu'au cours des années 1990 les film de taille intermédiaires réapparaissent.
+
+Dans ce graphique il y a tous les éléments des data sciences modernes : un jeu de donnée riche et systématique, un modèle statistique fondamentale avec la notion de densité de probabilité, une mesure, un critère de comparaison. Les diagrammes ridges sont inspirée de la pochette de l'album [Unknown Pleasures de  Joy division](https://www.youtube.com/watch?v=7PtvIr2oiaE) sorti en pleine New Wave , en 1979. Un article de Vice en rappele l'[origine et le destin de ce graphisme](https://i-d.vice.com/fr/article/pabjam/pourquoi-cette-pochette-dalbum-de-joy-division-a-inspire-le-monde-entier)
+
+
+
+
+## Plan du manuel
+
+Les chapitres projetés 
+
+ * 1 - L'environnement r 
+ * 2 - Installation et prise en main
+ * 3 - Usage de ggplot - uni et bivarié
+ * 4 - Usage de ggplot - multivarié
+ * 6 - Analyse de variance et régression linéraire
+ * 5 - Tables
+ * 6 - Modèles factoriels ( Psych)
+ * 7 - AFC
+ * 8 - MDS
+ * 9 - Clustering
+ * 10 - Analyse de réseaux
+ * 10 - Modèle d'équations structurelles (Lavaan)
+ * 11 - Modèle linéaire généralisé
+ * 12 - Modèles à décomposition d'erreur
+ * 13 - Times series
+ * 14 - Analyse geospatiale
+ * 15 - Machine learning
+ 
+
+## Les jeux de données 
+
+Au cours du développement, plusieurs cas pratiques - souvent réduit en volume pour rester exemplaire, seront employés. Les donées seront partagées.
+
+En voici la présentation  systématique.
+
+
+disponibles dans le [repositery](https://benaventc.github.io//) avec le code du book. Les amendements et améliorations sont souhaitées et attendues. 
+
+## Le cadre technique et les packages utilisés
+
+Ce  _livre_ est écrit en **Markdown** [@allaire_rmarkdown_2021] et  avec le package **Bookdown** [@R-bookdown]
+
+Le code s'appuie très largement sur **tidyverse** et emploie largement les ressources de **ggplot** . Les packages seront introduits au fur et à mesure. En voici la liste complète.
+
+
+```{r 001, echo = TRUE, message=FALSE,warning=FALSE}
+options(tinytex.verbose = TRUE)
+
+knitr::opts_chunk$set(echo = TRUE, include=TRUE, cache=TRUE, message=FALSE, warning=FALSE)
+
+#boite à outils et dataviz
+library(tidyverse) # inclut ggplot pour la viz, readr et 
+library(cowplot) #pour créer des graphiques composés
+library(ggridges) # le joy division touch
+library(ggmosaic)
+
+#networks
+library(igraph)
+library(ggraph)
+
+# Accéder aux données
+library(rtweet)  # une interface efficace pour interroger l'api de Twitter
+
+# NLP
+library(tokenizers)
+library(quanteda)
+library(quanteda.textstats)
+library(udpipe) #annotation syntaxique
+library(tidytext)
+library(cleanNLP) #annotation syntaxique
+
+#sentiment
+library(syuzhet)             #analyse du sentimeent
+
+
+
+#mise en page des tableaux
+library(flextable)
+
+
+#statistiques et modèles
+library(lme4) #pour des modèles plus complexe que les mco
+library(jtools) #une série d'utiltaire pour bien représenter les résultats
+library(interactions) #traitement des interactions
+
+library(corrplot)
+library(psych) 
+
+
+library("FactoMineR")
+library("factoextra")
+
+
+#ML
+library(caret)
+
+#utilitaires
+library(rcompanion)
+
+#graphismes
+library(ggthemes)
+theme_set(theme_bw())
+
+
+#palettes
+library(colorspace) #pour les couleurs
+library(wesanderson)
+
+
+
+# Utilitaires
+
+library(citr) #pour insérer des références dans le markdown
+
+```
+
+
+L'ensemble du code est disponible [sur github](https://github.com/BenaventC/Datasciences). A ce stade c'est encore très embryonnaire. Les proches pourrons cependant y voir l'évolution du projet et de la [progression](https://benaventc.github.io/Datascience/)
+
+Quelques conventions d'écriture du code r
+
+ * On appele les dataframes  de manière générale `df`, les tableaux intermédiaires sont appelé systématiquement `foo`
+ * Gestion des palettes de couleurs
+  ** une couleur :" royalblue"
+  ** deux couleurs
+  ** 3 à 7 couleurs
+ * On emploie autant que possible le dialecte tidy.
+ * Les chunks sont notés en 4 chiffre : 2 pour le chapitre et deux pour le chunck. 0502 est le second chunk du chapitre 5.
+ * On commente au maximum les lignes de code pour épargner le corps du texte et le rendre lisible
+
+
+## A faire
+
+todo list :
+
+* insérer un compteur google analytics ( voir https://stackoverflow.com/questions/41376989/how-to-include-google-analytics-in-an-rmarkdown-generated-github-page)
+* modifier le titre en haut à gauche
+* vérifier le système de références voir ( https://doc.isara.fr/tuto-zothero-5-bibtex-rmarkdown-zotero/)
+* Vérifier la publication en pdf
+ 
+
+<!--chapter:end:index.Rmd-->
+
+# Introduction aux data sciences {#intro}
+
+## Objectif et sommaire
+
+L'objet du manuel est de donner un aperçu général des méthodes d'analyses de données et de data science.
+
+## Science ou technique ?
+
+Plûtôt que le terme consacré de Data sciences, il vaudrait mieux parler de data ingiénérie dans la mesure où le data scientiste participe à un processus de production qui va de l'acquisition des donnée à leur propagation dans l'organisation ou la société. La technique domine sur la science et l'unité se trouve dans l'intégration de ce processus. La révolution des données vient de l'interopérabilité croissante de ces techniques et d'une intégration qui fluidifie le passage d'une étape à une autre. Standards et langages en sont les éléments clés. 
+
+Du côté des sciences, ce dont bénéficie l'univers des data sciences, c'est l'héritage de cultures statistiques foisonnantes qui après s'être développées dans leur cocon displinaire, se retrouvent désormais rassemblées dans un même langage. Bien sur il y a de manière sous-jascente à ces cultures les mathématiques et les statistiques mathématiques qui construisent les fondements des modèles et des techniques. Mais le développement s'est fait souvent quand le scientifique se retrouve face à un problème où une observation. 
+
+Prenons le cas des psychologues qui ont inventé l'analyse factorielle dans le but de pouvoir tester certains de leurs concepts : un degré d'intelligence, une personnalité, des attitudes. 
+
+Ou celui des écologues qui souhatent estimer une population de poisson dans une rivière, problème qui a donné naissance aux modèles de capture recapture. On pourrait ajouter les géographes avec les modèles d'analyse spatiale, les financiers face à la variabilité des cours des places boursières, etc. Celui des économètres est peut-être le plus évident. Les biostatisticiens sont des contributeurs importants.  
+
+Ce que la technique apporte c'est l'intégration par un langage et donc un ensemble de conventions, incarnées par r et python,  d'algoritmes, et de programmes qui ne sont plus spécifique à un domaine, mais peuvent circuler de l'un à l'autre. C'est ainsi que le catalogues de toutes les techniques psychométriques devient accessible aux autres disciplines par le biais d'un pachage en particulier , psych. De la même manière l'outillage des linguiste devient accessible aux autres disciplines, pensons aux économiste qui intéègre dans le indicateurs des sources textuelle telle que l'analyse du sentiment.
+
+L'interopérabilité apportée par ces langages ne se définit pas que par l'algorithme qui aurait été porté d'un autre langage vers celui-ci ( des cas de réécriture ?) mais aussi par des programme passerelle qui à partir de r permettent d'activité des algorithme écrit en C, en javascript ou tout autre langage "plus informatiques" et souvent plus éfficace. 
+
+## histoires des logiciels statistiques
+
+Et c'est ce qu'on observe dans l'évolution des logiciels
+
+ * 1980 : statitcf
+ * 1980 : SAS comme accès à r
+ * 1990 : SPSS
+
+http://www.deenov.com/blog-deenov/histoire-du-logiciel-spad.aspx
+
+des système portable
+
+intégration graphique
+
+la modularisation : base /fonction/ packages 
+
+
+## Le processus de traitement des données
+
+
+
+![](./Images/datascience2.png)
+
+
+
+
+ * Acquisition 
+ * Codification , filtrage et correction d'erreur
+ * Structuration des données : api, open data
+ * Exploration
+ * Modélisation :
+ * validation : tests versus AB testing
+ * Simulation et décision
+ * Vizualisation et sensemaking
+ * Déploiement : 
+ * Contrôle :
+ * Publication : dash board, pdf , slide etc, webb site
+
+
+## Les facteurs de développement des datasciences
+
+Ces développements sont favorisés par un environnement fertile dont trois facteurs se renforcent mutuellement.
+
+### Une lingua franca
+
+histoire de r
+histoire de python
+
+
+### Une communauté
+
+Le second facteur , intimement lié au premier, est la constitution d’une large communauté de développeurs et d’utilisateurs qui se retrouvent aujourd’hui dans des plateformes de dépots (Github, Gitlab), de plateformes de type quora (StalkOverFlow), de tutoriaux, de blogs (BloggeR), de journaux (Journal of Statistical Software) et de bookdown.
+
+Des ressources abondantes sont ainsi disponibles et facilitent la formation des chercheurs et des data scientists. Toutes les conditions sont réunies pour  engendrer une effervescence créative. 
+
+### La multiplication des sources de données.
+
+Le troisième est la multiplication des sources de données et leur facilité d’accès. Les données privées, et en particulier celles des réseaux sociaux,  même si un péage doit être payé pour accéder aux APIs, popularisent le traitement de données massives. Le mouvement des données ouvertes (open data) proposent et facilitent l’accès à des milliers de corps de données : retards de la SNCF, grand débat, le formidable travail de l’Insee, european survey etc.
+ 
+ 
+### du ML à l'IA
+
+Le retour au boites noires dans les années 2000. Ce qui distingue les statistiques traditionnelles de l'approche machine learning réside d'abord par une approche de la modèlisation différente. Les modèles statistiques et économétriques considèrent non seulement une structure ( moddèle linéaires par ex), la spécification du modèle, mais aussi des modèles de distribution qui définissent le cadre d'estimation. L'évaluation passe par le test du respects des hypothèses de constructions ( distribution des erreurs), et de la qualité d'ajustement. Le machine learning, se concentre sur la valeur prédictive, et considère n'importe quelle spécification même si elle est peu intelligible et comprend de grandes quantité de paramètres.  
+
+KNN, SVM, rf et le retour des réseaux de neurones. 
+
+La révolution des convolutions et la multiplication des architectures
+
+
+<!--chapter:end:01-intro.Rmd-->
+
+# Prise en main
+
+
+Pour démarrer :
+
+1 - Télécharger et installer r sur le site du Comprehensive r Archive Network
+2 - Télécharger et installer Rstudio.(version free)
+3 - Dans le cadre de cet atelier, on adopte la méthode du [rmarkdown](https://rmarkdown.rstudio.com/lesson-1.html). On recommande fortement de lire l’ouvrage de référence, même si la prise en main est très rapide. Il est désormais indispensable d’utiliser le package tidyverse et en particulier les fonctions de manipulation et de pipe ( %>%) fournies par  dplyr
+
+
+## La convention du Rmarkdown
+
+Différentes manières d'interagir avec r sont possibles : la première est le mode console, pour de petite opérations et un utilisateur chevronné, celà peut être commode car rapide mais très rapidement on sera amené à enregistrer les opérations dans des scripts. Une idée novatrice a été d'intégrer l'ensemble des élements dans un seul document : le script découpé en petits éléments : des chunks, le commentaire et l'analyse verbabe dans un format texte, et le résultat. Dans l'univers python il s'agit des carnets Jupiter, pour r c'est le rmarkdown.
+
+C'est un dialecte du markdown générique adapté au langage r. On recommande au lecteur d'en lire [le manuel](https://bookdown.org/yihui/rmarkdown/) et de le garder dans ses onglets.
+
+Quelques éléments de base :
+
+un document markdown est composé de plusieurs éléments
+
+ * Yalm dans cet entête les éléments essentiels sont définis et paramétrés
+ * Texte : il suit les conventions de mise en forme du html :
+ ** des # pour les niveau de titres
+ ** (x)[*.html] pour des liens et ![x](image.jpg) pour des images
+ ** 
+ * Les chunks sont isolé par 3 tiks au début et à la fin. 
+ * Résultats apparaissent sous les chunks
+ 
+ 
+ https://rmarkdown.rstudio.com/authoring_pandoc_markdown.html#Footnotes
+ 
+Ce document peut être excécuté et publié sous différents formats : html, lpadf ou même word  avec les éléments suivants
+ * plan
+ * texte
+ * code
+ * résultats
+ * Bibliographie
+ * Références
+ * liens
+ * images
+
+ 
+## Lire les données
+
+La première étape c'est la lecture des données. On commence par le plus simple la lecture de fichiers locaux, dont les formats sont multiples : csv, tsv, xlsx, Spss, etc... Le package readr contribue à cette tâche.
+
+
+```{r 0201}
+
+df <- read_csv("./Data/BXL_listings.csv")
+
+```
+
+
+Il est possible aussi d'accéder en  direct aux données du web, c'est bien utile pour s'assurer que les données sont bien fraiches. Par exemple une connexion à Nsppolls qui propose une compilation de tous les sondages d'intention de vote de la présidentielle 2022.
+
+```{r 0202}
+
+df_pol <- read_delim("https://raw.githubusercontent.com/nsppolls/nsppolls/master/presidentielle.csv", 
+                     delim = ",", escape_double = FALSE, trim_ws = TRUE)
+
+```
+
+
+### La diversité des formats
+
+Peu de formats échappent à r, ils peuvent faire appel à des packages spécifiques
+
+ * excell
+ * Json
+ * shape et autre GIS : 
+ * les formats bibliographique : bib et ris
+ 
+### Les autres accès aux données
+
+
+Interfaces
+
+le génie des API : ne pas se soucier de la mise à jour à chaque fois qu'on lance un calcul. 
+
+exemples :
+
+ * base d'archive de presse
+ * api des réseaux sociaux : tweetr
+ * open data
+ 
+
+ 
+## `Dplyr` pour manipuler les données
+
+C'est un des packages essentiels de la suite tidyverse. Il permet de manipuler aisément les données et mérite une étude approfondie. Un [point de départ](https://dplyr.tidyverse.org/articles/dplyr.html) ou en français :  [dplyr](http://larmarange.github.io/analyse-R/manipuler-les-donnees-avec-dplyr.html) .
+
+
+ 
+### Des pipes %>%
+
+Une grand part de l'intérêt de dplyr est de reprendre un opérateur de maggritr très utiles : le pipe :  %>%. Celui ci permet de passer le résultats de l'opération à gauche, dans la fonction de droite.
+
+Un exemple simple . Dans la ligne de code suivante, une première fonction lit le fichier CSV, et envoie le résultat de cette lecture dans une fonction graphique élémentaire: compter le nombre d'occurences des modalité de la variable room_type. On reviendra longuement sur ggplot, à ce stade ce qui compte c'est de retenir le procédé.
+
+
+```{r 0203}
+
+
+g <- read_csv("./Data/BXL_listings.csv") %>% 
+  ggplot(aes(x=price))+
+  geom_histogram()
+g
+
+```
+
+
+### Des verbes
+
+L'originalité de dplyr est de définir des fonctions comme des verbes. Chaque verbe désigne un type d'action. On va les examiner progressivement : 
+Ils sont simples à comprendre : tansformer une variables, filter les obsersation selon un critère, isoler des variables, les groupper pour en calculer des résultats statistiqyes ( somme, moyenne, variance, max min etc) * les déployer selon un format long ou les distribuer en différents critères, les fusionner enfin selon les grandes modalité du SQL)
+
+#### Mutate
+
+En Français c'est "transformer". On modifie la valeur d'une variable par une fonction plus ou moins complexe, éventuellement en ajoutant des conditions. 
+
+Dans notre exemple, faisant au plus simple, puisque la distribution est asymétrique, une transformation du prix par les log peut donner des résultats intéressants. 
+
+Et c'est le cas. On retrouve une distribution qui semble être gaussienne. 
+
+```{r 0204}
+
+g <- read_csv("./Data/BXL_listings.csv") %>% 
+  mutate(price=log10(price))%>%
+  ggplot(aes(x=price))+geom_histogram()
+g
+
+```
+
+ 
+#### Filter
+
+
+On peut vouloir se concentrer sur une sous population. par exemple les chambres privées.
+
+
+```{r 0205}
+
+g <- read_csv("./Data/BXL_listings.csv") %>% 
+  filter(room_type=="Private room")%>% 
+  # on note que le signe == est double, c'est pour dire que la variable prend la valeur, ou non, qui est proposée
+  mutate(price=log10(price))%>%
+  ggplot(aes(x=price))+geom_histogram()
+g
+
+```
+
+
+#### select
+
+On peut selectionner des colonnes pour créer un tableau spécifique
+
+```{r 0206}
+
+foo <- read_csv("./Data/BXL_listings.csv") %>%
+  dplyr::select(room_type,price) %>% 
+  head(5) #afficher les 5 premières observations
+foo
+
+```
+
+#### Group_by et summarize
+
+c'est une opération clé, en groupant selon les modalités d'une ou pluseirs variables, on peut construire des tableaux aggrégés.On l'associera à `summarize` qui permet de calculer les statistique aggrégé selon le groupe que l'on a définit.
+
+
+
+```{r 0207}
+
+foo <- read_csv("./Data/BXL_listings.csv")%>% 
+  dplyr::select(neighbourhood, price)%>%
+    group_by(neighbourhood ) %>% 
+  summarise(averageprice=mean(price)) 
+
+head(foo, 5)
+
+
+```
+
+
+#### Pivot_wider et pivot_longer
+
+Si pour l'habitué des feuilles excell les données croisent des observations avec des variables, ce format n'est pas le seul moyen de réprésenter des données, et pas forcément le meilleur. 
+
+![merge](./Images/pivot_longer.png)
+
+![merge](./Images/pivot_wider.png)
+
+
+
+
+ 
+#### merge
+
+On sera souvent amené à fabriquer des tableaux de donnée en les enrichissant d'un autre. On sera amené  à fusionner les données.
+
+Le cas le plus simples est d'ajouter d'autres observation à un fichier de données, si les variables sont identitiques on peut concaténer diffrents jeux de données avec la fonction de base rbind au contraire si les observation sont les mêmes, et que seules les variables sont différentes on peut utiliser cbind. L'équivalent de DPLYR est row_bind et column_bind
+
+mais très souvent on sera dans des cas différents et la fusion des données devra suivre des index
+
+![merge](./Images/merge_ex-1024x624.png)
+
+
+quatre types de fusion
+
+genérale
+
+fusion à gauche
+
+fusion à droite
+
+https://coletl.github.io/tidy_intro/lessons/dplyr_join/dplyr_join.html
+ 
+## Pour aller plus loin
+
+On engage le lecteur à poursuivre avec
+
+ * le bookdown au-delà du markdown
+ * une théorie des tidy data
+ 
+
+
+
+
+
+
+ 
+
+<!--chapter:end:02-PriseEnMain.Rmd-->
+
+# Analyses univariées
+
+Nous avons appris à lire des données, à les manipuler, nous avons le droit d'être pressé de les représenter de manière immédiatement lisible, par des dataviz. 
+
+On présente d'abord rapidement le concept de grammaire des graphiques
+
+On se concentre ensuite sur un cas d'étude
+
+On décline.
+
+## La grammaire des graphiques
+
+C'est sans doute une des percées conceptuelles laplus intéressante des datasciences. La représentation graphhiques des données fait l'objet à la fois d'une explosion créative mais aussi d'une synthèse théorique. C'est l'apport de la grammaire des graphiques. 
+
+Ces outils s'appuient sur l'idée de [grammaire des graphiques](https://www.goodreads.com/book/show/2549408.The_Grammar_of_Graphics). En voici un [clair résumé](https://cfss.uchicago.edu/notes/grammar-of-graphics/).En français il y a toujours le [larmarange](http://larmarange.github.io/analyse-R/intro-ggplot2.html)
+
+
+
+### Un modèle en couche
+
+Celle-ci met un ordre dans les éléments qui composent un graphique et les superpose.
+
+![layers](./Images/graphiclayers.png)
+
+
+ * l'aesthetic definit les éléments que l'on veut représenter : ce qu'on met en abscisse, ce qu'on met en ordonnné, les groupes que l'on veut distinguer. 
+ * la geométrie (geom_x)qui définit la forme de représentation
+ * les échelles (scale_x)
+ * Labelisation (labs)
+ * les templates
+ * le facetting
+ 
+ ggplot est construit selon cette structure. Voici le [book de référence](https://ggplot2-book.org/), qui est au centre de ce cours. On aura besoin de manière assez systématique de manipuler les données avant de les représenter, [dplyr](http://larmarange.github.io/analyse-R/manipuler-les-donnees-avec-dplyr.html) nous permet de le faire aisément.
+
+
+### Une typologie des représentations
+
+Un point de départ fondamental est la [gallery de ggplot](https://www.r-graph-gallery.com/),, elle présente de manière synthétique la plupart les types de figures qui peuvent être représentées, avec du code facilement reproductible. 
+
+
+Une classification simple
+
+ * Analyse univariée
+ * Analyse bi variée
+ * Analyse multivariée
+ ** les variables sont quantitatives : on analyse des matrices de corrélations
+ ** les variables sont qualitatives : on analyse des tableaux croisés
+ * Analyse geospatiale
+ * Analyse de réseaux
+ * analyse d'arbres
+ * Diagramme de flux
+
+
+### L'esthétique
+
+L'art des couleurs tient dans les palettes on aimera celles de Wes Anderson, on peut adorer fishualize. on trouvera
+
+
+
+## Une étude de cas
+
+Les données sont extraites de l'ESS, une sélection est disponible [ici]().  Elle couvre les 9 vagues et concernent la France et L'Allemagne. Les variables dépendantes (celles que l'on veut étudier et expliquer) sont les 9 items de la confiance, les variable considérées comme indépendantes (ou explicatives) sont une sélection de variables socio-démographiques : âge, genre, perception du pouvoir d'achat, orientation politique, type d'habitat. 
+
+On fait quelques opérations de recodage et on renomme les variables avoir une lecture plus aisée des variables et de leurs catégories.  Le plan de recodage d'un jeu de données qu'on va employer dans les chapitres suivants. Il s'appuie sur le langage de base. 
+
+L'analyse univarié, comme son nom l'indique, ne s'intéresse qu'à une seule variable. Celle-ci peut être **quantitative** ou **qualitative** etne comporter qu'un nombre limité de modalités entre lesquels aucune comparaison de grandeur ne peut être faite. Les premières ont le plus souvent dans r un format numeric, les autres correspondent au format *factor*.
+
+
+(Un exercice peut être de le réécrire avec  dplyr.)
+
+```{r 301, include=TRUE}
+df<-readRDS("./data/trustFrAll.rds")
+
+#quelques recodages
+#on renomme pour plus de clarte
+names(df)[names(df)=="trstun"] <- "NationsUnies" 
+names(df)[names(df)=="trstep"] <- "ParlementEurop" 
+names(df)[names(df)=="trstlgl"] <- "Justice" 
+names(df)[names(df)=="trstplc"] <- "Police" 
+names(df)[names(df)=="trstplt"] <- "Politiques" 
+names(df)[names(df)=="trstprl"] <-"Parlement" 
+names(df)[names(df)=="trstprt"] <- "Partis"
+names(df)[names(df)=="pplhlp"] <- "help"
+names(df)[names(df)=="pplfair"] <- "fair"
+names(df)[names(df)=="ppltrst"] <- "trust"
+
+#on construit les scores de confiance 
+df<-df %>% 
+  mutate(trust_institut=(Partis+Parlement+Politiques+Police+Justice+NationsUnies+ParlementEurop)*10/7,trust_interpersonnel=(help+fair+trust)*10/3)
+df$Year<-2000
+#recodage des variables independantes
+df$Year[df$essround==1]<-2002
+df$Year[df$essround==2]<-2004
+df$Year[df$essround==3]<-2006
+df$Year[df$essround==4]<-2008
+df$Year[df$essround==5]<-2010
+df$Year[df$essround==6]<-2012
+df$Year[df$essround==7]<-2014
+df$Year[df$essround==8]<-2016
+df$Year[df$essround==9]<-2018
+df$Year<-as.factor(df$Year) 
+
+df$OP<-" "
+#ggplot(df,aes(x=lrscale))+geom_histogram()
+df$OP[df$lrscale==0] <- "Extrême gauche" 
+df$OP[df$lrscale==1] <- "Gauche" 
+df$OP[df$lrscale==2] <- "Gauche" 
+df$OP[df$lrscale==3] <- "Centre Gauche" 
+df$OP[df$lrscale==4] <- "Centre Gauche" 
+df$OP[df$lrscale==5] <- "Ni G ni D" 
+df$OP[df$lrscale==6] <- "Centre Droit" 
+df$OP[df$lrscale==7] <- "Centre Droit" 
+df$OP[df$lrscale==8] <- "Droite" 
+df$OP[df$lrscale==9] <- "Droite" 
+df$OP[df$lrscale==10] <- "Extrême droite" 
+#la ligne suivante est pour ordonner les modalités de la variables
+df$OP<-factor(df$OP,levels=c("Extrême droite","Droite","Centre Droit","Ni G ni D","Centre Gauche","Gauche","Extrême gauche"))
+
+
+df$revenu<-" "
+df$revenu[df$hincfel>4] <- NA
+df$revenu[df$hincfel==1] <- "Vie confortable" 
+df$revenu[df$hincfel==2] <- "Se débrouille avec son revenu" 
+df$revenu[df$hincfel==3] <- "Revenu insuffisant" 
+df$revenu[df$hincfel==4] <- "Revenu très insuffisant" 
+df$revenu<-factor(df$revenu,levels=c("Vie confortable","Se débrouille avec son revenu","Revenu insuffisant","Revenu très insuffisant"))
+
+df$habitat<-" "
+
+df$habitat[df$domicil==1]<- "Big city"
+df$habitat[df$domicil==2]<-"Suburbs"
+df$habitat[df$domicil==3]<-"Town"
+df$habitat[df$domicil==4]<-"Village"
+df$habitat[df$domicil==5]<-"Countryside"
+df$habitat<-factor(df$habitat,levels=c("Big city","Suburbs","Town","Village","Countryside"))
+
+df$genre<-" "
+
+df$genre[df$gndr==1]<-"H"
+df$genre[df$gndr==2]<-"F"
+
+df$age<-" "
+
+df$age[df$agea<26]<-"25<"
+df$age[df$agea>25 & df$agea<36]<-"26-35"
+df$age[df$agea>35 & df$agea<46]<-"36-45"
+df$age[df$agea>45 & df$agea<66]<-"46-65"
+df$age[df$agea>65 & df$agea<76]<-"66-75"
+df$age[df$agea>75]<-"75>"
+df$age<-factor(df$age,levels=c("25<","26-35","36-45","46-65","66-75", "75>"))
+
+saveRDS(df, "./data/dfTrust.rds)")
+
+foo<-df%>%
+  dplyr::select(Year,cntry, trust_institut, trust_interpersonnel)%>%
+  group_by(Year,cntry)%>%
+  summarise(trust_institut=mean(trust_institut, na.rm=TRUE), 
+            trust_interpersonnel=mean(trust_interpersonnel, na.rm=TRUE))
+foo$Year<- as.character(foo$Year)
+foo$cntry<- as.character(foo$cntry)
+
+foo<-foo%>%pivot_longer(!c(Year,cntry),names_to="Trust", values_to="value" )
+
+
+ggplot(foo,aes(x=Year, y=value, group=Trust))+
+  geom_line(stat="identity",aes(color=Trust), size=1.2)+
+  facet_wrap(vars(cntry))+
+  scale_color_manual(values = c("Cyan3","Orange2"))+ theme(
+    legend.position = "bottom",
+    legend.justification = c("right", "top"),
+    legend.box.just = "right",
+    legend.margin = margin(6, 6, 6, 6)
+    )+ labs(x=NULL, y="Niveau")+ylim(40,60)
+                                             
+```
+
+
+### Le cas des variables quantitatives
+
+Les variables quantitatives décrivent une variable dont les valeurs décrivent les quantités d'une grandeur. Elle peuvent être discrètes (dénombrement du d'un nombre d'unités) - le nombre d'habitant), ou continue (le nombre de km parcourus). l'**histogramme** est l'outil de base pour représenter la distribution d'une telle variable. Il représente pour des intervalles de valeurs donnés, la fréquence des observations. 
+
+Sa syntaxe simple comporte d'abord la définition de la variable et de la source de données, puis une des "géométrie" de ggplot : la fonction geom_histogram. Dans notre exemple, on va représenter le score de confiance institutionnelle  pour la France en se concentrant sur la dernière vague d'enquête.
+
+```{r 302}
+#On charge le fichier recodé à la fin du chapitre précédent
+df<-readRDS("./data/dfTrust.rds)")
+
+#filtrage sur 2018 et la France.
+
+foo<-df%>%
+  filter(Year=="2018" & cntry=="FR" & !is.na(trust_institut)) 
+
+# on stocke le diagramme dans l'objet g00, pour le réutiliser ultérieurement et pouvoir le compléter.
+g00<-ggplot(foo,aes(x=trust_institut))+
+  geom_histogram()
+
+g00
+
+g00+labs(title="Distribution de la confiance institutionnelle en France et en 2018",
+         x="Confiance institutionnelle")
+```
+
+On va améliorer l'aspect en 
+
+a) modifiant la couleur et la largeur des barres, 
+b) ajoutant un thème,
+c) en précisant les éléments textuels (titres, label)
+d) en calculant et en représentant la valeur moyenne et l'écart-type . Pour ces statistiques, on emploie les fonction de base : mean, sd et round.
+
+On notera que le titre est défini par la concaténation de plusieurs chaines de caractères avec la fonction paste0. On peut ainsi injecter dans le graphique des éléments externes au jeu de données. 
+
+```{r 303}
+
+#on calcule la moyenne
+moy=mean(foo$trust_institut, na.rm=TRUE)
+sd=sd(foo$trust_institut, na.rm=TRUE)
+
+#avec tous les éléments
+g01 <-ggplot(foo,aes(x=trust_institut))+
+  geom_histogram(binwidth=5,fill="pink")+
+  labs(title= "Distribution de la confiance institutionnelle", 
+       subtitle= paste0("moyenne = ",round(moy,2), " ecart-type = ", round(sd,2)),
+       caption="ESS2002-2018",
+       y= "frequence",
+       x="confiance (index de 0 à 100)")+
+    geom_vline(xintercept=moy, color="red",size=1.5)+
+        geom_segment(y = 0, yend=0,x=moy-sd,xend=moy+sd, color="orange",size=1.5)
+
+g01
+
+```
+
+
+Diagramme de densité : Au lieu de représenter les effectifs, on ramène l'effectif total à 1.
+
+```{r 304}
+
+
+g04<-ggplot(foo,aes(x=trust_institut))+ 
+  geom_density(fill="pink2") +
+  labs(title= "Fonction de densité de probabilité", caption="ESS2002-2018",y= "frequence",x="Confiance (index de 1 à 100)") 
+g04
+```
+
+
+enfin on peut examiner par rapport à une distribution théorique, en l'occurrence une distribution gaussienne, ou normale, de paramètres égaux à la moyenne et la variance empirique de la distribution. L'ajustement est convenable même si on observe une déviation sur la droite. C'est pourquoi on calcule aussi la Kurtosis et le skewness de la distribution.
+
+
+
+```{r 305}
+#On a déjà calculé la moyenne : mean
+#il nous manque l'écart-type et 
+sd<-sd(foo$trust_institut, na.rm=TRUE)
+library(moments)
+sk<-skewness(foo$trust_institut)
+ks<-kurtosis(foo$trust_institut)
+
+
+g05<-ggplot(foo,aes(x=trust_institut))+   
+  labs(title= "Distribution de la confiance institutionnelle", caption="ESS2002-2018",y= "frequence",x="confiance (index de 0 à 100)") +
+  geom_density(fill="pink2")+
+  stat_function(fun = dnorm,color="red",size=1.2, args = list(mean =moy, sd=sd))
+   
+g05
+```
+
+Un grand classique du test de normalité d'une distribution est le diagramme QQ
+
+```{r 306}
+
+g06 <- ggplot(foo, aes(sample = trust_institut)) + 
+  stat_qq() + stat_qq_line()+ 
+  labs(title= "QQplot confiance interpersonnelle", caption="ESS2002-2018",y= "Echantillon",x="Théorique") 
+g06
+
+```
+
+On fini cette étude détaillée par l'ajustement d'abord d'un modèle (loi normale) aux données. Ensuite d'un modèle de mélange ( Mixture model) par lequel on défiit la loi de distribution sous jascente, comme un mélange entre deux populations normale de paramètres distincts. 
+
+
+
+https://tinyheero.github.io/2015/10/13/mixture-model.html
+
+```{r 307}
+
+df0<-df %>% na.omit() 
+library(MASS)
+fit<-fitdistr(df0$trust_interpersonnel,"normal") 
+fit
+g07<- g05+stat_function(fun =  dnorm ,color="orange",size=1.2, args = list( mean=52.48,  sd=16.57))
+g07
+
+library(mixtools)
+trust = foo$trust_institut
+mixmdl = normalmixEM(trust, k=2)
+mixmdl$mu
+mixmdl$sigma
+mixmdl$lambda
+
+
+plot(mixmdl,which=2)
+lines(density(trust), lty=2, lwd=2)
+```
+
+Finalement si notre distribution est univariée, car n'étudiant qu'une variable, on peut quand distinguer deux population distinctes. 
+
+#### D'autres méthodes
+
+ Il n'y a pas que l'histogram ou le diagramme de densité, d'autres méthodes sont utiles, surtout quand on veut comparer des groupes ( ce sera l'objet du prochain chapitre). Il s'agit du diagramme à moustache et du diagramme en violon.
+
+```{r 308a}
+
+g0306 <- ggplot(foo, aes(y = trust_institut, x=1)) + 
+geom_boxplot(fill="Grey") 
+
+g0307 <- ggplot(foo, aes(x=1,y = trust_institut)) + 
+geom_violin(fill="Gold") + labs(x="density")
+
+plot_grid(g0306, g0307, labels = c("Boxplot","Violin plot"),
+  label_size = 12
+)
+```
+
+
+
+### Quand la variable est qualitative
+
+Quand la variable est qualitative, que ses variables sont discrètes, la manière de représenter la plus commune est le fameux camembert que les experts écartent. Un diagramme en barre représente mieux les proportions. 
+
+Un premier exemple pour représenter les vagues d'enquêtes
+
+```{r 308}
+g08<-ggplot(df,aes(x=age))+
+  geom_bar(fill="skyblue")+
+  labs(title= "Distribution par classe d'âge", caption="ESS2002-2018",y= "frequence",x="Vague d'enquête") 
+g08
+```
+
+Avec quelques améliorations  : contôle de la couleurs des barres, ajout des % et pivot pour une meilleure lecture.
+
+
+```{r 309}
+foo<-df %>%
+  filter(!is.na(age))
+
+g10<-ggplot(foo,aes(x=age, y = prop.table(stat(count)),label = scales::percent(prop.table(stat(count)))))+
+  geom_bar(aes(fill = age)) +  
+  coord_flip()+ 
+  labs(title= "Répartition de la population par classe d'âge", caption="ESS2002-2018",y= "%",x="classes d'age") +
+  scale_y_continuous(labels = scales::percent)+ #contrôle de l'échelle des % et du format
+  scale_fill_brewer()+
+  geom_text(stat = 'count',position = position_dodge(.9),  hjust = 1, size = 3)
+
+
+g10
+```
+
+si on tient au diagramme en secteur
+
+
+```{r 310}
+foo<-df %>%filter(!is.na(age))
+g10<-ggplot(foo,aes(x="", y = prop.table(stat(count)),label = scales::percent(prop.table(stat(count)))))+
+  geom_bar(aes(fill = age)) +  
+  labs(title= "Répartition de la population par classe d'âge", caption="ESS2002-2018",y= "%",x="classes d'age") +
+  geom_text(stat = 'count',position = position_dodge(.9),  hjust = 1, size = 3) + 
+  coord_polar("y", start=0)
+
+
+
+g10
+```
+https://cran.r-project.org/web/packages/treemapify/vignettes/introduction-to-treemapify.html
+
+si on tient au diagramme en cercle, autant opter pour un treemap avec la bibliothèque treemapifi
+
+
+```{r 311}
+library(treemapify)
+tree1<-df %>% 
+  mutate(n=1)%>%group_by(age) %>% 
+  summarize(n=sum(n)) %>%
+  filter(!is.na(age))
+
+g11 <- ggplot(tree1, aes(area = n, fill=n),label=age) +
+  geom_treemap() +
+  geom_treemap_text(aes(label=age),colour = "white", place = "centre",grow = FALSE)+
+  labs(title= "Répartition de la population par classe d'âge", caption="ESS2002-2018",y= NULL,x=NULL) 
+
+g11
+
+
+```
+
+
+<!--chapter:end:03-GGplotUnivar.Rmd-->
+
+# Analyse bi variée
+
+
+
+Comme son nom l'indique, il s'agit d'examiner la relation entre deux variables et d'étudier leur distribution conjointe. On distinguera 3 situations  et on examinera pour chaune les modes de représentations graphiques ainsi que les tests associés qui permette de s'assurer que la relation apparente est effective. 
+
+a) Deux variables quantitatives : scatterplot et corélations
+b) deux variable qualitatives : tableau croisé et test du chi2
+c) une variable quanti et une variable quali. Compariaons de moyennes et ANOVA
+
+a) par comparer des distribution de plusieurs groupes (variables catégorielles)
+b) par comparer des moyennes d'une variable dépendante en fonction de plusieurs variables indépendantes catégorielle
+d) mesurer l'association entre deux variables qualitatives
+
+
+## Diagrammes xy - la magie des corrélations 
+
+
+Venons en à analyser les relations entre deux variables quantitatives. 
+
+
+```{r 412}
+foo<-df %>%
+  filter(cntry=="FR" & Year=="2018") #selection de l'echantillon
+
+g31<- ggplot(foo, aes(x= trust_interpersonnel,y=trust_institut)) +
+  geom_point( size=0.1)
+     
+g31
+                  
+```
+
+Ce graphe est peu clair, il y a trop de points qui prennent des valeurs discrètes. Une astuce est de donner une position aléatoire pour sur disperser, on fait mieux apparaitre la densité de points. On ajoute la représentation de deux courbe d'ajustement, l'une linéraire et l'autre non linéaires.
+ 
+Mais en attendant en voici un calcul élémentaire. 
+
+le calcul de la variance
+
+$${SS}_{xx} = \sum (x - \bar{x})^2 = \sum x^2 - \frac {(\sum x)^2}{n}$$
+le calcul de la covariance
+
+$${SS}_{xy} = \sum (x - \bar{x})(y - \bar{y}) = \sum xy - \frac {(\sum x)(\sum y)}{n}$$
+et la corrélation qui est le rapport de la covariance sur la racine carrée du produit des variances de x et y.
+
+
+$$r = \frac {{SS}_{xy}}{\sqrt {{SS}_{xx}{SS}_{yy}}}$$
+ 
+La corrélation est de l'ordre d'un peu plus de 0,40 ce qui est assez élevé mais laisse une certaine indépendance des variables. Elle désignent des objets liés mais distinct. On peut tester l'hypothèse qu'en réalité cette corrélation est nulle. Le test conduit au rejet de l'hypothèse nulle de manière très nette, compte-tenu de l'échantillon l'intervalle de confiance est compris entre 0.36 et 0.44.
+
+```{r 414}
+#psych
+r<-cor.test(foo$trust_interpersonnel, foo$trust_institut) #le test vient du package psych
+r
+rp<-round(r$estimate,3)
+rp
+```
+
+
+Améliorons le graphe On peut souhaiter ajouter une droite des moindre carrés (calculée pour chaque vague d'enquête pour évaluer la stabilité de la relation dans le temps). Les lignes sont parallèles, la corrélation ne change pas dans le temps, c'est une relation stable. Les deux formes de confiance vont dans le meme sens. On verra dans un autre chapitre comment calculer ces droites de corrélations. 
+
+
+
+```{r 415}
+library(ggExtra)
+g32<-ggplot(foo, aes(x= trust_interpersonnel,y=trust_institut)) +
+  geom_point(position = "jitter", size=0.1, color="grey")+
+  geom_smooth(method="lm", se=TRUE) +
+  geom_smooth(method="gam",color="red")     +
+  labs(title = "Relation entre confiance \ninstitutionnelle et interpersonnelle", 
+       subtitle = paste("r de pearson: ",rp ),
+       x= "Confiance interpersonnelle",
+       y=" Confiance institutionnelle")
+
+ggMarginal(g32  ,type = "density", fill = "Royalblue1", alpha=.5)
+  
+```
+
+
+
+Une autre façon de représenter est celle de carte de densité de probabilité.
+
+```{r 416}
+
+g32<-ggplot(foo, aes(x= trust_interpersonnel,y=trust_institut)) +
+  geom_point(position = "jitter", size=0.1, color="grey")+geom_density2d()+
+  labs(title = "Relation entre confiance institutionnelle et interpersonnelles", subtitle = paste("r de pearson: ",rp ))
+  
+g33<-ggplot(foo, aes(x= trust_interpersonnel,y=trust_institut)) +
+  geom_density2d_filled(aes(fill = ..level.., color = ..level..),
+    contour_var = "density")+
+  labs(title = "Relation entre confiance institutionnelle et interpersonnelles", subtitle = paste("r de pearson: ",rp ))+theme(legend.position = "none")
+  
+
+plot_grid(g32, g33, labels = c('A', 'B'), label_size = 12)
+
+```
+
+
+## Comparer les distributions et des moyennes
+
+Dans notre base on a pris les données de l'Allemagne et de la France. On va comparer leur distribution. Et tant qu'à faire, puisque qu'on a deux variables, on va faire deux comparaisons : par pays et par type de confiance.
+
+
+A cette fin, nous construisons un tableau de données spécifique.
+
+```{r 417}
+#on recode en facteur la variable
+
+foo <- df %>% 
+  dplyr::select(cntry,trust_institut, Year,trust_interpersonnel) %>%
+  filter( Year=="2018") %>% 
+ dplyr::select(-Year)%>%
+ drop_na() %>%
+  gather(variable, value, -cntry) #attention plutôt utiliser pivot_longer
+
+head(foo)
+
+```
+
+Pour la représentation, en plus de la représentation en terme de densité, on va choisir une méthode de violon et de boxplot. On utilise une couche de "facetting" pour éclater ainsi la distribution des deux variables selon un critère de pays.
+ 
+```{r 418}
+#on peut utiliser "facet"
+g20<-ggplot(foo,aes(x=value))+ geom_density(binwidth=10, fill="pink")+ facet_grid(cntry~variable)+   
+  labs(title= "Confiance institutionnnelle", caption="ESS2002-2018",y= "frequence",x="Confiance")
+g20
+
+g21<-ggplot(foo,aes(x=variable, y=value))+ 
+  geom_violin( fill="pink") + 
+  geom_boxplot(width=0.1)+
+  facet_grid(cntry~.)+   
+  labs(title= "Confiance institutionnnelle", caption="ESS2002-2018",y= "frequence",x="Confiance")
+g21
+```
+
+
+
+### Comparaison de moyennes
+
+Comparer des distributions est une étape initiale nécesséaire, mais en général on sera plutôt intéresser de comparer des moyennes. Par exemple, on souhaiterais savoir si les degrés de confiances institutionnnelle et interpersonnelles varient en France selon les situations de revenu.  
+
+Calculons d'abord ces moyennes avec la fonction group_by et summarise. 
+
+
+```{r 419}
+df_wave<-df %>% filter(cntry=="FR" & Year=="2018") %>%
+  group_by(revenu) %>% 
+  summarise(trust_interpersonnel=mean(trust_interpersonnel, na.rm=TRUE),
+            trust_institut =mean(trust_institut, na.rm=TRUE)) %>%
+  filter(!is.na(revenu)) %>%                                              #filtrer les valeurs manquantes
+  gather(variable, value, -revenu)                                        #fichier long ( pivot longer is better)
+head(df_wave)
+
+```
+
+Représentons ces moyennes graphiquement avec un geom_bar.
+
+```{r 0420}
+
+g06a<-ggplot(df_wave,aes(x=revenu,y=value, group=variable))+
+  geom_bar(stat="identity",aes(fill=variable), position =position_dodge())+            #dodge pour mettre les barres l'une à côté de l'autre
+  labs(title= "Confiance institutionnnelle", caption="ESS2002-2018",y= "frequence",x="Niveau de Confiance")+
+  coord_flip()
+
+g06a
+
+```
+
+On a une solution mais pas la meilleure, on perd l'idée de variance et ce serait bien d'ajouter des barres d'intervalle de confiances , un diagramme en lignes serait plus élégant. On en profite pour corriger l'aspect des labels peu lisibles en les inclinants, et à choisir une échelle qui omettent les valeur supérieur à 70 et inférieure à 30 pour donner une vision plus respectueuses de la totalité de l'échelle qui va de 0 à 100. 
+
+Au passage on emploie à nouveau cowplot pour combiner les graphes, et ici plus précisément partager la légende des deux graphiques.
+
+On observera que si le niveau de confiance diminue avec le revenu, la confiance interpersonnelle est plus forte, et de manière parallèle, à la confiance institutionnelle. On remarquera enfin que c'est pour les revenu les plus faibles que l'estimation est la plus imprécise ou la variance la plus grande. 
+
+```{r 0422}
+df_wave2<-df %>% 
+  filter(cntry=="FR" & Year=="2018")%>%
+  group_by(revenu) %>% 
+  mutate(n=1) %>%
+  summarise(trust_interpersonnel_se=sd(trust_interpersonnel, na.rm=TRUE), #on calcule l'écartype des deux variables
+            trust_institut_se =sd(trust_institut, na.rm=TRUE),
+            n=sum(n),
+            trust_interpersonnel_se= 2*trust_interpersonnel_se/sqrt(n), # on calcule l'erreur type d'échantillonnage
+            trust_institut_se=2*trust_institut_se/sqrt(n)
+            ) %>% dplyr::select(-n) %>%
+  filter(!is.na(revenu)) %>% 
+  gather(variable, value, -revenu) %>% #on passe en format long
+  dplyr::select(-revenu,-variable)%>%
+  rename(se=value)
+  
+df_wave3<-cbind(df_wave,df_wave2) #on concatène les moyennes et les erreurs types
+
+#on peut enfin produire le graphique
+
+g06a<-ggplot(df_wave3,aes(x=revenu,y=value, group=variable))+
+  geom_line(stat="identity",aes(color=variable), size=1.5)+ 
+  geom_errorbar(aes(ymin=value-se, ymax=value+se, color=variable), width=.2,position=position_dodge(0))+
+  labs(title= "Confiance et revenu",y= "Moyenne",x=NULL)+
+  theme(axis.text.x = element_text( angle=45, hjust =1)) #on controle l'angle et la position horizontale du label
+
+  
+g06b<-ggplot(df_wave3,aes(x=revenu,y=value, group=variable))+
+  geom_line(stat="identity",aes(color=variable), size=1.5)+ 
+  geom_errorbar(aes(ymin=value-se, ymax=value+se, color=variable), width=.2,position=position_dodge(0))+
+  ylim(0,100)+
+  labs(title= "",y= "Moyenne",x=NULL)+
+  theme(axis.text.x = element_text( angle=45, hjust =1)) #on controle l'angle et la position horizontale du label
+
+prow <- plot_grid(
+  g06a + theme(legend.position="none"),
+  g06b + theme(legend.position="none"),
+  align = 'vh',
+  labels = c("A", "B", "C"),
+  hjust = -1,
+  nrow = 1
+)
+# extract a legend that is laid out horizontally
+legend_b <- get_legend(
+  g06a + 
+    guides(color = guide_legend(nrow = 1)) +
+    theme(legend.position = "bottom")
+)
+
+# add the legend underneath the row we made earlier. Give it 10%
+# of the height of one plot (via rel_heights).
+plot_grid(prow, legend_b, ncol = 1, rel_heights = c(1, .1))
+
+```
+
+
+La visualisation est utile, encore faut-il qu'on soit bien certain que les variations ne soit pas le produit du hasard, des fluctuations d'échantillonnage. Si en moyenne la perception du pouvoir d'achat est associée à des moyennes de confiance décroissantes, les différences observées sont-elle significatives? Dans les représentations précédentes c'est le choix de l'échelle qui oriente l'analyse. 
+
+On a un besoin d'un test plus objectif. Celui est le très classique test d'analyse de variance (ANOVA).
+
+Celui-çi est le test d'analyse de variance qui consiste à comparer la variance à l'intérieur des groupes ( intra), et la variance entre les moyennes des groupes (inter ou between). 
+
+On note qu'ici on introduit la méthode flextable pour présenter des tableaux au formats scientifique. L'astuce ici est d'utiliser aussi xtable.
+
+```{r 0423}
+foo<-df %>% 
+  filter(cntry=="FR" & Year=="2018") %>% drop_na() #selection des données
+
+fit<-lm(trust_institut~revenu, foo) #calcul du modèle linéaire
+
+anova(fit) #test d'analyse de variance
+
+library(xtable) #xtable transforme en table certains type d'objet dont les résultats de l'anova
+ft <- xtable_to_flextable(xtable(anova(fit)), hline.after = c(0,2)) #la fonction permet d'exploiter flextable.
+ft
+```
+
+
+### Deux variables qualitatives
+
+
+L'étude de la relation éventuelle entre deux variables qualitative s'apprécie traditionnellement par une méthode de tableau croisé. 
+
+
+#### Tableau croisé
+
+Pour calculer le tableau croisé on utilise la fonction très simple  `table` et la fonction `prop.table` 
+
+```{r 0424}
+t<-table(foo$revenu,foo$habitat)
+t
+prop.table(t,2)
+
+```
+
+Mais ce n'est pas esthétique,  avec la fonction  `proc_freq` de flextable on obtient une meilleure présentation. Elle nous donne en peu de mots les effectif par cellule, les pourcentages en lignes, et en colonnes.
+ 
+```{r 0425}
+
+ft1<- proc_freq(foo, "revenu", "habitat", include.table_percent = FALSE,
+                include.row_percent = FALSE, include.column_total = FALSE,
+  include.column_percent = TRUE)
+ft1
+ft2<- proc_freq(foo, "revenu", "habitat", include.table_percent = FALSE,
+                include.row_percent = TRUE,
+  include.column_percent = FALSE)
+ft2
+
+```
+
+
+
+#### le valeureux chi²
+
+Le test du chi2 s'appuie sur une idée très simple qui de fait est un théorème : Si deux variables X et Y sont indépendantes, la fréquence de leur combinaison est le produit des fréquences marginales. 
+
+On peut donc sur cette base, calculer l'effectif attendu (expected frequency) puis le comparer à ce qu'on a observé pour chacune des cellules du tableau. On somme enfin ces écarts. 
+
+
+
+$$\chi^2 = \sum \frac {(O_{ij} - E_{ij})^2}{E_{ij}}$$
+
+Naturellement , une même valeur de cette quantité pour un petit tableau( 2x2) n'a pas la même signification que si le tableau est grand( par ex 20x 10). On l'appréciera donc en fonction des degrés de liberté (n-1 x m-1).
+
+Le test proprement dit consiste à examiner quelles sont les chances qu'on obtienne la valeur du chi2 calculé, pour un nombre de degré de liberté donné. Si cette probabilité est faible on rejetera l'hypothèse d'indépendance des deux variables. 
+
+Avec r la fonction chsq.test nous simplifie
+
+```{r 0426}
+
+chi2<-chisq.test(t)
+chi2
+
+```
+
+L'objet chi2 est une liste
+
+
+```{r 0427}
+
+# On isole les éléments qui nous intéresse
+
+#library()
+chi<-round(chi2$statistic,2)
+p<-round(chi2$p.value,3)
+V<-cramerV(t, digit=3)
+
+```
+
+
+
+#### diagramme en mosaique  
+
+Le diagramme en mosaique détermine la largeur des barres en fonction de l'effectif de la variable en abcisse et leur hauteur en fonction de la variable en ordonnée. Les couleurs permettent de mieux comparer. 
+
+On s'aperçoit ici que les plus à l'aise avec leur revenu sont proportionnellement plus nombreux dans les grandes villes, et que ceux qui se débrouille sont plus fréquents dans les campagnes.
+
+```{r 0428}
+library(ggmosaic)
+g1 <- ggplot(data = foo) +
+  geom_mosaic(aes(x=product( revenu ,habitat), fill = revenu))+  
+  theme(axis.text.x = element_text(angle = 45, hjust = -0.1, vjust = -0.2))+ 
+  theme(legend.position = "none")+
+  labs(title="Statut vaccinal \npar genre", 
+       subtitle=paste0("chi2 =",chi, " p = ", p, " - V : ", V))+    
+  scale_fill_brewer(palette = "RdYlGn", direction = -1) 
+
+g1
+
+```
+
+#### les chi2s partiel et des cartes de chaleur.
+
+
+Une carte de chaleur représente une grandeur par un gradient de couleur pour chaque cellule définie par des variable x et y. 
+
+Faisons un premier essai pour représenter les effectifs, plutôt qu'avoir un tableau de nombres on va obtenir un tableau de couleurs. 
+
+L'arbre qui apparait en ligne et en colonne correspond au résultat d'une classification hiérarchique que nous développons dans le chapitre X. 
+
+
+```{r 0429}
+
+library(pheatmap)
+library(viridis)
+
+table2<-as.data.frame(t) %>%
+  pivot_wider(names_from = Var1, values_from = Freq) %>%
+  column_to_rownames( var = "Var2")
+pheatmap(table2 , color = rocket(10,direction =-1))
+
+```
+
+On utilise la même technique mais en représenant une grandeur différentes : les tests du chi2 partiels, pour apprécier les sous ou les sur-représentation. 
+
+
+
+```{r 0430}
+library(RColorBrewer)
+chi2df<- as.data.frame(chi2$stdres)
+
+table2<-chi2df %>% 
+  pivot_wider(names_from = Var1, values_from = Freq) %>%
+  column_to_rownames( var = "Var2")
+pheatmap(table2 , color = brewer.pal(n = 9, name = "RdBu"))
+
+
+```
+
+#### Les treemaps, c'est merveilleux
+
+D'autre graphiques et des emboitements 
+
+
+```{r 0431}
+library(treemapify)
+tree1<-df %>% mutate(n=1)%>%group_by(cntry,genre,habitat) %>% summarize(n=sum(n),mean=mean(trust_interpersonnel, na.rm=TRUE))
+
+g10 <- ggplot(tree1, aes(area = n, fill=genre,subgroup=cntry)) +
+  geom_treemap() +   
+  geom_treemap_text(aes(label=habitat),colour = "white", place = "centre",grow = FALSE)+
+      geom_treemap_subgroup_text(color="white",grow = FALSE)+
+  geom_treemap_subgroup_border()
+g10
+
+
+```
+
+
+
+
+
+
+<!--chapter:end:04-GGplotBivar.Rmd-->
+
+# Analyse graphique multivariée
+
+Dans ce chapitre, on généralise à des ensembles de variables.
+
+
+ 
+## La confiance institutionnelle, en détail
+
+On veut reprénter 6 variables, correspondant à 5 types d'habitats et 2 pays. 
+
+
+
+```{r 0501}
+df<-readRDS("./data/dfTrust.rds)")
+
+
+rad<-df %>% 
+  group_by (habitat,cntry) %>% 
+  summarize(Partis=mean(Partis, na.rm=TRUE),
+  Parlement=mean(Parlement, na.rm=TRUE),
+  Politiques=mean(Politiques, na.rm=TRUE),
+  Police=mean(Police, na.rm=TRUE),
+  Justice=mean(Justice, na.rm=TRUE),
+  NationsUnies=mean(NationsUnies, na.rm=TRUE),
+  ParlementEurop=mean(ParlementEurop, na.rm=TRUE)) %>% 
+  filter(!is.na(habitat)) %>%
+  gather(variable, value, -habitat, -cntry)
+
+ggplot(rad, aes(x=reorder(variable, value),y=value, group=habitat))+
+  geom_line(aes(color=habitat), size=2)+
+  facet_grid(.~cntry) +coord_flip()+
+  scale_color_brewer(type="div",palette=3)+labs(title= "Les éléments de la confiance institutionnelle", caption="ESS2002-2018",y= "confiance (de 1 à 10)",x="institutions") 
+
+```
+
+
+Une autre variante qui donne l'évolution de l'évolution de les éléments de la confiance institutionnelle 
+
+
+```{r 0503}
+rad<-df %>% 
+  group_by (Year,cntry) %>% 
+  summarize(Partis=mean(Partis, na.rm=TRUE),
+  Parlement=mean(Parlement, na.rm=TRUE),
+  Politiques=mean(Politiques, na.rm=TRUE),
+  Police=mean(Police, na.rm=TRUE),
+  Justice=mean(Justice, na.rm=TRUE),
+  NationsUnies=mean(NationsUnies, na.rm=TRUE),
+  ParlementEurop=mean(ParlementEurop, na.rm=TRUE)) %>% 
+  gather(variable, value, -Year, -cntry)
+
+ggplot(rad, aes(x=Year,y=value, group=variable))+
+  geom_line(aes(color=variable), size=1.2)+
+  facet_wrap(.~cntry, nrow=1) +
+  scale_color_brewer(palette="Spectral")+labs(title= "Les éléments de la confiance institutionnelle", caption="ESS2002-2018",y= "confiance (de 1 à 10)",x="institutions") 
+
+```
+
+La différence entre les deux pays est claire, la rupture est accusée plus fortement en France qu'en Allemagne. L'explication n'est sans doute pas culturelle mais démographique, un coup d'oeil à la carte des densité permet de comprendre mieux : https://www.populationdata.net/cartes/allemagne-france-densite-de-population-2011/.
+ 
+
+On pourra tenté un graphe en radar. Mais il n'est pas si convaincant.  
+
+```{r 0504}
+library(fmsb)
+
+rad<-df %>% filter(cntry=="FR") %>%
+  group_by (habitat) %>%
+  summarize(Partis=mean(Partis, na.rm=TRUE),
+  Parlement=mean(Parlement, na.rm=TRUE),
+  Politiques=mean(Politiques, na.rm=TRUE),
+  Police=mean(Police, na.rm=TRUE),
+  Justice=mean(Justice, na.rm=TRUE),
+  NationsUnies=mean(NationsUnies, na.rm=TRUE),
+  ParlementEurop=mean(ParlementEurop, na.rm=TRUE)) %>% 
+  filter(!is.na(habitat)) %>% 
+  dplyr::select(-habitat)
+
+#on doit indiquer les valeurs minimale et maximale - la fonction rep permet de repeter (ici 7 fois pour les 7 variables/col)
+data <- rbind(rep(7,7) , rep(3,7) , rad)
+#l'autre method c'est ce choisir maxmin=FALSE
+
+#rownames(rad) <- c("big city", "suburbs" ,"town","village", "countryside")
+radarchart(rad, axistype=0, seg=4, title="Moyenne par institution", maxmin=FALSE)
+legend(x=0.7, y=1, legend = rownames(rad), bty = "n",text.col = "grey", cex=1.2, pt.cex=3)
+```
+
+
+
+## Table de corrélation
+
+Comparer les moyennes est une chose, on souhaiter en plus savoir quelle structure de corrélation les caractérisent. Rien de plus simple
+
+
+
+```{r 0505}
+library(ggcorrplot)
+df<-readRDS("./data/dfTrust.rds)")%>%filter(Year==2018)
+
+foo<-df %>% dplyr::select(NationsUnies,ParlementEurop, Parlement, Justice, Police, Politiques, Partis) %>% 
+  drop_na()
+r<-cor(foo)
+
+ggcorrplot(r, hc.order = TRUE, type = "lower",
+   lab = TRUE)
+
+g<-paste0("./plot/g1",".jpg")
+ggsave(g,plot=last_plot(), width = 27, height = 19, units = "cm")
+
+
+```
+
+
+
+## Un cas plus complexe : présidentielle2020
+
+
+Nsppolls cumulent les sondages publiés des grands instituts. On utilise ces données , ainsi qu'une boucle, pour explorer différents paramètre d'un modèle de lissage. 
+
+Le but : mieux percevoir les tendance par une sorte de méta-analyse des différents sondages :
+
+
+## une boucle pour produire de multiple graphe en variant un paramètre
+
+
+```{r 0508}
+library(lubridate)
+alph<-.5
+
+for (alph in seq(from=0, to= 1, by=.05)){
+df_pol <- read_delim("https://raw.githubusercontent.com/nsppolls/nsppolls/master/presidentielle.csv", 
+                     delim = ",", escape_double = FALSE, trim_ws = TRUE)%>%
+  filter(tour=="Premier tour") %>%filter(candidat=="Eric Zemmour"|
+                                           candidat== "Marine Le Pen"|
+                                           candidat== "Emmanuel Macron"|
+                                           candidat== "Jean-Luc Mélenchon"|
+                                           candidat== "Yannick Jadot"|
+                                           candidat== "Valérie Pécresse"| 
+                                           candidat=="Fabien Roussel"|
+                                           candidat=="Anne Hidalgo") %>%
+  filter(fin_enquete>ymd("2022-01-09")) # on commence en septembre , octobre est-il meilleur ?
+
+
+table(df_pol$candidat)
+SensiP1<-c("pink", "orange", "gray20", "red","firebrick", "Royalblue", " skyblue", "Chartreuse")
+
+ggplot(df_pol, aes(y=intentions, x=fin_enquete))+
+  geom_point(aes(color=candidat), size=.5, alpha=1-alph)+
+  geom_smooth(span = alph, aes(col=candidat,fill=candidat), alpha=0.2)+
+  scale_color_manual(values=SensiP1)+  
+  scale_fill_manual(values=SensiP1)+ 
+  labs(title= "Evolution des intentions de vote #présidentielle2022 1er tour",
+       subtitle =paste("Lissage méthode loess. alpha=",alph, " - ci=95%"),
+       caption = "data @nsppolls viz @benavent",
+       x=NULL)+theme_minimal()+scale_x_date(date_breaks = "1 month", date_minor_breaks = "1 week",
+             date_labels = "%B")
+
+sondage_nsppolls<-paste0("./nsppolls/sondage_nsppolls", alph*20, ".jpg")
+ggsave(sondage_nsppolls,plot=last_plot(), width = 27, height = 19, units = "cm")
+
+}
+
+
+n<-df_pol%>%
+  mutate(n=1)%>%
+  group_by(id)%>%summarise(n=sum(n))
+#nombre de sondage
+n<-nrow(n)
+```
+
+Pour créer le gif on emplie magick. On a pris soin de sauvegarder les graphes dans un répertoire propre, ça facilite la lecture en boucle et la fabrication du gif.
+
+
+
+```{r 0509}
+
+library(magick)
+
+#gif                                                     
+
+#on constitue une liste des noms des fichier *.jpg que l'on veut associer                                                     
+frames <- paste0("./nsppolls/","sondage_nsppolls", 0:20,".jpg")
+
+#on lit et on stoke dans m les images
+m <- image_read(frames)
+
+#on fabrique et on sauvergarde le gif
+m <- image_animate(m, fps=1)
+image_write(m, "./plot/sondages_lissage.gif")
+
+```
+
+### effet sondeur
+
+pour anticiper sur le chapitre suivant
+
+```{r 0510}
+foo<-df_pol%>%
+  dplyr::select(candidat, intentions, fin_enquete, echantillon,nom_institut)%>%
+  group_by(nom_institut, candidat)%>%
+  summarise(moy=mean(intentions, na.rm=TRUE),
+            std=sd(intentions, na.rm=TRUE))
+
+
+SensiP2<-c("gray90","gray20", "Royalblue", "skyblue", "orange", "yellow", "pink", "firebrick", "green")
+
+
+g<-ggplot(foo,aes(x=candidat,y=moy))+
+  geom_segment(aes(x = candidat, 
+                   y = -std+moy, 
+                   xend = candidat, 
+                   yend = std+moy, 
+                   color = nom_institut), size=1.2)+
+    geom_point(aes(color=nom_institut), size=2)+
+  scale_color_manual(values = SensiP2)+
+  theme_minimal()+
+  coord_flip()
+g
+```
+
+## Modéliser le biais du sondeur
+
+
+http://www.stat.yale.edu/Courses/1997-98/101/anovareg.htm
+
+
+
+```{r biais}
+df_pol$tps<-2
+df_pol$tps[df_pol$fin_enquete < ymd("2022-01-31")]<-1
+
+df_pol$tps[df_pol$fin_enquete > ymd("2022-03-01")]<-3
+
+df_pol$tps<- as.factor(df_pol$tps)
+
+fit1<- lm(intentions~candidat*tps,data=df_pol)
+anova(fit1)
+fit2<- lm(intentions~candidat*tps+candidat*nom_institut,data=df_pol)
+anova(fit2)
+anova(fit1,fit2)
+
+summary(fit1)
+summary(fit2)
+library(jtools)
+
+library(interactions)
+cat_plot(fit2, pred=candidat,modx= nom_institut, color.class="Spectral")+
+  scale_color_manual(values = SensiP2)+coord_flip()
+
+cat_plot(fit2, pred= tps,modx=candidat, color.class="Spectral", dodge.width=0)+
+  scale_color_manual(values = SensiP2)+geom_line(aes(color=candidat))
+
+```
+
+
+
+
+<!--chapter:end:05-GGplotMultvar.Rmd-->
+
+# Analyses factorielles
+
+
+
+## Origine et histoire
+
+
+Par analyse factorielle, on entend finalement un ensemble de méthodes dont l'objectifs est d'extraire d'un ensemble multivariée de données, un petit nombre de dimensions, les facteurs, qui rendent compte l'essentiel des variations. Elles partagent aussi une même structure mathématique qui permet de décomposer et de réduire une matrice de données en un ensemble de matrice de dimensions réduite.
+
+On peut en distinguer deux écoles, l'une alimentée par des questions de psychométrie a nourrit plusieurs decennies de recherche en traitant les tests psychométriques. L'autre française s'intéressent aux variables qualitatives, et a une perspective plus descriptive et représentationnelle. 
+
+
+### Une petite histoire de la psychométrie
+
+L'analyse factorielle trouve son origine, en psychologie, dans l'intuition que dans des épreuves multiples un facteur principal contrôle les variation des items (les performance à différents tests). Mais c'est avec Thurstone que l'idée prend toute son ampleur en permettant que plusieurs facteurs traduisent la structure de la matrice de corrélations entre les tests. Spearman, hotelling,.
+
+Dans le monde de la gestion et en particulier de la GRH et du marketing, largement inspirés par la psychologie et la psychologie sociale, ces méthodes se sont propagées et ont formalisé un processus d'étude largement fondé sur ces techniques. Il est bien connu par de processus de Churchill qui a synthésisé une manière de construire et de développé des instruments de mesure par questionnaire. C'est l' article de historique de Churchill ( ref).
+
+### L'école française de l'analyse des données appliquée aux sciences sociales
+
+Un personnage : Emile Benzekri
+
+Boudieu en premier applicateurs
+
+Une école Française : pagès, escoffier, morisseau, Husson a repris le flambleau en développant FactoMiner.
+
+Une série de logiciels : Alceste, Statitcf
+
+
+
+## Le modèle factoriel des tests psychologiques
+
+### Un peu de théorie
+
+La première historiquement est celle des psychologues et en particulier le modèle en terme de facteurs communs et spécifiques. Elle vise à partir de l'analyse d'une matrice de corrélation à identifier des éléments de structures sous-jascents.
+
+La structure du modèle factoriel peut être présentée de manière simple. On supposera que chaque variables observées peut être décrites comme composées de facteurs généraux ($F_{ik}$ ) et de facteurs spécifiques  $ \varepsilon_{i}$. Le modèle suppose ainsi que la valeur de l'individu i pour la variable j, dépend de k facteurs sous jascents, les facteurs communs, et d'un terme spécifique à l'item et à l'individus
+
+
+$$
+x_{ij}= a_{1j}F_{i1} + a_{2j}F_{i2} + \cdots + a_{jk}F_{ik}+\varepsilon_{ij}
+
+$$
+
+On peut représenter celà de manière plus graphique, en utilisant les conventions symboliques des modèles structurels qu'on examine dans le chapitre 9. On y verra d'ailleurs comment ce modèle peut être spécifié de manière confirmatoire.
+
+On remarquera dans cette structure que les facteurs peuvent être corrélés. 
+
+
+![Modèle Factoriel exploratoire - EFA](./Images/FA01.jpg)
+
+
+
+### L'estimation
+
+Certains lecteurs seront surpris de cette présentation, ils sont sans doute plus habitués à factoriser en employant une méthode de l' ACP. Effectivement cette méthode sur laquelle on va revenir avec plus de détail dans la seconde section de ce chapitre, est une des techniques qui permettent d'approcher le modèle théorique que l'on vient de présenter. Elle n'est pas la seule.
+
+L'estimation du modèle requierts deux décisions : l'une sur la méthode d'extraction des facteurs, et l'autres sur la méthode de rotation.
+
+les méthodes d'extraction
+
+ * ACP
+ * ML
+ * analyse en facteur principaux et spécifiques
+ 
+Les méthodes de rotation. 
+
+ * Varimax
+ * Promax
+ * Oblimin 
+ * ...
+ 
+ 
+ 
+
+### Ressources
+
+On utilise principalement le package  `psych` développé par Revelle et dédié à la psychométrie. Il couvre le plus complétement le champs de l'analyse factorielle et de la psychométrie.
+
+S'y ajoutent deux fonctions très utiles pour représenter le résultats des analyses sous une forme lisible et au standard des publications scientifiques. Elles utilisent les ressources de `flextable`.
+
+
+```{r 0601 }
+#library(corrplot)
+#library(psych)
+#library(flextable)
+
+
+# Une fonction utile pour créer 
+
+
+flex <- function(data, title=NULL) {
+  # this grabs the data and converts it to a flextbale
+  flextable(data) %>%
+  # this makes the table fill the page width
+  set_table_properties(layout = "autofit", width = 1) %>%
+  # font size
+  fontsize(size=10, part="all") %>%
+    #this adds a ttitlecreates an automatic table number
+      set_caption(title, 
+                  autonum = officer::run_autonum(seq_id = "tab", 
+                                                 pre_label = "Table ", 
+                                                 post_label = "\n", 
+                                                 bkm = "anytable")) %>%
+  # font type
+  font(fontname="Times New Roman", part="all")
+}
+
+# et une seconde fonction pour le tableaux des loadings
+
+
+fa_table <- function(x, cut) {
+  #get sorted loadings
+  loadings <- fa.sort(x)$loadings %>% round(3)
+  #supress loadings
+  loadings[loadings < cut] <- ""
+  #get additional info
+  add_info <- cbind(x$communality, 
+                    x$uniquenesses,
+                    x$complexity) %>%
+    # make it a data frame
+    as.data.frame() %>%
+    # column names
+    rename("Communality" = V1,
+           "Uniqueness" = V2,
+           "Complexity" = V3) %>%
+    #get the item names from the vector
+    rownames_to_column("item")
+  #build table
+  loadings %>%
+    unclass() %>%
+    as.data.frame() %>%
+    rownames_to_column("item") %>%
+    left_join(add_info) %>%
+    mutate(across(where(is.numeric), round, 3))
+}
+
+```
+
+L'objectif des méthodes d'analyses factorielles est de réduire un ensemble de variables à un petit nombre de dimensions qui résument l'essentiel de l'information.
+
+
+### Cas d'application
+
+Pour appliquer la méthode on va s'interesser à l'échelle des valeurs de kahle qui sont mesurée dan différents pays au cours des différentes vagues de l'enquête ESS? 
+
+Les variables mesurées sont un ensemble de 21 questions qui proposent des niveaux d'importances accordées à 21 questions, ou items, dont voici les formulation en anglais. Les répondants ont le choix sur une échelle de 0 à 10  qui va de "pas du tout important" à "très important".  On se concentre sur les observations de la dernière vague.
+
+Cette échelle a été développée par kahle.
+
+En voici les itms dans leur formulation anglaise.
+
+ * IPCRTIV Important to think new ideas and being creative
+ * IMPRICH Important to be rich, have money and expensive things
+ * IPEQOPT Important that people are treated equally and have equal opportunities
+ * IPSHABT Important to show abilities and be admired
+ * IMPSAFE Important to live in secure and safe surroundings
+ * IMPDIFF Important to try new and different things in life
+ * IPFRULE Important to do what is told and follow rules
+ * IPUDRST Important to understand different people
+ * IPMODST Important to be humble and modest, not draw attention
+ * IPGDTIM Important to have a good time
+ * IMPFREE Important to make own decisions and be free
+ * IPHLPPL Important to help people and care for others well-being
+ * IPSUCES Important to be successful and that people recognise achievements
+ * IPSTRGV Important that government is strong and ensures safety
+ * IPADVNT Important to seek adventures and have an exciting life
+ * IPBHPRP Important to behave properly
+ * IPRSPOT Important to get respect from others
+ * IPLYLFR Important to be loyal to friends and devote to people close
+ * IMPENV Important to care for nature and environment
+ * IMPTRAD Important to follow traditions and customs
+ * IMPFUN Important to seek fun and things that give pleasure
+
+
+
+
+```{r 0602}
+
+# On renomme les variables pour une meilleure lecture et on selectionne le tableau de données utile à l'analyse.
+
+df <- read_csv("./Data/ESS1-9e01_1.csv") %>%
+  rename(
+    V_creative=ipcrtiv,
+    V_richness= imprich,
+    V_justice =ipeqopt, 
+    V_admiration=ipshabt, 
+    V_security=impsafe, 
+    V_novelty=impdiff, 
+    V_conformism=ipfrule, 
+    V_openmindedness=ipudrst, 
+    V_modesty=ipmodst, 
+    V_fun=ipgdtim, 
+    V_autonomy=impfree, 
+    V_Care=iphlppl, 
+    V_Success=ipsuces,
+    V_Autority =ipstrgv, 
+    V_Adventures=ipadvnt,
+    V_wellbehavior=ipbhprp,
+    V_respect=iprspot,
+    V_loyalty=iplylfr,
+    V_environnement=impenv,
+    V_tradition=imptrad, 
+    V_pleasure=impfun)
+
+foo1<-df %>% filter(essround==9)%>%
+  dplyr::select(matches("V_.*"), cntry) %>% #notons la selection fondée sur des regex
+  drop_na()
+
+```
+## Examen de la matrice de corrélation
+
+Calculons la matrice de corrélation, et présentons là en organisant l'ordre des variables selon leur corrélation. A ce stade indiquons qu'il s'agit de mettre un ordre dans les variables, tel que des variables fortement corrélées soient adjascentes (on revient sur la méthode utilisée dans le chapitre suivant).
+
+On s'aperçoit qu'une structure émerge. Quatre groupes de variables peuvent être discernées:
+ * la jouissance
+ * le succès social
+ * l'ouverture aux autres
+ * la sécurité
+ 
+ Dans le filigrane de la matrice de corrélation, on devine une structure factorielle.
+ 
+
+```{r 0603b}
+
+foo<- foo1 %>% 
+  dplyr::select(matches("V_.*"))
+
+M = cor(foo)
+
+corrplot(M, method="circle", order="hclust",tl.cex = .7)
+
+```
+
+## Modèle factoriel
+
+Testons un modèle d'analyse factorielle à 4 dimensions. Nous l'augmentons d'un procédure de rotation oblimin pour un meilleur ajustement. 
+
+
+```{r 0604}
+
+fa <- fa(foo,4, rotate="oblimin")  #principal axis 
+
+fa_table(fa, .30)%>%
+  flex("A Pretty Factor Analysis Table")
+
+fa[["Vaccounted"]] %>%
+  as.data.frame() %>%
+  #select(1:5) %>% Use this if you have many factors and only want to show a certain number
+  rownames_to_column("Property") %>%
+    mutate(across(where(is.numeric), round, 3)) %>%
+    flex("Eigenvalues and Variance Explained for Rotated Factor Solution")
+
+
+
+```
+
+Le set de données que nous avons traité est composé de 15 échantillons venant d'autant de pays. Puisque nous avons réduits les 22 mesures initiales à 4 grands facteurs, il est temps d'analyser les différences entre les pays.
+
+On va d'abord récupérer les scores de chaque observation sur les quatre dimensions obtenues qu'on ajoute à notre fichier de travail pour récupérer la variable pays.
+
+
+```{r 0605, fig.width=10, fig.height=10}
+
+#récupérer les scores
+
+scores<-fa$scores
+scores<-as.data.frame(unclass(scores))
+
+#matcher pour récupérer la variable pays et renommer pour plus de lisibilité
+
+df_typo<-cbind(foo1, scores) %>% 
+  rename(F_Altruisme = MR1, 
+        F_Conservatisme=MR2,
+        F_Performance=MR4,
+        F_Hedonisme=MR3)
+
+# On calcule les scores moyens par pays et les erreurs d'échantillonage
+df_g <- df_typo %>% 
+  dplyr::select(matches("F_.*"), cntry)%>%
+  gather(variable, value,-cntry)%>%
+  mutate(n=1)%>%
+  group_by(variable,cntry)%>% 
+  summarize(mean=mean(value),
+            n=sum(n),
+            se=sd(value)/sqrt(n))
+
+#on représente les résultats
+
+ggplot(df_g,aes(x=cntry, y=mean))+
+  geom_bar(stat="identity",aes(fill=variable), size=1.5)+ coord_flip()+
+  geom_errorbar(aes(ymin=mean-se, ymax=mean+se), width=.2, position=position_dodge(.9)) +
+  scale_color_brewer(palette = "Set1")+
+  facet_wrap(vars(variable),ncol=2)
+
+
+```
+
+
+
+
+
+
+## L'analyse en composante principale
+
+L'ACP, dont l'optique est différente dans le sens où l'on cherche moins à rendre compte d'une structure sous-jascente à la matrice de corrélation , qu'à réduire l'information dans un espace limité.
+
+
+
+### le problème théorique
+
+De manière intuitive l'ACP est la technique qui permet de représenter un poisson, une structure, sous son jour le plus intelligible, c'est à dire celui qui magnifie ses variations.
+
+Examinons un poisson sous différentes projections. La première image rend mieux compte de la forme du poisson que la seconde, elle ne diffère que par la projection. De l'une à l'autre il n'y a qu'y rotation à 90°C vers la droite. C'est la même image, le même phénomène mais représenté selon deux perspectives, deux bases en terme de mathématiques. On comprend que pour représenter un objet au mieux dans un faible nombre de dimensions, il faut trouver la base vectorielle qui maximise les variations de taille. 
+
+résoudre ce problème est ce que fait l'ACP
+
+![Modèle Factoriel exploratoire - EFA](./Images/ACp_poisson.jpg)
+
+
+
+### Une représentation symbolique
+
+L'idée va donc être de décomposer une matrice de variance-covariance (ou de corrélation) en respectant une contraintes : faire en sorte que le maximum de variance soit capturée par la première dimension, puis par les suivantes successivement. La solution à ce problème se trouve dans la résolution d'un problème matriciel. Il faut procéder à un changement de base, autrement dit à un changement de référentiel.
+
+La matrice de variance-covariance, ou de corrélation, si on a, au préalable, centré et standardisé les valeurs des variables, est obtenue simplement en multipliant la matrice de données (individus x variable) par sa transposée. 
+
+$$
+\Sigma = XX^t
+$$
+Comme $\Sigma$ est symétrique, elle est diagonalisable et peut-être représentée par une matrice de score W et une matrice diagonale D. 
+
+
+$$
+\Sigma_{e} =WDW^T
+$$
+où D est la matrice diagonale des valeurs propres et W la matrice des composantes comprenant les j variables ( en ligne) et les k dimensions (en colonne).  L'équivalence suppose que le nombre de composantes est égal au nombre de variables initiales, Cependant l'usage conduit à ne retenir qu'un petit nombre de dimensions de telles sorte à ce que la différence entre $\Sigma$ et $\Sigma_{e}$ soit relativement petite. La matrice de score comprend autant de lignes que d'individus et de colonnes que de dimensions-sous-jascentes. 
+
+On remarquera que dans ce modèles on a autant de composantes que de variables, mais que ces dernières représentent une part décroissante de la variance. Certaines composantes n'ont pas de sens on se concentrera sur les premières rejoignant l'idée de l'analyse factorielle : peu de composantes, de facteurs, rendent compte des variations des données. 
+
+On restera cependant conscient que l'ACP n'est au fond qu'une manière de représenter les données, juste une projection. Ne retenir que les premières composantes va au-delà du modèle, c'est une démarche qui consiste à considérer que seules les premières composantes sont significatives, en apportant du sens, et les dernières peuvent être négligée. C'est une manière approximative de rejoindre le modèle factoriel, une solution simple pour en obtenir une solution.
+
+### Application
+
+En guise d'application on va utiliser un tout petit jeu de données issu de l'analyse précédente : le tableau des profils pays, sur les 21 valeurs de Kahle. Avec cette procédure d'aggrégation on réduit fortement la variance individuelle, pour ne garder que des différences en moyenne d'un pays à l'autre. 
+
+Le plus ici ne va plus être de comprendre la structure profonde des données, mais simplement de représenter ces différences dans un espace réduit. 
+
+```{r 0606b}
+
+foo<-foo1%>%
+  group_by(cntry)%>%  
+  summarise(across(V_creative:V_pleasure, ~ mean(.x, na.rm = TRUE)))
+#on note la fonction qui permet de résumer plusieurs variables à la fois
+X<- foo%>%
+  dplyr::select(-cntry)%>%
+  as.data.frame()
+rownames(X) <- foo$cntry
+
+```
+
+Plusieurs bibliothèque, en plus de la fonction de base princomp, propose une solution d' ACP. On choisit d'utiliser celle du package Factominer qu'on accompagne de la bibliothèque factoextra pour ses ressources graphiques. 
+
+Les résultats portent sur 3 éléments :  les valeurs propres de chacune des dimensions retenues, les coordonnées des vecteurs variables, et celles des points individus.
+
+
+```{r 0607}
+library("FactoMineR")
+library("factoextra")
+
+res.pca<-PCA(X, scale.unit = TRUE, ncp = 2, graph = FALSE)
+print(res.pca)
+
+x<-res.pca$eig
+```
+
+Le premier élément d'analyse et le graphe des éboulis ( ou scree plot) qui représentent les variances projetées sur chacune des composantes. Ici deux composantes représentent les deux tiers de la variance expliquée. 
+
+
+```{r 0608}
+
+fviz_screeplot(res.pca, ncp=21)
+
+
+```
+
+
+
+
+```{r 0609}
+
+library("corrplot")
+corrplot(res.pca$var$cos2, is.corr=FALSE, tl.cex = 0.8)
+
+fviz_pca_var(res.pca, col.var = "cos2",
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+             repel = TRUE # Évite le chevauchement de texte
+             )
+
+
+fviz_pca_ind(res.pca, col.ind = "cos2",
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+             repel = TRUE # Évite le chevauchement de texte
+             )
+
+### ce merveilleux bi plot
+
+fviz_pca_biplot(res.pca, col.ind = "cos2", labelsize = 3,
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+             repel = TRUE )# Biplot des individus et variables
+
+```
+
+
+## Une généralisation de l'ACP : l'AFC
+
+L'AFC trouve une application remarquable dans l'analyse de tableaux croisés. Elle est une méthode de réprésentation des profils lignes et colonnes:
+
+On s'aperçoit que deux analyses peuvent être menées : l'une sur les colonnes, et l'autres sur les lignes. Dans les deux cas cette analyse peut se faire en comparant les colonnes (lignes) selon la formule suivante
+
+$$
+d_{i,j}= (f_{.i}-f_{.j})^2
+$$
+L'idée maintenant est claire : on mène deux acp, en ligne et en colonne, et on projettent conjointement (  dans un même espace)
+
+```{r 0610}
+
+library(readr)
+BDCOM_2020 <- read_csv("Data//BDCOM/BDCOM_2020.csv") %>%rename(CODACT=CODE_ACTIVITE)
+BDCOM_2017_CODACT_OD <- read_delim("Data/BDCOM/BDCOM_2017_CODACT_OD.csv", 
+                                   delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+df<-BDCOM_2020%>%left_join(BDCOM_2017_CODACT_OD, by = "CODACT")%>%rename(ACT=27)
+t<-table(df$ARRONDISSEMENT,df$ACT )
+
+res.ca <- CA(t, 
+             graph = TRUE)
+
+plot(res.ca, autoLab = "yes")
+
+fviz_ca_biplot(res.ca, labelsize = 2, repel=TRUE)+
+  theme(text = element_text(size =7)) +xlim(-0.75, 1)+ylim(-.75,0.75)
+
+
+```
+
+règle d'interprétation
+
+ * le point (0,0) représente le baycentre du nuage de point,et donc l'invidu moyens
+ * les lignes/colonne les plus extcentrée sont les moins présentes, la distance d'une modalité d'une variable à une autres, indique la correspondance de ces deux modalités qui partagent les mêmes individus.
+ * l'inertie total est chi²/n et donc une véritable méthode : analyse de la décomposition du khi2.
+ 
+
+Dans notre exemple on note de suite les arrondissement 1 et 2 qui sont les plus proches de la catégorie commerce de gros.
+
+On note aussi une disposition linéiaire qui opposent les arrondisssement excentré, aux arrondissement du centre. Un univers commercial résidentiel vs un univers de transit (spectacles et grands magasins)
+
+
+### AFCM multiple
+
+Très rapidement la méthode a été appliquée à une généralisation des tableaux croisés : le tableau de burt, ou son équivalent : le tableau disjonctif complet.
+
+exemple
+
+La mise en oeuvre par factominer permet d'employer une techniques de représentation de variables complémentaires : elles n'interviennent pas dans le calcul de la configuration factorielles, mais leurs positions dans l'espace sont calculées comme le barycentre des individus qui possède le trait considéré. Leur projection a un rôle illustratif.
+
+```{r 0611}
+library(FactoMineR)
+table(df$ACT)
+foo<-df%>% dplyr::select(ACT, SURFACE, SITUATION, LIBACT, ARRONDISSEMENT)%>%
+  as.matrix()
+
+res<-MCA(foo,graph = FALSE,quali.sup=5)
+
+
+fviz_mca_var(res, labelsize = 2, repel=TRUE)
+
+```
+
+remarques complémentaires :
+ * pas de signification de l'inertie globale qui dépend de la structure du tableau ( nombres de variables et de leurs modalités)
+ 
+
+
+## Développements
+
+derrière les méthodes il y a un principe mathématique fondamental qui est au fondement de bien d'autres méthodes factorielles. C'est celle de la Singular Variance décomposition dont l'ACP est finalement un cas particulier. 
+
+
+### le SVD
+
+Le modèle mathématique fondamental
+
+décomposer une matrice en plusieurs matrices
+l'acp une application à une matrice de nature particulières : la matrice de covariance ou de corrélation si standardisée
+
+de nombreuses autres applications :
+
+ * à des matrices de comptage
+ * compression d'image
+ * information retrieval
+ 
+d'autres méthodes s'appuient sur ce principe fondamental, et permettent de traiter des données textuelle .
+
+On repporte le lecteur au chapitre X de Booh NLP.
+
+
+
+LSA
+NFM
+
+
+### ACM , analyse canonique , analyse discriminante
+
+Si ACP, AFC et AFCM ont pris le devant de la scène, bien d'autre méthodes analogues ont été développées 
+
+ * ACM
+ * Analyse canonique
+ * Analyse factorielle discriminante qui a perdu du terrain au profit du modèle de régression logistique.
+ 
+ 
+ 
+
+# En conclusion
+
+1) une idée essentielle : réduire de nombreuses variables à un petit jeu de variables synthétiques
+
+2) des méthode au coeur de l'analyse des données
+
+3) une autre idée essentielle : celle de vectoriser les données qu'on observe  
+
+
+
+
+<!--chapter:end:06-fa.Rmd-->
+
+# Clustering {#clus}
+
+L'objectif des méthodes de classification automatique est de regrouper des observations qui se ressemblent sur un ensemble multidimensionnel de caractéristiques.
+
+insérer image
+
+Dans ce chapitre nous examinons deux familles de méthodes qui le distingue par la procédure de calcul : hierarchique d'une part, non hiérarchique de l'autre. On garde pour le chapître suivant l'étude des modèles de décisions qui ont une longue et riche histoire en marketing et ont préparé le développement de certains modèles de machine learning.
+
+## Les méthodes hiérarchiques ascendantes
+
+Elles trouvent leur origine en biologie où dès les années 1930 Sokal et Sneath[@sneath_numerical_1973] ont proposé des méthodes pour analyser l'évolution des espèces. L'idée réside dans la comparison de specimens sur la base d'un certains nombre de caractéristiques, d'abord des caractères phénotypiques, puis dans ce domaine en s'appuyant sur les caractéristiques génétiques. Nous n'entrerons pas dans une discussion plus approfondis mais signalons que ces choix déterminent des méthodes et des hypothèses très différentes et largement débattues (cladistique etc)
+
+Prenons le cas de différences phénotypiques et le tableau suivant.
+
+tableau
+
+Le but du jeu est de regrouper successivement les spécimens en fonction de leur ressemblance. L'algorithme consiste simplement à 1) calculer toutes les ressemblances deux à deux et 2) à fondre en une classe les deux éléments qui se ressemble le plus. On réitère l'opération jusqu'à ce qu'on obtienne plus qu'une classe.
+
+Le résultat est une arborescence dont chaque noeud représente un regrouppement de classe à un certain niveau de distance.
+
+
+figure
+
+Leurs variétés dépend de deux paramètres :
+
+ * le choix de la mesure de dissimilarités : Une distance euclidienne ? Son carré ? Une distance binaire comme l'indice de Jaccard?
+ * le choix de la méthode d'agrégation : que choisit-on pour calculer la distance entre deux classes A et B : la plus grande des distances entre les éléments de A et ceux de B ? La plus petite ? La distance moyennes, la médiane ? 
+ 
+ 
+### Mise en oeuvre 
+
+On utilise l'enquête d'happydemics sur la période de fin mars.
+
+```{r 0810}
+
+df<-readRDS("./data/last.rds") %>%
+  filter(date2>=make_datetime(year=2022, month=3, day = 19))
+
+
+n_t<-nrow(df)
+
+period<-" apres le 19 mars"
+
+
+```
+
+Il y a un trick de traitement des données. La question QCM a été encodée en une colonne, ajoutant les chaines de caractère des 16 thématiques avec un séparateurs $ . 
+
+```{r 0811}
+
+foo <-as.data.frame(str_split_fixed(df$themes, "\\$",n=3)) # On splite la colonne thème en autant de thème possibles
+
+foo1<-cbind(df,foo)%>%
+  rename(V1=23, V2=24, V3=25) %>%
+  dplyr::select(id,V1,V2,V3)%>% 
+  pivot_longer(!id,names_to="rank",values_to="theme")%>% 
+  mutate(rank=ifelse(rank=="V1", 3,ifelse(rank=="V2", 2, ifelse(rank=="V3",1, 0)))) %>% #on recode les rangs par un facteur d'importance de à 0 à 3
+  filter(theme!="")%>%  
+  mutate(theme=str_trim(theme))%>%
+  mutate(r=as.numeric(rank))%>%
+  dplyr::select(-rank)
+
+
+n1<-nrow(df) # le nombre d'individus
+n2<-nrow(foo1) #le nombre de mentions
+
+```
+
+Dans une première étape faisons le bilan global 
+```{r 0812}
+
+#on calcule la proportion et la pénétration des items
+
+foo2 <-foo1%>% 
+  mutate(m=1)%>%
+  group_by(theme)%>%
+  summarise(frequence=sum(m),
+            proportion=frequence/n2,
+            penetration=frequence/n1)
+
+
+col<-c("#F1BB7B",
+       "#FD6467",
+       "#FD6467",
+       "#FD6467",
+       "#5B1A18",
+       "#5B1A18",
+       "#5B1A18",
+       "#F1BB7B",
+       "#FD6467",
+       "#F1BB7B",
+       "#F1BB7B",
+       "#F1BB7B",
+       "#F1BB7B",
+       "#5B1A18",
+       "#FD6467",
+       "#F1BB7B",
+       "#F1BB7B"
+       )
+
+brks<-c(0.1, 0.2, 0.3,0.4,0.5,0.6)
+ggplot(foo2,aes(x=reorder(theme, frequence), y=penetration))+
+  geom_bar(stat="identity", aes(fill=theme))+
+  coord_flip()+
+  scale_fill_manual(values=col)+
+  labs(title = "Pénétration des thèmes dans la population",
+       x=NULL, 
+       y= "% de la population", 
+       caption = "data @happydemics dataviz @benavent")+
+  theme_minimal()+
+  theme(legend.position = "none")+ 
+  scale_y_continuous(breaks = brks, labels = scales::percent(brks))
+
+
+ggsave(paste0("./plot/theme_",period,".jpg"),plot=last_plot(), width = 27, height = 17, units = "cm")
+
+```
+
+
+## segmentation simplifiée
+
+On commence va reconstruire un tableaux des individus x les thèmes. On garde les rangs comme indicateurs de l'importance .
+
+
+```{r 0813}
+
+foo3<-foo1%>%  
+  pivot_wider(names_from="theme", values_from="r") %>%
+  replace(is.na(.), 0)
+head(foo3, 8)
+
+```
+
+On calcule un tableau de distance et on performe la classification automatique. dans cet essai on tente un modèle à 8 groupes.
+
+
+```{r 0814}
+
+foo4<-foo3[,2:17]
+
+#distance
+d<-dist(foo4)
+
+#clustering
+h.D  <- hclust(d, method="ward.D")
+
+#dendogramme
+plot(h.D,  hang=-1)
+
+#identification des clusters
+rect.hclust(h.D , k = 8, border = 2:6)
+
+#attribution des clusters
+memb <- cutree(h.D, k = 8)
+
+#maj du fichier de données avec l'appartenace des individus aux groupes
+foo5<-cbind(foo4, memb)
+
+
+```
+
+Il reste à décrire les différents types sur les 16 variables qui les décrivent. On choisit une méthode de barre ordonnée avec un facetting par groupe.
+
+```{r 0815}
+
+foo6<-foo5 %>% 
+  group_by(memb) %>%
+  pivot_longer(-memb,names_to="Thèmes",values_to="Valeurs")%>%
+  group_by(memb,Thèmes)%>%
+  summarise(Valeurs=mean(Valeurs))
+
+foo6$group[foo6$memb==1]<-"multicritère"
+foo6$group[foo6$memb==2]<-"Santé/Educ"
+foo6$group[foo6$memb==3]<-"Pouvoir d'achat/nretraites"
+foo6$group[foo6$memb==5]<-"Immigration/nInsécurité "
+foo6$group[foo6$memb==4]<-"égalité h/F"
+foo6$group[foo6$memb==6]<-"Pouvoir d'achat/nSanté"
+foo6$group[foo6$memb==7]<-"Economie"
+foo6$group[foo6$memb==8]<-"Environnement"
+
+library(scales)
+brks<-c(0.5,1,1.5,2, 2.5,3)
+p2<- ggplot(foo6, aes(x=reorder(Thèmes, Valeurs), y=Valeurs))+
+  geom_bar(stat="identity",aes(fill=as.factor(Thèmes)))+
+  facet_wrap(vars(memb), ncol=4)+
+  coord_flip()+
+  scale_fill_manual(values=col)+
+  theme_minimal()+
+  scale_y_continuous(breaks=brks)+ 
+  theme(legend.position = "none", axis.text=element_text(size=7),axis.text.x=element_text(angle = 45, vjust = 0.5, size=2))+ 
+  labs(title = "Profils des segments\npar importance des thématiques", x=NULL, y="importance moyenne (de 0 à 3)") 
+
+p2
+
+library(wesanderson)
+seg_col<-wes_palette("Zissou1", 8, type = "continuous")
+n<-nrow(foo5)
+foo6<-foo5 %>% mutate(n=1) %>%
+  group_by(memb)%>%
+  summarise(freq=sum(n, na.rm=TRUE))%>% mutate( freq=freq/n)
+
+
+foo6$group[foo6$memb==1]<-"multicritère"
+foo6$group[foo6$memb==2]<-"Santé/Educ"
+foo6$group[foo6$memb==3]<-"Pouvoir d'achat/nretraites"
+foo6$group[foo6$memb==5]<-"Immigration/nInsécurité "
+foo6$group[foo6$memb==4]<-"égalité h/F"
+foo6$group[foo6$memb==6]<-"Pouvoir d'achat/nSanté"
+foo6$group[foo6$memb==7]<-"Economie"
+foo6$group[foo6$memb==8]<-"Environnement"
+
+
+p1<- ggplot(foo6, aes(x=group, y=freq))+
+  geom_bar(stat="identity", aes(fill=group))+
+  scale_fill_manual(values=seg_col) + 
+  theme_minimal()+ 
+  labs(title="Poids des segments", x=NULL, y="Proportion")+  
+  scale_y_continuous(breaks=brks,labels=percent)+  
+  theme(legend.position = "none")
+
+plot_grid(p1, p2, labels = c('A', 'B'), label_size = 12, ncol=1,rel_heights =  c(1, 2))
+
+ggsave("./plot/g_segment.jpg",plot=last_plot(), width = 27, height = 17, units = "cm")
+
+```
+
+
+
+
+
+## tableaux croisés de la typologie et des critères sociaux démos
+
+On revient à une approche descriptive, on croisant successivement notre variable typologie avec les critères socio-demo qui ont été mesurés dans l'enquête.
+
+( une boucle simplifierait ! )
+
+
+
+```{r 0817}
+
+
+df<-cbind(df,foo5)
+
+df$group[df$memb==1]<-"multicritère"
+df$group[df$memb==2]<-"Santé/Educ"
+df$group[df$memb==3]<-"Pouvoir d'achat/nretraites"
+df$group[df$memb==5]<-"Immigration/nInsécurité "
+df$group[df$memb==4]<-"égalité h/F"
+df$group[df$memb==6]<-"Pouvoir d'achat/nSanté"
+df$group[df$memb==7]<-"Economie"
+df$group[df$memb==8]<-"Environnement"
+
+
+foo<-df %>% 
+  group_by(group, Sensibilité) %>% 
+   summarize(n=n())%>%
+  mutate(prop=round(n/sum(n),3), cum=1 - (cumsum(prop)-prop/2))
+
+g01<-ggplot(foo,aes(x=group, y=prop, group=Sensibilité))+
+  geom_bar(stat="identity",aes(y = prop, fill=Sensibilité)) + 
+ scale_y_continuous(breaks = brks, labels = scales::percent(brks)) +
+  scale_fill_manual(values=SensiP2) + 
+  geom_text(aes(label = prop, y=cum),size=2,color="white", vjust = 0.5)+
+  coord_flip()+
+  labs(title = "Types d'attentes par sensibilité politique ", 
+       x=NULL, y=NULL,)+
+  theme_bw()+  theme(axis.text.x = element_text(size = 7), legend.text = element_text(size = 7)) 
+
+
+
+ggsave("./plot/g_segment01.jpg",plot=last_plot(), width = 27, height = 17, units = "cm")
+
+
+foo<-df %>% 
+  group_by(group, Age) %>% 
+   summarize(n=n())%>%
+  mutate(prop=round(n/sum(n),3), cum=1 - (cumsum(prop)-prop/2))
+
+g02<-ggplot(foo,aes(x=group, y=prop, group=Age))+
+  geom_bar(stat="identity",aes(y = prop, fill=Age)) + 
+ scale_y_continuous(breaks = brks, labels = scales::percent(brks)) +
+  scale_fill_brewer(palette="Spectral") + geom_text(aes(label = prop, y=cum),size=2,color="white", vjust = 0.5)+
+  coord_flip()+
+  labs(title = "Types d'attentes par classe d'âge ", 
+       x=NULL, y=NULL,)+theme_bw()  +
+  theme(axis.text.x = element_text(size = 7), legend.text = element_text(size = 7)) 
+
+
+
+ggsave("./plot/g_segment02.jpg",plot=last_plot(), width = 27, height = 17, units = "cm")
+
+
+foo<-df %>% 
+  group_by(group, Sexe) %>% 
+   summarize(n=n())%>%
+  mutate(prop=round(n/sum(n),3), cum=1 - (cumsum(prop)-prop/2))
+
+g03<-ggplot(foo,aes(x=group, y=prop, group=Sexe))+
+  geom_bar(stat="identity",aes(y = prop, fill=Sexe)) + 
+ scale_y_continuous(breaks = brks, labels = scales::percent(brks)) +
+  scale_fill_brewer(palette="Spectral") + geom_text(aes(label = prop, y=cum),size=2,color="white", vjust = 0.5)+
+  coord_flip()+  theme_bw()+
+  labs(title = "Types d'attentes par genre ", 
+       x=NULL, y=NULL,)+
+  theme(axis.text.x = element_text(size = 7), legend.text = element_text(size = 7))
+
+ggsave("./plot/g_segment03.jpg",plot=last_plot(), width = 27, height = 17, units = "cm")
+
+foo<-df %>% 
+  group_by(group, Education) %>% 
+   summarize(n=n())%>%
+  mutate(prop=round(n/sum(n),3), cum=1 - (cumsum(prop)-prop/2))
+
+g04<-ggplot(foo,aes(x=group, y=prop, group=Education))+
+  geom_bar(stat="identity",aes(y = prop, fill=Education)) + 
+ scale_y_continuous(breaks = brks, labels = scales::percent(brks)) +
+  scale_fill_brewer(palette="Spectral") + 
+  geom_text(aes(label = prop, y=cum),size=1.5,color="white", vjust = 0.5)+
+  coord_flip()+theme_bw()+
+  labs(title = "Types d'attentes par niveau d'éducation ", 
+       x=NULL, y=NULL,)+
+  theme(axis.text.x = element_text(size = 7), legend.text = element_text(size = 7)) 
+  
+
+
+ggsave("./plot/g_segment04.jpg",plot=last_plot(), width = 27, height = 17, units = "cm")
+
+
+plot_grid(g01, g02, g04,g03,  labels = c('A', 'B', 'C', 'D'), label_size = 11, ncol=2,rel_widths =  c(3, 2))
+
+ggsave("./plot/g_segment05.jpg",plot=last_plot(), width = 27, height = 17, units = "cm")
+
+
+```
+
+
+## AFCM pour une synthèse
+
+C'est le bon moment de donner une seconde illustration de l'utilité de l'AFCM. Pourquoi ne pas synthétiser en une carte l'ensemble des relations statistiques. 
+
+
+```{r 0820}
+library(FactoMineR)
+library(factoextra)
+X<-df %>% dplyr::select( group, Age, Sexe, Sensibilité, Situation2)
+res<-MCA(X, graph =FALSE)
+
+foo<-as.data.frame(res$var$coord) %>%
+  rownames_to_column(var="var")%>%
+  rename(dim1=2, dim2=3) %>% 
+  add_rownames(var = "rowname")
+
+foo$rowname<-as.numeric(foo$rowname) 
+foo<-foo %>%   mutate(label=ifelse(rowname<9, "groupe", ""))
+
+
+
+ggplot(foo, aes(x=dim1, y=dim2, label= var) )+
+  geom_point()+
+  geom_text(aes(label=var, color=label),size=3)+
+  theme_bw()+labs( title= "AFCM")
+  theme(legend.position = "none")
+
+```
+
+
+
+### Forces et limites
+
+ * forces : graphiques, complète
+ * limites : petite population
+ 
+ 
+
+## Les méthodes non-hiérarchiques
+
+La première d'entre elles est la méthode k-means dont le principe est très simple : plutôt que de calculer toutes les distances entre tous les objets, on va se concentrer sur les distances en k group supposés et les n individus. L'hyperparamètre est ici le nombre de groupes
+
+
+### principe
+
+
+### Application
+
+
+### Le problème de la détermination du nombre optimal de groupe
+
+ *  méthode du coude
+ *  méthode silhouette
+ *  gap statistics
+ 
+
+## Autres méthodes
+
+de nombreuses variantes sont disponibles
+
+ * mediane
+ * kernel
+ * les méthodes fuzzy : l'appartenance n'est pas exclusive mais probabilistique
+ * les méthode de classes latentes
+ * les méthodes de densités s'appuie sur l'idée que la continuité d'un groupe s'exprime en terme s de densités
+  ** paramètriques
+  ** non - paramètriques http://www.sthda.com/english/wiki/wiki.php?id_contents=7940
+  
+  : https://link.springer.com/referenceworkentry/10.1007%2F978-0-387-30164-8_211
+  
+## Conclusion
+
+<!--chapter:end:07-clustering.Rmd-->
+

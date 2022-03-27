@@ -1,0 +1,221 @@
+CODACT;LIBACT;TYPE;Libellé TYPE (local);Libellé activité niveau 3 (220 postes);Libellé activité niveau 2 (47 postes);Libellé activité niveau 1 (18 postes);Libellé activité niveau 0 (13 postes);Libellé activité niveau -1 (6 postes)
+GM101;Grand magasin;C;Commerce;Grand magasin;Grands magasins;Grands magasins;Grands magasins;Non alimentaire
+CA101;Charcuterie - Traiteur - Epicerie fine;C;Commerce;Charcuterie - Traiteur - Epicerie fine;Alimentaire spécialisé;Alimentaire;Alimentaire;Alimentaire
+CA102;Traiteur asiatique;C;Commerce;Traiteur asiatique;Alimentaire spécialisé;Alimentaire;Alimentaire;Alimentaire
+CA103;Boulangerie - Boulangerie Pâtisserie;C;Commerce;Boulangerie - Boulangerie Pâtisserie;Alimentaire spécialisé;Alimentaire;Alimentaire;Alimentaire
+CA104;Pâtisserie;C;Commerce;Pâtisserie;Alimentaire spécialisé;Alimentaire;Alimentaire;Alimentaire
+CA105;Chocolaterie - Confiserie;C;Commerce;Chocolaterie - Confiserie;Alimentaire spécialisé;Alimentaire;Alimentaire;Alimentaire
+CA106;Torréfacteur -  Commerce détail  thé et café;C;Commerce;Torréfacteur - Commerce détail thé et café;Alimentaire spécialisé;Alimentaire;Alimentaire;Alimentaire
+CA107;Vente de produits surgelés;C;Commerce;Vente de produits surgelés;Alimentaire spécialisé;Alimentaire;Alimentaire;Alimentaire
+CA108;Vente de fruits et légumes;C;Commerce;Vente de fruits et légumes;Alimentaire spécialisé;Alimentaire;Alimentaire;Alimentaire
+CA109;Boucherie - Boucherie-Charcuterie;C;Commerce;Boucherie - Boucherie-Charcuterie;Alimentaire spécialisé;Alimentaire;Alimentaire;Alimentaire
+CA110;Poissonnerie;C;Commerce;Poissonnerie;Alimentaire spécialisé;Alimentaire;Alimentaire;Alimentaire
+CA111;Commerce détail de boissons;C;Commerce;Commerce détail de boissons;Alimentaire spécialisé;Alimentaire;Alimentaire;Alimentaire
+CA112;Crèmerie - Fromagerie;C;Commerce;Crèmerie - Fromagerie;Alimentaire spécialisé;Alimentaire;Alimentaire;Alimentaire
+CA113;Glacier : vente à emporter et consommation sur place;C;Commerce;Glacier : vente à emporter et consommation sur place;Alimentaire spécialisé;Alimentaire;Alimentaire;Alimentaire
+CA114;Produits alimentaires spécialisés régionaux et étrangers;C;Commerce;Produits alimentaires spécialisés régionaux et étrangers;Alimentaire spécialisé;Alimentaire;Alimentaire;Alimentaire
+CA115;Produits alimentaires bio et nature;C;Commerce;Produits alimentaires bio et circuits courts;Alimentaire spécialisé;Alimentaire;Alimentaire;Alimentaire
+CA201;Monoprix;C;Commerce;Monoprix;Alimentaire généraliste;Alimentaire;Alimentaire;Alimentaire
+CA202;Supermarché classique;C;Commerce;Supermarché classique;Alimentaire généraliste;Alimentaire;Alimentaire;Alimentaire
+CA203;Supermarché discount;C;Commerce;Supermarché discount;Alimentaire généraliste;Alimentaire;Alimentaire;Alimentaire
+CA204;Supermarché spécialisé;C;Commerce;Supermarché spécialisé;Alimentaire généraliste;Alimentaire;Alimentaire;Alimentaire
+CA205;Alimentation générale de luxe > 300 m²;C;Commerce;Alimentation générale de luxe > 300 m²;Alimentaire généraliste;Alimentaire;Alimentaire;Alimentaire
+CA206;Hypermarché;C;Commerce;Hypermarché;Alimentaire généraliste;Alimentaire;Alimentaire;Alimentaire
+CA301;Alimentation générale  <120m²;C;Commerce;Alimentation générale <120m²;Alimentaire généraliste;Alimentaire;Alimentaire;Alimentaire
+CA302;Supérette  classique;C;Commerce;Supérette classique;Alimentaire généraliste;Alimentaire;Alimentaire;Alimentaire
+CA303;Supérette  discount;C;Commerce;Supérette discount;Alimentaire généraliste;Alimentaire;Alimentaire;Alimentaire
+CA304;Supérette  spécialisée;C;Commerce;Supérette spécialisée;Alimentaire généraliste;Alimentaire;Alimentaire;Alimentaire
+CB101;Haute couture - Créateurs;C;Commerce;Haute couture - Créateurs;Habillement;Equipement de la personne;Equipement de la personne;Non alimentaire
+CB102;Tailleur sur mesure;C;Commerce;Tailleur sur mesure;Habillement;Equipement de la personne;Equipement de la personne;Non alimentaire
+CB103;Vente et fabrication de tenues de mariées;C;Commerce;Vente et fabrication de tenues de mariées;Habillement;Equipement de la personne;Equipement de la personne;Non alimentaire
+CB104;Prêt-à-porter Femme;C;Commerce;Prêt-à-porter Femme;Habillement;Equipement de la personne;Equipement de la personne;Non alimentaire
+CB105;Prêt-à-porter Homme;C;Commerce;Prêt-à-porter Homme;Habillement;Equipement de la personne;Equipement de la personne;Non alimentaire
+CB106;Prêt-à-porter Enfant;C;Commerce;Prêt-à-porter Enfant;Habillement;Equipement de la personne;Equipement de la personne;Non alimentaire
+CB107;Prêt-à-porter Mixte;C;Commerce;Prêt-à-porter Mixte;Habillement;Equipement de la personne;Equipement de la personne;Non alimentaire
+CB108;Prêt-à-porter Lingerie;C;Commerce;Prêt-à-porter Lingerie;Habillement;Equipement de la personne;Equipement de la personne;Non alimentaire
+CB109;Friperie - Solderie - Dépôt-vente de vêtements;C;Commerce;Friperie - Solderie - Dépôt-vente de vêtements;Habillement;Equipement de la personne;Equipement de la personne;Non alimentaire
+CB110;Puériculture;C;Commerce;Puériculture;Habillement;Equipement de la personne;Equipement de la personne;Non alimentaire
+CB111;Sport - Habillement et chaussures;C;Commerce;Sport - Habillement et chaussures;Habillement;Equipement de la personne;Equipement de la personne;Non alimentaire
+CB201;Chaussures Femme;C;Commerce;Chaussures Femme;Chaussures et Maroquinerie;Equipement de la personne;Equipement de la personne;Non alimentaire
+CB202;Chaussures Homme;C;Commerce;Chaussures Homme;Chaussures et Maroquinerie;Equipement de la personne;Equipement de la personne;Non alimentaire
+CB203;Chaussures Enfant;C;Commerce;Chaussures Enfant;Chaussures et Maroquinerie;Equipement de la personne;Equipement de la personne;Non alimentaire
+CB204;Chaussures Mixte;C;Commerce;Chaussures Mixte;Chaussures et Maroquinerie;Equipement de la personne;Equipement de la personne;Non alimentaire
+CB205;Maroquinerie - Articles de voyages;C;Commerce;Maroquinerie - Articles de voyages;Chaussures et Maroquinerie;Equipement de la personne;Equipement de la personne;Non alimentaire
+CB301;Joaillerie;C;Commerce;Joaillerie;Bijouterie et Montres;Equipement de la personne;Equipement de la personne;Non alimentaire
+CB302;Horlogerie - Bijouterie;C;Commerce;Horlogerie - Bijouterie;Bijouterie et Montres;Equipement de la personne;Equipement de la personne;Non alimentaire
+CB303;Montres;C;Commerce;Montres;Bijouterie et Montres;Equipement de la personne;Equipement de la personne;Non alimentaire
+CB304;Bijouterie fantaisie - Accessoire de mode;C;Commerce;Bijouterie fantaisie - Accessoire de mode;Bijouterie et Montres;Equipement de la personne;Equipement de la personne;Non alimentaire
+CC101;Pharmacie;C;Commerce;Pharmacie;Pharmacie et Articles médicaux;Santé-Beauté;Santé-Beauté;Non alimentaire
+CC102;Vente articles médicaux - Prothèses et semelles orthopédiques;C;Commerce;Vente articles médicaux - Prothèses et semelles orthopédiques;Pharmacie et Articles médicaux;Santé-Beauté;Santé-Beauté;Non alimentaire
+CC103;Vente de prothèses auditives;C;Commerce;Vente de prothèses auditives;Pharmacie et Articles médicaux;Santé-Beauté;Santé-Beauté;Non alimentaire
+CC201;Parapharmacie;C;Commerce;Parapharmacie;Cosmétiques;Santé-Beauté;Santé-Beauté;Non alimentaire
+CC202;Parfumerie - Produits de beauté;C;Commerce;Parfumerie - Produits de beauté;Cosmétiques;Santé-Beauté;Santé-Beauté;Non alimentaire
+CC301;Opticien;C;Commerce;Opticien;Opticien;Santé-Beauté;Santé-Beauté;Non alimentaire
+CD101;Vente de meubles et multispécialistes;C;Commerce;Vente de meubles et multispécialistes;Vente de meubles;Equipement de la maison;Equipement de la maison;Non alimentaire
+CD102;Vente de meubles de cuisines et salle de bain;C;Commerce;Vente de meubles de cuisines et salle de bain;Vente de meubles;Equipement de la maison;Equipement de la maison;Non alimentaire
+CD103;Vente de meubles salon et chambre;C;Commerce;Vente de meubles salon et chambre;Vente de meubles;Equipement de la maison;Equipement de la maison;Non alimentaire
+CD201;Equipement du foyer généraliste;C;Commerce;Equipement du foyer généraliste;Petit équipement du foyer;Equipement de la maison;Equipement de la maison;Non alimentaire
+CD202;Linge de maison;C;Commerce;Linge de maison;Petit équipement du foyer;Equipement de la maison;Equipement de la maison;Non alimentaire
+CD203;Tissus - Textile - Mercerie;C;Commerce;Tissus - Textile - Mercerie;Petit équipement du foyer;Equipement de la maison;Equipement de la maison;Non alimentaire
+CD204;Vente de luminaires;C;Commerce;Vente de luminaires;Petit équipement du foyer;Equipement de la maison;Equipement de la maison;Non alimentaire
+CD205;Vente de vaisselle - Ustensiles ménagers - Art de la table;C;Commerce;Vente de vaisselle - Ustensiles ménagers - Art de la table;Petit équipement du foyer;Equipement de la maison;Equipement de la maison;Non alimentaire
+CD301;Spécialiste électroménager;C;Commerce;Spécialiste électroménager;Electroménager - Radio - TV;Equipement de la maison;Equipement de la maison;Non alimentaire
+CD302;Spécialiste Radio - TV - Hi-Fi;C;Commerce;Spécialiste Radio - TV - Hi-Fi;Electroménager - Radio - TV;Equipement de la maison;Equipement de la maison;Non alimentaire
+CD303;Généraliste électroménager - Radio - TV - Hi-Fi;C;Commerce;Généraliste électroménager - Radio - TV - Hi-Fi;Electroménager - Radio - TV;Equipement de la maison;Equipement de la maison;Non alimentaire
+CD401;Antiquités;C;Commerce;Antiquités;Antiquités - Brocante;Equipement de la maison;Equipement de la maison;Non alimentaire
+CD402;Salle des ventes;C;Commerce;Salle des ventes;Antiquités - Brocante;Equipement de la maison;Equipement de la maison;Non alimentaire
+CD403;Brocante - Dépôt-vente - Biens d'occasion;C;Commerce;Brocante - Dépôt-vente - Biens d'occasion;Antiquités - Brocante;Equipement de la maison;Equipement de la maison;Non alimentaire
+CD501;Bazar;C;Commerce;Bazar;Autre équipement de la maison;Equipement de la maison;Equipement de la maison;Non alimentaire
+CE101;Librairie;C;Commerce;Librairie;Librairie - Journaux;Culture et loisirs;Culture et loisirs;Non alimentaire
+CE102;Papeterie - Fournitures de bureau;C;Commerce;Papeterie - Fournitures de bureau;Librairie - Journaux;Culture et loisirs;Culture et loisirs;Non alimentaire
+CE103;Vente de journaux;C;Commerce;Vente de journaux;Librairie - Journaux;Culture et loisirs;Culture et loisirs;Non alimentaire
+CE104;Kiosque à journaux;K;Kiosque;Kiosque à journaux;Librairie - Journaux;Culture et loisirs;Culture et loisirs;Non alimentaire
+CE105;Matériels d'arts graphiques - Loisirs créatifs;C;Commerce;Matériels d'arts graphiques - Loisirs créatifs;Librairie - Journaux;Culture et loisirs;Culture et loisirs;Non alimentaire
+CE201;Généraliste Sport;C;Commerce;Généraliste Sport;Articles de sport;Culture et loisirs;Culture et loisirs;Non alimentaire
+CE202;Spécialiste d'un sport;C;Commerce;Spécialiste d'un sport;Articles de sport;Culture et loisirs;Culture et loisirs;Non alimentaire
+CE203;Vente, réparation, location de vélos / vélos électriques;C;Commerce;Vente, réparation, location de vélos / vélos électriques;Articles de sport;Culture et loisirs;Culture et loisirs;Non alimentaire
+CE301;Vente de monnaies et médailles;C;Commerce;Vente de monnaies et médailles;Galerie d'art et Collections;Culture et loisirs;Culture et loisirs;Non alimentaire
+CE302;Galerie d'art;C;Commerce;Galerie d'art;Galerie d'art et Collections;Culture et loisirs;Culture et loisirs;Non alimentaire
+CE303;Philatélie;C;Commerce;Philatélie;Galerie d'art et Collections;Culture et loisirs;Culture et loisirs;Non alimentaire
+CE304;Vente de livres anciens - Autographes;C;Commerce;Vente de livres anciens - Autographes;Galerie d'art et Collections;Culture et loisirs;Culture et loisirs;Non alimentaire
+CE401;Fabrication et vente d'instruments de musique;C;Commerce;Fabrication et vente d'instruments de musique;Son - Image - Informatique - Téléphonie;Culture et loisirs;Culture et loisirs;Non alimentaire
+CE402;Téléphonie (Grands opérateurs + revendeurs);C;Commerce;Téléphonie (Grands opérateurs + revendeurs);Son - Image - Informatique - Téléphonie;Culture et loisirs;Culture et loisirs;Non alimentaire
+CE403;Téléphonie discount (pas d'enseigne particulière);C;Commerce;Téléphonie discount et accesoires (pas d'enseigne particulière);Son - Image - Informatique - Téléphonie;Culture et loisirs;Culture et loisirs;Non alimentaire
+CE404;Vente de jeux vidéo (+ salle de jeux vidéos);C;Commerce;Vente de jeux vidéo (+ salle de jeux vidéos);Son - Image - Informatique - Téléphonie;Culture et loisirs;Culture et loisirs;Non alimentaire
+CE405;Vente de disques, cassettes, CD, DVD;C;Commerce;Vente de disques, cassettes, CD, DVD;Son - Image - Informatique - Téléphonie;Culture et loisirs;Culture et loisirs;Non alimentaire
+CE406;Vente d'appareils photos;C;Commerce;Vente d'appareils photos;Son - Image - Informatique - Téléphonie;Culture et loisirs;Culture et loisirs;Non alimentaire
+CE407;Vente de matériel informatique;C;Commerce;Vente de matériel informatique;Son - Image - Informatique - Téléphonie;Culture et loisirs;Culture et loisirs;Non alimentaire
+CE501;Tabac;C;Commerce;Tabac;Autre commerce de loisirs;Culture et loisirs;Culture et loisirs;Non alimentaire
+CE502;Vente d'articles érotiques et sex-shop;C;Commerce;Vente d'articles érotiques et sex-shop;Autre commerce de loisirs;Culture et loisirs;Culture et loisirs;Non alimentaire
+CE503;Vente de jouets et jeux;C;Commerce;Vente de jouets et jeux;Autre commerce de loisirs;Culture et loisirs;Culture et loisirs;Non alimentaire
+CE504;Bimbeloterie - Articles souvenirs;C;Commerce;Bimbeloterie - Articles souvenirs;Autre commerce de loisirs;Culture et loisirs;Culture et loisirs;Non alimentaire
+CE505;Vente d'articles religieux;C;Commerce;Vente d'articles religieux;Autre commerce de loisirs;Culture et loisirs;Culture et loisirs;Non alimentaire
+CE506;Vente d'animaux de compagnie;C;Commerce;Vente d'animaux de compagnie;Autre commerce de loisirs;Culture et loisirs;Culture et loisirs;Non alimentaire
+CE507;Jeux de hasard et d'argent;C;Commerce;Jeux de hasard et d'argent;Autre commerce de loisirs;Culture et loisirs;Culture et loisirs;Non alimentaire
+CE508;Vente de cigarettes électroniques;C;Commerce;Vente de cigarettes électroniques;Autre commerce de loisirs;Culture et loisirs;Culture et loisirs;Non alimentaire
+CE601;Grand multispécialiste culturel;C;Commerce;Grand multispécialiste culturel;Grand multispécialiste culturel;Culture et loisirs;Culture et loisirs;Non alimentaire
+CF101;Quincaillerie et droguerie;C;Commerce;Quincaillerie et droguerie;Bricolage;Bricolage-Jardinage;Bricolage-Jardinage;Non alimentaire
+CF102;Bricolage;C;Commerce;Bricolage;Bricolage;Bricolage-Jardinage;Bricolage-Jardinage;Non alimentaire
+CF103;Revêtements sols et murs;C;Commerce;Revêtements sols et murs;Bricolage;Bricolage-Jardinage;Bricolage-Jardinage;Non alimentaire
+CF201;Fleuriste;C;Commerce;Fleuriste;Jardinage;Bricolage-Jardinage;Bricolage-Jardinage;Non alimentaire
+CF202;Jardinerie - Pépiniériste;C;Commerce;Jardinerie - Pépiniériste;Jardinage;Bricolage-Jardinage;Bricolage-Jardinage;Non alimentaire
+SA101;"Cordonnerie - Réparation ""minute"" (clés, talons…)";C;Commerce;"Cordonnerie - Réparation ""minute"" (clés, talons…)";Services liés à l'équipement de la personne;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA102;Retouches de vêtements;C;Commerce;Retouches de vêtements;Services liés à l'équipement de la personne;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA103;Location de costumes ou accessoires - Loisirs;C;Commerce;Location de costumes ou accessoires - Loisirs;Services liés à l'équipement de la personne;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA104;Blanchisserie - Pressing;C;Commerce;Blanchisserie - Pressing;Services liés à l'équipement de la personne;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA105;Laverie automatique;C;Commerce;Laverie automatique;Services liés à l'équipement de la personne;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA201;Coiffure;C;Commerce;Coiffure;Soins du corps;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA202;Institut de beauté - Activités thermales et thalasso;C;Commerce;Institut de beauté - Activités thermales et thalasso;Soins du corps;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA203;Onglerie;C;Commerce;Onglerie;Soins du corps;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA204;Salon de bronzage - Solaire / UV;C;Commerce;Salon de bronzage - Solaire / UV;Soins du corps;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA205;Salon de massage;C;Commerce;Salon de massage;Soins du corps;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA206;Bars à sourire;C;Commerce;Bars à sourire;Soins du corps;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA207;Tatouage - Piercing;C;Commerce;Tatouage - Piercing;Soins du corps;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA301;Encadrement - Vente de tableaux - Posters;C;Commerce;Encadrement - Vente de tableaux - Posters;Services liés à l'équipement de la maison;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA302;Artisanat de l'ameublement (tapissier, ébéniste…);C;Commerce;Artisanat de l'ameublement (tapissier, ébéniste…);Services liés à l'équipement de la maison;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA303;Travaux généraux du bâtiment (électricité, plomberie, peinture, isolation…);C;Commerce;Travaux généraux du bâtiment (électricité, plomberie, peinture, isolation…);Services liés à l'équipement de la maison;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA304;Menuiserie - Vitrerie - Miroiterie;C;Commerce;Menuiserie - Vitrerie - Miroiterie;Services liés à l'équipement de la maison;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA305;Serrurerie;C;Commerce;Serrurerie;Services liés à l'équipement de la maison;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA306;Réparation d'articles électriques ou électroniques;C;Commerce;Réparation d'articles électriques ou électroniques;Services liés à l'équipement de la maison;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA307;Location de matériel de bricolage et équipement de la maison;C;Commerce;Location de matériel de bricolage et équipement de la maison;Services liés à l'équipement de la maison;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA401;Vidéo Club (Location de cassettes, DVD);C;Commerce;Vidéo Club (Location de cassettes, DVD);Services culturels et de loisirs;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA403;Billetterie - Réservation spectacles;C;Commerce;Billetterie - Réservation spectacles;Services culturels et de loisirs;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA404;Discothèque et club privé;C;Commerce;Discothèque et club privé;Services culturels et de loisirs;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA405;Salle multisports;C;Commerce;Salle multisports;Services culturels et de loisirs;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA406;Salle de sport  spécialisée;C;Commerce;Salle de sport spécialisée;Services culturels et de loisirs;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA407;Salle ou club de jeux;C;Commerce;Salle ou club de jeux;Services culturels et de loisirs;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA408;Cinéma;C;Commerce;Cinéma;Services culturels et de loisirs;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA501;Photocopies;C;Commerce;Photocopies;Autres services aux particuliers;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA502;Gravure;C;Commerce;Gravure;Autres services aux particuliers;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA503;Reliure et finition;C;Commerce;Reliure et finition;Autres services aux particuliers;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA504;Déménagement / Garde meuble;C;Commerce;Déménagement / Garde meuble;Autres services aux particuliers;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA505;Agence voyage-tourisme - Compagnies aériennes;C;Commerce;Agence voyage-tourisme - Compagnies aériennes;Autres services aux particuliers;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA506;Agence Pôle emploi;C;Commerce;Agence Pôle emploi;Autres services aux particuliers;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA507;Agence d'intérim;C;Commerce;Agence d'intérim;Autres services aux particuliers;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA508;Développement rapide - Vente pellicule photo;C;Commerce;Développement rapide - Vente pellicule photo;Autres services aux particuliers;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA509;Ecole de conduite;C;Commerce;Ecole de conduite;Autres services aux particuliers;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA510;Pompes funèbres;C;Commerce;Pompes funèbres;Autres services aux particuliers;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA511;Toilettage et équipements pour animaux;C;Commerce;Toilettage et équipements pour animaux;Autres services aux particuliers;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA512;Libre service informatique - Cybercafé;C;Commerce;Libre service informatique - Cybercafé;Autres services aux particuliers;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA513;Cours scolaires/parascolaires (Acadomia…);C;Commerce;Cours scolaires/parascolaires (Acadomia…);Services culturels et de loisirs;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA514;Cours formation professionnelle (langues, informatique…);C;Commerce;Cours formation professionnelle (langues, informatique…);Services culturels et de loisirs;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA515;Cours activités culturelles et de loisirs (poterie, danse…);C;Commerce;Cours activités culturelles et de loisirs (poterie, danse…);Services culturels et de loisirs;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SA516;Services à la personne (nettoyage, aide personnes âgées…);C;Commerce;Services à la personne (nettoyage, aide personnes âgées…);Autres services aux particuliers;Services aux particuliers;Services aux particuliers et agences;Services commerciaux
+SB101;Agence immobilière;C;Commerce;Agence immobilière;Agences;Agences;Services aux particuliers et agences;Services commerciaux
+SB201;Banque - Caisse d'épargne;C;Commerce;Banque - Caisse d'épargne;Banques et assurances;Agences;Services aux particuliers et agences;Services commerciaux
+SB202;Distributeur automatique de billets (non lié à une banque);D;Distributeur;Distributeur automatique de billets (non lié à une banque);Banques et assurances;Agences;Services aux particuliers et agences;Services commerciaux
+SB203;Assurances;C;Commerce;Assurances;Banques et assurances;Agences;Services aux particuliers et agences;Services commerciaux
+SB204;Bureau de change;C;Commerce;Bureau de change;Banques et assurances;Agences;Services aux particuliers et agences;Services commerciaux
+SB205;Achat - Vente d'or;C;Commerce;Achat - Vente d'or;Banques et assurances;Agences;Services aux particuliers et agences;Services commerciaux
+SB301;Bureau de poste;C;Commerce;Bureau de poste;Poste et Télécommunications;Agences;Services aux particuliers et agences;Services commerciaux
+SB302;Courses et courrier express;C;Commerce;Courses et courrier express;Poste et Télécommunications;Agences;Services aux particuliers et agences;Services commerciaux
+SB303;Télécommunication en boutique;C;Commerce;Télécommunication en boutique;Poste et Télécommunications;Agences;Services aux particuliers et agences;Services commerciaux
+CG101;Concessionnaire automobiles;C;Commerce;Concessionnaire automobiles;Vente et exposition;Auto-Moto;Auto-Moto;Non alimentaire
+CG102;Concessionnaire Auto + Essence;C;Commerce;Concessionnaire Auto + Essence;Vente et exposition;Auto-Moto;Auto-Moto;Non alimentaire
+CG103;Concessionnaire Auto + Garage;C;Commerce;Concessionnaire Auto + Garage;Vente et exposition;Auto-Moto;Auto-Moto;Non alimentaire
+CG104;Concessionnaire Auto + Essence + Garage;C;Commerce;Concessionnaire Auto + Essence + Garage;Vente et exposition;Auto-Moto;Auto-Moto;Non alimentaire
+CG105;Concessionnaire motos;C;Commerce;Concessionnaire motos;Vente et exposition;Auto-Moto;Auto-Moto;Non alimentaire
+CG106;Concession + Réparation de motos;C;Commerce;Concession + Réparation de motos;Vente et exposition;Auto-Moto;Auto-Moto;Non alimentaire
+CG201;Garage;C;Commerce;Garage;Réparation et Entretien;Auto-Moto;Auto-Moto;Non alimentaire
+CG202;Garage + Vente essence;C;Commerce;Garage + Vente essence;Réparation et Entretien;Auto-Moto;Auto-Moto;Non alimentaire
+CG203;Vente équipements automobiles;C;Commerce;Vente équipements automobiles;Réparation et Entretien;Auto-Moto;Auto-Moto;Non alimentaire
+CG204;Réparation de motos;C;Commerce;Réparation de motos;Réparation et Entretien;Auto-Moto;Auto-Moto;Non alimentaire
+CG205;Station service;C;Commerce;Station service;Réparation et Entretien;Auto-Moto;Auto-Moto;Non alimentaire
+CG206;Contrôle technique automobile;C;Commerce;Contrôle technique automobile;Réparation et Entretien;Auto-Moto;Auto-Moto;Non alimentaire
+CG301;Location de véhicules automobiles;C;Commerce;Location de véhicules automobiles;Location;Auto-Moto;Auto-Moto;Non alimentaire
+CH101;Restaurant traditionnel français;C;Commerce;Restaurant traditionnel français;Restauration traditionnelle;Cafés et Restaurants;Cafés et Restaurants;Restauration, Hôtellerie
+CH102;Restaurant antillais;C;Commerce;Restaurant antillais;Restauration traditionnelle;Cafés et Restaurants;Cafés et Restaurants;Restauration, Hôtellerie
+CH103;Restaurant asiatique;C;Commerce;Restaurant asiatique;Restauration traditionnelle;Cafés et Restaurants;Cafés et Restaurants;Restauration, Hôtellerie
+CH104;Restaurant maghrébin;C;Commerce;Restaurant maghrébin;Restauration traditionnelle;Cafés et Restaurants;Cafés et Restaurants;Restauration, Hôtellerie
+CH105;Restaurant africain;C;Commerce;Restaurant africain;Restauration traditionnelle;Cafés et Restaurants;Cafés et Restaurants;Restauration, Hôtellerie
+CH106;Restaurant européen;C;Commerce;Restaurant européen;Restauration traditionnelle;Cafés et Restaurants;Cafés et Restaurants;Restauration, Hôtellerie
+CH107;Restaurant central et sud américain;C;Commerce;Restaurant central et sud américain;Restauration traditionnelle;Cafés et Restaurants;Cafés et Restaurants;Restauration, Hôtellerie
+CH108;Restaurant indien, pakistanais et Moyen Orient;C;Commerce;Restaurant indien, pakistanais et Moyen Orient;Restauration traditionnelle;Cafés et Restaurants;Cafés et Restaurants;Restauration, Hôtellerie
+CH109;Autre restaurant du monde;C;Commerce;Autre restaurant du monde;Restauration traditionnelle;Cafés et Restaurants;Cafés et Restaurants;Restauration, Hôtellerie
+CH201;Brasserie - Restauration continue sans tabac;C;Commerce;Brasserie - Restauration continue sans tabac;Brasserie et Restauration continue;Cafés et Restaurants;Cafés et Restaurants;Restauration, Hôtellerie
+CH202;Brasserie - Restauration continue avec tabac;C;Commerce;Brasserie - Restauration continue avec tabac;Brasserie et Restauration continue;Cafés et Restaurants;Cafés et Restaurants;Restauration, Hôtellerie
+CH301;Cafétéria;C;Commerce;Cafétéria;Restauration rapide;Cafés et Restaurants;Cafés et Restaurants;Restauration, Hôtellerie
+CH302;Restauration rapide debout;C;Commerce;Restauration rapide debout;Restauration rapide;Cafés et Restaurants;Cafés et Restaurants;Restauration, Hôtellerie
+CH303;Restauration rapide assise;C;Commerce;Restauration rapide assise;Restauration rapide;Cafés et Restaurants;Cafés et Restaurants;Restauration, Hôtellerie
+CH401;Salon de thé;C;Commerce;Salon de thé;Bar - Café - Débit de boissons;Cafés et Restaurants;Cafés et Restaurants;Restauration, Hôtellerie
+CH402;Café - Tabac;C;Commerce;Café - Tabac;Bar - Café - Débit de boissons;Cafés et Restaurants;Cafés et Restaurants;Restauration, Hôtellerie
+CH403;Bar ou Café sans tabac;C;Commerce;Bar ou Café sans tabac;Bar - Café - Débit de boissons;Cafés et Restaurants;Cafés et Restaurants;Restauration, Hôtellerie
+CH501;Cabaret - Diner-Spectacle;C;Commerce;Cabaret - Diner-Spectacle;Autre restauration;Cafés et Restaurants;Cafés et Restaurants;Restauration, Hôtellerie
+CH502;Livraison à domicile plats alimentaires;C;Commerce;Livraison à domicile plats alimentaires;Autre restauration;Cafés et Restaurants;Cafés et Restaurants;Restauration, Hôtellerie
+CI101;Hôtel de tourisme sans étoile;C;Commerce;Hôtel de tourisme sans étoile;Hôtels de Tourisme;Hôtels et Auberges de jeunesse;Hôtels;Restauration, Hôtellerie
+CI102;Hôtel de tourisme avec 1 étoile;C;Commerce;Hôtel de tourisme avec 1 étoile;Hôtels de Tourisme;Hôtels et Auberges de jeunesse;Hôtels;Restauration, Hôtellerie
+CI103;Hôtel de tourisme avec 2 étoiles;C;Commerce;Hôtel de tourisme avec 2 étoiles;Hôtels de Tourisme;Hôtels et Auberges de jeunesse;Hôtels;Restauration, Hôtellerie
+CI104;Hôtel de tourisme avec 3 étoiles;C;Commerce;Hôtel de tourisme avec 3 étoiles;Hôtels de Tourisme;Hôtels et Auberges de jeunesse;Hôtels;Restauration, Hôtellerie
+CI105;Hôtel de tourisme avec 4 étoiles;C;Commerce;Hôtel de tourisme avec 4 étoiles;Hôtels de Tourisme;Hôtels et Auberges de jeunesse;Hôtels;Restauration, Hôtellerie
+CI106;Hôtel de tourisme avec 5 étoiles;C;Commerce;Hôtel de tourisme avec 5 étoiles;Hôtels de Tourisme;Hôtels et Auberges de jeunesse;Hôtels;Restauration, Hôtellerie
+CI107;Hôtel de tourisme - Palace;C;Commerce;Hôtel de tourisme - Palace;Hôtels de Tourisme;Hôtels et Auberges de jeunesse;Hôtels;Restauration, Hôtellerie
+CI108;Location d'appartements (Appart Hotel, Citadines…);C;Commerce;Location d'appartements (Appart Hotel, Citadines…);Hôtels de Tourisme;Hôtels et Auberges de jeunesse;Hôtels;Restauration, Hôtellerie
+CI201;Hôtel de préfecture;C;Commerce;Hôtel de préfecture;Hôtels de Préfecture;Hôtels et Auberges de jeunesse;Hôtels;Restauration, Hôtellerie
+CI301;Auberge de jeunesse;C;Commerce;Auberge de jeunesse;Auberges de jeunesse;Hôtels et Auberges de jeunesse;Hôtels;Restauration, Hôtellerie
+AA101;Locaux Vacants;V;Vide;Locaux Vacants;Locaux vacants;Locaux vacants;Locaux vacants;Locaux vacants
+AA102;Locaux en travaux;V;Vide;Locaux en travaux;Locaux vacants;Locaux vacants;Locaux vacants;Locaux vacants
+AB101;Commerce de gros alimentaire;T;Gros;Commerce de gros alimentaire;Commerces de gros;Commerces de gros;Autres locaux;Commerces de gros, Autres locaux en boutique
+AB102;Commerce de gros fabrication textile;T;Gros;Commerce de gros fabrication textile;Commerces de gros;Commerces de gros;Autres locaux;Commerces de gros, Autres locaux en boutique
+AB103;Commerce de gros fabrication habillement;T;Gros;Commerce de gros fabrication habillement;Commerces de gros;Commerces de gros;Autres locaux;Commerces de gros, Autres locaux en boutique
+AB104;Commerce de gros maroquinerie et chaussures;T;Gros;Commerce de gros maroquinerie et chaussures;Commerces de gros;Commerces de gros;Autres locaux;Commerces de gros, Autres locaux en boutique
+AB105;Commerce de gros bijouterie;T;Gros;Commerce de gros bijouterie;Commerces de gros;Commerces de gros;Autres locaux;Commerces de gros, Autres locaux en boutique
+AB106;Autre commerce de gros;T;Gros;Autre commerce de gros;Commerces de gros;Commerces de gros;Autres locaux;Commerces de gros, Autres locaux en boutique
+AC101;Imprimerie;X;Services aux entreprises;Imprimerie;Services aux entreprises;Services aux entreprises;Autres locaux;Commerces de gros, Autres locaux en boutique
+AC102;Services annexes aux entreprises;X;Services aux entreprises;Services annexes aux entreprises;Services aux entreprises;Services aux entreprises;Autres locaux;Commerces de gros, Autres locaux en boutique
+AC103;Studio de reportages photographiques;X;Services aux entreprises;Studio de reportages photographiques;Services aux entreprises;Services aux entreprises;Autres locaux;Commerces de gros, Autres locaux en boutique
+AD101;Cabinet médical;Y;Activité médicale et paramédicale en RdC;Cabinet médical;Médical;Médical;Autres locaux;Commerces de gros, Autres locaux en boutique
+AD102;Centre de radiologie;Y;Activité médicale et paramédicale en RdC;Centre de radiologie;Médical;Médical;Autres locaux;Commerces de gros, Autres locaux en boutique
+AD103;Cabinet dentaire;Y;Activité médicale et paramédicale en RdC;Cabinet dentaire;Médical;Médical;Autres locaux;Commerces de gros, Autres locaux en boutique
+AD104;Cabinet de kinésithérapeute;Y;Activité médicale et paramédicale en RdC;Cabinet de kinésithérapeute;Médical;Médical;Autres locaux;Commerces de gros, Autres locaux en boutique
+AD105;Cabinet d'infirmière;Y;Activité médicale et paramédicale en RdC;Cabinet d'infirmière;Médical;Médical;Autres locaux;Commerces de gros, Autres locaux en boutique
+AD106;Autre activité d'auxiliaire médical - Orthophoniste;Y;Activité médicale et paramédicale en RdC;Autre activité d'auxiliaire médical - Orthophoniste;Médical;Médical;Autres locaux;Commerces de gros, Autres locaux en boutique
+AD107;Ambulances;Y;Activité médicale et paramédicale en RdC;Ambulances;Médical;Médical;Autres locaux;Commerces de gros, Autres locaux en boutique
+AD108;Laboratoire d'analyses médicales;Y;Activité médicale et paramédicale en RdC;Laboratoire d'analyses médicales;Médical;Médical;Autres locaux;Commerces de gros, Autres locaux en boutique
+AD109;Vétérinaire;Y;Activité médicale et paramédicale en RdC;Vétérinaire;Médical;Médical;Autres locaux;Commerces de gros, Autres locaux en boutique
+AE101;Théâtre;Z;salle de spectacle;Théâtre;Spectacles;Spectacles;Autres locaux;Commerces de gros, Autres locaux en boutique
+AE102;Salle de concert;Z;salle de spectacle;Salle de concert;Spectacles;Spectacles;Autres locaux;Commerces de gros, Autres locaux en boutique
+AE103;Autre lieu de spectacle;Z;salle de spectacle;Autre lieu de spectacle;Spectacles;Spectacles;Autres locaux;Commerces de gros, Autres locaux en boutique
+AF101;Atelier en boutique;A;Atelier;Atelier en boutique;Autres;Autres locaux en boutique;Autres locaux;Commerces de gros, Autres locaux en boutique
+AF102;Bureau en boutique;B;Bureau;Bureau en boutique;Autres;Autres locaux en boutique;Autres locaux;Commerces de gros, Autres locaux en boutique
+AF103;Equipement en boutique;E;Equipement;Equipement en boutique;Autres;Autres locaux en boutique;Autres locaux;Commerces de gros, Autres locaux en boutique
+AF104;Stockage en boutique;S;Stockage;Stockage en boutique;Autres;Autres locaux en boutique;Autres locaux;Commerces de gros, Autres locaux en boutique

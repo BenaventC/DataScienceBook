@@ -1,21 +1,92 @@
----
-title: "Untitled"
-author: "cb"
-date: "22/09/2021"
-output: html_document
----
-
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-library(tidyverse)
-library(corrplot)
-
-library(psych)
-
-library(flextable)
+# Analyses factorielles
 
 
-#une fonction utile pour FA
+
+## Origine et histoire
+
+
+Par analyse factorielle, on entend finalement un ensemble de méthodes dont l'objectifs est d'extraire d'un ensemble multivariée de données, un petit nombre de dimensions, les facteurs, qui rendent compte l'essentiel des variations. Elles partagent aussi une même structure mathématique qui permet de décomposer et de réduire une matrice de données en un ensemble de matrice de dimensions réduite.
+
+On peut en distinguer deux écoles, l'une alimentée par des questions de psychométrie a nourrit plusieurs decennies de recherche en traitant les tests psychométriques. L'autre française s'intéressent aux variables qualitatives, et a une perspective plus descriptive et représentationnelle. 
+
+
+### Une petite histoire de la psychométrie
+
+L'analyse factorielle trouve son origine, en psychologie, dans l'intuition que dans des épreuves multiples un facteur principal contrôle les variation des items (les performance à différents tests). Mais c'est avec Thurstone que l'idée prend toute son ampleur en permettant que plusieurs facteurs traduisent la structure de la matrice de corrélations entre les tests. Spearman, hotelling,.
+
+Dans le monde de la gestion et en particulier de la GRH et du marketing, largement inspirés par la psychologie et la psychologie sociale, ces méthodes se sont propagées et ont formalisé un processus d'étude largement fondé sur ces techniques. Il est bien connu par de processus de Churchill qui a synthésisé une manière de construire et de développé des instruments de mesure par questionnaire. C'est l' article de historique de Churchill ( ref).
+
+### L'école française de l'analyse des données appliquée aux sciences sociales
+
+Un personnage : Emile Benzekri
+
+Boudieu en premier applicateurs
+
+Une école Française : pagès, escoffier, morisseau, Husson a repris le flambleau en développant FactoMiner.
+
+Une série de logiciels : Alceste, Statitcf
+
+
+
+## Le modèle factoriel des tests psychologiques
+
+### Un peu de théorie
+
+La première historiquement est celle des psychologues et en particulier le modèle en terme de facteurs communs et spécifiques. Elle vise à partir de l'analyse d'une matrice de corrélation à identifier des éléments de structures sous-jascents.
+
+La structure du modèle factoriel peut être présentée de manière simple. On supposera que chaque variables observées peut être décrites comme composées de facteurs généraux ($F_{ik}$ ) et de facteurs spécifiques  $ \varepsilon_{i}$. Le modèle suppose ainsi que la valeur de l'individu i pour la variable j, dépend de k facteurs sous jascents, les facteurs communs, et d'un terme spécifique à l'item et à l'individus
+
+
+$$
+x_{ij}= a_{1j}F_{i1} + a_{2j}F_{i2} + \cdots + a_{jk}F_{ik}+\varepsilon_{ij}
+
+$$
+
+On peut représenter celà de manière plus graphique, en utilisant les conventions symboliques des modèles structurels qu'on examine dans le chapitre 9. On y verra d'ailleurs comment ce modèle peut être spécifié de manière confirmatoire.
+
+On remarquera dans cette structure que les facteurs peuvent être corrélés. 
+
+
+![Modèle Factoriel exploratoire - EFA](./Images/FA01.jpg)
+
+
+
+### L'estimation
+
+Certains lecteurs seront surpris de cette présentation, ils sont sans doute plus habitués à factoriser en employant une méthode de l' ACP. Effectivement cette méthode sur laquelle on va revenir avec plus de détail dans la seconde section de ce chapitre, est une des techniques qui permettent d'approcher le modèle théorique que l'on vient de présenter. Elle n'est pas la seule.
+
+L'estimation du modèle requierts deux décisions : l'une sur la méthode d'extraction des facteurs, et l'autres sur la méthode de rotation.
+
+les méthodes d'extraction
+
+ * ACP
+ * ML
+ * analyse en facteur principaux et spécifiques
+ 
+Les méthodes de rotation. 
+
+ * Varimax
+ * Promax
+ * Oblimin 
+ * ...
+ 
+ 
+ 
+
+### Ressources
+
+On utilise principalement le package  `psych` développé par Revelle et dédié à la psychométrie. Il couvre le plus complétement le champs de l'analyse factorielle et de la psychométrie.
+
+S'y ajoutent deux fonctions très utiles pour représenter le résultats des analyses sous une forme lisible et au standard des publications scientifiques. Elles utilisent les ressources de `flextable`.
+
+
+```{r 0601 }
+#library(corrplot)
+#library(psych)
+#library(flextable)
+
+
+# Une fonction utile pour créer 
 
 
 flex <- function(data, title=NULL) {
@@ -35,7 +106,7 @@ flex <- function(data, title=NULL) {
   font(fontname="Times New Roman", part="all")
 }
 
-#et une seconde fonction
+# et une seconde fonction pour le tableaux des loadings
 
 
 fa_table <- function(x, cut) {
@@ -64,23 +135,50 @@ fa_table <- function(x, cut) {
     mutate(across(where(is.numeric), round, 3))
 }
 
-
 ```
 
-l'objectif des méthodes d'analyses factorielles est de réduire un ensemble de variables à un petit nombre de dimensions qui résument l'essentiel de l'information.
-
-## Un peu de théorie
-
-deux grandes approches marquent le paysage
-
-la première est celle de l'ACP
-
-La seconde est celle des psychologues et en particulier le modèle en terme de facteurs communs et spécifiques. 
+L'objectif des méthodes d'analyses factorielles est de réduire un ensemble de variables à un petit nombre de dimensions qui résument l'essentiel de l'information.
 
 
-## Application
+### Cas d'application
 
-```{r 0601}
+Pour appliquer la méthode on va s'interesser à l'échelle des valeurs de kahle qui sont mesurée dan différents pays au cours des différentes vagues de l'enquête ESS? 
+
+Les variables mesurées sont un ensemble de 21 questions qui proposent des niveaux d'importances accordées à 21 questions, ou items, dont voici les formulation en anglais. Les répondants ont le choix sur une échelle de 0 à 10  qui va de "pas du tout important" à "très important".  On se concentre sur les observations de la dernière vague.
+
+Cette échelle a été développée par kahle.
+
+En voici les itms dans leur formulation anglaise.
+
+ * IPCRTIV Important to think new ideas and being creative
+ * IMPRICH Important to be rich, have money and expensive things
+ * IPEQOPT Important that people are treated equally and have equal opportunities
+ * IPSHABT Important to show abilities and be admired
+ * IMPSAFE Important to live in secure and safe surroundings
+ * IMPDIFF Important to try new and different things in life
+ * IPFRULE Important to do what is told and follow rules
+ * IPUDRST Important to understand different people
+ * IPMODST Important to be humble and modest, not draw attention
+ * IPGDTIM Important to have a good time
+ * IMPFREE Important to make own decisions and be free
+ * IPHLPPL Important to help people and care for others well-being
+ * IPSUCES Important to be successful and that people recognise achievements
+ * IPSTRGV Important that government is strong and ensures safety
+ * IPADVNT Important to seek adventures and have an exciting life
+ * IPBHPRP Important to behave properly
+ * IPRSPOT Important to get respect from others
+ * IPLYLFR Important to be loyal to friends and devote to people close
+ * IMPENV Important to care for nature and environment
+ * IMPTRAD Important to follow traditions and customs
+ * IMPFUN Important to seek fun and things that give pleasure
+
+
+
+
+```{r 0602}
+
+# On renomme les variables pour une meilleure lecture et on selectionne le tableau de données utile à l'analyse.
+
 df <- read_csv("./Data/ESS1-9e01_1.csv") %>%
   rename(
     V_creative=ipcrtiv,
@@ -104,64 +202,44 @@ df <- read_csv("./Data/ESS1-9e01_1.csv") %>%
     V_environnement=impenv,
     V_tradition=imptrad, 
     V_pleasure=impfun)
-```
 
-
- valeur de kahle
-
-
-IPCRTIV Important to think new ideas and being creative
-IMPRICH Important to be rich, have money and expensive things
-IPEQOPT Important that people are treated equally and have equal opportunities
-IPSHABT Important to show abilities and be admired
-IMPSAFE Important to live in secure and safe surroundings
-IMPDIFF Important to try new and different things in life
-IPFRULE Important to do what is told and follow rules
-IPUDRST Important to understand different people
-IPMODST Important to be humble and modest, not draw attention
-IPGDTIM Important to have a good time
-IMPFREE Important to make own decisions and be free
-IPHLPPL Important to help people and care for others well-being
-IPSUCES Important to be successful and that people recognise achievements
-IPSTRGV Important that government is strong and ensures safety
-IPADVNT Important to seek adventures and have an exciting life
-IPBHPRP Important to behave properly
-IPRSPOT Important to get respect from others
-IPLYLFR Important to be loyal to friends and devote to people close
-IMPENV Important to care for nature and environment
-IMPTRAD Important to follow traditions and customs
-IMPFUN Important to seek fun and things that give pleasure
-
-
-
-
-```{r 0602}
-
-foo1<-df %>% 
-  select( matches("V_.*"), cntry, essround) %>%
+foo1<-df %>% filter(essround==9)%>%
+  dplyr::select(matches("V_.*"), cntry) %>% #notons la selection fondée sur des regex
   drop_na()
 
 ```
+## Examen de la matrice de corrélation
 
-```{r 0603}
+Calculons la matrice de corrélation, et présentons là en organisant l'ordre des variables selon leur corrélation. A ce stade indiquons qu'il s'agit de mettre un ordre dans les variables, tel que des variables fortement corrélées soient adjascentes (on revient sur la méthode utilisée dans le chapitre suivant).
+
+On s'aperçoit qu'une structure émerge. Quatre groupes de variables peuvent être discernées:
+ * la jouissance
+ * le succès social
+ * l'ouverture aux autres
+ * la sécurité
+ 
+ Dans le filigrane de la matrice de corrélation, on devine une structure factorielle.
+ 
+
+```{r 0603b}
 
 foo<- foo1 %>% 
-  select(matches("V_.*"))
+  dplyr::select(matches("V_.*"))
 
 M = cor(foo)
-M
-corrplot(M, method="circle", order="hclust") 
 
-hr <- hclust(as.dist(1-M), method="ward") # Clusters rows by Pearson correlation as distance method.
-plot(hr)
+corrplot(M, method="circle", order="hclust",tl.cex = .7)
+
 ```
 
+## Modèle factoriel
+
+Testons un modèle d'analyse factorielle à 4 dimensions. Nous l'augmentons d'un procédure de rotation oblimin pour un meilleur ajustement. 
 
 
 ```{r 0604}
 
 fa <- fa(foo,4, rotate="oblimin")  #principal axis 
-fa
 
 fa_table(fa, .30)%>%
   flex("A Pretty Factor Analysis Table")
@@ -177,55 +255,279 @@ fa[["Vaccounted"]] %>%
 
 ```
 
+Le set de données que nous avons traité est composé de 15 échantillons venant d'autant de pays. Puisque nous avons réduits les 22 mesures initiales à 4 grands facteurs, il est temps d'analyser les différences entre les pays.
 
-```{r 0605}
+On va d'abord récupérer les scores de chaque observation sur les quatre dimensions obtenues qu'on ajoute à notre fichier de travail pour récupérer la variable pays.
 
-loading<-fa$loading
-loading<-as.data.frame(unclass(loading))
 
+```{r 0605, fig.width=10, fig.height=10}
+
+#récupérer les scores
 
 scores<-fa$scores
 scores<-as.data.frame(unclass(scores))
 
-df_typo<-cbind(foo1, scores)
+#matcher pour récupérer la variable pays et renommer pour plus de lisibilité
 
+df_typo<-cbind(foo1, scores) %>% 
+  rename(F_Altruisme = MR1, 
+        F_Conservatisme=MR2,
+        F_Performance=MR4,
+        F_Hedonisme=MR3)
+
+# On calcule les scores moyens par pays et les erreurs d'échantillonage
 df_g <- df_typo %>% 
-  select(matches("V_.*"), essround)%>%
-  gather(variable, value,-essround)%>%
-  group_by(variable,essround)%>% 
-  summarize(value=mean(value))
-
-ggplot(df_g, aes(x=as.factor(essround), y=value, group=variable))+
-  geom_line(aes(color=variable))+
-  facet_wrap(vars(variable))
-
-df_g <- df_typo %>% 
-  select(matches("V_.*"), cntry)%>%
+  dplyr::select(matches("F_.*"), cntry)%>%
   gather(variable, value,-cntry)%>%
+  mutate(n=1)%>%
   group_by(variable,cntry)%>% 
-  summarize(value=mean(value))
+  summarize(mean=mean(value),
+            n=sum(n),
+            se=sd(value)/sqrt(n))
 
+#on représente les résultats
 
-ggplot(df_g, aes(x=reorder(as.factor(variable), value), y=value, group=cntry))+
-  geom_line(aes(color=cntry))+ coord_flip() +
-  facet_wrap(vars(cntry)) +  theme(legend.position = "none")
-
-df_typo1<- df_typo %>% rename(F_Altruisme = MR1, 
-                       F_Conservatisme=MR2,
-                       F_Succes=MR4,
-                       F_Hedonisme=MR3)
-
-df_g <- df_typo1 %>% 
-  select(matches("F_.*"), cntry)%>%
-  gather(variable, value,-cntry)%>%
-  group_by(variable,cntry)%>% 
-  summarize(value=mean(value))
-
-
-ggplot(df_g, aes(x=reorder(as.factor(cntry), value), y=value, group=variable))+
-  geom_line(aes(color=variable), size=1.5)+ coord_flip()+ facet_wrap(vars(variable), ncol=2)
+ggplot(df_g,aes(x=cntry, y=mean))+
+  geom_bar(stat="identity",aes(fill=variable), size=1.5)+ coord_flip()+
+  geom_errorbar(aes(ymin=mean-se, ymax=mean+se), width=.2, position=position_dodge(.9)) +
+  scale_color_brewer(palette = "Set1")+
+  facet_wrap(vars(variable),ncol=2)
 
 
 ```
+
+
+
+
+
+
+## L'analyse en composante principale
+
+L'ACP, dont l'optique est différente dans le sens où l'on cherche moins à rendre compte d'une structure sous-jascente à la matrice de corrélation , qu'à réduire l'information dans un espace limité.
+
+
+
+### le problème théorique
+
+De manière intuitive l'ACP est la technique qui permet de représenter un poisson, une structure, sous son jour le plus intelligible, c'est à dire celui qui magnifie ses variations.
+
+Examinons un poisson sous différentes projections. La première image rend mieux compte de la forme du poisson que la seconde, elle ne diffère que par la projection. De l'une à l'autre il n'y a qu'y rotation à 90°C vers la droite. C'est la même image, le même phénomène mais représenté selon deux perspectives, deux bases en terme de mathématiques. On comprend que pour représenter un objet au mieux dans un faible nombre de dimensions, il faut trouver la base vectorielle qui maximise les variations de taille. 
+
+résoudre ce problème est ce que fait l'ACP
+
+![Modèle Factoriel exploratoire - EFA](./Images/ACp_poisson.jpg)
+
+
+
+### Une représentation symbolique
+
+L'idée va donc être de décomposer une matrice de variance-covariance (ou de corrélation) en respectant une contraintes : faire en sorte que le maximum de variance soit capturée par la première dimension, puis par les suivantes successivement. La solution à ce problème se trouve dans la résolution d'un problème matriciel. Il faut procéder à un changement de base, autrement dit à un changement de référentiel.
+
+La matrice de variance-covariance, ou de corrélation, si on a, au préalable, centré et standardisé les valeurs des variables, est obtenue simplement en multipliant la matrice de données (individus x variable) par sa transposée. 
+
+$$
+\Sigma = XX^t
+$$
+Comme $\Sigma$ est symétrique, elle est diagonalisable et peut-être représentée par une matrice de score W et une matrice diagonale D. 
+
+
+$$
+\Sigma_{e} =WDW^T
+$$
+où D est la matrice diagonale des valeurs propres et W la matrice des composantes comprenant les j variables ( en ligne) et les k dimensions (en colonne).  L'équivalence suppose que le nombre de composantes est égal au nombre de variables initiales, Cependant l'usage conduit à ne retenir qu'un petit nombre de dimensions de telles sorte à ce que la différence entre $\Sigma$ et $\Sigma_{e}$ soit relativement petite. La matrice de score comprend autant de lignes que d'individus et de colonnes que de dimensions-sous-jascentes. 
+
+On remarquera que dans ce modèles on a autant de composantes que de variables, mais que ces dernières représentent une part décroissante de la variance. Certaines composantes n'ont pas de sens on se concentrera sur les premières rejoignant l'idée de l'analyse factorielle : peu de composantes, de facteurs, rendent compte des variations des données. 
+
+On restera cependant conscient que l'ACP n'est au fond qu'une manière de représenter les données, juste une projection. Ne retenir que les premières composantes va au-delà du modèle, c'est une démarche qui consiste à considérer que seules les premières composantes sont significatives, en apportant du sens, et les dernières peuvent être négligée. C'est une manière approximative de rejoindre le modèle factoriel, une solution simple pour en obtenir une solution.
+
+### Application
+
+En guise d'application on va utiliser un tout petit jeu de données issu de l'analyse précédente : le tableau des profils pays, sur les 21 valeurs de Kahle. Avec cette procédure d'aggrégation on réduit fortement la variance individuelle, pour ne garder que des différences en moyenne d'un pays à l'autre. 
+
+Le plus ici ne va plus être de comprendre la structure profonde des données, mais simplement de représenter ces différences dans un espace réduit. 
+
+```{r 0606b}
+
+foo<-foo1%>%
+  group_by(cntry)%>%  
+  summarise(across(V_creative:V_pleasure, ~ mean(.x, na.rm = TRUE)))
+#on note la fonction qui permet de résumer plusieurs variables à la fois
+X<- foo%>%
+  dplyr::select(-cntry)%>%
+  as.data.frame()
+rownames(X) <- foo$cntry
+
+```
+
+Plusieurs bibliothèque, en plus de la fonction de base princomp, propose une solution d' ACP. On choisit d'utiliser celle du package Factominer qu'on accompagne de la bibliothèque factoextra pour ses ressources graphiques. 
+
+Les résultats portent sur 3 éléments :  les valeurs propres de chacune des dimensions retenues, les coordonnées des vecteurs variables, et celles des points individus.
+
+
+```{r 0607}
+library("FactoMineR")
+library("factoextra")
+
+res.pca<-PCA(X, scale.unit = TRUE, ncp = 2, graph = FALSE)
+print(res.pca)
+
+x<-res.pca$eig
+```
+
+Le premier élément d'analyse et le graphe des éboulis ( ou scree plot) qui représentent les variances projetées sur chacune des composantes. Ici deux composantes représentent les deux tiers de la variance expliquée. 
+
+
+```{r 0608}
+
+fviz_screeplot(res.pca, ncp=21)
+
+
+```
+
+
+
+
+```{r 0609}
+
+library("corrplot")
+corrplot(res.pca$var$cos2, is.corr=FALSE, tl.cex = 0.8)
+
+fviz_pca_var(res.pca, col.var = "cos2",
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+             repel = TRUE # Évite le chevauchement de texte
+             )
+
+
+fviz_pca_ind(res.pca, col.ind = "cos2",
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+             repel = TRUE # Évite le chevauchement de texte
+             )
+
+### ce merveilleux bi plot
+
+fviz_pca_biplot(res.pca, col.ind = "cos2", labelsize = 3,
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"),
+             repel = TRUE )# Biplot des individus et variables
+
+```
+
+
+## Une généralisation de l'ACP : l'AFC
+
+L'AFC trouve une application remarquable dans l'analyse de tableaux croisés. Elle est une méthode de réprésentation des profils lignes et colonnes:
+
+On s'aperçoit que deux analyses peuvent être menées : l'une sur les colonnes, et l'autres sur les lignes. Dans les deux cas cette analyse peut se faire en comparant les colonnes (lignes) selon la formule suivante
+
+$$
+d_{i,j}= (f_{.i}-f_{.j})^2
+$$
+L'idée maintenant est claire : on mène deux acp, en ligne et en colonne, et on projettent conjointement (  dans un même espace)
+
+```{r 0610}
+
+library(readr)
+BDCOM_2020 <- read_csv("Data//BDCOM/BDCOM_2020.csv") %>%rename(CODACT=CODE_ACTIVITE)
+BDCOM_2017_CODACT_OD <- read_delim("Data/BDCOM/BDCOM_2017_CODACT_OD.csv", 
+                                   delim = ";", escape_double = FALSE, trim_ws = TRUE)
+
+df<-BDCOM_2020%>%left_join(BDCOM_2017_CODACT_OD, by = "CODACT")%>%rename(ACT=27)
+t<-table(df$ARRONDISSEMENT,df$ACT )
+
+res.ca <- CA(t, 
+             graph = TRUE)
+
+plot(res.ca, autoLab = "yes")
+
+fviz_ca_biplot(res.ca, labelsize = 2, repel=TRUE)+
+  theme(text = element_text(size =7)) +xlim(-0.75, 1)+ylim(-.75,0.75)
+
+
+```
+
+règle d'interprétation
+
+ * le point (0,0) représente le baycentre du nuage de point,et donc l'invidu moyens
+ * les lignes/colonne les plus extcentrée sont les moins présentes, la distance d'une modalité d'une variable à une autres, indique la correspondance de ces deux modalités qui partagent les mêmes individus.
+ * l'inertie total est chi²/n et donc une véritable méthode : analyse de la décomposition du khi2.
+ 
+
+Dans notre exemple on note de suite les arrondissement 1 et 2 qui sont les plus proches de la catégorie commerce de gros.
+
+On note aussi une disposition linéiaire qui opposent les arrondisssement excentré, aux arrondissement du centre. Un univers commercial résidentiel vs un univers de transit (spectacles et grands magasins)
+
+
+### AFCM multiple
+
+Très rapidement la méthode a été appliquée à une généralisation des tableaux croisés : le tableau de burt, ou son équivalent : le tableau disjonctif complet.
+
+exemple
+
+La mise en oeuvre par factominer permet d'employer une techniques de représentation de variables complémentaires : elles n'interviennent pas dans le calcul de la configuration factorielles, mais leurs positions dans l'espace sont calculées comme le barycentre des individus qui possède le trait considéré. Leur projection a un rôle illustratif.
+
+```{r 0611}
+library(FactoMineR)
+table(df$ACT)
+foo<-df%>% dplyr::select(ACT, SURFACE, SITUATION, LIBACT, ARRONDISSEMENT)%>%
+  as.matrix()
+
+res<-MCA(foo,graph = FALSE,quali.sup=5)
+
+
+fviz_mca_var(res, labelsize = 2, repel=TRUE)
+
+```
+
+remarques complémentaires :
+ * pas de signification de l'inertie globale qui dépend de la structure du tableau ( nombres de variables et de leurs modalités)
+ 
+
+
+## Développements
+
+derrière les méthodes il y a un principe mathématique fondamental qui est au fondement de bien d'autres méthodes factorielles. C'est celle de la Singular Variance décomposition dont l'ACP est finalement un cas particulier. 
+
+
+### le SVD
+
+Le modèle mathématique fondamental
+
+décomposer une matrice en plusieurs matrices
+l'acp une application à une matrice de nature particulières : la matrice de covariance ou de corrélation si standardisée
+
+de nombreuses autres applications :
+
+ * à des matrices de comptage
+ * compression d'image
+ * information retrieval
+ 
+d'autres méthodes s'appuient sur ce principe fondamental, et permettent de traiter des données textuelle .
+
+On repporte le lecteur au chapitre X de Booh NLP.
+
+
+
+LSA
+NFM
+
+
+### ACM , analyse canonique , analyse discriminante
+
+Si ACP, AFC et AFCM ont pris le devant de la scène, bien d'autre méthodes analogues ont été développées 
+
+ * ACM
+ * Analyse canonique
+ * Analyse factorielle discriminante qui a perdu du terrain au profit du modèle de régression logistique.
+ 
+ 
+ 
+
+# En conclusion
+
+1) une idée essentielle : réduire de nombreuses variables à un petit jeu de variables synthétiques
+
+2) des méthode au coeur de l'analyse des données
+
+3) une autre idée essentielle : celle de vectoriser les données qu'on observe  
+
 
 

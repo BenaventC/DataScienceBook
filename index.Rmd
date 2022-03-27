@@ -9,7 +9,7 @@ bibliography: [book.bib, packages.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: rstudio/bookdown-demo
-description: "Mon cours d'analyse de donnée et de data science"
+description: "Cours d'analyse de données et de Datascience"
 ---
 
 
@@ -26,34 +26,39 @@ Dans ce graphique il y a tous les éléments des data sciences modernes : un jeu
 
 
 
-# Plan et outils du manuel
+## Plan du manuel
 
- * 1 - L'environnement r et python
+Les chapitres projetés 
+
+ * 1 - L'environnement r 
  * 2 - Installation et prise en main
  * 3 - Usage de ggplot - uni et bivarié
  * 4 - Usage de ggplot - multivarié
- * 4 - Tables
- * 5 - AFC
- * 6 - Clustering
- * 7 - Analyse de variance et régression linéraire
- * 8 - Modèles factoriels
- * 9 - Modèles d'équations structurelles
- * 10 - Modèles linéaire généralisé
- * 11 - Modèles à décomposition d'erreur
- * 12 - Times series
- * 13 - Analyse geospatiale
+ * 6 - Analyse de variance et régression linéraire
+ * 5 - Tables
+ * 6 - Modèles factoriels ( Psych)
+ * 7 - AFC
+ * 8 - MDS
+ * 9 - Clustering
+ * 10 - Analyse de réseaux
+ * 10 - Modèle d'équations structurelles (Lavaan)
+ * 11 - Modèle linéaire généralisé
+ * 12 - Modèles à décomposition d'erreur
+ * 13 - Times series
+ * 14 - Analyse geospatiale
+ * 15 - Machine learning
  
 
 ## Les jeux de données 
 
-Au cours du développement, plusieurs cas pratiques - souvent réduit en volume pour rester exemplaires, seront employés. Les donées seront partagées.
+Au cours du développement, plusieurs cas pratiques - souvent réduit en volume pour rester exemplaire, seront employés. Les donées seront partagées.
 
 En voici la présentation  systématique.
 
 
 disponibles dans le [repositery](https://benaventc.github.io//) avec le code du book. Les amendements et améliorations sont souhaitées et attendues. 
 
-## Le cadre technique
+## Le cadre technique et les packages utilisés
 
 Ce  _livre_ est écrit en **Markdown** [@allaire_rmarkdown_2021] et  avec le package **Bookdown** [@R-bookdown]
 
@@ -63,15 +68,13 @@ Le code s'appuie très largement sur **tidyverse** et emploie largement les ress
 ```{r 001, echo = TRUE, message=FALSE,warning=FALSE}
 options(tinytex.verbose = TRUE)
 
-knitr::opts_chunk$set(echo = TRUE, include=TRUE, cache=TRUE, message=FALSE, warning=FALSE, cache=TRUE)
+knitr::opts_chunk$set(echo = TRUE, include=TRUE, cache=TRUE, message=FALSE, warning=FALSE)
 
-#boite à outils et viz
+#boite à outils et dataviz
 library(tidyverse) # inclut ggplot pour la viz, readr et 
 library(cowplot) #pour créer des graphiques composés
 library(ggridges) # le joy division touch
 library(ggmosaic)
-
-library(citr)
 
 #networks
 library(igraph)
@@ -98,9 +101,17 @@ library(flextable)
 
 
 #statistiques et modèles
-library(lme4)
-library(jtools)
-library(interactions)
+library(lme4) #pour des modèles plus complexe que les mco
+library(jtools) #une série d'utiltaire pour bien représenter les résultats
+library(interactions) #traitement des interactions
+
+library(corrplot)
+library(psych) 
+
+
+library("FactoMineR")
+library("factoextra")
+
 
 #ML
 library(caret)
@@ -115,10 +126,18 @@ theme_set(theme_bw())
 
 #palettes
 library(colorspace) #pour les couleurs
+library(wesanderson)
+
+
+
+# Utilitaires
+
+library(citr) #pour insérer des références dans le markdown
 
 ```
 
-L'ensemble du code est disponible [sur github](https://github.com/BenaventC/NLPBook). A ce stade c'est encore très embryonnaire. Les proches pourrons cependant y voir l'évolution du projet et de la [progression](https://benaventc.github.io/NLPBook/)
+
+L'ensemble du code est disponible [sur github](https://github.com/BenaventC/Datasciences). A ce stade c'est encore très embryonnaire. Les proches pourrons cependant y voir l'évolution du projet et de la [progression](https://benaventc.github.io/Datascience/)
 
 Quelques conventions d'écriture du code r
 
@@ -128,7 +147,7 @@ Quelques conventions d'écriture du code r
   ** deux couleurs
   ** 3 à 7 couleurs
  * On emploie autant que possible le dialecte tidy.
- * Les chunks sont notés X, le chapitre, 01 à n, les jeux. 502 est le second chunk du chapitre 4.
+ * Les chunks sont notés en 4 chiffre : 2 pour le chapitre et deux pour le chunck. 0502 est le second chunk du chapitre 5.
  * On commente au maximum les lignes de code pour épargner le corps du texte et le rendre lisible
 
 
