@@ -1,0 +1,11 @@
+#  ML
+
+
+## forêts aléatoires
+
+
+[voire le cas](http://r.benavent.fr/MM.html)
+
+et pour le texte :
+
+et surtout [celui-ci](https://benaventc.github.io/NLPBook/machine-learning-supervis%C3%A9-et-nlp.html)

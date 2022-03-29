@@ -1,0 +1,20 @@
+# Régression
+
+
+
+## Une étude de cas : blablacar
+
+
+
+voir [blablacar](https://github.com/BenaventC/Covoiturage)
+
+## Autres modèles 
+
+### régression logistique
+
+### regression beta
+
+### régression survie
+
+### modèles à composante d'erreur
+

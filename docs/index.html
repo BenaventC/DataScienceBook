@@ -24,7 +24,7 @@
 <meta name="author" content="Christophe Benavent - Université Paris Dauphine" />
 
 
-<meta name="date" content="2022-03-27" />
+<meta name="date" content="2022-03-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,7 +52,6 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-<link href="libs/tabwid-1.0.0/tabwid.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -135,7 +134,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">NLP en r et en français</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Préface</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Avant propos</a><ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#plan-du-manuel"><i class="fa fa-check"></i><b>1.1</b> Plan du manuel</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#les-jeux-de-données"><i class="fa fa-check"></i><b>1.2</b> Les jeux de données</a></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#le-cadre-technique-et-les-packages-utilisés"><i class="fa fa-check"></i><b>1.3</b> Le cadre technique et les packages utilisés</a></li>
@@ -236,6 +235,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="8.6" data-path="clus.html"><a href="clus.html#autres-méthodes"><i class="fa fa-check"></i><b>8.6</b> Autres méthodes</a></li>
 <li class="chapter" data-level="8.7" data-path="clus.html"><a href="clus.html#conclusion"><i class="fa fa-check"></i><b>8.7</b> Conclusion</a></li>
 </ul></li>
+<li class="chapter" data-level="9" data-path="régression.html"><a href="régression.html"><i class="fa fa-check"></i><b>9</b> Régression</a><ul>
+<li class="chapter" data-level="9.1" data-path="régression.html"><a href="régression.html#une-étude-de-cas-blablacar"><i class="fa fa-check"></i><b>9.1</b> Une étude de cas : blablacar</a></li>
+<li class="chapter" data-level="9.2" data-path="régression.html"><a href="régression.html#autres-modèles"><i class="fa fa-check"></i><b>9.2</b> Autres modèles</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="régression.html"><a href="régression.html#régression-logistique"><i class="fa fa-check"></i><b>9.2.1</b> régression logistique</a></li>
+<li class="chapter" data-level="9.2.2" data-path="régression.html"><a href="régression.html#regression-beta"><i class="fa fa-check"></i><b>9.2.2</b> regression beta</a></li>
+<li class="chapter" data-level="9.2.3" data-path="régression.html"><a href="régression.html#régression-survie"><i class="fa fa-check"></i><b>9.2.3</b> régression survie</a></li>
+<li class="chapter" data-level="9.2.4" data-path="régression.html"><a href="régression.html#modèles-à-composante-derreur"><i class="fa fa-check"></i><b>9.2.4</b> modèles à composante d’erreur</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="arbre-de-décision.html"><a href="arbre-de-décision.html"><i class="fa fa-check"></i><b>10</b> Arbre de Décision</a><ul>
+<li class="chapter" data-level="10.1" data-path="arbre-de-décision.html"><a href="arbre-de-décision.html#construire-un-arbre-de-décision"><i class="fa fa-check"></i><b>10.1</b> Construire un arbre de décision</a></li>
+<li class="chapter" data-level="10.2" data-path="arbre-de-décision.html"><a href="arbre-de-décision.html#mise-en-oeuvre-avec-partykit"><i class="fa fa-check"></i><b>10.2</b> Mise en oeuvre avec Partykit</a></li>
+<li class="chapter" data-level="10.3" data-path="arbre-de-décision.html"><a href="arbre-de-décision.html#forêts-aléatoires"><i class="fa fa-check"></i><b>10.3</b> forêts aléatoires</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="ml.html"><a href="ml.html"><i class="fa fa-check"></i><b>11</b> ML</a><ul>
+<li class="chapter" data-level="11.1" data-path="ml.html"><a href="ml.html#forêts-aléatoires-1"><i class="fa fa-check"></i><b>11.1</b> forêts aléatoires</a></li>
+</ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
 
@@ -259,47 +275,54 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">Introduction aux Data Sciences</h1>
 <p class="author"><em>Christophe Benavent - Université Paris Dauphine</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>2022-03-27</em></p>
+<p class="date" style="margin-top: 1.5em;"><em>2022-03-29</em></p>
 </div>
-<div id="préface" class="section level1">
-<h1><span class="header-section-number">Chapitre 1</span> Préface</h1>
+<div id="avant-propos" class="section level1">
+<h1><span class="header-section-number">Chapitre 1</span> Avant propos</h1>
 <p><img src="Images/ggridge.png" /></p>
-<p>Ce bookdown reprend les éléments d’un cours de data science avec r. Il a pour but d’être reproductible, c’est pourquoi le choix de ce support et des jeux de données associés. Il sera dynamique, modifié à mesure de nos cours, séminaires et ateliers.</p>
-<p>L’illustration représente l’évolution de la longueur des films de la base Imbd et raconte en chiffres une part de l’histoire du cinema. Jusqu’au années la longueur est hétérogène mais au tournant des années 30, la distribution se stabilise, les court-métragessont de l’ordre de 15mn, et voient leurs durée se raccourcir avec les décénnies, le genre menace de disparaitredans les années 80 et reprend du poil de la bête dans les années 2000. Les films longs voient leur longueur s’accroitre et se stabiliser autur de un peu moins de 100 mn, soit une heure et trente minutes. On observera enfin qu’au cours des années 1990 les film de taille intermédiaires réapparaissent.</p>
-<p>Dans ce graphique il y a tous les éléments des data sciences modernes : un jeu de donnée riche et systématique, un modèle statistique fondamentale avec la notion de densité de probabilité, une mesure, un critère de comparaison. Les diagrammes ridges sont inspirée de la pochette de l’album <a href="https://www.youtube.com/watch?v=7PtvIr2oiaE">Unknown Pleasures de Joy division</a> sorti en pleine New Wave , en 1979. Un article de Vice en rappele l’<a href="https://i-d.vice.com/fr/article/pabjam/pourquoi-cette-pochette-dalbum-de-joy-division-a-inspire-le-monde-entier">origine et le destin de ce graphisme</a></p>
+<p>Ce bookdown présent les éléments d’un cours de data science avec r. Il est reproductible, on peut en cloner les élement à partir du <a href="https://github.com/BenaventC/DataScienceBook">repository</a>. Le texte est encore hasardeux, les codes sont vérifiés.</p>
+<p>Il sera dynamique, modifié à mesure de nos cours, séminaires et ateliers.</p>
+<p>L’illustration de couverture représente l’évolution de la longueur des films de la base <a href="https://www.imdb.com/">Imbd</a> et raconte en chiffres un aspect de l’histoire du cinema. Jusqu’aux années 30, la longueur est hétérogène ensuite elle se se stabilise : les courts-métrages ont une durée de l’ordre de 15mn qui se raccourcit avec les décennies, ce genre menace de disparaitre dans les années 80 et reprend du poil de la bête dans les années 2000. Les films longs voient leur longueur s’accroitre et se stabiliser autour d’un peu moins de 100 mn, soit une heure et quarantes minutes. On observera enfin qu’au cours des années 1990 les films de taille intermédiaires réapparaissent. On devinera dans cette évolution l’émergence de standard, ou de convention.Les faits viennent au secours des théories…</p>
+<p>Dans ce graphique il y a tous les éléments des data sciences contemporaine : un jeu de donnée riche et systématique, un modèle statistique fondamental avec la notion de densité de probabilité, une mesure, un critère de comparaison.</p>
+<p>Les diagrammes ridges, ce sont leurs dénominations, sont inspirés de la pochette de l’album <a href="https://www.youtube.com/watch?v=7PtvIr2oiaE">Unknown Pleasures de Joy division</a> sorti en pleine New Wave , en 1979. Un article de Vice en rappele l’<a href="https://i-d.vice.com/fr/article/pabjam/pourquoi-cette-pochette-dalbum-de-joy-division-a-inspire-le-monde-entier">origine et le destin du graphisme</a> qu’on connait mieux imprimé sur des t-shirt que dans les cours de statistiques.</p>
 <div id="plan-du-manuel" class="section level2">
 <h2><span class="header-section-number">1.1</span> Plan du manuel</h2>
-<p>Les chapitres projetés</p>
+<p>C’est un projet en cours, Les chapitres projetés sont les suivants. certains sont dans les limbes, d’autres ont pris consistances</p>
 <ul>
-<li>1 - L’environnement r</li>
-<li>2 - Installation et prise en main</li>
-<li>3 - Usage de ggplot - uni et bivarié</li>
-<li>4 - Usage de ggplot - multivarié</li>
-<li>6 - Analyse de variance et régression linéraire</li>
+<li>1 - L’environnement r x</li>
+<li>2 - Installation et prise en main x</li>
+<li>3 - Usage de ggplot - uni et bivarié x</li>
+<li>4 - Usage de ggplot - multivarié x</li>
+<li>6 - Analyse de variance et régression linéraire x</li>
 <li>5 - Tables</li>
-<li>6 - Modèles factoriels ( Psych)</li>
-<li>7 - AFC</li>
-<li>8 - MDS</li>
-<li>9 - Clustering</li>
+<li>6 - Modèles factoriels ( Psych) x</li>
+<li>7 - AFC x</li>
+<li>8 - MDS<br />
+</li>
+<li>9 - Clustering x</li>
 <li>10 - Analyse de réseaux</li>
 <li>10 - Modèle d’équations structurelles (Lavaan)</li>
 <li>11 - Modèle linéaire généralisé</li>
 <li>12 - Modèles à décomposition d’erreur</li>
 <li>13 - Times series</li>
 <li>14 - Analyse geospatiale</li>
-<li>15 - Machine learning</li>
+<li>15 - Machine learning x</li>
 </ul>
 </div>
 <div id="les-jeux-de-données" class="section level2">
 <h2><span class="header-section-number">1.2</span> Les jeux de données</h2>
-<p>Au cours du développement, plusieurs cas pratiques - souvent réduit en volume pour rester exemplaire, seront employés. Les donées seront partagées.</p>
-<p>En voici la présentation systématique.</p>
-<p>disponibles dans le <a href="https://benaventc.github.io//">repositery</a> avec le code du book. Les amendements et améliorations sont souhaitées et attendues.</p>
+<p>Au cours du développement, plusieurs cas pratiques - souvent réduit en volume pour rester exemplaire, seront employés. Les données seront partagées.</p>
+<p>En voici la présentation des sets de données utilisées dans le syllabus. Elle sont disponible dans le répertoire “./data/”</p>
+<ul>
+<li>ESS : c’est une très belle base de données de sociologie.</li>
+<li>happydemics : observatoire de la présidentielle2022</li>
+<li>Arpur</li>
+</ul>
 </div>
 <div id="le-cadre-technique-et-les-packages-utilisés" class="section level2">
 <h2><span class="header-section-number">1.3</span> Le cadre technique et les packages utilisés</h2>
-<p>Ce <em>livre</em> est écrit en <strong>Markdown</strong> <span class="citation">(Allaire et al. <a href="#ref-allaire_rmarkdown_2021" role="doc-biblioref">2021</a>)</span> et avec le package <strong>Bookdown</strong> <span class="citation">(Xie <a href="#ref-R-bookdown" role="doc-biblioref">2021</a>)</span></p>
-<p>Le code s’appuie très largement sur <strong>tidyverse</strong> et emploie largement les ressources de <strong>ggplot</strong> . Les packages seront introduits au fur et à mesure. En voici la liste complète.</p>
+<p>Ce <em>syllabus</em> est écrit en <strong>Markdown</strong> <span class="citation">(Allaire et al. <a href="#ref-allaire_rmarkdown_2021" role="doc-biblioref">2021</a>)</span> et avec le package <strong>Bookdown</strong> <span class="citation">(Xie <a href="#ref-R-bookdown" role="doc-biblioref">2021</a>)</span></p>
+<p>Le code s’appuie très largement sur <code>tidyverse</code> et emploie largement les ressources de <code>ggplot</code>. Les packages seront introduits au fur et à mesure. En voici la liste complète.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">options</span>(<span class="dt">tinytex.verbose =</span> <span class="ot">TRUE</span>)</a>
 <a class="sourceLine" id="cb1-2" title="2"></a>
 <a class="sourceLine" id="cb1-3" title="3">knitr<span class="op">::</span>opts_chunk<span class="op">$</span><span class="kw">set</span>(<span class="dt">echo =</span> <span class="ot">TRUE</span>, <span class="dt">include=</span><span class="ot">TRUE</span>, <span class="dt">cache=</span><span class="ot">TRUE</span>, <span class="dt">message=</span><span class="ot">FALSE</span>, <span class="dt">warning=</span><span class="ot">FALSE</span>)</a>
@@ -367,7 +390,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <a class="sourceLine" id="cb1-65" title="65"><span class="co"># Utilitaires</span></a>
 <a class="sourceLine" id="cb1-66" title="66"></a>
 <a class="sourceLine" id="cb1-67" title="67"><span class="kw">library</span>(citr) <span class="co">#pour insérer des références dans le markdown</span></a></code></pre></div>
-<p>L’ensemble du code est disponible <a href="https://github.com/BenaventC/Datasciences">sur github</a>. A ce stade c’est encore très embryonnaire. Les proches pourrons cependant y voir l’évolution du projet et de la <a href="https://benaventc.github.io/Datascience/">progression</a></p>
+<p>L’ensemble du code est disponible <a href="https://github.com/BenaventC/Datasciences">sur github</a>. A ce stade c’est encore embryonnaire. Les proches et nos étudiants pourrons cependant y voir l’évolution du projet et de la <a href="https://benaventc.github.io/Datascience/">progression</a></p>
 <p>Quelques conventions d’écriture du code r</p>
 <ul>
 <li>On appele les dataframes de manière générale <code>df</code>, les tableaux intermédiaires sont appelé systématiquement <code>foo</code></li>

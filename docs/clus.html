@@ -24,7 +24,7 @@
 <meta name="author" content="Christophe Benavent - Université Paris Dauphine" />
 
 
-<meta name="date" content="2022-03-27" />
+<meta name="date" content="2022-03-29" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="analyses-factorielles.html"/>
-
+<link rel="next" href="régression.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -52,7 +52,6 @@
 
 <link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
-<link href="libs/tabwid-1.0.0/tabwid.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -135,7 +134,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">NLP en r et en français</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Préface</a><ul>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Avant propos</a><ul>
 <li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#plan-du-manuel"><i class="fa fa-check"></i><b>1.1</b> Plan du manuel</a></li>
 <li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#les-jeux-de-données"><i class="fa fa-check"></i><b>1.2</b> Les jeux de données</a></li>
 <li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#le-cadre-technique-et-les-packages-utilisés"><i class="fa fa-check"></i><b>1.3</b> Le cadre technique et les packages utilisés</a></li>
@@ -235,6 +234,23 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="8.6" data-path="clus.html"><a href="clus.html#autres-méthodes"><i class="fa fa-check"></i><b>8.6</b> Autres méthodes</a></li>
 <li class="chapter" data-level="8.7" data-path="clus.html"><a href="clus.html#conclusion"><i class="fa fa-check"></i><b>8.7</b> Conclusion</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="régression.html"><a href="régression.html"><i class="fa fa-check"></i><b>9</b> Régression</a><ul>
+<li class="chapter" data-level="9.1" data-path="régression.html"><a href="régression.html#une-étude-de-cas-blablacar"><i class="fa fa-check"></i><b>9.1</b> Une étude de cas : blablacar</a></li>
+<li class="chapter" data-level="9.2" data-path="régression.html"><a href="régression.html#autres-modèles"><i class="fa fa-check"></i><b>9.2</b> Autres modèles</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="régression.html"><a href="régression.html#régression-logistique"><i class="fa fa-check"></i><b>9.2.1</b> régression logistique</a></li>
+<li class="chapter" data-level="9.2.2" data-path="régression.html"><a href="régression.html#regression-beta"><i class="fa fa-check"></i><b>9.2.2</b> regression beta</a></li>
+<li class="chapter" data-level="9.2.3" data-path="régression.html"><a href="régression.html#régression-survie"><i class="fa fa-check"></i><b>9.2.3</b> régression survie</a></li>
+<li class="chapter" data-level="9.2.4" data-path="régression.html"><a href="régression.html#modèles-à-composante-derreur"><i class="fa fa-check"></i><b>9.2.4</b> modèles à composante d’erreur</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="arbre-de-décision.html"><a href="arbre-de-décision.html"><i class="fa fa-check"></i><b>10</b> Arbre de Décision</a><ul>
+<li class="chapter" data-level="10.1" data-path="arbre-de-décision.html"><a href="arbre-de-décision.html#construire-un-arbre-de-décision"><i class="fa fa-check"></i><b>10.1</b> Construire un arbre de décision</a></li>
+<li class="chapter" data-level="10.2" data-path="arbre-de-décision.html"><a href="arbre-de-décision.html#mise-en-oeuvre-avec-partykit"><i class="fa fa-check"></i><b>10.2</b> Mise en oeuvre avec Partykit</a></li>
+<li class="chapter" data-level="10.3" data-path="arbre-de-décision.html"><a href="arbre-de-décision.html#forêts-aléatoires"><i class="fa fa-check"></i><b>10.3</b> forêts aléatoires</a></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="ml.html"><a href="ml.html"><i class="fa fa-check"></i><b>11</b> ML</a><ul>
+<li class="chapter" data-level="11.1" data-path="ml.html"><a href="ml.html#forêts-aléatoires-1"><i class="fa fa-check"></i><b>11.1</b> forêts aléatoires</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -617,17 +633,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="conclusion" class="section level2">
 <h2><span class="header-section-number">8.7</span> Conclusion</h2>
 
-<div id="refs" class="references">
-<div>
-<p>Allaire, J. J., Yihui Xie, Jonathan McPherson, Javier Luraschi, Kevin Ushey, Aron Atkins, Hadley Wickham, Joe Cheng, Winston Chang, and Richard Iannone. 2021. <em>Rmarkdown: Dynamic Documents for R</em>. <a href="https://CRAN.R-project.org/package=rmarkdown">https://CRAN.R-project.org/package=rmarkdown</a>.</p>
-</div>
-<div>
-<p>Sneath, P. H. A., and Robert R. Sokal. 1973. <em>Numerical Taxonomy: The Principles and Practice of Numerical Classification</em>. A Series of Books in Biology. San Francisco: W. H. Freeman.</p>
-</div>
-<div>
-<p>Xie, Yihui. 2021. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>.</p>
-</div>
-</div>
 </div>
 </div>
 <h3>References</h3>
@@ -641,8 +646,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="analyses-factorielles.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-
+<a href="analyses-factorielles.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="régression.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

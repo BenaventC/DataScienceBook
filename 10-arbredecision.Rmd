@@ -1,0 +1,84 @@
+#  Arbre de Décision
+
+L’objectif de cette note est double. Le premier est une introduction aux méthodes d’arbres de décision et leur généralisation récente par les random forests. Le second est d’introduire à l’approche d’apprentissage et de test, autrement aux machine learning avec le package caret qui facilite la condition des opérations d’échantillonngage, de découpage des échanges et de production des indicateurs.
+
+
+## Construire un arbre de décision
+
+Les origines et le principe
+
+C’est une approche qui remonte à Morgan and Sonquist (1963)
+
+généralisés aux variables qualitatives avec Chaid (Kass (1980)) :
+
+Le principe général suis le pseudo algorithme suivant :
+
+pour chaque variable potentiellement explicative, trouver le meilleur découpage (dichotomique), c’est à dire celui qui va différencier au mieux la variable de réponse.
+Choisir parmi les variables et leur dichotomitsation celle qui répond au même critère que précedemment
+recommencer l’opération à 1
+Il peut s’appliquer à une variable quantitative ( regression) ou qualitative ( chaid)
+
+puis Cart avec breiman. Breiman (1998)
+
+## Mise en oeuvre avec Partykit
+
+
+Le package partykit a pour objectif de représenter les arbres de décisions. Il inclue cependant plusieurs méthodes d’arbres de decisions, en en particulier une approche ctree Hothorn et al. (2006) dont le principe est. La méthode est incluse dans partykit Hothorn and Zeileis (2015)
+
+Avec partykit on contrôle la construction de l’arbre sur différents critères, par exemple : * le type de test employé pour prendre la décision * le nombre minimum d’individus dans une feuille terminale
+
+
+https://apiacoa.org/blog/2014/02/initiation-a-rpart.fr.html
+
+https://apiacoa.org/blog/2014/02/initiation-a-rpart.fr.html
+
+
+
+```{r libraries, echo=TRUE, include=TRUE,, message=FALSE, warning=FALSE, fig.width=12}
+
+knitr::opts_chunk$set(echo = TRUE, include=TRUE, cache=TRUE, message=FALSE, warning=FALSE)
+
+library(partykit)
+
+library(tidyverse)
+#lecture du fichier
+df<-readRDS("./data/last.rds") %>%drop_na()
+df$Age<-as.factor(df$Age)
+df$Sexe<-as.factor(df$Sexe)
+df$Education<-factor(df$Education, ordered = FALSE )
+df$Situation2<-as.factor(df$Situation2)
+
+df$Situation3<-as.factor(ifelse(df$Situation<5,"degradation"," Amelioration"))
+table(df$Situation3)
+
+fit <-ctree(Situation3 ~ Age+Sexe+Education, data=df)
+print(fit)
+
+pred <- predict(fit, df)
+library(caret)
+cm = confusionMatrix(df$Situation3, pred)
+print(cm)
+
+
+library(ggparty)
+autoplot(fit)
+
+
+#library(irks)
+#rules<-ct_rules(fit)
+
+#rules %>% 
+#  kable() %>%
+#  kable_styling(bootstrap_options = "striped", font_size = 10)
+
+
+
+```
+
+
+https://topepo.github.io/caret/
+
+
+## forêts aléatoires
+
+[voire le cas](http://r.benavent.fr/caret.html)

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapitre 2 Introduction aux data sciences | Introduction aux Data Sciences</title>
+  <title>Chapitre 11 ML | Introduction aux Data Sciences</title>
   <meta name="description" content="Cours d’analyse de données et de Datascience" />
   <meta name="generator" content="bookdown 0.22.3 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapitre 2 Introduction aux data sciences | Introduction aux Data Sciences" />
+  <meta property="og:title" content="Chapitre 11 ML | Introduction aux Data Sciences" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapitre 2 Introduction aux data sciences | Introduction aux Data Sciences" />
+  <meta name="twitter:title" content="Chapitre 11 ML | Introduction aux Data Sciences" />
   
   <meta name="twitter:description" content="Cours d’analyse de données et de Datascience" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="prise-en-main.html"/>
+<link rel="prev" href="arbre-de-décision.html"/>
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -272,74 +272,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="intro" class="section level1">
-<h1><span class="header-section-number">Chapitre 2</span> Introduction aux data sciences</h1>
-<div id="objectif-et-sommaire" class="section level2">
-<h2><span class="header-section-number">2.1</span> Objectif et sommaire</h2>
-<p>L’objet du manuel est de donner un aperçu général des méthodes d’analyses de données et de data science.</p>
-</div>
-<div id="science-ou-technique" class="section level2">
-<h2><span class="header-section-number">2.2</span> Science ou technique ?</h2>
-<p>Plûtôt que le terme consacré de Data sciences, il vaudrait mieux parler de data ingiénérie dans la mesure où le data scientiste participe à un processus de production qui va de l’acquisition des donnée à leur propagation dans l’organisation ou la société. La technique domine sur la science et l’unité se trouve dans l’intégration de ce processus. La révolution des données vient de l’interopérabilité croissante de ces techniques et d’une intégration qui fluidifie le passage d’une étape à une autre. Standards et langages en sont les éléments clés.</p>
-<p>Du côté des sciences, ce dont bénéficie l’univers des data sciences, c’est l’héritage de cultures statistiques foisonnantes qui après s’être développées dans leur cocon displinaire, se retrouvent désormais rassemblées dans un même langage. Bien sur il y a de manière sous-jascente à ces cultures les mathématiques et les statistiques mathématiques qui construisent les fondements des modèles et des techniques. Mais le développement s’est fait souvent quand le scientifique se retrouve face à un problème où une observation.</p>
-<p>Prenons le cas des psychologues qui ont inventé l’analyse factorielle dans le but de pouvoir tester certains de leurs concepts : un degré d’intelligence, une personnalité, des attitudes.</p>
-<p>Ou celui des écologues qui souhatent estimer une population de poisson dans une rivière, problème qui a donné naissance aux modèles de capture recapture. On pourrait ajouter les géographes avec les modèles d’analyse spatiale, les financiers face à la variabilité des cours des places boursières, etc. Celui des économètres est peut-être le plus évident. Les biostatisticiens sont des contributeurs importants.</p>
-<p>Ce que la technique apporte c’est l’intégration par un langage et donc un ensemble de conventions, incarnées par r et python, d’algoritmes, et de programmes qui ne sont plus spécifique à un domaine, mais peuvent circuler de l’un à l’autre. C’est ainsi que le catalogues de toutes les techniques psychométriques devient accessible aux autres disciplines par le biais d’un pachage en particulier , psych. De la même manière l’outillage des linguiste devient accessible aux autres disciplines, pensons aux économiste qui intéègre dans le indicateurs des sources textuelle telle que l’analyse du sentiment.</p>
-<p>L’interopérabilité apportée par ces langages ne se définit pas que par l’algorithme qui aurait été porté d’un autre langage vers celui-ci ( des cas de réécriture ?) mais aussi par des programme passerelle qui à partir de r permettent d’activité des algorithme écrit en C, en javascript ou tout autre langage “plus informatiques” et souvent plus éfficace.</p>
-</div>
-<div id="histoires-des-logiciels-statistiques" class="section level2">
-<h2><span class="header-section-number">2.3</span> histoires des logiciels statistiques</h2>
-<p>Et c’est ce qu’on observe dans l’évolution des logiciels</p>
-<ul>
-<li>1980 : statitcf</li>
-<li>1980 : SAS comme accès à r</li>
-<li>1990 : SPSS</li>
-</ul>
-<p><a href="http://www.deenov.com/blog-deenov/histoire-du-logiciel-spad.aspx" class="uri">http://www.deenov.com/blog-deenov/histoire-du-logiciel-spad.aspx</a></p>
-<p>des système portable</p>
-<p>intégration graphique</p>
-<p>la modularisation : base /fonction/ packages</p>
-</div>
-<div id="le-processus-de-traitement-des-données" class="section level2">
-<h2><span class="header-section-number">2.4</span> Le processus de traitement des données</h2>
-<p><img src="Images/datascience2.PNG" /></p>
-<ul>
-<li>Acquisition</li>
-<li>Codification , filtrage et correction d’erreur</li>
-<li>Structuration des données : api, open data</li>
-<li>Exploration</li>
-<li>Modélisation :</li>
-<li>validation : tests versus AB testing</li>
-<li>Simulation et décision</li>
-<li>Vizualisation et sensemaking</li>
-<li>Déploiement :</li>
-<li>Contrôle :</li>
-<li>Publication : dash board, pdf , slide etc, webb site</li>
-</ul>
-</div>
-<div id="les-facteurs-de-développement-des-datasciences" class="section level2">
-<h2><span class="header-section-number">2.5</span> Les facteurs de développement des datasciences</h2>
-<p>Ces développements sont favorisés par un environnement fertile dont trois facteurs se renforcent mutuellement.</p>
-<div id="une-lingua-franca" class="section level3">
-<h3><span class="header-section-number">2.5.1</span> Une lingua franca</h3>
-<p>histoire de r
-histoire de python</p>
-</div>
-<div id="une-communauté" class="section level3">
-<h3><span class="header-section-number">2.5.2</span> Une communauté</h3>
-<p>Le second facteur , intimement lié au premier, est la constitution d’une large communauté de développeurs et d’utilisateurs qui se retrouvent aujourd’hui dans des plateformes de dépots (Github, Gitlab), de plateformes de type quora (StalkOverFlow), de tutoriaux, de blogs (BloggeR), de journaux (Journal of Statistical Software) et de bookdown.</p>
-<p>Des ressources abondantes sont ainsi disponibles et facilitent la formation des chercheurs et des data scientists. Toutes les conditions sont réunies pour engendrer une effervescence créative.</p>
-</div>
-<div id="la-multiplication-des-sources-de-données." class="section level3">
-<h3><span class="header-section-number">2.5.3</span> La multiplication des sources de données.</h3>
-<p>Le troisième est la multiplication des sources de données et leur facilité d’accès. Les données privées, et en particulier celles des réseaux sociaux, même si un péage doit être payé pour accéder aux APIs, popularisent le traitement de données massives. Le mouvement des données ouvertes (open data) proposent et facilitent l’accès à des milliers de corps de données : retards de la SNCF, grand débat, le formidable travail de l’Insee, european survey etc.</p>
-</div>
-<div id="du-ml-à-lia" class="section level3">
-<h3><span class="header-section-number">2.5.4</span> du ML à l’IA</h3>
-<p>Le retour au boites noires dans les années 2000. Ce qui distingue les statistiques traditionnelles de l’approche machine learning réside d’abord par une approche de la modèlisation différente. Les modèles statistiques et économétriques considèrent non seulement une structure ( moddèle linéaires par ex), la spécification du modèle, mais aussi des modèles de distribution qui définissent le cadre d’estimation. L’évaluation passe par le test du respects des hypothèses de constructions ( distribution des erreurs), et de la qualité d’ajustement. Le machine learning, se concentre sur la valeur prédictive, et considère n’importe quelle spécification même si elle est peu intelligible et comprend de grandes quantité de paramètres.</p>
-<p>KNN, SVM, rf et le retour des réseaux de neurones.</p>
-<p>La révolution des convolutions et la multiplication des architectures</p>
+<div id="ml" class="section level1">
+<h1><span class="header-section-number">Chapitre 11</span> ML</h1>
+<div id="forêts-aléatoires-1" class="section level2">
+<h2><span class="header-section-number">11.1</span> forêts aléatoires</h2>
+<p><a href="http://r.benavent.fr/MM.html">voire le cas</a></p>
+<p>et pour le texte :</p>
+<p>et surtout <a href="https://benaventc.github.io/NLPBook/machine-learning-supervis%C3%A9-et-nlp.html">celui-ci</a></p>
 
+<div id="refs" class="references">
+<div>
+<p>Allaire, J. J., Yihui Xie, Jonathan McPherson, Javier Luraschi, Kevin Ushey, Aron Atkins, Hadley Wickham, Joe Cheng, Winston Chang, and Richard Iannone. 2021. <em>Rmarkdown: Dynamic Documents for R</em>. <a href="https://CRAN.R-project.org/package=rmarkdown">https://CRAN.R-project.org/package=rmarkdown</a>.</p>
+</div>
+<div>
+<p>Sneath, P. H. A., and Robert R. Sokal. 1973. <em>Numerical Taxonomy: The Principles and Practice of Numerical Classification</em>. A Series of Books in Biology. San Francisco: W. H. Freeman.</p>
+</div>
+<div>
+<p>Xie, Yihui. 2021. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>.</p>
+</div>
 </div>
 </div>
 </div>
@@ -348,8 +298,8 @@ histoire de python</p>
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="prise-en-main.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="arbre-de-décision.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -381,7 +331,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/01-intro.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/11-machinelearning.Rmd",
 "text": "Edit"
 },
 "history": {

@@ -13,56 +13,63 @@ description: "Cours d'analyse de données et de Datascience"
 ---
 
 
-# Préface
+# Avant propos
 
 ![](./Images/ggridge.png)
 
-Ce bookdown reprend les éléments d'un cours de data science avec r. Il a pour but d'être reproductible, c'est pourquoi le choix de ce support et des jeux de données associés. Il sera dynamique, modifié à mesure de nos cours, séminaires et ateliers. 
+Ce bookdown présent les éléments d'un cours de data science avec r. Il est reproductible, on peut en cloner les élement à partir du [repository](https://github.com/BenaventC/DataScienceBook). Le texte est encore hasardeux, les codes sont vérifiés.
 
-L'illustration représente l'évolution de la longueur des films de la base Imbd et raconte en chiffres une part de l'histoire du cinema. Jusqu'au années la longueur est hétérogène mais au tournant des années 30, la distribution se stabilise, les court-métragessont de l'ordre de 15mn, et voient leurs durée se raccourcir avec les décénnies, le genre menace de disparaitredans les années 80 et reprend du poil de la bête dans les années 2000. Les films longs voient leur longueur s'accroitre et se stabiliser autur de un peu moins de 100 mn, soit une heure et trente minutes. On observera enfin qu'au cours des années 1990 les film de taille intermédiaires réapparaissent.
+Il sera dynamique, modifié à mesure de nos cours, séminaires et ateliers. 
 
-Dans ce graphique il y a tous les éléments des data sciences modernes : un jeu de donnée riche et systématique, un modèle statistique fondamentale avec la notion de densité de probabilité, une mesure, un critère de comparaison. Les diagrammes ridges sont inspirée de la pochette de l'album [Unknown Pleasures de  Joy division](https://www.youtube.com/watch?v=7PtvIr2oiaE) sorti en pleine New Wave , en 1979. Un article de Vice en rappele l'[origine et le destin de ce graphisme](https://i-d.vice.com/fr/article/pabjam/pourquoi-cette-pochette-dalbum-de-joy-division-a-inspire-le-monde-entier)
+L'illustration de couverture représente l'évolution de la longueur des films de la base [Imbd](https://www.imdb.com/) et raconte en chiffres un aspect de l'histoire du cinema. Jusqu'aux années 30, la longueur est hétérogène ensuite elle se se stabilise : les courts-métrages ont une durée de l'ordre de 15mn qui se raccourcit avec les décennies, ce genre menace de disparaitre dans les années 80 et reprend du poil de la bête dans les années 2000. Les films longs voient leur longueur s'accroitre et se stabiliser autour d'un peu moins de 100 mn, soit une heure et quarantes minutes. On observera enfin qu'au cours des années 1990 les films de taille intermédiaires réapparaissent. On devinera dans cette évolution l'émergence de standard, ou de convention.Les faits viennent au secours des théories...
+
+Dans ce graphique il y a tous les éléments des data sciences contemporaine : un jeu de donnée riche et systématique, un modèle statistique fondamental avec la notion de densité de probabilité, une mesure, un critère de comparaison. 
+
+Les diagrammes ridges, ce sont leurs dénominations, sont inspirés de la pochette de l'album [Unknown Pleasures de  Joy division](https://www.youtube.com/watch?v=7PtvIr2oiaE) sorti en pleine New Wave , en 1979. Un article de Vice en rappele l'[origine et le destin du graphisme](https://i-d.vice.com/fr/article/pabjam/pourquoi-cette-pochette-dalbum-de-joy-division-a-inspire-le-monde-entier) qu'on connait mieux imprimé sur des t-shirt que dans les cours de statistiques.
+
 
 
 
 
 ## Plan du manuel
 
-Les chapitres projetés 
+C'est un projet en cours, Les chapitres projetés sont les suivants. certains sont dans les limbes, d'autres ont pris consistances 
 
- * 1 - L'environnement r 
- * 2 - Installation et prise en main
- * 3 - Usage de ggplot - uni et bivarié
- * 4 - Usage de ggplot - multivarié
- * 6 - Analyse de variance et régression linéraire
+ * 1 - L'environnement r x
+ * 2 - Installation et prise en main x
+ * 3 - Usage de ggplot - uni et bivarié x
+ * 4 - Usage de ggplot - multivarié x
+ * 6 - Analyse de variance et régression linéraire x
  * 5 - Tables
- * 6 - Modèles factoriels ( Psych)
- * 7 - AFC
- * 8 - MDS
- * 9 - Clustering
+ * 6 - Modèles factoriels ( Psych) x
+ * 7 - AFC x
+ * 8 - MDS  
+ * 9 - Clustering x
  * 10 - Analyse de réseaux
  * 10 - Modèle d'équations structurelles (Lavaan)
  * 11 - Modèle linéaire généralisé
  * 12 - Modèles à décomposition d'erreur
  * 13 - Times series
  * 14 - Analyse geospatiale
- * 15 - Machine learning
+ * 15 - Machine learning x
  
 
 ## Les jeux de données 
 
-Au cours du développement, plusieurs cas pratiques - souvent réduit en volume pour rester exemplaire, seront employés. Les donées seront partagées.
+Au cours du développement, plusieurs cas pratiques - souvent réduit en volume pour rester exemplaire, seront employés. Les données seront partagées.
 
-En voici la présentation  systématique.
+En voici la présentation  des sets de données utilisées dans le syllabus. Elle sont disponible dans le répertoire "./data/"
 
-
-disponibles dans le [repositery](https://benaventc.github.io//) avec le code du book. Les amendements et améliorations sont souhaitées et attendues. 
-
+ * ESS : c'est une très belle base de données de sociologie.
+ * happydemics : observatoire de la présidentielle2022
+ * Arpur
+ 
+ 
 ## Le cadre technique et les packages utilisés
 
-Ce  _livre_ est écrit en **Markdown** [@allaire_rmarkdown_2021] et  avec le package **Bookdown** [@R-bookdown]
+Ce  _syllabus_ est écrit en **Markdown** [@allaire_rmarkdown_2021] et  avec le package **Bookdown** [@R-bookdown]
 
-Le code s'appuie très largement sur **tidyverse** et emploie largement les ressources de **ggplot** . Les packages seront introduits au fur et à mesure. En voici la liste complète.
+Le code s'appuie très largement sur `tidyverse` et emploie largement les ressources de `ggplot`. Les packages seront introduits au fur et à mesure. En voici la liste complète.
 
 
 ```{r 001, echo = TRUE, message=FALSE,warning=FALSE}
@@ -137,7 +144,7 @@ library(citr) #pour insérer des références dans le markdown
 ```
 
 
-L'ensemble du code est disponible [sur github](https://github.com/BenaventC/Datasciences). A ce stade c'est encore très embryonnaire. Les proches pourrons cependant y voir l'évolution du projet et de la [progression](https://benaventc.github.io/Datascience/)
+L'ensemble du code est disponible [sur github](https://github.com/BenaventC/Datasciences). A ce stade c'est encore embryonnaire. Les proches et nos étudiants pourrons cependant y voir l'évolution du projet et de la [progression](https://benaventc.github.io/Datascience/)
 
 Quelques conventions d'écriture du code r
 
@@ -2499,4 +2506,128 @@ de nombreuses variantes sont disponibles
 ## Conclusion
 
 <!--chapter:end:07-clustering.Rmd-->
+
+# Régression
+
+
+
+## Une étude de cas : blablacar
+
+
+
+voir [blablacar](https://github.com/BenaventC/Covoiturage)
+
+## Autres modèles 
+
+### régression logistique
+
+### regression beta
+
+### régression survie
+
+### modèles à composante d'erreur
+
+
+<!--chapter:end:09-regression.Rmd-->
+
+#  Arbre de Décision
+
+L’objectif de cette note est double. Le premier est une introduction aux méthodes d’arbres de décision et leur généralisation récente par les random forests. Le second est d’introduire à l’approche d’apprentissage et de test, autrement aux machine learning avec le package caret qui facilite la condition des opérations d’échantillonngage, de découpage des échanges et de production des indicateurs.
+
+
+## Construire un arbre de décision
+
+Les origines et le principe
+
+C’est une approche qui remonte à Morgan and Sonquist (1963)
+
+généralisés aux variables qualitatives avec Chaid (Kass (1980)) :
+
+Le principe général suis le pseudo algorithme suivant :
+
+pour chaque variable potentiellement explicative, trouver le meilleur découpage (dichotomique), c’est à dire celui qui va différencier au mieux la variable de réponse.
+Choisir parmi les variables et leur dichotomitsation celle qui répond au même critère que précedemment
+recommencer l’opération à 1
+Il peut s’appliquer à une variable quantitative ( regression) ou qualitative ( chaid)
+
+puis Cart avec breiman. Breiman (1998)
+
+## Mise en oeuvre avec Partykit
+
+
+Le package partykit a pour objectif de représenter les arbres de décisions. Il inclue cependant plusieurs méthodes d’arbres de decisions, en en particulier une approche ctree Hothorn et al. (2006) dont le principe est. La méthode est incluse dans partykit Hothorn and Zeileis (2015)
+
+Avec partykit on contrôle la construction de l’arbre sur différents critères, par exemple : * le type de test employé pour prendre la décision * le nombre minimum d’individus dans une feuille terminale
+
+
+https://apiacoa.org/blog/2014/02/initiation-a-rpart.fr.html
+
+https://apiacoa.org/blog/2014/02/initiation-a-rpart.fr.html
+
+
+
+```{r libraries, echo=TRUE, include=TRUE,, message=FALSE, warning=FALSE, fig.width=12}
+
+knitr::opts_chunk$set(echo = TRUE, include=TRUE, cache=TRUE, message=FALSE, warning=FALSE)
+
+library(partykit)
+
+library(tidyverse)
+#lecture du fichier
+df<-readRDS("./data/last.rds") %>%drop_na()
+df$Age<-as.factor(df$Age)
+df$Sexe<-as.factor(df$Sexe)
+df$Education<-factor(df$Education, ordered = FALSE )
+df$Situation2<-as.factor(df$Situation2)
+
+df$Situation3<-as.factor(ifelse(df$Situation<5,"degradation"," Amelioration"))
+table(df$Situation3)
+
+fit <-ctree(Situation3 ~ Age+Sexe+Education, data=df)
+print(fit)
+
+pred <- predict(fit, df)
+library(caret)
+cm = confusionMatrix(df$Situation3, pred)
+print(cm)
+
+
+library(ggparty)
+autoplot(fit)
+
+
+#library(irks)
+#rules<-ct_rules(fit)
+
+#rules %>% 
+#  kable() %>%
+#  kable_styling(bootstrap_options = "striped", font_size = 10)
+
+
+
+```
+
+
+https://topepo.github.io/caret/
+
+
+## forêts aléatoires
+
+[voire le cas](http://r.benavent.fr/caret.html)
+
+<!--chapter:end:10-arbredecision.Rmd-->
+
+#  ML
+
+
+## forêts aléatoires
+
+
+[voire le cas](http://r.benavent.fr/MM.html)
+
+et pour le texte :
+
+et surtout [celui-ci](https://benaventc.github.io/NLPBook/machine-learning-supervis%C3%A9-et-nlp.html)
+
+<!--chapter:end:11-machinelearning.Rmd-->
 
