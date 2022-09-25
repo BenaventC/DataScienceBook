@@ -1,4 +1,31 @@
-#  ML
+#  Premiers éléments de Machine Learning
+
+Le Machine Learning ou en français l'apprentissage automatique désigne un processus par lequel on construit un modèle prédictif. C'est en général un modèle qui permet de classifier des observations à parti de leurs caractéristiques. Distinguer les spam du ham, les mauvais emprunteurs des bons emprunteurs, des cookies brulés de ceux bien cuits sur chaine de production. Trois éléments essentiels le caractérise.
+
+ * un modèle qui asssocie à une variable y que l'on cherche à prédire un vecteur de caractéristiques x. c'est une fonction où y=f(x|theta)+e. Aujourd'hui des dizaines de fonction sont disponibles
+ 
+ * un processus de validation. Su le modèle est entrainé sur un set de données dit d'apprentissage, sa qualité prédictive est établie sur un set de données qui n'a pas contribué à l'estimation des paramètres.
+ 
+ * 
+ 
+ 
+## une typologie de modèles
+ 
+### le modèle linéaire
+ 
+### le modèle logit
+ 
+### les modèles à régularisation
+ 
+### les random forest
+ 
+ 
+
+
+
+
+
+
 
 
 ## forêts aléatoires

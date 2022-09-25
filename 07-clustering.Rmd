@@ -32,7 +32,7 @@ Leurs variétés dépend de deux paramètres :
 On utilise l'enquête d'happydemics sur la période de fin mars.
 
 ```{r 0810}
-
+library(lubridate)
 df<-readRDS("./data/last.rds") %>%
   filter(date2>=make_datetime(year=2022, month=3, day = 19))
 
@@ -182,7 +182,7 @@ library(scales)
 brks<-c(0.5,1,1.5,2, 2.5,3)
 p2<- ggplot(foo6, aes(x=reorder(Thèmes, Valeurs), y=Valeurs))+
   geom_bar(stat="identity",aes(fill=as.factor(Thèmes)))+
-  facet_wrap(vars(memb), ncol=4)+
+  facet_wrap(vars(group), ncol=4)+
   coord_flip()+
   scale_fill_manual(values=col)+
   theme_minimal()+
@@ -191,6 +191,7 @@ p2<- ggplot(foo6, aes(x=reorder(Thèmes, Valeurs), y=Valeurs))+
   labs(title = "Profils des segments\npar importance des thématiques", x=NULL, y="importance moyenne (de 0 à 3)") 
 
 p2
+ggsave("./plot/g_segment_p2.jpg",plot=last_plot(), width = 27, height = 17, units = "cm")
 
 library(wesanderson)
 seg_col<-wes_palette("Zissou1", 8, type = "continuous")
@@ -217,6 +218,8 @@ p1<- ggplot(foo6, aes(x=group, y=freq))+
   labs(title="Poids des segments", x=NULL, y="Proportion")+  
   scale_y_continuous(breaks=brks,labels=percent)+  
   theme(legend.position = "none")
+
+ggsave("./plot/g_segment_p1.jpg",plot=last_plot(), width = 27, height = 17, units = "cm")
 
 plot_grid(p1, p2, labels = c('A', 'B'), label_size = 12, ncol=1,rel_heights =  c(1, 2))
 

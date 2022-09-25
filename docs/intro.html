@@ -24,7 +24,7 @@
 <meta name="author" content="Christophe Benavent - Université Paris Dauphine" />
 
 
-<meta name="date" content="2022-03-29" />
+<meta name="date" content="2022-09-25" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,6 +33,7 @@
   
 <link rel="prev" href="index.html"/>
 <link rel="next" href="prise-en-main.html"/>
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -55,25 +56,27 @@
 
 
 <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -82,9 +85,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -117,6 +120,28 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 </head>
@@ -134,123 +159,157 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li><a href="./">NLP en r et en français</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Avant propos</a><ul>
-<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#plan-du-manuel"><i class="fa fa-check"></i><b>1.1</b> Plan du manuel</a></li>
-<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#les-jeux-de-données"><i class="fa fa-check"></i><b>1.2</b> Les jeux de données</a></li>
-<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#le-cadre-technique-et-les-packages-utilisés"><i class="fa fa-check"></i><b>1.3</b> Le cadre technique et les packages utilisés</a></li>
-<li class="chapter" data-level="1.4" data-path="index.html"><a href="index.html#a-faire"><i class="fa fa-check"></i><b>1.4</b> A faire</a></li>
+<li><a href="index.html#avant-propos" id="toc-avant-propos"><span class="toc-section-number">1</span> Avant propos</a>
+<ul>
+<li><a href="index.html#plan-du-manuel" id="toc-plan-du-manuel"><span class="toc-section-number">1.1</span> Plan du manuel</a></li>
+<li><a href="index.html#les-jeux-de-données" id="toc-les-jeux-de-données"><span class="toc-section-number">1.2</span> Les jeux de données</a></li>
+<li><a href="index.html#le-cadre-technique-et-les-packages-utilisés" id="toc-le-cadre-technique-et-les-packages-utilisés"><span class="toc-section-number">1.3</span> Le cadre technique et les packages utilisés</a></li>
+<li><a href="index.html#a-faire" id="toc-a-faire"><span class="toc-section-number">1.4</span> A faire</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction aux data sciences</a><ul>
-<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#objectif-et-sommaire"><i class="fa fa-check"></i><b>2.1</b> Objectif et sommaire</a></li>
-<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#science-ou-technique"><i class="fa fa-check"></i><b>2.2</b> Science ou technique ?</a></li>
-<li class="chapter" data-level="2.3" data-path="intro.html"><a href="intro.html#histoires-des-logiciels-statistiques"><i class="fa fa-check"></i><b>2.3</b> histoires des logiciels statistiques</a></li>
-<li class="chapter" data-level="2.4" data-path="intro.html"><a href="intro.html#le-processus-de-traitement-des-données"><i class="fa fa-check"></i><b>2.4</b> Le processus de traitement des données</a></li>
-<li class="chapter" data-level="2.5" data-path="intro.html"><a href="intro.html#les-facteurs-de-développement-des-datasciences"><i class="fa fa-check"></i><b>2.5</b> Les facteurs de développement des datasciences</a><ul>
-<li class="chapter" data-level="2.5.1" data-path="intro.html"><a href="intro.html#une-lingua-franca"><i class="fa fa-check"></i><b>2.5.1</b> Une lingua franca</a></li>
-<li class="chapter" data-level="2.5.2" data-path="intro.html"><a href="intro.html#une-communauté"><i class="fa fa-check"></i><b>2.5.2</b> Une communauté</a></li>
-<li class="chapter" data-level="2.5.3" data-path="intro.html"><a href="intro.html#la-multiplication-des-sources-de-données."><i class="fa fa-check"></i><b>2.5.3</b> La multiplication des sources de données.</a></li>
-<li class="chapter" data-level="2.5.4" data-path="intro.html"><a href="intro.html#du-ml-à-lia"><i class="fa fa-check"></i><b>2.5.4</b> du ML à l’IA</a></li>
-</ul></li>
-</ul></li>
-<li class="chapter" data-level="3" data-path="prise-en-main.html"><a href="prise-en-main.html"><i class="fa fa-check"></i><b>3</b> Prise en main</a><ul>
-<li class="chapter" data-level="3.1" data-path="prise-en-main.html"><a href="prise-en-main.html#la-convention-du-rmarkdown"><i class="fa fa-check"></i><b>3.1</b> La convention du Rmarkdown</a></li>
-<li class="chapter" data-level="3.2" data-path="prise-en-main.html"><a href="prise-en-main.html#lire-les-données"><i class="fa fa-check"></i><b>3.2</b> Lire les données</a><ul>
-<li class="chapter" data-level="3.2.1" data-path="prise-en-main.html"><a href="prise-en-main.html#la-diversité-des-formats"><i class="fa fa-check"></i><b>3.2.1</b> La diversité des formats</a></li>
-<li class="chapter" data-level="3.2.2" data-path="prise-en-main.html"><a href="prise-en-main.html#les-autres-accès-aux-données"><i class="fa fa-check"></i><b>3.2.2</b> Les autres accès aux données</a></li>
-</ul></li>
-<li class="chapter" data-level="3.3" data-path="prise-en-main.html"><a href="prise-en-main.html#dplyr-pour-manipuler-les-données"><i class="fa fa-check"></i><b>3.3</b> <code>Dplyr</code> pour manipuler les données</a><ul>
-<li class="chapter" data-level="3.3.1" data-path="prise-en-main.html"><a href="prise-en-main.html#des-pipes"><i class="fa fa-check"></i><b>3.3.1</b> Des pipes %&gt;%</a></li>
-<li class="chapter" data-level="3.3.2" data-path="prise-en-main.html"><a href="prise-en-main.html#des-verbes"><i class="fa fa-check"></i><b>3.3.2</b> Des verbes</a></li>
-</ul></li>
-<li class="chapter" data-level="3.4" data-path="prise-en-main.html"><a href="prise-en-main.html#pour-aller-plus-loin"><i class="fa fa-check"></i><b>3.4</b> Pour aller plus loin</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="analyses-univariées.html"><a href="analyses-univariées.html"><i class="fa fa-check"></i><b>4</b> Analyses univariées</a><ul>
-<li class="chapter" data-level="4.1" data-path="analyses-univariées.html"><a href="analyses-univariées.html#la-grammaire-des-graphiques"><i class="fa fa-check"></i><b>4.1</b> La grammaire des graphiques</a><ul>
-<li class="chapter" data-level="4.1.1" data-path="analyses-univariées.html"><a href="analyses-univariées.html#un-modèle-en-couche"><i class="fa fa-check"></i><b>4.1.1</b> Un modèle en couche</a></li>
-<li class="chapter" data-level="4.1.2" data-path="analyses-univariées.html"><a href="analyses-univariées.html#une-typologie-des-représentations"><i class="fa fa-check"></i><b>4.1.2</b> Une typologie des représentations</a></li>
-<li class="chapter" data-level="4.1.3" data-path="analyses-univariées.html"><a href="analyses-univariées.html#lesthétique"><i class="fa fa-check"></i><b>4.1.3</b> L’esthétique</a></li>
-</ul></li>
-<li class="chapter" data-level="4.2" data-path="analyses-univariées.html"><a href="analyses-univariées.html#une-étude-de-cas"><i class="fa fa-check"></i><b>4.2</b> Une étude de cas</a><ul>
-<li class="chapter" data-level="4.2.1" data-path="analyses-univariées.html"><a href="analyses-univariées.html#le-cas-des-variables-quantitatives"><i class="fa fa-check"></i><b>4.2.1</b> Le cas des variables quantitatives</a></li>
-<li class="chapter" data-level="4.2.2" data-path="analyses-univariées.html"><a href="analyses-univariées.html#quand-la-variable-est-qualitative"><i class="fa fa-check"></i><b>4.2.2</b> Quand la variable est qualitative</a></li>
+<li><a href="intro.html#intro" id="toc-intro"><span class="toc-section-number">2</span> Introduction aux data sciences</a>
+<ul>
+<li><a href="intro.html#objectif-et-sommaire" id="toc-objectif-et-sommaire"><span class="toc-section-number">2.1</span> Objectif et sommaire</a></li>
+<li><a href="intro.html#science-ou-technique" id="toc-science-ou-technique"><span class="toc-section-number">2.2</span> Science ou technique ?</a></li>
+<li><a href="intro.html#histoires-des-logiciels-statistiques" id="toc-histoires-des-logiciels-statistiques"><span class="toc-section-number">2.3</span> histoires des logiciels statistiques</a></li>
+<li><a href="intro.html#le-processus-de-traitement-des-données" id="toc-le-processus-de-traitement-des-données"><span class="toc-section-number">2.4</span> Le processus de traitement des données</a></li>
+<li><a href="intro.html#les-facteurs-de-développement-des-datasciences" id="toc-les-facteurs-de-développement-des-datasciences"><span class="toc-section-number">2.5</span> Les facteurs de développement des datasciences</a>
+<ul>
+<li><a href="intro.html#une-lingua-franca" id="toc-une-lingua-franca"><span class="toc-section-number">2.5.1</span> Une lingua franca</a></li>
+<li><a href="intro.html#une-communauté" id="toc-une-communauté"><span class="toc-section-number">2.5.2</span> Une communauté</a></li>
+<li><a href="intro.html#la-multiplication-des-sources-de-données." id="toc-la-multiplication-des-sources-de-données."><span class="toc-section-number">2.5.3</span> La multiplication des sources de données.</a></li>
+<li><a href="intro.html#du-ml-à-lia" id="toc-du-ml-à-lia"><span class="toc-section-number">2.5.4</span> du ML à l’IA</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="analyse-bi-variée.html"><a href="analyse-bi-variée.html"><i class="fa fa-check"></i><b>5</b> Analyse bi variée</a><ul>
-<li class="chapter" data-level="5.1" data-path="analyse-bi-variée.html"><a href="analyse-bi-variée.html#diagrammes-xy---la-magie-des-corrélations"><i class="fa fa-check"></i><b>5.1</b> Diagrammes xy - la magie des corrélations</a></li>
-<li class="chapter" data-level="5.2" data-path="analyse-bi-variée.html"><a href="analyse-bi-variée.html#comparer-les-distributions-et-des-moyennes"><i class="fa fa-check"></i><b>5.2</b> Comparer les distributions et des moyennes</a><ul>
-<li class="chapter" data-level="5.2.1" data-path="analyse-bi-variée.html"><a href="analyse-bi-variée.html#comparaison-de-moyennes"><i class="fa fa-check"></i><b>5.2.1</b> Comparaison de moyennes</a></li>
-<li class="chapter" data-level="5.2.2" data-path="analyse-bi-variée.html"><a href="analyse-bi-variée.html#deux-variables-qualitatives"><i class="fa fa-check"></i><b>5.2.2</b> Deux variables qualitatives</a></li>
+<li><a href="prise-en-main.html#prise-en-main" id="toc-prise-en-main"><span class="toc-section-number">3</span> Prise en main</a>
+<ul>
+<li><a href="prise-en-main.html#la-convention-du-rmarkdown" id="toc-la-convention-du-rmarkdown"><span class="toc-section-number">3.1</span> La convention du Rmarkdown</a></li>
+<li><a href="prise-en-main.html#lire-les-données" id="toc-lire-les-données"><span class="toc-section-number">3.2</span> Lire les données</a>
+<ul>
+<li><a href="prise-en-main.html#la-diversité-des-formats" id="toc-la-diversité-des-formats"><span class="toc-section-number">3.2.1</span> La diversité des formats</a></li>
+<li><a href="prise-en-main.html#les-autres-accès-aux-données" id="toc-les-autres-accès-aux-données"><span class="toc-section-number">3.2.2</span> Les autres accès aux données</a></li>
+</ul></li>
+<li><a href="prise-en-main.html#dplyr-pour-manipuler-les-données" id="toc-dplyr-pour-manipuler-les-données"><span class="toc-section-number">3.3</span> <code>Dplyr</code> pour manipuler les données</a>
+<ul>
+<li><a href="prise-en-main.html#des-pipes" id="toc-des-pipes"><span class="toc-section-number">3.3.1</span> Des pipes %&gt;%</a></li>
+<li><a href="prise-en-main.html#des-verbes" id="toc-des-verbes"><span class="toc-section-number">3.3.2</span> Des verbes</a></li>
+</ul></li>
+<li><a href="prise-en-main.html#pour-aller-plus-loin" id="toc-pour-aller-plus-loin"><span class="toc-section-number">3.4</span> Pour aller plus loin</a></li>
+</ul></li>
+<li><a href="analyses-univariées.html#analyses-univariées" id="toc-analyses-univariées"><span class="toc-section-number">4</span> Analyses univariées</a>
+<ul>
+<li><a href="analyses-univariées.html#la-grammaire-des-graphiques" id="toc-la-grammaire-des-graphiques"><span class="toc-section-number">4.1</span> La grammaire des graphiques</a>
+<ul>
+<li><a href="analyses-univariées.html#un-modèle-en-couche" id="toc-un-modèle-en-couche"><span class="toc-section-number">4.1.1</span> Un modèle en couche</a></li>
+<li><a href="analyses-univariées.html#une-typologie-des-représentations" id="toc-une-typologie-des-représentations"><span class="toc-section-number">4.1.2</span> Une typologie des représentations</a></li>
+<li><a href="analyses-univariées.html#lesthétique" id="toc-lesthétique"><span class="toc-section-number">4.1.3</span> L’esthétique</a></li>
+</ul></li>
+<li><a href="analyses-univariées.html#une-étude-de-cas" id="toc-une-étude-de-cas"><span class="toc-section-number">4.2</span> Une étude de cas</a>
+<ul>
+<li><a href="analyses-univariées.html#le-cas-des-variables-quantitatives" id="toc-le-cas-des-variables-quantitatives"><span class="toc-section-number">4.2.1</span> Le cas des variables quantitatives</a></li>
+<li><a href="analyses-univariées.html#quand-la-variable-est-qualitative" id="toc-quand-la-variable-est-qualitative"><span class="toc-section-number">4.2.2</span> Quand la variable est qualitative</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="6" data-path="analyse-graphique-multivariée.html"><a href="analyse-graphique-multivariée.html"><i class="fa fa-check"></i><b>6</b> Analyse graphique multivariée</a><ul>
-<li class="chapter" data-level="6.1" data-path="analyse-graphique-multivariée.html"><a href="analyse-graphique-multivariée.html#la-confiance-institutionnelle-en-détail"><i class="fa fa-check"></i><b>6.1</b> La confiance institutionnelle, en détail</a></li>
-<li class="chapter" data-level="6.2" data-path="analyse-graphique-multivariée.html"><a href="analyse-graphique-multivariée.html#table-de-corrélation"><i class="fa fa-check"></i><b>6.2</b> Table de corrélation</a></li>
-<li class="chapter" data-level="6.3" data-path="analyse-graphique-multivariée.html"><a href="analyse-graphique-multivariée.html#un-cas-plus-complexe-présidentielle2020"><i class="fa fa-check"></i><b>6.3</b> Un cas plus complexe : présidentielle2020</a></li>
-<li class="chapter" data-level="6.4" data-path="analyse-graphique-multivariée.html"><a href="analyse-graphique-multivariée.html#une-boucle-pour-produire-de-multiple-graphe-en-variant-un-paramètre"><i class="fa fa-check"></i><b>6.4</b> une boucle pour produire de multiple graphe en variant un paramètre</a><ul>
-<li class="chapter" data-level="6.4.1" data-path="analyse-graphique-multivariée.html"><a href="analyse-graphique-multivariée.html#effet-sondeur"><i class="fa fa-check"></i><b>6.4.1</b> effet sondeur</a></li>
-</ul></li>
-<li class="chapter" data-level="6.5" data-path="analyse-graphique-multivariée.html"><a href="analyse-graphique-multivariée.html#modéliser-le-biais-du-sondeur"><i class="fa fa-check"></i><b>6.5</b> Modéliser le biais du sondeur</a></li>
-</ul></li>
-<li class="chapter" data-level="7" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html"><i class="fa fa-check"></i><b>7</b> Analyses factorielles</a><ul>
-<li class="chapter" data-level="7.1" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#origine-et-histoire"><i class="fa fa-check"></i><b>7.1</b> Origine et histoire</a><ul>
-<li class="chapter" data-level="7.1.1" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#une-petite-histoire-de-la-psychométrie"><i class="fa fa-check"></i><b>7.1.1</b> Une petite histoire de la psychométrie</a></li>
-<li class="chapter" data-level="7.1.2" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#lécole-française-de-lanalyse-des-données-appliquée-aux-sciences-sociales"><i class="fa fa-check"></i><b>7.1.2</b> L’école française de l’analyse des données appliquée aux sciences sociales</a></li>
-</ul></li>
-<li class="chapter" data-level="7.2" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#le-modèle-factoriel-des-tests-psychologiques"><i class="fa fa-check"></i><b>7.2</b> Le modèle factoriel des tests psychologiques</a><ul>
-<li class="chapter" data-level="7.2.1" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#un-peu-de-théorie"><i class="fa fa-check"></i><b>7.2.1</b> Un peu de théorie</a></li>
-<li class="chapter" data-level="7.2.2" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#lestimation"><i class="fa fa-check"></i><b>7.2.2</b> L’estimation</a></li>
-<li class="chapter" data-level="7.2.3" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#ressources"><i class="fa fa-check"></i><b>7.2.3</b> Ressources</a></li>
-<li class="chapter" data-level="7.2.4" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#cas-dapplication"><i class="fa fa-check"></i><b>7.2.4</b> Cas d’application</a></li>
-</ul></li>
-<li class="chapter" data-level="7.3" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#examen-de-la-matrice-de-corrélation"><i class="fa fa-check"></i><b>7.3</b> Examen de la matrice de corrélation</a></li>
-<li class="chapter" data-level="7.4" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#modèle-factoriel"><i class="fa fa-check"></i><b>7.4</b> Modèle factoriel</a></li>
-<li class="chapter" data-level="7.5" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#lanalyse-en-composante-principale"><i class="fa fa-check"></i><b>7.5</b> L’analyse en composante principale</a><ul>
-<li class="chapter" data-level="7.5.1" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#le-problème-théorique"><i class="fa fa-check"></i><b>7.5.1</b> le problème théorique</a></li>
-<li class="chapter" data-level="7.5.2" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#une-représentation-symbolique"><i class="fa fa-check"></i><b>7.5.2</b> Une représentation symbolique</a></li>
-<li class="chapter" data-level="7.5.3" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#application"><i class="fa fa-check"></i><b>7.5.3</b> Application</a></li>
-</ul></li>
-<li class="chapter" data-level="7.6" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#une-généralisation-de-lacp-lafc"><i class="fa fa-check"></i><b>7.6</b> Une généralisation de l’ACP : l’AFC</a><ul>
-<li class="chapter" data-level="7.6.1" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#afcm-multiple"><i class="fa fa-check"></i><b>7.6.1</b> AFCM multiple</a></li>
-</ul></li>
-<li class="chapter" data-level="7.7" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#développements"><i class="fa fa-check"></i><b>7.7</b> Développements</a><ul>
-<li class="chapter" data-level="7.7.1" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#le-svd"><i class="fa fa-check"></i><b>7.7.1</b> le SVD</a></li>
-<li class="chapter" data-level="7.7.2" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#acm-analyse-canonique-analyse-discriminante"><i class="fa fa-check"></i><b>7.7.2</b> ACM , analyse canonique , analyse discriminante</a></li>
-</ul></li>
-<li class="chapter" data-level="7.8" data-path="analyses-factorielles.html"><a href="analyses-factorielles.html#en-conclusion"><i class="fa fa-check"></i><b>7.8</b> En conclusion</a></li>
-</ul></li>
-<li class="chapter" data-level="8" data-path="clus.html"><a href="clus.html"><i class="fa fa-check"></i><b>8</b> Clustering</a><ul>
-<li class="chapter" data-level="8.1" data-path="clus.html"><a href="clus.html#les-méthodes-hiérarchiques-ascendantes"><i class="fa fa-check"></i><b>8.1</b> Les méthodes hiérarchiques ascendantes</a><ul>
-<li class="chapter" data-level="8.1.1" data-path="clus.html"><a href="clus.html#mise-en-oeuvre"><i class="fa fa-check"></i><b>8.1.1</b> Mise en oeuvre</a></li>
-</ul></li>
-<li class="chapter" data-level="8.2" data-path="clus.html"><a href="clus.html#segmentation-simplifiée"><i class="fa fa-check"></i><b>8.2</b> segmentation simplifiée</a></li>
-<li class="chapter" data-level="8.3" data-path="clus.html"><a href="clus.html#tableaux-croisés-de-la-typologie-et-des-critères-sociaux-démos"><i class="fa fa-check"></i><b>8.3</b> tableaux croisés de la typologie et des critères sociaux démos</a></li>
-<li class="chapter" data-level="8.4" data-path="clus.html"><a href="clus.html#afcm-pour-une-synthèse"><i class="fa fa-check"></i><b>8.4</b> AFCM pour une synthèse</a><ul>
-<li class="chapter" data-level="8.4.1" data-path="clus.html"><a href="clus.html#forces-et-limites"><i class="fa fa-check"></i><b>8.4.1</b> Forces et limites</a></li>
-</ul></li>
-<li class="chapter" data-level="8.5" data-path="clus.html"><a href="clus.html#les-méthodes-non-hiérarchiques"><i class="fa fa-check"></i><b>8.5</b> Les méthodes non-hiérarchiques</a><ul>
-<li class="chapter" data-level="8.5.1" data-path="clus.html"><a href="clus.html#principe"><i class="fa fa-check"></i><b>8.5.1</b> principe</a></li>
-<li class="chapter" data-level="8.5.2" data-path="clus.html"><a href="clus.html#application-1"><i class="fa fa-check"></i><b>8.5.2</b> Application</a></li>
-<li class="chapter" data-level="8.5.3" data-path="clus.html"><a href="clus.html#le-problème-de-la-détermination-du-nombre-optimal-de-groupe"><i class="fa fa-check"></i><b>8.5.3</b> Le problème de la détermination du nombre optimal de groupe</a></li>
-</ul></li>
-<li class="chapter" data-level="8.6" data-path="clus.html"><a href="clus.html#autres-méthodes"><i class="fa fa-check"></i><b>8.6</b> Autres méthodes</a></li>
-<li class="chapter" data-level="8.7" data-path="clus.html"><a href="clus.html#conclusion"><i class="fa fa-check"></i><b>8.7</b> Conclusion</a></li>
-</ul></li>
-<li class="chapter" data-level="9" data-path="régression.html"><a href="régression.html"><i class="fa fa-check"></i><b>9</b> Régression</a><ul>
-<li class="chapter" data-level="9.1" data-path="régression.html"><a href="régression.html#une-étude-de-cas-blablacar"><i class="fa fa-check"></i><b>9.1</b> Une étude de cas : blablacar</a></li>
-<li class="chapter" data-level="9.2" data-path="régression.html"><a href="régression.html#autres-modèles"><i class="fa fa-check"></i><b>9.2</b> Autres modèles</a><ul>
-<li class="chapter" data-level="9.2.1" data-path="régression.html"><a href="régression.html#régression-logistique"><i class="fa fa-check"></i><b>9.2.1</b> régression logistique</a></li>
-<li class="chapter" data-level="9.2.2" data-path="régression.html"><a href="régression.html#regression-beta"><i class="fa fa-check"></i><b>9.2.2</b> regression beta</a></li>
-<li class="chapter" data-level="9.2.3" data-path="régression.html"><a href="régression.html#régression-survie"><i class="fa fa-check"></i><b>9.2.3</b> régression survie</a></li>
-<li class="chapter" data-level="9.2.4" data-path="régression.html"><a href="régression.html#modèles-à-composante-derreur"><i class="fa fa-check"></i><b>9.2.4</b> modèles à composante d’erreur</a></li>
+<li><a href="analyse-bi-variée.html#analyse-bi-variée" id="toc-analyse-bi-variée"><span class="toc-section-number">5</span> Analyse bi variée</a>
+<ul>
+<li><a href="analyse-bi-variée.html#diagrammes-xy---la-magie-des-corrélations" id="toc-diagrammes-xy---la-magie-des-corrélations"><span class="toc-section-number">5.1</span> Diagrammes xy - la magie des corrélations</a></li>
+<li><a href="analyse-bi-variée.html#comparer-les-distributions-et-des-moyennes" id="toc-comparer-les-distributions-et-des-moyennes"><span class="toc-section-number">5.2</span> Comparer les distributions et des moyennes</a>
+<ul>
+<li><a href="analyse-bi-variée.html#comparaison-de-moyennes" id="toc-comparaison-de-moyennes"><span class="toc-section-number">5.2.1</span> Comparaison de moyennes</a></li>
+<li><a href="analyse-bi-variée.html#deux-variables-qualitatives" id="toc-deux-variables-qualitatives"><span class="toc-section-number">5.2.2</span> Deux variables qualitatives</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="arbre-de-décision.html"><a href="arbre-de-décision.html"><i class="fa fa-check"></i><b>10</b> Arbre de Décision</a><ul>
-<li class="chapter" data-level="10.1" data-path="arbre-de-décision.html"><a href="arbre-de-décision.html#construire-un-arbre-de-décision"><i class="fa fa-check"></i><b>10.1</b> Construire un arbre de décision</a></li>
-<li class="chapter" data-level="10.2" data-path="arbre-de-décision.html"><a href="arbre-de-décision.html#mise-en-oeuvre-avec-partykit"><i class="fa fa-check"></i><b>10.2</b> Mise en oeuvre avec Partykit</a></li>
-<li class="chapter" data-level="10.3" data-path="arbre-de-décision.html"><a href="arbre-de-décision.html#forêts-aléatoires"><i class="fa fa-check"></i><b>10.3</b> forêts aléatoires</a></li>
+<li><a href="analyse-graphique-multivariée.html#analyse-graphique-multivariée" id="toc-analyse-graphique-multivariée"><span class="toc-section-number">6</span> Analyse graphique multivariée</a>
+<ul>
+<li><a href="analyse-graphique-multivariée.html#la-confiance-institutionnelle-en-détail" id="toc-la-confiance-institutionnelle-en-détail"><span class="toc-section-number">6.1</span> La confiance institutionnelle, en détail</a></li>
+<li><a href="analyse-graphique-multivariée.html#table-de-corrélation" id="toc-table-de-corrélation"><span class="toc-section-number">6.2</span> Table de corrélation</a></li>
+<li><a href="analyse-graphique-multivariée.html#un-cas-plus-complexe-présidentielle2020" id="toc-un-cas-plus-complexe-présidentielle2020"><span class="toc-section-number">6.3</span> Un cas plus complexe : présidentielle2020</a></li>
+<li><a href="analyse-graphique-multivariée.html#une-boucle-pour-produire-de-multiple-graphe-en-variant-un-paramètre" id="toc-une-boucle-pour-produire-de-multiple-graphe-en-variant-un-paramètre"><span class="toc-section-number">6.4</span> une boucle pour produire de multiple graphe en variant un paramètre</a>
+<ul>
+<li><a href="analyse-graphique-multivariée.html#effet-sondeur" id="toc-effet-sondeur"><span class="toc-section-number">6.4.1</span> effet sondeur</a></li>
 </ul></li>
-<li class="chapter" data-level="11" data-path="ml.html"><a href="ml.html"><i class="fa fa-check"></i><b>11</b> ML</a><ul>
-<li class="chapter" data-level="11.1" data-path="ml.html"><a href="ml.html#forêts-aléatoires-1"><i class="fa fa-check"></i><b>11.1</b> forêts aléatoires</a></li>
+<li><a href="analyse-graphique-multivariée.html#modéliser-le-biais-du-sondeur" id="toc-modéliser-le-biais-du-sondeur"><span class="toc-section-number">6.5</span> Modéliser le biais du sondeur</a></li>
+</ul></li>
+<li><a href="analyses-factorielles.html#analyses-factorielles" id="toc-analyses-factorielles"><span class="toc-section-number">7</span> Analyses factorielles</a>
+<ul>
+<li><a href="analyses-factorielles.html#origine-et-histoire" id="toc-origine-et-histoire"><span class="toc-section-number">7.1</span> Origine et histoire</a>
+<ul>
+<li><a href="analyses-factorielles.html#une-petite-histoire-de-la-psychométrie" id="toc-une-petite-histoire-de-la-psychométrie"><span class="toc-section-number">7.1.1</span> Une petite histoire de la psychométrie</a></li>
+<li><a href="analyses-factorielles.html#lécole-française-de-lanalyse-des-données-appliquée-aux-sciences-sociales" id="toc-lécole-française-de-lanalyse-des-données-appliquée-aux-sciences-sociales"><span class="toc-section-number">7.1.2</span> L’école française de l’analyse des données appliquée aux sciences sociales</a></li>
+</ul></li>
+<li><a href="analyses-factorielles.html#le-modèle-factoriel-des-tests-psychologiques" id="toc-le-modèle-factoriel-des-tests-psychologiques"><span class="toc-section-number">7.2</span> Le modèle factoriel des tests psychologiques</a>
+<ul>
+<li><a href="analyses-factorielles.html#un-peu-de-théorie" id="toc-un-peu-de-théorie"><span class="toc-section-number">7.2.1</span> Un peu de théorie</a></li>
+<li><a href="analyses-factorielles.html#lestimation" id="toc-lestimation"><span class="toc-section-number">7.2.2</span> L’estimation</a></li>
+<li><a href="analyses-factorielles.html#ressources" id="toc-ressources"><span class="toc-section-number">7.2.3</span> Ressources</a></li>
+<li><a href="analyses-factorielles.html#cas-dapplication" id="toc-cas-dapplication"><span class="toc-section-number">7.2.4</span> Cas d’application</a></li>
+</ul></li>
+<li><a href="analyses-factorielles.html#examen-de-la-matrice-de-corrélation" id="toc-examen-de-la-matrice-de-corrélation"><span class="toc-section-number">7.3</span> Examen de la matrice de corrélation</a></li>
+<li><a href="analyses-factorielles.html#modèle-factoriel" id="toc-modèle-factoriel"><span class="toc-section-number">7.4</span> Modèle factoriel</a></li>
+<li><a href="analyses-factorielles.html#lanalyse-en-composante-principale" id="toc-lanalyse-en-composante-principale"><span class="toc-section-number">7.5</span> L’analyse en composante principale</a>
+<ul>
+<li><a href="analyses-factorielles.html#le-problème-théorique" id="toc-le-problème-théorique"><span class="toc-section-number">7.5.1</span> le problème théorique</a></li>
+<li><a href="analyses-factorielles.html#une-représentation-symbolique" id="toc-une-représentation-symbolique"><span class="toc-section-number">7.5.2</span> Une représentation symbolique</a></li>
+<li><a href="analyses-factorielles.html#application" id="toc-application"><span class="toc-section-number">7.5.3</span> Application</a></li>
+</ul></li>
+<li><a href="analyses-factorielles.html#une-généralisation-de-lacp-lafc" id="toc-une-généralisation-de-lacp-lafc"><span class="toc-section-number">7.6</span> Une généralisation de l’ACP : l’AFC</a>
+<ul>
+<li><a href="analyses-factorielles.html#afcm-multiple" id="toc-afcm-multiple"><span class="toc-section-number">7.6.1</span> AFCM multiple</a></li>
+</ul></li>
+<li><a href="analyses-factorielles.html#développements" id="toc-développements"><span class="toc-section-number">7.7</span> Développements</a>
+<ul>
+<li><a href="analyses-factorielles.html#le-svd" id="toc-le-svd"><span class="toc-section-number">7.7.1</span> le SVD</a></li>
+<li><a href="analyses-factorielles.html#acm-analyse-canonique-analyse-discriminante" id="toc-acm-analyse-canonique-analyse-discriminante"><span class="toc-section-number">7.7.2</span> ACM , analyse canonique , analyse discriminante</a></li>
+</ul></li>
+<li><a href="analyses-factorielles.html#en-conclusion" id="toc-en-conclusion"><span class="toc-section-number">7.8</span> En conclusion</a></li>
+</ul></li>
+<li><a href="clus.html#clus" id="toc-clus"><span class="toc-section-number">8</span> Clustering</a>
+<ul>
+<li><a href="clus.html#les-méthodes-hiérarchiques-ascendantes" id="toc-les-méthodes-hiérarchiques-ascendantes"><span class="toc-section-number">8.1</span> Les méthodes hiérarchiques ascendantes</a>
+<ul>
+<li><a href="clus.html#mise-en-oeuvre" id="toc-mise-en-oeuvre"><span class="toc-section-number">8.1.1</span> Mise en oeuvre</a></li>
+</ul></li>
+<li><a href="clus.html#segmentation-simplifiée" id="toc-segmentation-simplifiée"><span class="toc-section-number">8.2</span> segmentation simplifiée</a></li>
+<li><a href="clus.html#tableaux-croisés-de-la-typologie-et-des-critères-sociaux-démos" id="toc-tableaux-croisés-de-la-typologie-et-des-critères-sociaux-démos"><span class="toc-section-number">8.3</span> tableaux croisés de la typologie et des critères sociaux démos</a></li>
+<li><a href="clus.html#afcm-pour-une-synthèse" id="toc-afcm-pour-une-synthèse"><span class="toc-section-number">8.4</span> AFCM pour une synthèse</a>
+<ul>
+<li><a href="clus.html#forces-et-limites" id="toc-forces-et-limites"><span class="toc-section-number">8.4.1</span> Forces et limites</a></li>
+</ul></li>
+<li><a href="clus.html#les-méthodes-non-hiérarchiques" id="toc-les-méthodes-non-hiérarchiques"><span class="toc-section-number">8.5</span> Les méthodes non-hiérarchiques</a>
+<ul>
+<li><a href="clus.html#principe" id="toc-principe"><span class="toc-section-number">8.5.1</span> principe</a></li>
+<li><a href="clus.html#application-1" id="toc-application-1"><span class="toc-section-number">8.5.2</span> Application</a></li>
+<li><a href="clus.html#le-problème-de-la-détermination-du-nombre-optimal-de-groupe" id="toc-le-problème-de-la-détermination-du-nombre-optimal-de-groupe"><span class="toc-section-number">8.5.3</span> Le problème de la détermination du nombre optimal de groupe</a></li>
+</ul></li>
+<li><a href="clus.html#autres-méthodes" id="toc-autres-méthodes"><span class="toc-section-number">8.6</span> Autres méthodes</a></li>
+<li><a href="clus.html#conclusion" id="toc-conclusion"><span class="toc-section-number">8.7</span> Conclusion</a></li>
+</ul></li>
+<li><a href="régression.html#régression" id="toc-régression"><span class="toc-section-number">9</span> Régression</a>
+<ul>
+<li><a href="régression.html#une-étude-de-cas-blablacar" id="toc-une-étude-de-cas-blablacar"><span class="toc-section-number">9.1</span> Une étude de cas : blablacar</a></li>
+<li><a href="régression.html#autres-modèles" id="toc-autres-modèles"><span class="toc-section-number">9.2</span> Autres modèles</a>
+<ul>
+<li><a href="régression.html#régression-logistique" id="toc-régression-logistique"><span class="toc-section-number">9.2.1</span> régression logistique</a></li>
+<li><a href="régression.html#regression-beta" id="toc-regression-beta"><span class="toc-section-number">9.2.2</span> regression beta</a></li>
+<li><a href="régression.html#régression-survie" id="toc-régression-survie"><span class="toc-section-number">9.2.3</span> régression survie</a></li>
+<li><a href="régression.html#modèles-à-composante-derreur" id="toc-modèles-à-composante-derreur"><span class="toc-section-number">9.2.4</span> modèles à composante d’erreur</a></li>
+</ul></li>
+</ul></li>
+<li><a href="arbre-de-décision.html#arbre-de-décision" id="toc-arbre-de-décision"><span class="toc-section-number">10</span> Arbre de Décision</a>
+<ul>
+<li><a href="arbre-de-décision.html#construire-un-arbre-de-décision" id="toc-construire-un-arbre-de-décision"><span class="toc-section-number">10.1</span> Construire un arbre de décision</a></li>
+<li><a href="arbre-de-décision.html#mise-en-oeuvre-avec-partykit" id="toc-mise-en-oeuvre-avec-partykit"><span class="toc-section-number">10.2</span> Mise en oeuvre avec Partykit</a></li>
+<li><a href="arbre-de-décision.html#forêts-aléatoires" id="toc-forêts-aléatoires"><span class="toc-section-number">10.3</span> forêts aléatoires</a></li>
+</ul></li>
+<li><a href="premiers-éléments-de-machine-learning.html#premiers-éléments-de-machine-learning" id="toc-premiers-éléments-de-machine-learning"><span class="toc-section-number">11</span> Premiers éléments de Machine Learning</a>
+<ul>
+<li><a href="premiers-éléments-de-machine-learning.html#une-typologie-de-modèles" id="toc-une-typologie-de-modèles"><span class="toc-section-number">11.1</span> une typologie de modèles</a>
+<ul>
+<li><a href="premiers-éléments-de-machine-learning.html#le-modèle-linéaire" id="toc-le-modèle-linéaire"><span class="toc-section-number">11.1.1</span> le modèle linéaire</a></li>
+<li><a href="premiers-éléments-de-machine-learning.html#le-modèle-logit" id="toc-le-modèle-logit"><span class="toc-section-number">11.1.2</span> le modèle logit</a></li>
+<li><a href="premiers-éléments-de-machine-learning.html#les-modèles-à-régularisation" id="toc-les-modèles-à-régularisation"><span class="toc-section-number">11.1.3</span> les modèles à régularisation</a></li>
+<li><a href="premiers-éléments-de-machine-learning.html#les-random-forest" id="toc-les-random-forest"><span class="toc-section-number">11.1.4</span> les random forest</a></li>
+</ul></li>
+<li><a href="premiers-éléments-de-machine-learning.html#forêts-aléatoires-1" id="toc-forêts-aléatoires-1"><span class="toc-section-number">11.2</span> forêts aléatoires</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -272,13 +331,13 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="intro" class="section level1">
+<div id="intro" class="section level1" number="2">
 <h1><span class="header-section-number">Chapitre 2</span> Introduction aux data sciences</h1>
-<div id="objectif-et-sommaire" class="section level2">
+<div id="objectif-et-sommaire" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> Objectif et sommaire</h2>
 <p>L’objet du manuel est de donner un aperçu général des méthodes d’analyses de données et de data science.</p>
 </div>
-<div id="science-ou-technique" class="section level2">
+<div id="science-ou-technique" class="section level2" number="2.2">
 <h2><span class="header-section-number">2.2</span> Science ou technique ?</h2>
 <p>Plûtôt que le terme consacré de Data sciences, il vaudrait mieux parler de data ingiénérie dans la mesure où le data scientiste participe à un processus de production qui va de l’acquisition des donnée à leur propagation dans l’organisation ou la société. La technique domine sur la science et l’unité se trouve dans l’intégration de ce processus. La révolution des données vient de l’interopérabilité croissante de ces techniques et d’une intégration qui fluidifie le passage d’une étape à une autre. Standards et langages en sont les éléments clés.</p>
 <p>Du côté des sciences, ce dont bénéficie l’univers des data sciences, c’est l’héritage de cultures statistiques foisonnantes qui après s’être développées dans leur cocon displinaire, se retrouvent désormais rassemblées dans un même langage. Bien sur il y a de manière sous-jascente à ces cultures les mathématiques et les statistiques mathématiques qui construisent les fondements des modèles et des techniques. Mais le développement s’est fait souvent quand le scientifique se retrouve face à un problème où une observation.</p>
@@ -287,7 +346,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>Ce que la technique apporte c’est l’intégration par un langage et donc un ensemble de conventions, incarnées par r et python, d’algoritmes, et de programmes qui ne sont plus spécifique à un domaine, mais peuvent circuler de l’un à l’autre. C’est ainsi que le catalogues de toutes les techniques psychométriques devient accessible aux autres disciplines par le biais d’un pachage en particulier , psych. De la même manière l’outillage des linguiste devient accessible aux autres disciplines, pensons aux économiste qui intéègre dans le indicateurs des sources textuelle telle que l’analyse du sentiment.</p>
 <p>L’interopérabilité apportée par ces langages ne se définit pas que par l’algorithme qui aurait été porté d’un autre langage vers celui-ci ( des cas de réécriture ?) mais aussi par des programme passerelle qui à partir de r permettent d’activité des algorithme écrit en C, en javascript ou tout autre langage “plus informatiques” et souvent plus éfficace.</p>
 </div>
-<div id="histoires-des-logiciels-statistiques" class="section level2">
+<div id="histoires-des-logiciels-statistiques" class="section level2" number="2.3">
 <h2><span class="header-section-number">2.3</span> histoires des logiciels statistiques</h2>
 <p>Et c’est ce qu’on observe dans l’évolution des logiciels</p>
 <ul>
@@ -300,7 +359,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p>intégration graphique</p>
 <p>la modularisation : base /fonction/ packages</p>
 </div>
-<div id="le-processus-de-traitement-des-données" class="section level2">
+<div id="le-processus-de-traitement-des-données" class="section level2" number="2.4">
 <h2><span class="header-section-number">2.4</span> Le processus de traitement des données</h2>
 <p><img src="Images/datascience2.PNG" /></p>
 <ul>
@@ -317,24 +376,24 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li>Publication : dash board, pdf , slide etc, webb site</li>
 </ul>
 </div>
-<div id="les-facteurs-de-développement-des-datasciences" class="section level2">
+<div id="les-facteurs-de-développement-des-datasciences" class="section level2" number="2.5">
 <h2><span class="header-section-number">2.5</span> Les facteurs de développement des datasciences</h2>
 <p>Ces développements sont favorisés par un environnement fertile dont trois facteurs se renforcent mutuellement.</p>
-<div id="une-lingua-franca" class="section level3">
+<div id="une-lingua-franca" class="section level3" number="2.5.1">
 <h3><span class="header-section-number">2.5.1</span> Une lingua franca</h3>
 <p>histoire de r
 histoire de python</p>
 </div>
-<div id="une-communauté" class="section level3">
+<div id="une-communauté" class="section level3" number="2.5.2">
 <h3><span class="header-section-number">2.5.2</span> Une communauté</h3>
 <p>Le second facteur , intimement lié au premier, est la constitution d’une large communauté de développeurs et d’utilisateurs qui se retrouvent aujourd’hui dans des plateformes de dépots (Github, Gitlab), de plateformes de type quora (StalkOverFlow), de tutoriaux, de blogs (BloggeR), de journaux (Journal of Statistical Software) et de bookdown.</p>
 <p>Des ressources abondantes sont ainsi disponibles et facilitent la formation des chercheurs et des data scientists. Toutes les conditions sont réunies pour engendrer une effervescence créative.</p>
 </div>
-<div id="la-multiplication-des-sources-de-données." class="section level3">
+<div id="la-multiplication-des-sources-de-données." class="section level3" number="2.5.3">
 <h3><span class="header-section-number">2.5.3</span> La multiplication des sources de données.</h3>
 <p>Le troisième est la multiplication des sources de données et leur facilité d’accès. Les données privées, et en particulier celles des réseaux sociaux, même si un péage doit être payé pour accéder aux APIs, popularisent le traitement de données massives. Le mouvement des données ouvertes (open data) proposent et facilitent l’accès à des milliers de corps de données : retards de la SNCF, grand débat, le formidable travail de l’Insee, european survey etc.</p>
 </div>
-<div id="du-ml-à-lia" class="section level3">
+<div id="du-ml-à-lia" class="section level3" number="2.5.4">
 <h3><span class="header-section-number">2.5.4</span> du ML à l’IA</h3>
 <p>Le retour au boites noires dans les années 2000. Ce qui distingue les statistiques traditionnelles de l’approche machine learning réside d’abord par une approche de la modèlisation différente. Les modèles statistiques et économétriques considèrent non seulement une structure ( moddèle linéaires par ex), la spécification du modèle, mais aussi des modèles de distribution qui définissent le cadre d’estimation. L’évaluation passe par le test du respects des hypothèses de constructions ( distribution des erreurs), et de la qualité d’ajustement. Le machine learning, se concentre sur la valeur prédictive, et considère n’importe quelle spécification même si elle est peu intelligible et comprend de grandes quantité de paramètres.</p>
 <p>KNN, SVM, rf et le retour des réseaux de neurones.</p>

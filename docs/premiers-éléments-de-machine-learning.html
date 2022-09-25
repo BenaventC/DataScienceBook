@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapitre 11 Premiers éléments de Machine Learning | Introduction aux Data Sciences</title>
+  <meta name="description" content="Cours d’analyse de données et de Datascience" />
+  <meta name="generator" content="bookdown 0.22.3 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapitre 11 Premiers éléments de Machine Learning | Introduction aux Data Sciences" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Cours d’analyse de données et de Datascience" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapitre 11 Premiers éléments de Machine Learning | Introduction aux Data Sciences" />
+  
+  <meta name="twitter:description" content="Cours d’analyse de données et de Datascience" />
+  
+
+<meta name="author" content="Christophe Benavent - Université Paris Dauphine" />
+
+
+<meta name="date" content="2022-09-25" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="arbre-de-décision.html"/>
+
+<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">NLP en r et en français</a></li>
+
+<li class="divider"></li>
+<li><a href="index.html#avant-propos" id="toc-avant-propos"><span class="toc-section-number">1</span> Avant propos</a>
+<ul>
+<li><a href="index.html#plan-du-manuel" id="toc-plan-du-manuel"><span class="toc-section-number">1.1</span> Plan du manuel</a></li>
+<li><a href="index.html#les-jeux-de-données" id="toc-les-jeux-de-données"><span class="toc-section-number">1.2</span> Les jeux de données</a></li>
+<li><a href="index.html#le-cadre-technique-et-les-packages-utilisés" id="toc-le-cadre-technique-et-les-packages-utilisés"><span class="toc-section-number">1.3</span> Le cadre technique et les packages utilisés</a></li>
+<li><a href="index.html#a-faire" id="toc-a-faire"><span class="toc-section-number">1.4</span> A faire</a></li>
+</ul></li>
+<li><a href="intro.html#intro" id="toc-intro"><span class="toc-section-number">2</span> Introduction aux data sciences</a>
+<ul>
+<li><a href="intro.html#objectif-et-sommaire" id="toc-objectif-et-sommaire"><span class="toc-section-number">2.1</span> Objectif et sommaire</a></li>
+<li><a href="intro.html#science-ou-technique" id="toc-science-ou-technique"><span class="toc-section-number">2.2</span> Science ou technique ?</a></li>
+<li><a href="intro.html#histoires-des-logiciels-statistiques" id="toc-histoires-des-logiciels-statistiques"><span class="toc-section-number">2.3</span> histoires des logiciels statistiques</a></li>
+<li><a href="intro.html#le-processus-de-traitement-des-données" id="toc-le-processus-de-traitement-des-données"><span class="toc-section-number">2.4</span> Le processus de traitement des données</a></li>
+<li><a href="intro.html#les-facteurs-de-développement-des-datasciences" id="toc-les-facteurs-de-développement-des-datasciences"><span class="toc-section-number">2.5</span> Les facteurs de développement des datasciences</a>
+<ul>
+<li><a href="intro.html#une-lingua-franca" id="toc-une-lingua-franca"><span class="toc-section-number">2.5.1</span> Une lingua franca</a></li>
+<li><a href="intro.html#une-communauté" id="toc-une-communauté"><span class="toc-section-number">2.5.2</span> Une communauté</a></li>
+<li><a href="intro.html#la-multiplication-des-sources-de-données." id="toc-la-multiplication-des-sources-de-données."><span class="toc-section-number">2.5.3</span> La multiplication des sources de données.</a></li>
+<li><a href="intro.html#du-ml-à-lia" id="toc-du-ml-à-lia"><span class="toc-section-number">2.5.4</span> du ML à l’IA</a></li>
+</ul></li>
+</ul></li>
+<li><a href="prise-en-main.html#prise-en-main" id="toc-prise-en-main"><span class="toc-section-number">3</span> Prise en main</a>
+<ul>
+<li><a href="prise-en-main.html#la-convention-du-rmarkdown" id="toc-la-convention-du-rmarkdown"><span class="toc-section-number">3.1</span> La convention du Rmarkdown</a></li>
+<li><a href="prise-en-main.html#lire-les-données" id="toc-lire-les-données"><span class="toc-section-number">3.2</span> Lire les données</a>
+<ul>
+<li><a href="prise-en-main.html#la-diversité-des-formats" id="toc-la-diversité-des-formats"><span class="toc-section-number">3.2.1</span> La diversité des formats</a></li>
+<li><a href="prise-en-main.html#les-autres-accès-aux-données" id="toc-les-autres-accès-aux-données"><span class="toc-section-number">3.2.2</span> Les autres accès aux données</a></li>
+</ul></li>
+<li><a href="prise-en-main.html#dplyr-pour-manipuler-les-données" id="toc-dplyr-pour-manipuler-les-données"><span class="toc-section-number">3.3</span> <code>Dplyr</code> pour manipuler les données</a>
+<ul>
+<li><a href="prise-en-main.html#des-pipes" id="toc-des-pipes"><span class="toc-section-number">3.3.1</span> Des pipes %&gt;%</a></li>
+<li><a href="prise-en-main.html#des-verbes" id="toc-des-verbes"><span class="toc-section-number">3.3.2</span> Des verbes</a></li>
+</ul></li>
+<li><a href="prise-en-main.html#pour-aller-plus-loin" id="toc-pour-aller-plus-loin"><span class="toc-section-number">3.4</span> Pour aller plus loin</a></li>
+</ul></li>
+<li><a href="analyses-univariées.html#analyses-univariées" id="toc-analyses-univariées"><span class="toc-section-number">4</span> Analyses univariées</a>
+<ul>
+<li><a href="analyses-univariées.html#la-grammaire-des-graphiques" id="toc-la-grammaire-des-graphiques"><span class="toc-section-number">4.1</span> La grammaire des graphiques</a>
+<ul>
+<li><a href="analyses-univariées.html#un-modèle-en-couche" id="toc-un-modèle-en-couche"><span class="toc-section-number">4.1.1</span> Un modèle en couche</a></li>
+<li><a href="analyses-univariées.html#une-typologie-des-représentations" id="toc-une-typologie-des-représentations"><span class="toc-section-number">4.1.2</span> Une typologie des représentations</a></li>
+<li><a href="analyses-univariées.html#lesthétique" id="toc-lesthétique"><span class="toc-section-number">4.1.3</span> L’esthétique</a></li>
+</ul></li>
+<li><a href="analyses-univariées.html#une-étude-de-cas" id="toc-une-étude-de-cas"><span class="toc-section-number">4.2</span> Une étude de cas</a>
+<ul>
+<li><a href="analyses-univariées.html#le-cas-des-variables-quantitatives" id="toc-le-cas-des-variables-quantitatives"><span class="toc-section-number">4.2.1</span> Le cas des variables quantitatives</a></li>
+<li><a href="analyses-univariées.html#quand-la-variable-est-qualitative" id="toc-quand-la-variable-est-qualitative"><span class="toc-section-number">4.2.2</span> Quand la variable est qualitative</a></li>
+</ul></li>
+</ul></li>
+<li><a href="analyse-bi-variée.html#analyse-bi-variée" id="toc-analyse-bi-variée"><span class="toc-section-number">5</span> Analyse bi variée</a>
+<ul>
+<li><a href="analyse-bi-variée.html#diagrammes-xy---la-magie-des-corrélations" id="toc-diagrammes-xy---la-magie-des-corrélations"><span class="toc-section-number">5.1</span> Diagrammes xy - la magie des corrélations</a></li>
+<li><a href="analyse-bi-variée.html#comparer-les-distributions-et-des-moyennes" id="toc-comparer-les-distributions-et-des-moyennes"><span class="toc-section-number">5.2</span> Comparer les distributions et des moyennes</a>
+<ul>
+<li><a href="analyse-bi-variée.html#comparaison-de-moyennes" id="toc-comparaison-de-moyennes"><span class="toc-section-number">5.2.1</span> Comparaison de moyennes</a></li>
+<li><a href="analyse-bi-variée.html#deux-variables-qualitatives" id="toc-deux-variables-qualitatives"><span class="toc-section-number">5.2.2</span> Deux variables qualitatives</a></li>
+</ul></li>
+</ul></li>
+<li><a href="analyse-graphique-multivariée.html#analyse-graphique-multivariée" id="toc-analyse-graphique-multivariée"><span class="toc-section-number">6</span> Analyse graphique multivariée</a>
+<ul>
+<li><a href="analyse-graphique-multivariée.html#la-confiance-institutionnelle-en-détail" id="toc-la-confiance-institutionnelle-en-détail"><span class="toc-section-number">6.1</span> La confiance institutionnelle, en détail</a></li>
+<li><a href="analyse-graphique-multivariée.html#table-de-corrélation" id="toc-table-de-corrélation"><span class="toc-section-number">6.2</span> Table de corrélation</a></li>
+<li><a href="analyse-graphique-multivariée.html#un-cas-plus-complexe-présidentielle2020" id="toc-un-cas-plus-complexe-présidentielle2020"><span class="toc-section-number">6.3</span> Un cas plus complexe : présidentielle2020</a></li>
+<li><a href="analyse-graphique-multivariée.html#une-boucle-pour-produire-de-multiple-graphe-en-variant-un-paramètre" id="toc-une-boucle-pour-produire-de-multiple-graphe-en-variant-un-paramètre"><span class="toc-section-number">6.4</span> une boucle pour produire de multiple graphe en variant un paramètre</a>
+<ul>
+<li><a href="analyse-graphique-multivariée.html#effet-sondeur" id="toc-effet-sondeur"><span class="toc-section-number">6.4.1</span> effet sondeur</a></li>
+</ul></li>
+<li><a href="analyse-graphique-multivariée.html#modéliser-le-biais-du-sondeur" id="toc-modéliser-le-biais-du-sondeur"><span class="toc-section-number">6.5</span> Modéliser le biais du sondeur</a></li>
+</ul></li>
+<li><a href="analyses-factorielles.html#analyses-factorielles" id="toc-analyses-factorielles"><span class="toc-section-number">7</span> Analyses factorielles</a>
+<ul>
+<li><a href="analyses-factorielles.html#origine-et-histoire" id="toc-origine-et-histoire"><span class="toc-section-number">7.1</span> Origine et histoire</a>
+<ul>
+<li><a href="analyses-factorielles.html#une-petite-histoire-de-la-psychométrie" id="toc-une-petite-histoire-de-la-psychométrie"><span class="toc-section-number">7.1.1</span> Une petite histoire de la psychométrie</a></li>
+<li><a href="analyses-factorielles.html#lécole-française-de-lanalyse-des-données-appliquée-aux-sciences-sociales" id="toc-lécole-française-de-lanalyse-des-données-appliquée-aux-sciences-sociales"><span class="toc-section-number">7.1.2</span> L’école française de l’analyse des données appliquée aux sciences sociales</a></li>
+</ul></li>
+<li><a href="analyses-factorielles.html#le-modèle-factoriel-des-tests-psychologiques" id="toc-le-modèle-factoriel-des-tests-psychologiques"><span class="toc-section-number">7.2</span> Le modèle factoriel des tests psychologiques</a>
+<ul>
+<li><a href="analyses-factorielles.html#un-peu-de-théorie" id="toc-un-peu-de-théorie"><span class="toc-section-number">7.2.1</span> Un peu de théorie</a></li>
+<li><a href="analyses-factorielles.html#lestimation" id="toc-lestimation"><span class="toc-section-number">7.2.2</span> L’estimation</a></li>
+<li><a href="analyses-factorielles.html#ressources" id="toc-ressources"><span class="toc-section-number">7.2.3</span> Ressources</a></li>
+<li><a href="analyses-factorielles.html#cas-dapplication" id="toc-cas-dapplication"><span class="toc-section-number">7.2.4</span> Cas d’application</a></li>
+</ul></li>
+<li><a href="analyses-factorielles.html#examen-de-la-matrice-de-corrélation" id="toc-examen-de-la-matrice-de-corrélation"><span class="toc-section-number">7.3</span> Examen de la matrice de corrélation</a></li>
+<li><a href="analyses-factorielles.html#modèle-factoriel" id="toc-modèle-factoriel"><span class="toc-section-number">7.4</span> Modèle factoriel</a></li>
+<li><a href="analyses-factorielles.html#lanalyse-en-composante-principale" id="toc-lanalyse-en-composante-principale"><span class="toc-section-number">7.5</span> L’analyse en composante principale</a>
+<ul>
+<li><a href="analyses-factorielles.html#le-problème-théorique" id="toc-le-problème-théorique"><span class="toc-section-number">7.5.1</span> le problème théorique</a></li>
+<li><a href="analyses-factorielles.html#une-représentation-symbolique" id="toc-une-représentation-symbolique"><span class="toc-section-number">7.5.2</span> Une représentation symbolique</a></li>
+<li><a href="analyses-factorielles.html#application" id="toc-application"><span class="toc-section-number">7.5.3</span> Application</a></li>
+</ul></li>
+<li><a href="analyses-factorielles.html#une-généralisation-de-lacp-lafc" id="toc-une-généralisation-de-lacp-lafc"><span class="toc-section-number">7.6</span> Une généralisation de l’ACP : l’AFC</a>
+<ul>
+<li><a href="analyses-factorielles.html#afcm-multiple" id="toc-afcm-multiple"><span class="toc-section-number">7.6.1</span> AFCM multiple</a></li>
+</ul></li>
+<li><a href="analyses-factorielles.html#développements" id="toc-développements"><span class="toc-section-number">7.7</span> Développements</a>
+<ul>
+<li><a href="analyses-factorielles.html#le-svd" id="toc-le-svd"><span class="toc-section-number">7.7.1</span> le SVD</a></li>
+<li><a href="analyses-factorielles.html#acm-analyse-canonique-analyse-discriminante" id="toc-acm-analyse-canonique-analyse-discriminante"><span class="toc-section-number">7.7.2</span> ACM , analyse canonique , analyse discriminante</a></li>
+</ul></li>
+<li><a href="analyses-factorielles.html#en-conclusion" id="toc-en-conclusion"><span class="toc-section-number">7.8</span> En conclusion</a></li>
+</ul></li>
+<li><a href="clus.html#clus" id="toc-clus"><span class="toc-section-number">8</span> Clustering</a>
+<ul>
+<li><a href="clus.html#les-méthodes-hiérarchiques-ascendantes" id="toc-les-méthodes-hiérarchiques-ascendantes"><span class="toc-section-number">8.1</span> Les méthodes hiérarchiques ascendantes</a>
+<ul>
+<li><a href="clus.html#mise-en-oeuvre" id="toc-mise-en-oeuvre"><span class="toc-section-number">8.1.1</span> Mise en oeuvre</a></li>
+</ul></li>
+<li><a href="clus.html#segmentation-simplifiée" id="toc-segmentation-simplifiée"><span class="toc-section-number">8.2</span> segmentation simplifiée</a></li>
+<li><a href="clus.html#tableaux-croisés-de-la-typologie-et-des-critères-sociaux-démos" id="toc-tableaux-croisés-de-la-typologie-et-des-critères-sociaux-démos"><span class="toc-section-number">8.3</span> tableaux croisés de la typologie et des critères sociaux démos</a></li>
+<li><a href="clus.html#afcm-pour-une-synthèse" id="toc-afcm-pour-une-synthèse"><span class="toc-section-number">8.4</span> AFCM pour une synthèse</a>
+<ul>
+<li><a href="clus.html#forces-et-limites" id="toc-forces-et-limites"><span class="toc-section-number">8.4.1</span> Forces et limites</a></li>
+</ul></li>
+<li><a href="clus.html#les-méthodes-non-hiérarchiques" id="toc-les-méthodes-non-hiérarchiques"><span class="toc-section-number">8.5</span> Les méthodes non-hiérarchiques</a>
+<ul>
+<li><a href="clus.html#principe" id="toc-principe"><span class="toc-section-number">8.5.1</span> principe</a></li>
+<li><a href="clus.html#application-1" id="toc-application-1"><span class="toc-section-number">8.5.2</span> Application</a></li>
+<li><a href="clus.html#le-problème-de-la-détermination-du-nombre-optimal-de-groupe" id="toc-le-problème-de-la-détermination-du-nombre-optimal-de-groupe"><span class="toc-section-number">8.5.3</span> Le problème de la détermination du nombre optimal de groupe</a></li>
+</ul></li>
+<li><a href="clus.html#autres-méthodes" id="toc-autres-méthodes"><span class="toc-section-number">8.6</span> Autres méthodes</a></li>
+<li><a href="clus.html#conclusion" id="toc-conclusion"><span class="toc-section-number">8.7</span> Conclusion</a></li>
+</ul></li>
+<li><a href="régression.html#régression" id="toc-régression"><span class="toc-section-number">9</span> Régression</a>
+<ul>
+<li><a href="régression.html#une-étude-de-cas-blablacar" id="toc-une-étude-de-cas-blablacar"><span class="toc-section-number">9.1</span> Une étude de cas : blablacar</a></li>
+<li><a href="régression.html#autres-modèles" id="toc-autres-modèles"><span class="toc-section-number">9.2</span> Autres modèles</a>
+<ul>
+<li><a href="régression.html#régression-logistique" id="toc-régression-logistique"><span class="toc-section-number">9.2.1</span> régression logistique</a></li>
+<li><a href="régression.html#regression-beta" id="toc-regression-beta"><span class="toc-section-number">9.2.2</span> regression beta</a></li>
+<li><a href="régression.html#régression-survie" id="toc-régression-survie"><span class="toc-section-number">9.2.3</span> régression survie</a></li>
+<li><a href="régression.html#modèles-à-composante-derreur" id="toc-modèles-à-composante-derreur"><span class="toc-section-number">9.2.4</span> modèles à composante d’erreur</a></li>
+</ul></li>
+</ul></li>
+<li><a href="arbre-de-décision.html#arbre-de-décision" id="toc-arbre-de-décision"><span class="toc-section-number">10</span> Arbre de Décision</a>
+<ul>
+<li><a href="arbre-de-décision.html#construire-un-arbre-de-décision" id="toc-construire-un-arbre-de-décision"><span class="toc-section-number">10.1</span> Construire un arbre de décision</a></li>
+<li><a href="arbre-de-décision.html#mise-en-oeuvre-avec-partykit" id="toc-mise-en-oeuvre-avec-partykit"><span class="toc-section-number">10.2</span> Mise en oeuvre avec Partykit</a></li>
+<li><a href="arbre-de-décision.html#forêts-aléatoires" id="toc-forêts-aléatoires"><span class="toc-section-number">10.3</span> forêts aléatoires</a></li>
+</ul></li>
+<li><a href="premiers-éléments-de-machine-learning.html#premiers-éléments-de-machine-learning" id="toc-premiers-éléments-de-machine-learning"><span class="toc-section-number">11</span> Premiers éléments de Machine Learning</a>
+<ul>
+<li><a href="premiers-éléments-de-machine-learning.html#une-typologie-de-modèles" id="toc-une-typologie-de-modèles"><span class="toc-section-number">11.1</span> une typologie de modèles</a>
+<ul>
+<li><a href="premiers-éléments-de-machine-learning.html#le-modèle-linéaire" id="toc-le-modèle-linéaire"><span class="toc-section-number">11.1.1</span> le modèle linéaire</a></li>
+<li><a href="premiers-éléments-de-machine-learning.html#le-modèle-logit" id="toc-le-modèle-logit"><span class="toc-section-number">11.1.2</span> le modèle logit</a></li>
+<li><a href="premiers-éléments-de-machine-learning.html#les-modèles-à-régularisation" id="toc-les-modèles-à-régularisation"><span class="toc-section-number">11.1.3</span> les modèles à régularisation</a></li>
+<li><a href="premiers-éléments-de-machine-learning.html#les-random-forest" id="toc-les-random-forest"><span class="toc-section-number">11.1.4</span> les random forest</a></li>
+</ul></li>
+<li><a href="premiers-éléments-de-machine-learning.html#forêts-aléatoires-1" id="toc-forêts-aléatoires-1"><span class="toc-section-number">11.2</span> forêts aléatoires</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction aux Data Sciences</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="premiers-éléments-de-machine-learning" class="section level1" number="11">
+<h1><span class="header-section-number">Chapitre 11</span> Premiers éléments de Machine Learning</h1>
+<p>Le Machine Learning ou en français l’apprentissage automatique désigne un processus par lequel on construit un modèle prédictif. C’est en général un modèle qui permet de classifier des observations à parti de leurs caractéristiques. Distinguer les spam du ham, les mauvais emprunteurs des bons emprunteurs, des cookies brulés de ceux bien cuits sur chaine de production. Trois éléments essentiels le caractérise.</p>
+<ul>
+<li><p>un modèle qui asssocie à une variable y que l’on cherche à prédire un vecteur de caractéristiques x. c’est une fonction où y=f(x|theta)+e. Aujourd’hui des dizaines de fonction sont disponibles</p></li>
+<li><p>un processus de validation. Su le modèle est entrainé sur un set de données dit d’apprentissage, sa qualité prédictive est établie sur un set de données qui n’a pas contribué à l’estimation des paramètres.</p></li>
+<li></li>
+</ul>
+<div id="une-typologie-de-modèles" class="section level2" number="11.1">
+<h2><span class="header-section-number">11.1</span> une typologie de modèles</h2>
+<div id="le-modèle-linéaire" class="section level3" number="11.1.1">
+<h3><span class="header-section-number">11.1.1</span> le modèle linéaire</h3>
+</div>
+<div id="le-modèle-logit" class="section level3" number="11.1.2">
+<h3><span class="header-section-number">11.1.2</span> le modèle logit</h3>
+</div>
+<div id="les-modèles-à-régularisation" class="section level3" number="11.1.3">
+<h3><span class="header-section-number">11.1.3</span> les modèles à régularisation</h3>
+</div>
+<div id="les-random-forest" class="section level3" number="11.1.4">
+<h3><span class="header-section-number">11.1.4</span> les random forest</h3>
+</div>
+</div>
+<div id="forêts-aléatoires-1" class="section level2" number="11.2">
+<h2><span class="header-section-number">11.2</span> forêts aléatoires</h2>
+<p><a href="http://r.benavent.fr/MM.html">voire le cas</a></p>
+<p>et pour le texte :</p>
+<p>et surtout <a href="https://benaventc.github.io/NLPBook/machine-learning-supervis%C3%A9-et-nlp.html">celui-ci</a></p>
+
+<div id="refs" class="references csl-bib-body hanging-indent">
+<div class="csl-entry">
+Allaire, J. J., Yihui Xie, Jonathan McPherson, Javier Luraschi, Kevin Ushey, Aron Atkins, Hadley Wickham, Joe Cheng, Winston Chang, and Richard Iannone. 2021. <em>Rmarkdown: <span>Dynamic</span> <span>Documents</span> for <span>R</span></em>. <a href="https://CRAN.R-project.org/package=rmarkdown">https://CRAN.R-project.org/package=rmarkdown</a>.
+</div>
+<div class="csl-entry">
+Sneath, P. H. A., and Robert R. Sokal. 1973. <em>Numerical Taxonomy: The Principles and Practice of Numerical Classification</em>. A <span>Series</span> of Books in Biology. San Francisco: W. H. Freeman.
+</div>
+<div class="csl-entry">
+Xie, Yihui. 2021. <em>Bookdown: Authoring Books and Technical Documents with r Markdown</em>.
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="arbre-de-décision.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/11-machinelearning.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
