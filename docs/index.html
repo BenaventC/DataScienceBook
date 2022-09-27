@@ -24,7 +24,7 @@
 <meta name="author" content="Christophe Benavent - Université Paris Dauphine" />
 
 
-<meta name="date" content="2022-09-25" />
+<meta name="date" content="2022-09-27" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -283,15 +283,28 @@ div.csl-indent {
 <li><a href="clus.html#autres-méthodes" id="toc-autres-méthodes"><span class="toc-section-number">8.6</span> Autres méthodes</a></li>
 <li><a href="clus.html#conclusion" id="toc-conclusion"><span class="toc-section-number">8.7</span> Conclusion</a></li>
 </ul></li>
-<li><a href="régression.html#régression" id="toc-régression"><span class="toc-section-number">9</span> Régression</a>
+<li><a href="régression.html#régression" id="toc-régression"><span class="toc-section-number">9</span> 9 - Régression</a>
 <ul>
-<li><a href="régression.html#une-étude-de-cas-blablacar" id="toc-une-étude-de-cas-blablacar"><span class="toc-section-number">9.1</span> Une étude de cas : blablacar</a></li>
-<li><a href="régression.html#autres-modèles" id="toc-autres-modèles"><span class="toc-section-number">9.2</span> Autres modèles</a>
+<li><a href="régression.html#une-étude-de-cas-les-offres-blablacar" id="toc-une-étude-de-cas-les-offres-blablacar"><span class="toc-section-number">9.1</span> Une étude de cas : les offres Blablacar</a>
 <ul>
-<li><a href="régression.html#régression-logistique" id="toc-régression-logistique"><span class="toc-section-number">9.2.1</span> régression logistique</a></li>
-<li><a href="régression.html#regression-beta" id="toc-regression-beta"><span class="toc-section-number">9.2.2</span> regression beta</a></li>
-<li><a href="régression.html#régression-survie" id="toc-régression-survie"><span class="toc-section-number">9.2.3</span> régression survie</a></li>
-<li><a href="régression.html#modèles-à-composante-derreur" id="toc-modèles-à-composante-derreur"><span class="toc-section-number">9.2.4</span> modèles à composante d’erreur</a></li>
+<li><a href="régression.html#les-caractérisques-de-loffre" id="toc-les-caractérisques-de-loffre"><span class="toc-section-number">9.1.1</span> Les caractérisques de l’offre</a></li>
+</ul></li>
+<li><a href="régression.html#notes-prix-et-taux-doccupations" id="toc-notes-prix-et-taux-doccupations"><span class="toc-section-number">9.2</span> Notes, prix et taux d’occupations</a></li>
+<li><a href="régression.html#analyse-des-prix" id="toc-analyse-des-prix"><span class="toc-section-number">9.3</span> Analyse des prix</a></li>
+<li><a href="régression.html#analyser-la-demande-quest-ce-qui-détermine-le-taux-doccupation" id="toc-analyser-la-demande-quest-ce-qui-détermine-le-taux-doccupation"><span class="toc-section-number">9.4</span> Analyser la demande : qu’est ce qui détermine le taux d’occupation ?</a>
+<ul>
+<li><a href="régression.html#un-modèle-ols" id="toc-un-modèle-ols"><span class="toc-section-number">9.4.1</span> Un modèle OLS</a></li>
+</ul></li>
+<li><a href="régression.html#autres-modèles" id="toc-autres-modèles"><span class="toc-section-number">9.5</span> Autres modèles</a>
+<ul>
+<li><a href="régression.html#régression-logistique" id="toc-régression-logistique"><span class="toc-section-number">9.5.1</span> régression logistique</a></li>
+</ul></li>
+<li><a href="régression.html#un-cas-danalyse-de-survie" id="toc-un-cas-danalyse-de-survie"><span class="toc-section-number">9.6</span> un cas d’analyse de survie</a></li>
+<li><a href="régression.html#pour-généraliser" id="toc-pour-généraliser"><span class="toc-section-number">9.7</span> Pour généraliser</a></li>
+<li><a href="régression.html#spécification-fonctionnelle" id="toc-spécification-fonctionnelle"><span class="toc-section-number">9.8</span> Spécification fonctionnelle</a>
+<ul>
+<li><a href="régression.html#structure-des-données" id="toc-structure-des-données"><span class="toc-section-number">9.8.1</span> Structure des données</a></li>
+<li><a href="régression.html#les-méthodes-destimation" id="toc-les-méthodes-destimation"><span class="toc-section-number">9.8.2</span> les méthodes d’estimation</a></li>
 </ul></li>
 </ul></li>
 <li><a href="arbre-de-décision.html#arbre-de-décision" id="toc-arbre-de-décision"><span class="toc-section-number">10</span> Arbre de Décision</a>
@@ -334,7 +347,7 @@ div.csl-indent {
 <div id="header">
 <h1 class="title">Introduction aux Data Sciences</h1>
 <p class="author"><em>Christophe Benavent - Université Paris Dauphine</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>2022-09-25</em></p>
+<p class="date" style="margin-top: 1.5em;"><em>2022-09-27</em></p>
 </div>
 <div id="avant-propos" class="section level1" number="1">
 <h1><span class="header-section-number">Chapitre 1</span> Avant propos</h1>
@@ -382,47 +395,47 @@ div.csl-indent {
 <p>Ce <em>syllabus</em> est écrit en <strong>Markdown</strong> <span class="citation">(<a href="#ref-allaire_rmarkdown_2021" role="doc-biblioref">Allaire et al. 2021</a>)</span> et avec le package <strong>Bookdown</strong> <span class="citation">(<a href="#ref-R-bookdown" role="doc-biblioref">Xie 2021</a>)</span></p>
 <p>Le code s’appuie très largement sur <code>tidyverse</code> et emploie largement les ressources de <code>ggplot</code>. Les packages seront introduits au fur et à mesure. En voici la liste complète.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="index.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">tinytex.verbose =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-2"><a href="index.html#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="index.html#cb1-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo =</span> <span class="cn">TRUE</span>, <span class="at">include=</span><span class="cn">TRUE</span>, <span class="at">cache=</span><span class="cn">TRUE</span>, <span class="at">message=</span><span class="cn">FALSE</span>, <span class="at">warning=</span><span class="cn">FALSE</span>)</span>
-<span id="cb1-4"><a href="index.html#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="index.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co">#boite à outils et dataviz</span></span>
-<span id="cb1-6"><a href="index.html#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># inclut ggplot pour la viz, readr et </span></span>
-<span id="cb1-7"><a href="index.html#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cowplot) <span class="co">#pour créer des graphiques composés</span></span>
-<span id="cb1-8"><a href="index.html#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggridges) <span class="co"># le joy division touch</span></span>
-<span id="cb1-9"><a href="index.html#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggmosaic)</span>
-<span id="cb1-10"><a href="index.html#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-11"><a href="index.html#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#networks</span></span>
-<span id="cb1-12"><a href="index.html#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph)</span>
-<span id="cb1-13"><a href="index.html#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggraph)</span>
-<span id="cb1-14"><a href="index.html#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-15"><a href="index.html#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Accéder aux données</span></span>
-<span id="cb1-16"><a href="index.html#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rtweet)  <span class="co"># une interface efficace pour interroger l&#39;api de Twitter</span></span>
-<span id="cb1-17"><a href="index.html#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-18"><a href="index.html#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># NLP</span></span>
-<span id="cb1-19"><a href="index.html#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tokenizers)</span>
-<span id="cb1-20"><a href="index.html#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda)</span>
-<span id="cb1-21"><a href="index.html#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda.textstats)</span>
-<span id="cb1-22"><a href="index.html#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(udpipe) <span class="co">#annotation syntaxique</span></span>
-<span id="cb1-23"><a href="index.html#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
-<span id="cb1-24"><a href="index.html#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cleanNLP) <span class="co">#annotation syntaxique</span></span>
-<span id="cb1-25"><a href="index.html#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-26"><a href="index.html#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co">#sentiment</span></span>
-<span id="cb1-27"><a href="index.html#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(syuzhet)             <span class="co">#analyse du sentimeent</span></span>
+<span id="cb1-2"><a href="index.html#cb1-2" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo =</span> <span class="cn">TRUE</span>, <span class="at">include=</span><span class="cn">TRUE</span>, <span class="at">cache=</span><span class="cn">TRUE</span>, <span class="at">message=</span><span class="cn">FALSE</span>, <span class="at">warning=</span><span class="cn">FALSE</span>)</span>
+<span id="cb1-3"><a href="index.html#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="index.html#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#boite à outils et dataviz</span></span>
+<span id="cb1-5"><a href="index.html#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse) <span class="co"># inclut ggplot pour la viz, readr et </span></span>
+<span id="cb1-6"><a href="index.html#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cowplot) <span class="co">#pour créer des graphiques composés</span></span>
+<span id="cb1-7"><a href="index.html#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggridges) <span class="co"># le joy division touch</span></span>
+<span id="cb1-8"><a href="index.html#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggmosaic)</span>
+<span id="cb1-9"><a href="index.html#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="index.html#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#networks</span></span>
+<span id="cb1-11"><a href="index.html#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph)</span>
+<span id="cb1-12"><a href="index.html#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggraph)</span>
+<span id="cb1-13"><a href="index.html#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="index.html#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Accéder aux données</span></span>
+<span id="cb1-15"><a href="index.html#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rtweet)  <span class="co"># une interface efficace pour interroger l&#39;api de Twitter</span></span>
+<span id="cb1-16"><a href="index.html#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="index.html#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># NLP</span></span>
+<span id="cb1-18"><a href="index.html#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tokenizers)</span>
+<span id="cb1-19"><a href="index.html#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda)</span>
+<span id="cb1-20"><a href="index.html#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda.textstats)</span>
+<span id="cb1-21"><a href="index.html#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(udpipe) <span class="co">#annotation syntaxique</span></span>
+<span id="cb1-22"><a href="index.html#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
+<span id="cb1-23"><a href="index.html#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cleanNLP) <span class="co">#annotation syntaxique</span></span>
+<span id="cb1-24"><a href="index.html#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="index.html#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co">#sentiment</span></span>
+<span id="cb1-26"><a href="index.html#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(syuzhet)             <span class="co">#analyse du sentimeent</span></span>
+<span id="cb1-27"><a href="index.html#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-28"><a href="index.html#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-29"><a href="index.html#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="index.html#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-31"><a href="index.html#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="co">#mise en page des tableaux</span></span>
-<span id="cb1-32"><a href="index.html#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flextable)</span>
+<span id="cb1-30"><a href="index.html#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co">#mise en page des tableaux</span></span>
+<span id="cb1-31"><a href="index.html#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flextable)</span>
+<span id="cb1-32"><a href="index.html#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-33"><a href="index.html#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="index.html#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-35"><a href="index.html#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="co">#statistiques et modèles</span></span>
-<span id="cb1-36"><a href="index.html#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4) <span class="co">#pour des modèles plus complexe que les mco</span></span>
-<span id="cb1-37"><a href="index.html#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jtools) <span class="co">#une série d&#39;utiltaire pour bien représenter les résultats</span></span>
-<span id="cb1-38"><a href="index.html#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(interactions) <span class="co">#traitement des interactions</span></span>
-<span id="cb1-39"><a href="index.html#cb1-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-40"><a href="index.html#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span>
-<span id="cb1-41"><a href="index.html#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych) </span>
-<span id="cb1-42"><a href="index.html#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-34"><a href="index.html#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co">#statistiques et modèles</span></span>
+<span id="cb1-35"><a href="index.html#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4) <span class="co">#pour des modèles plus complexe que les mco</span></span>
+<span id="cb1-36"><a href="index.html#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jtools) <span class="co">#une série d&#39;utiltaire pour bien représenter les résultats</span></span>
+<span id="cb1-37"><a href="index.html#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(interactions) <span class="co">#traitement des interactions</span></span>
+<span id="cb1-38"><a href="index.html#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="index.html#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span>
+<span id="cb1-40"><a href="index.html#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych) </span>
+<span id="cb1-41"><a href="index.html#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-42"><a href="index.html#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="co">#ACP et AFCM</span></span>
 <span id="cb1-43"><a href="index.html#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-44"><a href="index.html#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;FactoMineR&quot;</span>)</span>
 <span id="cb1-45"><a href="index.html#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(<span class="st">&quot;factoextra&quot;</span>)</span>
@@ -443,11 +456,19 @@ div.csl-indent {
 <span id="cb1-60"><a href="index.html#cb1-60" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(colorspace) <span class="co">#pour les couleurs</span></span>
 <span id="cb1-61"><a href="index.html#cb1-61" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wesanderson)</span>
 <span id="cb1-62"><a href="index.html#cb1-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-63"><a href="index.html#cb1-63" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-64"><a href="index.html#cb1-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-65"><a href="index.html#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilitaires</span></span>
-<span id="cb1-66"><a href="index.html#cb1-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-67"><a href="index.html#cb1-67" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(citr) <span class="co">#pour insérer des références dans le markdown</span></span></code></pre></div>
+<span id="cb1-63"><a href="index.html#cb1-63" aria-hidden="true" tabindex="-1"></a><span class="co">#regression</span></span>
+<span id="cb1-64"><a href="index.html#cb1-64" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4)</span>
+<span id="cb1-65"><a href="index.html#cb1-65" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jtools)</span>
+<span id="cb1-66"><a href="index.html#cb1-66" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(interactions)</span>
+<span id="cb1-67"><a href="index.html#cb1-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-68"><a href="index.html#cb1-68" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-69"><a href="index.html#cb1-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-70"><a href="index.html#cb1-70" aria-hidden="true" tabindex="-1"></a><span class="co"># Utilitaires</span></span>
+<span id="cb1-71"><a href="index.html#cb1-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-72"><a href="index.html#cb1-72" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(citr) <span class="co">#pour insérer des références dans le markdown</span></span>
+<span id="cb1-73"><a href="index.html#cb1-73" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-74"><a href="index.html#cb1-74" aria-hidden="true" tabindex="-1"></a><span class="co">#config plot</span></span>
+<span id="cb1-75"><a href="index.html#cb1-75" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_minimal</span>())</span></code></pre></div>
 <p>L’ensemble du code est disponible <a href="https://github.com/BenaventC/Datasciences">sur github</a>. A ce stade c’est encore embryonnaire. Les proches et nos étudiants pourrons cependant y voir l’évolution du projet et de la <a href="https://benaventc.github.io/Datascience/">progression</a></p>
 <p>Quelques conventions d’écriture du code r</p>
 <ul>

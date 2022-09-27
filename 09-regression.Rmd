@@ -1,20 +1,446 @@
-# Régression
+# 9 - Régression
 
 
 
-## Une étude de cas : blablacar
+## Une étude de cas : les offres Blablacar
+
+C’est un vieux  jeu de données scrappées sur un site de covoiturage. Environ 13000 offres proposées sur différents types de trajets et de destination à un moment donné (au cours de 2016). Je voulais à l’époque tester l’effet des signaux de qualités sur les comportements dans l’environnement collaboratif. S’agit-il d’un marché ou d’un réseau d’entraide ?
+
+Si elles ne sont plus d'actualité, elle permettent cependant une étude intéressante des facteurs qui encourage la demande mais aussi analyser des facteurs de l'offre et notamment les déterminants du prix. A cette période les conducteurs avaient le loisir de fixer leur prix même si une recommandation était donnée par la plateforme. On sera en particulier attentif au rôle du système de réputation dont la plateforme a fait le cœur de son modèle. le modèle DREAMS de Blablacar dès les années ).
+
+
+```{r 0901}
+
+df <- read_delim("./data/covoit.csv", ";", escape_double = FALSE, trim_ws = TRUE)
+df<- df%>% dplyr::rename(Places=`Places Restantes`, 
+                  Depart=`Ville Depart Capture`,
+                  Arrivee=`Ville Arrivee Capture`,
+                  Flex=`Flexibilite Horaire`
+                  )
+df<-df %>% 
+  filter( Distance<1200)
+
+#on recode le nombre de places restantes par une approximation du taux de réservation
+df$Occup<- NA
+df$Occup[df$Places==0]<-1
+df$Occup[df$Places==1]<-.75
+df$Occup[df$Places==2]<-.50
+df$Occup[df$Places==3]<-.25
+df$Occup[df$Places==4]<-0
+df$Occup[df$Places>=4]<-0
+
+#l'expérience peut se capter par le nombre de voyages
+df$Nombre[is.na(df$Nombre)]<-0
+```
+
+
+Voici la liste des requêtes et le nombre d'offres obtenues pour chacune d'elle. On observe la domination des trajet inter-régionaux avec Nantes-Rennes, Toulouse-Montpellier et Bordeaux-Toulouse. Et Paris bien sur... 
+
+Les trajets ont été échantillonnés pour représenter différents niveaux d'échelle de distance, les courts trajets, les trajets de 100 à 200 km, ceux à 300-400 et une minorité de distances plus longues, ce qui explique la concentration à certains niveaux. La distribution ne représente pas la distribution de la demande des trajets, ni même l'offre. L'échantillon est un pool d'offres pour un trajet donné, un jour donné. 
+
+
+```{r 0902}
+trajet<-table(df$Depart, df$Arrivee)
+df$trajet<-paste0(df$Depart,"-",df$Arrivee)
+foo<-df %>% mutate(n=1)%>%group_by(trajet)%>%summarise(n=sum(n))%>%filter(n>0)
+
+g01<-ggplot(foo,aes(x=reorder(trajet,n), y=n))+
+  geom_bar(stat="identity", fill="coral1")+
+  coord_flip()+
+  labs(title="Trajets les plus fréquents", x=NULL, y="Fréquence")
+
+g02<-ggplot(df, aes(x=Distance))+
+  geom_histogram(fill="Chartreuse4",binwidth = 25) +
+  labs(title = "Distribution de la distance des trajets", y="Fréquence")
+
+plot_grid(
+  g01, g02,
+  labels = "AUTO", ncol = 2
+)
+```
+
+### Les caractérisques de l'offre
+
+
+l'offre se détermine par  plusieurs éléments
+
+ * le véhicule
+ * le conducteur
+ * les conditions du trajets
+ 
+#### Le véhicule
+
+Rôle de la marque et du standing du véhicule mérite plus de recodage. Il est très subjectif, ici on privilégie les origines nationales qui expriment un style, un esprit d'automobile. 
+
+```{r 0904}
+df$Marque[df$Marque=="Alfa-romeo"]<-"Alfa Romeo, Lancia"
+df$Marque[df$Marque=="Alfa Romeo"]<-"Alfa Romeo, Lancia"
+
+df$Marque[df$Marque=="Lancia"]<-"Alfa Romeo, Lancia"
+df$Marque[df$Marque=="Volvo"]<-"Volvo, Saab"
+df$Marque[df$Marque=="Zx"]<-"Citroen"
+df$Marque[df$Marque=="Saab"]<-"Volvo, Saab"
+df$Marque[df$Marque=="Audi-quattro"]<-"Audi"
+df$Marque[df$Marque=="Mercedes"]<-"Mercedes-benz"
+df$Marque[df$Marque=="Vw"]<-"Volkswagen"
+
+df$Marque[df$Marque=="Kia"]<-"Autres Asie"
+df$Marque[df$Marque=="Honda"]<-"Autres Asie"
+df$Marque[df$Marque=="Mazda"]<-"Autres Asie"
+df$Marque[df$Marque=="Suzuki"]<-"Autres Asie"
+df$Marque[df$Marque=="Isuzu"]<-"Autres Asie"
+df$Marque[df$Marque=="Mitsubishi"]<-"Autres Asie"
+df$Marque[df$Marque=="Lexus"]<-"Autres Asie"
+df$Marque[df$Marque=="Subaru"]<-"Autres Asie"
+df$Marque[df$Marque=="Daewoo"]<-"Autres Asie"
+df$Marque[df$Marque=="Huanghai"]<-"Autres Asie"
+
+
+df$Marque[df$Marque=="Land"]<-"Rover, jaguar, mini"
+df$Marque[df$Marque=="Rover"]<-"Rover, jaguar, mini"
+df$Marque[df$Marque=="Jaguar"]<-"Rover, jaguar, mini"
+df$Marque[df$Marque=="Abarth"]<-"Rover, jaguar, mini"
+df$Marque[df$Marque=="Ldv"]<-"Rover, jaguar, mini"
+df$Marque[df$Marque=="Austin"]<-"Rover, jaguar, mini"
+df$Marque[df$Marque=="Mini"]<-"Rover, jaguar, mini"
+
+
+df$Marque[df$Marque=="Chevrolet"]<-"Autres US"
+df$Marque[df$Marque=="Chrysler"]<-"Autres US"
+df$Marque[df$Marque=="Jeep"]<-"Autres US"
+df$Marque[df$Marque=="Dodge"]<-"Autres US"
+
+df$Marque[df$Marque=="Lamborghini"]<-"Sport"
+df$Marque[df$Marque=="Maserati"]<-"Sport"
+df$Marque[df$Marque=="Porsche"]<-"Sport"
+
+df$Marque[df$Marque=="Ac"]<-"Autres"
+df$Marque[df$Marque=="Acura"]<-"Autres"
+df$Marque[df$Marque=="eacute"]<-"Autres"
+df$Marque[df$Marque=="Iveco"]<-"Autres"
+df$Marque[df$Marque=="Camping-car"]<-"Autres"
+df$Marque[df$Marque=="Infiniti"]<-"Autres"
+
+df$Marque[df$Marque=="Admiral"]<-"Autres"
+df$Marque[df$Marque=="Sport"]<-"Autres"
+
+foo<-df %>%
+  group_by(Marque)%>%
+  summarise(n=n())%>%
+  drop_na()
+
+ggplot(foo, aes(x=reorder(Marque, n), y=n))+
+  geom_bar(stat="identity",fill="Chartreuse4") +
+    coord_flip() +scale_y_log10()
+```
+
+#### L'âge et l'expérience du capitaine
+
+On distingue deux populations en terme d'âge, une en dessous de la trentaine, l'autre de 40 à 50 ans. On Jette un coup d'oeil ensuite sur la relation entre l'âge et la note qui culmine à 30 ans et baisse avec les décades (F=59.3). Est-ce l'effet d'une inadéquation des âges? La demande est-elle plus jeune que l'offre? Celà crée-t-il un biais systématique d'évaluation? 
+
+Le conducteur se manifeste au travers de 3 critères : son statut attribué par co-voitureur, son expérience traduite par le nombre de voyages qu'il a fait. la note moyenne reçue des passagers et 
+
+
+```{r 0905}
+g03<-ggplot(df, aes(x=Age))+
+  geom_histogram(fill="Chartreuse4", binwidth = 1)+
+  labs(title="Distribution par \nâge", y="Fréquence des offres")
+
+df$Statut<-as.factor(df$Statut)
+df$Statut <- factor(df$Statut, ordered = TRUE, 
+                                levels = c("Ambassadeur", "Expert",  "Habitue", "Confirme","Pas de Statut"))
+
+g04<-ggplot(df, aes(x=Statut))+
+  geom_bar(fill="Chartreuse4") +
+  coord_flip()+
+  labs(title = "Statut des \nconducteurs", y="Fréquence des offres")
+
+mean<-round(mean(df$Nombre,na.rm=TRUE),2)
+
+g05<-ggplot(df, aes(x=Nombre))+
+  geom_histogram(fill="Chartreuse4", binwidth = 5)+
+  labs(title = "Distribution du nombre \nde trajets", subtitle =paste0("Moyenne=", mean))+
+  xlim(0,300)
+
+plot_grid(
+  g03, g05,g04,
+  labels = "AUTO", ncol = 3
+)
+```
+
+L'expérience se distribue de manière très inégale, une minorité de conducteurs ayant réalisé plus de 50 voyages, une très grande majorité en ayant fait moins d'une vingtaine de voyages.
+
+Examinons le statut et notamment en comparant l'expérience et l'évaluation. 
+
+```{r 0906}
+
+foo<-df %>% 
+  group_by(Statut)%>%
+  summarise(Note=mean(Note,na.rm=TRUE),
+            Nombre=mean(Nombre,na.rm=TRUE),
+            Age=round(mean(Age,na.rm=TRUE),0))%>%
+  pivot_longer(-Statut,names_to = "variable",values_to = "Moyenne" )
+
+
+ggplot(foo, aes(x=Statut, y=Moyenne,group=variable))+
+  geom_line(aes(color=variable), size=2)+
+  coord_flip()+
+  facet_wrap(vars(variable),scales ="free", ncol=3)+  
+  labs(title = "Statuts des conducteur", x=NULL, y=NULL)+
+  scale_color_manual(values=c("skyblue4", "coral2", "Gold2"))
+
+```
+
+#### Le trajet
+
+Le conducteur peut être flexible dans l'horaire de départ ou pas. Un recodage est cependant nécessaire.Le trajet peut être strict ou comporter des détours. Là aussi besoin d'un peu de recodage.
+
+
+```{r 0907}
+df$Flex[df$Flex!="Depart pile a l'heure" & df$Flex!="Pas d'indication"]<-"Voir avec le conducteur"
+df$Flex[is.na(df$Flex)]<-"Pas d'indication"
+g07<-ggplot(df, aes(x=Flex))+
+  geom_bar(fill="Chartreuse4")+
+  coord_flip()+
+  labs(title="Flexibilité de l'horaire", x=NULL, y="Fréquence")
+
+df$Detour[df$Detour=="De 30 minutes max"]<-"Plus de 15 mn"
+df$Detour[df$Detour=="Autant que possible"]<-"Plus de 15 mn"
+g08<-ggplot(df, aes(x=Detour))+geom_bar(fill="Chartreuse4")  +
+  coord_flip()+labs(title="Acceptation des détours")
+
+plot_grid(
+  g07, g08,
+  labels = "AUTO", ncol = 3
+)
+```
+
+## Notes, prix et taux d'occupations
+
+Les notes sont en moyenne de 4.45 et fortement déviées à droite, réduisant la capacité de discrimination.
+
+```{r cond2}
+mean<-round(mean(df$Note,na.rm=TRUE),2)
+ggplot(df, aes(x=Note))+
+  geom_histogram(fill="coral2",binwidth = .2)+
+  theme_bw() +
+  labs(title = "Distribution des notes des conducteurs", subtitle =paste0("Moyenne=", mean))
+```
+
+
+## Analyse des prix
+
+Au premier examen la distribution des prix semble être multimodale, elle est étroitement associée à la distribution des distance et de notre stratégie d'échantillonage des paires départ/destination. 
+
+Le prix est une multiplication de la distance par un tarif kilométrique, même si la relation ne semble pas tout à faire linéaire. La convexité de la courbe signale une sorte de rendement croissant avec la distance (incorporation du prix des péages ou effet de rareté ?). 
+
+C'est pourquoi on calcule un tarif au km, qui lui n'est plus corrélé ou à peine à la distance parcourue. Voici les résultats principaux.
 
 
 
-voir [blablacar](https://github.com/BenaventC/Covoiturage)
+```{r Prix1}
+g20<-ggplot(df, aes(x=Prix))+geom_bar(fill="firebrick2")  +
+  labs(title = "Distribution des prix",
+       x="Prix du trajet")
+
+g21<-ggplot(df, aes(x=Distance, y=Prix))+
+  geom_point(color="firebrick2", alpha =0.5) +
+  geom_smooth(method="gam")+scale_x_log10()+
+  labs(title = "Corrélation des distances et des prix", x= "Distance en km")
+
+df$prix_km<-df$Prix/df$Distance
+
+g22<-ggplot(df, aes(x=prix_km))+
+  geom_histogram(fill="firebrick3", binwidth = 0.005)  +
+  labs(title = "Distribution des prix au km", x="Prix au km (euros)")+xlim(0,0.15)
+g23<-ggplot(df, aes(x=Distance, y=prix_km))+
+  geom_point(color="firebrick3") +
+  geom_smooth(method="gam")+
+  scale_x_log10()+labs(x="Distance en km")+
+  ylim(0,0.15)
+
+plot_grid(
+  g20, g21,g22,g23,
+  labels = "AUTO", ncol = 2
+)
+```
+
+
+## Analyser la demande : qu'est ce qui détermine le taux d'occupation ?
+
+
+
+On utilise la variable nombre de place restante qu'on traduit par un indicateur codé de 0 (tout est libre) à 1 ( la voiture est pleine). En voici la distribution.
+
+
+```{r taux1}
+ggplot(df, aes(x=Occup))+
+  geom_bar(fill="gold3")  +
+  labs(title="Distribution des taux d'occupation", x= "Taux d'occupation")
+```
+
+
+### Un modèle OLS
+
+
+On commence par un modèle simple et linéaire où l'on cherche à expliquer, prédire, le taux d'occupation du véhicule en fonction des variables dont nous disposons. La flexibilité de l'horaire et la possibilité de détour n'affecte pas vraiment le taux de réservation. Si les autres variables ont des relations significatives ( avec des valeur t très élevées), on notera que la variance expliquée est faible. 
+
+Le remplissage des voiture est une affaire de loto. Ce qui se comprend, car la probabilité qu'une offre et une demande coïncide est relativement faible si on retient une plage horaire étroite pour le passager qui l'élargira pour accroître le choix au prix d'un effort de recherche supplémentaire. 
+
+
+```{r modO2}
+df$AgeClasse<- round(df$Age/10,0)*10
+df$AgeClasse[df$AgeClasse==80]<-70
+df$AgeClasse[df$AgeClasse==90]<-70
+df$AgeClasse[df$AgeClasse==100]<-70
+df$AgeClasse<-as.factor(df$AgeClasse)
+
+
+fit0<-lm(Occup~AgeClasse+log(Distance+1)+prix_km+Flex+Detour+Autoroute+log(Nombre+1)+Note, data=df)
+fit1<-lm(Occup~AgeClasse+log(Distance+1)+prix_km+Flex+Detour+Autoroute+log(Nombre+1)*Note, data=df)
+fit2<-lm(Occup~AgeClasse+ Marque+log(Distance+1)+prix_km+Flex+Detour+Autoroute+log(Nombre+1)*Note, data=df)
+
+export_summs(fit0, fit1, fit2,plot.distributions = TRUE,scale = FALSE)
+
+```
+
+Le modèle tient même s'il explique très peu de variance. Les tests sont cependant significatifs et même si l'effet est faible il est notable.  Voici des diagrammes d'effets qui représentent la valeur de la variable dépendante pour une plage de variation des variables indépendantes prises une à une, en fonction du modèle. On voit ainsi plus clairement que le taux d'occupation passe de 20% environ quand la note est de 3 (les notes inférieures sont rares!) à 45% quand la moyenne du conducteur frôle les 5.
+
+```{r modO2b, fig.width=9}
+g10<-effect_plot(fit1, pred=AgeClasse,interval = TRUE ,data=df)+
+  geom_line(color="gold3",size=2)+
+  labs(title="Effet de l'âge sur le taux d'occupation")
+
+g11<-effect_plot(fit1, pred=Detour,interval = TRUE ,data=df)+
+  geom_line(color="gold3",size=2)+
+  labs(title="Effet des détours sur le taux d'occupation")
+
+g12<-effect_plot(fit1, pred=Autoroute,interval = TRUE  ,data=df)+
+  geom_line(color="gold3",size=2)+
+  labs(title="Effet de l'autoroute sur le taux d'occupation")
+
+g13<-effect_plot(fit1, pred=Flex,interval = TRUE  ,data=df)+
+  geom_line(color="gold3",size=2)+
+  labs(title="Effet de la distance sur le taux d'occupation")
+
+g14<-effect_plot(fit1, pred=prix_km,interval = TRUE  ,data=df)+
+  geom_line(color="gold3",size=2)+
+  labs(title="Effet du prix sur le taux d'occupation")
+
+g15<-effect_plot(fit2, pred=Marque,interval = TRUE  ,data=df)+
+  geom_line(color="gold3",size=2)+
+  labs(title="Effet de la distance sur le taux d'occupation")+coord_flip()
+g15
+plot_grid(
+  g10, g11,g12,g13,g14,g15,
+  labels = "AUTO", ncol = 2
+)
+
+g16<-effect_plot(fit1, pred=Note,interval = TRUE ,data=df)+
+  geom_line(color="gold3",size=2)+
+  labs(title="Effet de la note sur le taux d'occupation")
+g17<-effect_plot(fit1, pred=Nombre,interval = TRUE  ,data=df)+
+  geom_line(color="gold3",size=2)+
+  labs(title="Effet du nombre de trajets sur le taux d'occupation")
+
+g18<-effect_plot(fit1, pred=Distance,interval = TRUE  ,data=df)+
+  geom_line(color="gold3",size=2)+
+  labs(title="Effet du nombre de trajets sur le taux d'occupation")
+
+g19<-interact_plot(fit1, pred=Nombre,modx=Note,interval = TRUE  ,data=df)+
+  geom_line(color="gold3",size=2)+
+  labs(title="Effet du nombre de trajets sur le taux d'occupation")
+
+plot_grid(
+  g16, g17,g18,g19,
+  labels = "AUTO", ncol = 2
+)
+
+```
+
+
+La particularité du modèle est le terme d'interaction. L'expérience du conducteur traduite par le nombre de trajets qu'il a effectué est gage de sécurité, de confiance, pourvu que ses notes soient bonnes. On s'attend à ce que si elle sont moins bonnes, le nombre de voyages réalisés en amplifiera l'impact négatif. L'expérience signale aussi la crédibilité de la note, et on peut raisonnablement penser que plus ce nombre est grand et plus le signal, positif ou négatif est crédible. Ici la note module l'effet de crédibilité.
+
+L'analyse de l'interaction est claire : quand les contenus sont négatifs , l'expérience du conducteur aggrave la réticence et le taux d'occupation se réduit. Quand les notes vont meilleures que la moyenne.L'amplification par l'expérience de l'effet des notes sur la réservation est moindre. L'interaction est significative (t=8.76). Reste à comprendre pourquoi la tendance générale reste à une relation négative entre le taux de remplissage et le nombre de trajet effectué . Est-ce le résultat d'une participation fréquente à la plateforme, à un comportement particulier des conducteurs très actifs (opportunisme) ? Une explication complémentaire peut venir de ceux qui pratique occasionnellement le covoiturage, leur activité étant plus rare , elle est peut être plus planifiée, et les offres sont présentes depuis plus longtemps que celles des utilisateurs fréquents qui publieraient leurs annonces de la veille au lendemain.  Ceci mérite une analyse plus approfondie que nous ne ménerons pas ici. 
+
+
 
 ## Autres modèles 
 
+On peut raffiner l'analyse 
+
+
 ### régression logistique
 
-### regression beta
+Sur les même données mais en considérant le taux d'occupation plus sérieusement : il est compris entre 0 et 1 et se prête don à un modèle  logistique, car le taux d'occupation va de 0 à 100% même si nous n'avons que 4 niveaux. ça fait un modèle plus réaliste qui ajuste la valeur prédite entre 0 et 1.
+ 
+Pour mieux prendre en compte l'hétérogénéité du set de données (composée par un échantillon de requêtes) on introduit les trajets comme composante aléatoire. 
+ 
+ l'estimation est réalisée avec `lme4`
+ 
+ Les effets semblent être ici plus pertinent et sensibles mais surtout l'effet d'interaction semble renforcé. L'effet de la note est là clairement amplifié pour les notes négatives mais aussi pour les notes positives.
 
-### régression survie
+```{r mod01}
+#fit2<-glmer(Occup~log(Distance+1)+prix_km+Flex+Detour+Autoroute+log(Nombre+1)+Note+(1 |trajet),family = binomial, data=df)
 
-### modèles à composante d'erreur
+
+```
+
+
+
+## un cas d'analyse de survie
+
+voir étude de cas [CartedeFidelité](https://github.com/BenaventC/survival).
+
+
+
+## Pour généraliser
+
+Dans la pratique la construction d'un modèle de régression dépend de trois éléments :
+ * la spécification fonctionnelle qui définit f(y, X) autrement dit ce qui relie ce qu'on observe à ce qui peut lui être corrélé de manière linéaires ou moins linéaires.
+ * Elle dépend de nature de la constitution du jeu de données : un échantillons aléatoire ? stratifiés ? l'empilement de plusieurs enquête au même moment ? la répétition d'un même enquête sur les mêmes sujets ou des sujets différents à chaque interrogation. De la présence de biais de sélection . 
+ * d'un choix de méthodes d'estimation : exacte ou approchée.
+ 
+
+## Spécification  fonctionnelle
+
+La forme fonctionnelle qui dépend largement de la variable dépendante et de sa distribution :
+
+** normale
+** log normale voire expoentielle
+** binaire
+** proportionnelle
+** durée 
+** dénombrement. Il s'agit des données de comptages
+
+### Structure des données
+
+la structure de l'échantillon - 
+
+panels - 
+
+expérimentation
+
+le temps - l'autoregression
+
+on renvoie au traitement des séries chronologiques
+
+
+
+'unité d'observation
+
+### les méthodes d'estimation
+
+
+
+OLS : un modèle pédagogique et exact. La résolution est analytique
+
+LM : quand on peut attribuer des distributions connues
+
+
+ML : favoriser les critères de prédiction
+
+
+
+
 

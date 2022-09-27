@@ -72,7 +72,6 @@ Le code s'appuie très largement sur `tidyverse` et emploie largement les ressou
 
 ```{r 001, echo = TRUE, message=FALSE,warning=FALSE}
 options(tinytex.verbose = TRUE)
-
 knitr::opts_chunk$set(echo = TRUE, include=TRUE, cache=TRUE, message=FALSE, warning=FALSE)
 
 #boite à outils et dataviz
@@ -113,6 +112,7 @@ library(interactions) #traitement des interactions
 library(corrplot)
 library(psych) 
 
+#ACP et AFCM
 
 library("FactoMineR")
 library("factoextra")
@@ -133,11 +133,19 @@ theme_set(theme_bw())
 library(colorspace) #pour les couleurs
 library(wesanderson)
 
+#regression
+library(lme4)
+library(jtools)
+library(interactions)
+
 
 
 # Utilitaires
 
 library(citr) #pour insérer des références dans le markdown
+
+#config plot
+theme_set(theme_minimal())
 
 ```
 
