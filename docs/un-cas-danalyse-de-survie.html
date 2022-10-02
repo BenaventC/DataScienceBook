@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapitre 12 Arbre de Décision | Introduction aux Data Sciences</title>
+  <title>Chapitre 10 Un cas d’analyse de survie | Introduction aux Data Sciences</title>
   <meta name="description" content="Cours d’analyse de données et de Datascience" />
   <meta name="generator" content="bookdown 0.22.3 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapitre 12 Arbre de Décision | Introduction aux Data Sciences" />
+  <meta property="og:title" content="Chapitre 10 Un cas d’analyse de survie | Introduction aux Data Sciences" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapitre 12 Arbre de Décision | Introduction aux Data Sciences" />
+  <meta name="twitter:title" content="Chapitre 10 Un cas d’analyse de survie | Introduction aux Data Sciences" />
   
   <meta name="twitter:description" content="Cours d’analyse de données et de Datascience" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="les-modèles-linéaire-hiérarchiques.html"/>
-<link rel="next" href="premiers-éléments-de-machine-learning.html"/>
+<link rel="prev" href="régression.html"/>
+<link rel="next" href="les-modèles-linéaire-hiérarchiques.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -344,134 +344,17 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="arbre-de-décision" class="section level1" number="12">
-<h1><span class="header-section-number">Chapitre 12</span> Arbre de Décision</h1>
-<p>L’objectif de cette note est double. Le premier est une introduction aux méthodes d’arbres de décision et leur généralisation récente par les random forests. Le second est d’introduire à l’approche d’apprentissage et de test, autrement aux machine learning avec le package caret qui facilite la condition des opérations d’échantillonngage, de découpage des échanges et de production des indicateurs.</p>
-<div id="construire-un-arbre-de-décision" class="section level2" number="12.1">
-<h2><span class="header-section-number">12.1</span> Construire un arbre de décision</h2>
-<p>Les origines et le principe</p>
-<p>C’est une approche qui remonte à Morgan and Sonquist (1963)</p>
-<p>généralisés aux variables qualitatives avec Chaid (Kass (1980)) :</p>
-<p>Le principe général suis le pseudo algorithme suivant :</p>
-<p>pour chaque variable potentiellement explicative, trouver le meilleur découpage (dichotomique), c’est à dire celui qui va différencier au mieux la variable de réponse.
-Choisir parmi les variables et leur dichotomitsation celle qui répond au même critère que précedemment
-recommencer l’opération à 1
-Il peut s’appliquer à une variable quantitative ( regression) ou qualitative ( chaid)</p>
-<p>puis Cart avec breiman. Breiman (1998)</p>
-</div>
-<div id="mise-en-oeuvre-avec-partykit" class="section level2" number="12.2">
-<h2><span class="header-section-number">12.2</span> Mise en oeuvre avec Partykit</h2>
-<p>Le package partykit a pour objectif de représenter les arbres de décisions. Il inclue cependant plusieurs méthodes d’arbres de decisions, en en particulier une approche ctree Hothorn et al. (2006) dont le principe est. La méthode est incluse dans partykit Hothorn and Zeileis (2015)</p>
-<p>Avec partykit on contrôle la construction de l’arbre sur différents critères, par exemple : * le type de test employé pour prendre la décision * le nombre minimum d’individus dans une feuille terminale</p>
-<p><a href="https://apiacoa.org/blog/2014/02/initiation-a-rpart.fr.html" class="uri">https://apiacoa.org/blog/2014/02/initiation-a-rpart.fr.html</a></p>
-<p><a href="https://apiacoa.org/blog/2014/02/initiation-a-rpart.fr.html" class="uri">https://apiacoa.org/blog/2014/02/initiation-a-rpart.fr.html</a></p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="arbre-de-décision.html#cb153-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo =</span> <span class="cn">TRUE</span>, <span class="at">include=</span><span class="cn">TRUE</span>, <span class="at">cache=</span><span class="cn">TRUE</span>, <span class="at">message=</span><span class="cn">FALSE</span>, <span class="at">warning=</span><span class="cn">FALSE</span>)</span>
-<span id="cb153-2"><a href="arbre-de-décision.html#cb153-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb153-3"><a href="arbre-de-décision.html#cb153-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(partykit)</span>
-<span id="cb153-4"><a href="arbre-de-décision.html#cb153-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb153-5"><a href="arbre-de-décision.html#cb153-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb153-6"><a href="arbre-de-décision.html#cb153-6" aria-hidden="true" tabindex="-1"></a><span class="co">#lecture du fichier</span></span>
-<span id="cb153-7"><a href="arbre-de-décision.html#cb153-7" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;./data/last.rds&quot;</span>) <span class="sc">%&gt;%</span><span class="fu">drop_na</span>()</span>
-<span id="cb153-8"><a href="arbre-de-décision.html#cb153-8" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Age<span class="ot">&lt;-</span><span class="fu">as.factor</span>(df<span class="sc">$</span>Age)</span>
-<span id="cb153-9"><a href="arbre-de-décision.html#cb153-9" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Sexe<span class="ot">&lt;-</span><span class="fu">as.factor</span>(df<span class="sc">$</span>Sexe)</span>
-<span id="cb153-10"><a href="arbre-de-décision.html#cb153-10" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Education<span class="ot">&lt;-</span><span class="fu">factor</span>(df<span class="sc">$</span>Education, <span class="at">ordered =</span> <span class="cn">FALSE</span> )</span>
-<span id="cb153-11"><a href="arbre-de-décision.html#cb153-11" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Situation2<span class="ot">&lt;-</span><span class="fu">as.factor</span>(df<span class="sc">$</span>Situation2)</span>
-<span id="cb153-12"><a href="arbre-de-décision.html#cb153-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb153-13"><a href="arbre-de-décision.html#cb153-13" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Situation3<span class="ot">&lt;-</span><span class="fu">as.factor</span>(<span class="fu">ifelse</span>(df<span class="sc">$</span>Situation<span class="sc">&lt;</span><span class="dv">5</span>,<span class="st">&quot;degradation&quot;</span>,<span class="st">&quot; Amelioration&quot;</span>))</span>
-<span id="cb153-14"><a href="arbre-de-décision.html#cb153-14" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(df<span class="sc">$</span>Situation3)</span></code></pre></div>
-<pre><code>## 
-##  Amelioration   degradation 
-##         20327         19071</code></pre>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="arbre-de-décision.html#cb155-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span><span class="fu">ctree</span>(Situation3 <span class="sc">~</span> Age<span class="sc">+</span>Sexe<span class="sc">+</span>Education, <span class="at">data=</span>df)</span>
-<span id="cb155-2"><a href="arbre-de-décision.html#cb155-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fit)</span></code></pre></div>
-<pre><code>## 
-## Model formula:
-## Situation3 ~ Age + Sexe + Education
-## 
-## Fitted party:
-## [1] root
-## |   [2] Age in 18 - 24 ans, 25 - 34 ans
-## |   |   [3] Age in 18 - 24 ans
-## |   |   |   [4] Sexe in Un homme
-## |   |   |   |   [5] Education in Sans diplôme, Brevet des collèges, Bac +5 (Master, école d&#39;ingénieurs, d&#39;arts...):  Amelioration (n = 725, err = 29.2%)
-## |   |   |   |   [6] Education in CAP/BEP, Bac (général, pro et technologique), Bac +2 (BTS ou autre), Bac +3/4 (Licence, Maîtrise), Bac +7 et plus (doctorat, thèse, etc.):  Amelioration (n = 1710, err = 36.2%)
-## |   |   |   [7] Sexe in Une femme:  Amelioration (n = 3963, err = 38.3%)
-## |   |   [8] Age in 25 - 34 ans
-## |   |   |   [9] Education in Sans diplôme, CAP/BEP, Bac (général, pro et technologique), Bac +2 (BTS ou autre), Bac +3/4 (Licence, Maîtrise):  Amelioration (n = 4956, err = 43.9%)
-## |   |   |   [10] Education in Brevet des collèges, Bac +5 (Master, école d&#39;ingénieurs, d&#39;arts...), Bac +7 et plus (doctorat, thèse, etc.):  Amelioration (n = 1347, err = 37.2%)
-## |   [11] Age in 35 - 44 ans, 45 - 54 ans, 55 - 64 ans, 65 ans et plus
-## |   |   [12] Age in 35 - 44 ans
-## |   |   |   [13] Education in Sans diplôme, CAP/BEP, Bac (général, pro et technologique), Bac +2 (BTS ou autre), Bac +3/4 (Licence, Maîtrise)
-## |   |   |   |   [14] Sexe in Un homme:  Amelioration (n = 2588, err = 47.6%)
-## |   |   |   |   [15] Sexe in Une femme: degradation (n = 4926, err = 48.8%)
-## |   |   |   [16] Education in Brevet des collèges, Bac +5 (Master, école d&#39;ingénieurs, d&#39;arts...), Bac +7 et plus (doctorat, thèse, etc.):  Amelioration (n = 1323, err = 41.3%)
-## |   |   [17] Age in 45 - 54 ans, 55 - 64 ans, 65 ans et plus
-## |   |   |   [18] Sexe in Un homme
-## |   |   |   |   [19] Education in Sans diplôme, CAP/BEP, Bac (général, pro et technologique), Bac +2 (BTS ou autre), Bac +3/4 (Licence, Maîtrise), Bac +7 et plus (doctorat, thèse, etc.): degradation (n = 5675, err = 48.3%)
-## |   |   |   |   [20] Education in Brevet des collèges, Bac +5 (Master, école d&#39;ingénieurs, d&#39;arts...):  Amelioration (n = 1282, err = 45.6%)
-## |   |   |   [21] Sexe in Une femme
-## |   |   |   |   [22] Education in Sans diplôme, Brevet des collèges, Bac +3/4 (Licence, Maîtrise), Bac +5 (Master, école d&#39;ingénieurs, d&#39;arts...): degradation (n = 4250, err = 45.6%)
-## |   |   |   |   [23] Education in CAP/BEP, Bac (général, pro et technologique), Bac +2 (BTS ou autre), Bac +7 et plus (doctorat, thèse, etc.)
-## |   |   |   |   |   [24] Age in 45 - 54 ans: degradation (n = 2929, err = 43.3%)
-## |   |   |   |   |   [25] Age in 55 - 64 ans, 65 ans et plus: degradation (n = 3724, err = 39.4%)
-## 
-## Number of inner nodes:    12
-## Number of terminal nodes: 13</code></pre>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="arbre-de-décision.html#cb157-1" aria-hidden="true" tabindex="-1"></a>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit, df)</span>
-<span id="cb157-2"><a href="arbre-de-décision.html#cb157-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
-<span id="cb157-3"><a href="arbre-de-décision.html#cb157-3" aria-hidden="true" tabindex="-1"></a>cm <span class="ot">=</span> <span class="fu">confusionMatrix</span>(df<span class="sc">$</span>Situation3, pred)</span>
-<span id="cb157-4"><a href="arbre-de-décision.html#cb157-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(cm)</span></code></pre></div>
-<pre><code>## Confusion Matrix and Statistics
-## 
-##                Reference
-## Prediction       Amelioration degradation
-##    Amelioration         10507        9820
-##   degradation            7387       11684
-##                                           
-##                Accuracy : 0.5633          
-##                  95% CI : (0.5583, 0.5682)
-##     No Information Rate : 0.5458          
-##     P-Value [Acc &gt; NIR] : 1.769e-12       
-##                                           
-##                   Kappa : 0.129           
-##                                           
-##  Mcnemar&#39;s Test P-Value : &lt; 2.2e-16       
-##                                           
-##             Sensitivity : 0.5872          
-##             Specificity : 0.5433          
-##          Pos Pred Value : 0.5169          
-##          Neg Pred Value : 0.6127          
-##              Prevalence : 0.4542          
-##          Detection Rate : 0.2667          
-##    Detection Prevalence : 0.5159          
-##       Balanced Accuracy : 0.5653          
-##                                           
-##        &#39;Positive&#39; Class :  Amelioration   
-## </code></pre>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="arbre-de-décision.html#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggparty)</span>
-<span id="cb159-2"><a href="arbre-de-décision.html#cb159-2" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(fit)</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/libraries-1.png" width="1152" /></p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="arbre-de-décision.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="co">#library(irks)</span></span>
-<span id="cb160-2"><a href="arbre-de-décision.html#cb160-2" aria-hidden="true" tabindex="-1"></a><span class="co">#rules&lt;-ct_rules(fit)</span></span>
-<span id="cb160-3"><a href="arbre-de-décision.html#cb160-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb160-4"><a href="arbre-de-décision.html#cb160-4" aria-hidden="true" tabindex="-1"></a><span class="co">#rules %&gt;% </span></span>
-<span id="cb160-5"><a href="arbre-de-décision.html#cb160-5" aria-hidden="true" tabindex="-1"></a><span class="co">#  kable() %&gt;%</span></span>
-<span id="cb160-6"><a href="arbre-de-décision.html#cb160-6" aria-hidden="true" tabindex="-1"></a><span class="co">#  kable_styling(bootstrap_options = &quot;striped&quot;, font_size = 10)</span></span></code></pre></div>
-<p><a href="https://topepo.github.io/caret/" class="uri">https://topepo.github.io/caret/</a></p>
-</div>
-<div id="forêts-aléatoires" class="section level2" number="12.3">
-<h2><span class="header-section-number">12.3</span> forêts aléatoires</h2>
-<p><a href="http://r.benavent.fr/caret.html">voire le cas</a></p>
-
-</div>
+<div id="un-cas-danalyse-de-survie" class="section level1" number="10">
+<h1><span class="header-section-number">Chapitre 10</span> Un cas d’analyse de survie</h1>
+<p>voir étude de cas <a href="https://github.com/BenaventC/survival">CartedeFidelité</a>.</p>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="les-modèles-linéaire-hiérarchiques.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="premiers-éléments-de-machine-learning.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="régression.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="les-modèles-linéaire-hiérarchiques.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -503,7 +386,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/10-arbredecision.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/09-regression.Rmd",
 "text": "Edit"
 },
 "history": {

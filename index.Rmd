@@ -137,7 +137,7 @@ library(wesanderson)
 library(lme4)
 library(jtools)
 library(interactions)
-
+library(betareg)
 
 
 # Utilitaires
@@ -146,7 +146,6 @@ library(citr) #pour insérer des références dans le markdown
 
 #config plot
 theme_set(theme_minimal())
-
 ```
 
 

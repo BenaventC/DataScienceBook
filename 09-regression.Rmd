@@ -4,9 +4,9 @@
 
 ## Une étude de cas : les offres Blablacar
 
-C’est un vieux  jeu de données scrappées sur un site de covoiturage. Environ 13000 offres proposées sur différents types de trajets et de destination à un moment donné (au cours de 2016). Je voulais à l’époque tester l’effet des signaux de qualités sur les comportements dans l’environnement collaboratif. S’agit-il d’un marché ou d’un réseau d’entraide ?
+C’est un jeu de données scrappées sur un site de covoiturage constitué de 13000 offres proposées sur différents types de trajet à un moment donné (au cours de 2016). Le but va être de tester l’effet des signaux de qualité sur les taux de réservation, et de mieux comprendre la nature d'une plateforme qui étant de fait une place de marché se propose d'être collaborative.
 
-Si elles ne sont plus d'actualité, elle permettent cependant une étude intéressante des facteurs qui encourage la demande mais aussi analyser des facteurs de l'offre et notamment les déterminants du prix. A cette période les conducteurs avaient le loisir de fixer leur prix même si une recommandation était donnée par la plateforme. On sera en particulier attentif au rôle du système de réputation dont la plateforme a fait le cœur de son modèle. le modèle DREAMS de Blablacar dès les années ).
+Si elles ne sont plus d'actualité, elle permettent cependant une étude intéressante des facteurs qui encourage la demande dans un moment où le modèle DREAMS de Blablacar était mis en avant pour résoudre le problème de la confiance dans le monde digital : comment échanger avec  des inconnus.
 
 
 ```{r 0901}
@@ -31,18 +31,21 @@ df$Occup[df$Places>=4]<-0
 
 #l'expérience peut se capter par le nombre de voyages
 df$Nombre[is.na(df$Nombre)]<-0
+
+
 ```
 
+Voici la liste des requêtes et le nombre d'offres obtenues pour chacune d'elle. On observe la domination des trajet inter-régionaux avec Nantes-Rennes, Toulouse-Montpellier et Bordeaux-Toulouse. Les trajets ont été échantillonnés pour représenter différents niveaux d'échelle de distance, les courts trajets, les trajets de 100 à 200 km, ceux à 300-400 et une minorité de distances plus longues, ce qui explique la concentration à certains niveaux. 
 
-Voici la liste des requêtes et le nombre d'offres obtenues pour chacune d'elle. On observe la domination des trajet inter-régionaux avec Nantes-Rennes, Toulouse-Montpellier et Bordeaux-Toulouse. Et Paris bien sur... 
-
-Les trajets ont été échantillonnés pour représenter différents niveaux d'échelle de distance, les courts trajets, les trajets de 100 à 200 km, ceux à 300-400 et une minorité de distances plus longues, ce qui explique la concentration à certains niveaux. La distribution ne représente pas la distribution de la demande des trajets, ni même l'offre. L'échantillon est un pool d'offres pour un trajet donné, un jour donné. 
+La distribution ne représente pas la distribution de la demande des trajets ou de l'offre, mais un pool d'offres obtenus pour une séries de requête relatives à un trajet donné, un jour donné. 
 
 
 ```{r 0902}
 trajet<-table(df$Depart, df$Arrivee)
 df$trajet<-paste0(df$Depart,"-",df$Arrivee)
-foo<-df %>% mutate(n=1)%>%group_by(trajet)%>%summarise(n=sum(n))%>%filter(n>0)
+foo<-df %>% mutate(n=1)%>%
+  group_by(trajet)%>%
+  summarise(n=sum(n))%>%filter(n>0)
 
 g01<-ggplot(foo,aes(x=reorder(trajet,n), y=n))+
   geom_bar(stat="identity", fill="coral1")+
@@ -51,7 +54,7 @@ g01<-ggplot(foo,aes(x=reorder(trajet,n), y=n))+
 
 g02<-ggplot(df, aes(x=Distance))+
   geom_histogram(fill="Chartreuse4",binwidth = 25) +
-  labs(title = "Distribution de la distance des trajets", y="Fréquence")
+  labs(title = "Distribution de la distance des trajets", y="Fréquence", x= "Distance (en km)")
 
 plot_grid(
   g01, g02,
@@ -72,7 +75,7 @@ l'offre se détermine par  plusieurs éléments
 
 Rôle de la marque et du standing du véhicule mérite plus de recodage. Il est très subjectif, ici on privilégie les origines nationales qui expriment un style, un esprit d'automobile. 
 
-```{r 0904}
+```{r 0903}
 df$Marque[df$Marque=="Alfa-romeo"]<-"Alfa Romeo, Lancia"
 df$Marque[df$Marque=="Alfa Romeo"]<-"Alfa Romeo, Lancia"
 
@@ -131,20 +134,22 @@ foo<-df %>%
 
 ggplot(foo, aes(x=reorder(Marque, n), y=n))+
   geom_bar(stat="identity",fill="Chartreuse4") +
-    coord_flip() +scale_y_log10()
+    coord_flip() +
+    scale_y_log10()+
+    labs(title= "Distribution des offres par marque", x=NULL)
 ```
 
 #### L'âge et l'expérience du capitaine
 
-On distingue deux populations en terme d'âge, une en dessous de la trentaine, l'autre de 40 à 50 ans. On Jette un coup d'oeil ensuite sur la relation entre l'âge et la note qui culmine à 30 ans et baisse avec les décades (F=59.3). Est-ce l'effet d'une inadéquation des âges? La demande est-elle plus jeune que l'offre? Celà crée-t-il un biais systématique d'évaluation? 
+On distingue deux populations en terme d'âge, une en dessous de la trentaine, l'autre de 40 à 50 ans. On Jette un coup d'oeil ensuite sur la relation entre l'âge et la note qui culmine à 30 ans et baisse avec les décades. Est-ce l'effet d'une inadéquation des âges? La demande est-elle plus jeune que l'offre? Cela crée-t-il un biais systématique d'évaluation? 
 
-Le conducteur se manifeste au travers de 3 critères : son statut attribué par co-voitureur, son expérience traduite par le nombre de voyages qu'il a fait. la note moyenne reçue des passagers et 
+Le conducteur se manifeste au travers de 3 critères : le statut attribué par blablacar, son expérience traduite par le nombre de voyages qu'il a fait ( et pour lesquels il a été évalué). La note moyenne obtenue des passagers.  
 
 
-```{r 0905}
+```{r 0904}
 g03<-ggplot(df, aes(x=Age))+
-  geom_histogram(fill="Chartreuse4", binwidth = 1)+
-  labs(title="Distribution par \nâge", y="Fréquence des offres")
+  geom_histogram(fill="Chartreuse4", binwidth = 2)+
+  labs(title="Distribution par \nâge", y="Fréquence des offres")+xlim (18, 80)
 
 df$Statut<-as.factor(df$Statut)
 df$Statut <- factor(df$Statut, ordered = TRUE, 
@@ -159,8 +164,11 @@ mean<-round(mean(df$Nombre,na.rm=TRUE),2)
 
 g05<-ggplot(df, aes(x=Nombre))+
   geom_histogram(fill="Chartreuse4", binwidth = 5)+
-  labs(title = "Distribution du nombre \nde trajets", subtitle =paste0("Moyenne=", mean))+
-  xlim(0,300)
+  labs(title = "Distribution du nombre \nde trajets", y=" Fréquence des offres",
+       subtitle =paste0("Moyenne=", mean),
+       x="nombre de voyages")+
+  xlim(0,250)
+
 
 plot_grid(
   g03, g05,g04,
@@ -172,7 +180,7 @@ L'expérience se distribue de manière très inégale, une minorité de conducte
 
 Examinons le statut et notamment en comparant l'expérience et l'évaluation. 
 
-```{r 0906}
+```{r 0905}
 
 foo<-df %>% 
   group_by(Statut)%>%
@@ -196,22 +204,22 @@ ggplot(foo, aes(x=Statut, y=Moyenne,group=variable))+
 Le conducteur peut être flexible dans l'horaire de départ ou pas. Un recodage est cependant nécessaire.Le trajet peut être strict ou comporter des détours. Là aussi besoin d'un peu de recodage.
 
 
-```{r 0907}
+```{r 0906}
 df$Flex[df$Flex!="Depart pile a l'heure" & df$Flex!="Pas d'indication"]<-"Voir avec le conducteur"
 df$Flex[is.na(df$Flex)]<-"Pas d'indication"
 g07<-ggplot(df, aes(x=Flex))+
   geom_bar(fill="Chartreuse4")+
   coord_flip()+
-  labs(title="Flexibilité de l'horaire", x=NULL, y="Fréquence")
+  labs(title="Flexibilité de l'horaire de départ", x=NULL, y="Fréquence")
 
 df$Detour[df$Detour=="De 30 minutes max"]<-"Plus de 15 mn"
 df$Detour[df$Detour=="Autant que possible"]<-"Plus de 15 mn"
 g08<-ggplot(df, aes(x=Detour))+geom_bar(fill="Chartreuse4")  +
-  coord_flip()+labs(title="Acceptation des détours")
+  coord_flip()+labs(title="Acceptation des détours à l'arrivée", x=NULL)
 
 plot_grid(
   g07, g08,
-  labels = "AUTO", ncol = 3
+  labels = "AUTO", ncol = 2
 )
 ```
 
@@ -219,7 +227,7 @@ plot_grid(
 
 Les notes sont en moyenne de 4.45 et fortement déviées à droite, réduisant la capacité de discrimination.
 
-```{r cond2}
+```{r 0907}
 mean<-round(mean(df$Note,na.rm=TRUE),2)
 ggplot(df, aes(x=Note))+
   geom_histogram(fill="coral2",binwidth = .2)+
@@ -238,7 +246,7 @@ C'est pourquoi on calcule un tarif au km, qui lui n'est plus corrélé ou à pei
 
 
 
-```{r Prix1}
+```{r 0908}
 g20<-ggplot(df, aes(x=Prix))+geom_bar(fill="firebrick2")  +
   labs(title = "Distribution des prix",
        x="Prix du trajet")
@@ -268,15 +276,14 @@ plot_grid(
 
 ## Analyser la demande : qu'est ce qui détermine le taux d'occupation ?
 
+On utilise la variable nombre de place restante qu'on traduit par un indicateur codé de 0 (tout est libre) à 1 (la voiture est pleine). En voici la distribution.
 
 
-On utilise la variable nombre de place restante qu'on traduit par un indicateur codé de 0 (tout est libre) à 1 ( la voiture est pleine). En voici la distribution.
-
-
-```{r taux1}
+```{r 0909}
 ggplot(df, aes(x=Occup))+
   geom_bar(fill="gold3")  +
-  labs(title="Distribution des taux d'occupation", x= "Taux d'occupation")
+  labs(title="Distribution du taux d'occupation des véhicules", 
+       y="Nombre d'offres", x= "Taux d'occupation")
 ```
 
 
@@ -288,7 +295,7 @@ On commence par un modèle simple et linéaire où l'on cherche à expliquer, pr
 Le remplissage des voiture est une affaire de loto. Ce qui se comprend, car la probabilité qu'une offre et une demande coïncide est relativement faible si on retient une plage horaire étroite pour le passager qui l'élargira pour accroître le choix au prix d'un effort de recherche supplémentaire. 
 
 
-```{r modO2}
+```{r 0910}
 df$AgeClasse<- round(df$Age/10,0)*10
 df$AgeClasse[df$AgeClasse==80]<-70
 df$AgeClasse[df$AgeClasse==90]<-70
@@ -298,58 +305,81 @@ df$AgeClasse<-as.factor(df$AgeClasse)
 
 fit0<-lm(Occup~AgeClasse+log(Distance+1)+prix_km+Flex+Detour+Autoroute+log(Nombre+1)+Note, data=df)
 fit1<-lm(Occup~AgeClasse+log(Distance+1)+prix_km+Flex+Detour+Autoroute+log(Nombre+1)*Note, data=df)
-fit2<-lm(Occup~AgeClasse+ Marque+log(Distance+1)+prix_km+Flex+Detour+Autoroute+log(Nombre+1)*Note, data=df)
+fit_logit<-lm(Occup~AgeClasse+ Marque+log(Distance+1)+prix_km+Flex+Detour+Autoroute+log(Nombre+1)*Note, data=df)
 
-export_summs(fit0, fit1, fit2,plot.distributions = TRUE,scale = FALSE)
+export_summs(fit0, fit1,plot.distributions = TRUE,scale = FALSE, digits = 3)
+plot_summs(fit0, fit1,plot.distributions = TRUE,  
+           omit.coefs=c("MarqueAudi", 
+                        "MarqueAutres", 
+                        "MarqueAutres Asie" ,
+                        "MarqueAutres US",
+                        "MarqueBmw",                
+                        "MarqueCitroen" , "MarqueDacia","MarqueFiat",
+                        "MarqueFord",
+                        "MarqueHyundai",
+                        "MarqueMercedes-benz","MarqueNissan","MarqueOpel",
+                        "MarquePeugeot","MarqueRenault ",
+                        "MarqueRover, jaguar, mini",
+                        "MarqueSeat",
+                        "MarqueSkoda","MarqueToyota","MarqueVolkswagen","MarqueVolvo", "Saab"))
+
+  
+              
+
 
 ```
 
-Le modèle tient même s'il explique très peu de variance. Les tests sont cependant significatifs et même si l'effet est faible il est notable.  Voici des diagrammes d'effets qui représentent la valeur de la variable dépendante pour une plage de variation des variables indépendantes prises une à une, en fonction du modèle. On voit ainsi plus clairement que le taux d'occupation passe de 20% environ quand la note est de 3 (les notes inférieures sont rares!) à 45% quand la moyenne du conducteur frôle les 5.
+Le modèle tient même s'il explique très peu de variance. Les tests sont cependant significatifs et même si l'effet est faible il est notable.  
 
-```{r modO2b, fig.width=9}
+Voici des diagrammes d'effets qui représentent la valeur de la variable dépendante pour une plage de variation des variables indépendantes prises une à une, en fonction du modèle. On voit ainsi plus clairement que le taux d'occupation passe de 20% environ quand la note est de 3 (les notes inférieures sont rares!) à 45% quand la moyenne du conducteur frôle les 5.
+
+```{r 0911}
+
 g10<-effect_plot(fit1, pred=AgeClasse,interval = TRUE ,data=df)+
   geom_line(color="gold3",size=2)+
-  labs(title="Effet de l'âge sur le taux d'occupation")
+  labs(title="Effet de l'âge sur le taux d'occupation",
+       x="Classe d'âge",
+       y="Taux d'occupation"
+       )
 
-g11<-effect_plot(fit1, pred=Detour,interval = TRUE ,data=df)+
+g11<-effect_plot(fit1, pred=Flex,interval = TRUE  ,data=df)+
   geom_line(color="gold3",size=2)+
-  labs(title="Effet des détours sur le taux d'occupation")
+  labs(title="Effet de la flexibilité au départ",
+       y="Taux d'occupation")
+
 
 g12<-effect_plot(fit1, pred=Autoroute,interval = TRUE  ,data=df)+
   geom_line(color="gold3",size=2)+
-  labs(title="Effet de l'autoroute sur le taux d'occupation")
+  labs(title="Effet de l'autoroute",
+       y="Taux d'occupation")
 
-g13<-effect_plot(fit1, pred=Flex,interval = TRUE  ,data=df)+
-  geom_line(color="gold3",size=2)+
-  labs(title="Effet de la distance sur le taux d'occupation")
 
-g14<-effect_plot(fit1, pred=prix_km,interval = TRUE  ,data=df)+
+g13<-effect_plot(fit1, pred=Detour, interval = TRUE ,data=df)+
   geom_line(color="gold3",size=2)+
-  labs(title="Effet du prix sur le taux d'occupation")
+  labs(title="Effet des conditions d'arrivée", x="Détour",
+       y="Taux d'occupation")
 
-g15<-effect_plot(fit2, pred=Marque,interval = TRUE  ,data=df)+
-  geom_line(color="gold3",size=2)+
-  labs(title="Effet de la distance sur le taux d'occupation")+coord_flip()
-g15
 plot_grid(
-  g10, g11,g12,g13,g14,g15,
+  g10, g11,g12,g13,
   labels = "AUTO", ncol = 2
 )
 
 g16<-effect_plot(fit1, pred=Note,interval = TRUE ,data=df)+
   geom_line(color="gold3",size=2)+
-  labs(title="Effet de la note sur le taux d'occupation")
+  labs(title="Effet de la note",
+       y="Taux d'occupation")
 g17<-effect_plot(fit1, pred=Nombre,interval = TRUE  ,data=df)+
   geom_line(color="gold3",size=2)+
-  labs(title="Effet du nombre de trajets sur le taux d'occupation")
-
+  labs(title="Effet du nombre de trajets",
+       y="Taux d'occupation")
 g18<-effect_plot(fit1, pred=Distance,interval = TRUE  ,data=df)+
   geom_line(color="gold3",size=2)+
-  labs(title="Effet du nombre de trajets sur le taux d'occupation")
-
+  labs(title="Effet de la distance",
+       y="Taux d'occupation")
 g19<-interact_plot(fit1, pred=Nombre,modx=Note,interval = TRUE  ,data=df)+
   geom_line(color="gold3",size=2)+
-  labs(title="Effet du nombre de trajets sur le taux d'occupation")
+  labs(title="Effet d'interaction nombre de trajets x note",
+       y="Taux d'occupation")
 
 plot_grid(
   g16, g17,g18,g19,
@@ -367,10 +397,49 @@ L'analyse de l'interaction est claire : quand les contenus sont négatifs , l'ex
 
 ## Autres modèles 
 
-On peut raffiner l'analyse 
+
+Dans la pratique la construction d'un modèle de régression dépend de trois éléments :
 
 
-### régression logistique
+ * la spécification fonctionnelle qui définit f(y, X) autrement dit ce qui relie ce qu'on observe à ce qui peut lui être corrélé de manière linéaires ou moins linéaires.  La forme fonctionnelle dépend largement de la variable dépendante et de sa distribution :
+
+** normale : 
+** log-normale voire exponentielle
+** binaire 
+** proportionnelle
+** dénombrement. Il s'agit des données de comptages : un nombre d'achat au cours d'une période par exemple. poisson, NBD
+** Les durées sont positives,   
+
+Dans ce cas on va utiliser une méthode de modèle linéaire généralisé (GLM) qui reposent sur 3 éléments:
+
+* Un prédicteur linéaire ($\eta$) qui décrit la combinaison linéaire des variables explicatives.
+
+$$\eta=\sum_{n=1}^{10}\beta_{0}+\beta_{i}x_{i}$$
+
+* Une fonction de lien : Contrairement aux modèles linéaires classiques, les valeurs prédites par le prédicteur linéaire ne correspondent pas à la prédiction moyenne d’une observation, mais à une transformation mathématique. Les beta sont estimés après transformation des réponses selon la fonction de lien choisie.
+
+$$g(\mu_{y})=\eta$$
+
+Par exemple, pour les données de comptage :
+
+$$log(\mu_{y})=\eta$$
+ou dans le cas de données binaire ( modèle de régression logistique)
+$$log(\frac{\mu_{y}}{1-\mu_{y}})=\eta$$
+
+Le but de la fonction de lien est de contraindre les valeurs prédites à être dans l’échelle des valeurs observées. Ainsi, dans le cas des données de comptage, qui sont obligatoirement positives, ou nulles, la fonction de lien log contraint les valeurs prédites par le prédicteur linéaire à devenir également positives ou nulles après l’emploi de la fonction inverse du log.
+
+
+* La structure d'erreur : A une fonction de lien donnée, correspond généralement une structure d’erreur particulière.Il s’agit d’une famille de distribution des erreurs. Par exemple, pour les données de comptage, la fonction de lien est le log et la structure d’erreur correspondante est la distribution de Poisson. Cette structure d’erreur, permet notamment de spécifier correctement la relation entre la moyenne et la variance. Cette relation est utilisée par l’approche de maximum de vraisemblance pour estimer les coefficients des paramètres (les beta) du GLM.
+
+Ici un tableau récapitulatif des structures d’erreurs, fonctions de lien, fonctions de moyennes et fonctions de variance des données de type numériques continues non bornée, de comptage et binaire.
+
+![](./images/GLM.jpg)
+
+
+* Estimation par une méthode de maximum de vraisemblance et de  déviance qui est en quelque sorte une généralisation de la variance.
+
+
+### Régression logistique
 
 Sur les même données mais en considérant le taux d'occupation plus sérieusement : il est compris entre 0 et 1 et se prête don à un modèle  logistique, car le taux d'occupation va de 0 à 100% même si nous n'avons que 4 niveaux. ça fait un modèle plus réaliste qui ajuste la valeur prédite entre 0 et 1.
  
@@ -380,67 +449,225 @@ Pour mieux prendre en compte l'hétérogénéité du set de données (composée 
  
  Les effets semblent être ici plus pertinent et sensibles mais surtout l'effet d'interaction semble renforcé. L'effet de la note est là clairement amplifié pour les notes négatives mais aussi pour les notes positives.
 
-```{r mod01}
-#fit2<-glmer(Occup~log(Distance+1)+prix_km+Flex+Detour+Autoroute+log(Nombre+1)+Note+(1 |trajet),family = binomial, data=df)
+```{r 0912}
+fit_logit<-glm(Occup~Age+log(Distance+1)+prix_km+Flex+Detour+Autoroute+log(Nombre+1)*Note,family="binomial", data=df)
+
+
+summ(fit_logit)
+
+
+g10<-effect_plot(fit_logit, pred=AgeClasse,interval = TRUE ,data=df)+
+  geom_line(color="gold3",size=2)+
+  labs(title="Effet de l'âge sur le taux d'occupation",x="Classe d'âge",
+       y="Taux d'occupation")
+
+g11<-effect_plot(fit_logit, pred=Flex,interval = TRUE  ,data=df)+
+  geom_line(color="gold3",size=2)+
+  labs(title="Effet de la flexibilité au départ sur le taux d'occupation",
+       y="Taux d'occupation")
+
+
+g12<-effect_plot(fit_logit, pred=Autoroute,interval = TRUE  ,data=df)+
+  geom_line(color="gold3",size=2)+
+  labs(title="Effet de l'autoroute sur le taux d'occupation",
+       y="Taux d'occupation")
+
+
+g13<-effect_plot(fit_logit, pred=Detour, interval = TRUE ,data=df)+
+  geom_line(color="gold3",size=2)+
+  labs(title="Effet des conditions d'arrivée sur le taux d'occupation", x="Détour",
+       y="Taux d'occupation")
+
+plot_grid(
+  g10, g11,g12,g13,
+  labels = "AUTO", ncol = 2
+)
+
+g16<-effect_plot(fit_logit, pred=Note,interval = TRUE ,data=df)+
+  geom_line(color="gold3",size=2)+
+  labs(title="Effet de la note",
+       y="Taux d'occupation")
+g17<-effect_plot(fit_logit, pred=Nombre,interval = TRUE  ,data=df)+
+  geom_line(color="gold3",size=2)+
+  labs(title="Effet du nombre de trajets",
+       y="Taux d'occupation")
+g18<-effect_plot(fit_logit, pred=Distance,interval = TRUE  ,data=df)+
+  geom_line(color="gold3",size=2)+
+  labs(title="Effet de la distance",
+       y="Taux d'occupation")
+g19<-interact_plot(fit_logit, pred=Nombre,modx=Note,interval = TRUE  ,data=df)+
+  geom_line(color="gold3",size=2)+
+  labs(title="Effet d'interaction nombre de trajets x note",
+       y="Taux d'occupation")
+
+plot_grid(
+  g16, g17,g18,g19,
+  labels = "AUTO", ncol = 2
+)
+
+
+```
+
+### Modèle de comptage
+
+et un dernier qui revient aux données originelles : le comptage des place disponibles. Dans ce type de situation (données de comptage), on considère que ce type de variable se distribue selon une loi de poisson, dont la propriété est l'égalité de la moyenne et de l'écart-type.
+
+
+On s'assure qu'il n'y ait pas de surdispersion en calculant le ratio de la variance résiduelle par le nombre de degré de liberté. Il est ici de l'ordre de 1 et donc on conclura à une absence de surdispersion, même si en comparant la distribution empiriques du nombre de places restantes à la distribution théorique d'une loi de poisson, l'ajustement n'est pas parfait.
+
+```{r 0913}
+
+mean_places<-mean(df$Places)
+mean_sd<-sd(df$Places)
+
+set.seed(1234) # permet de simuler toujours les mêmes comptages.
+theoretic_count <-rpois(nrow(df),mean_places)
+
+# on incorpore ces comptages théoriques dans un data frame
+tc_df <-data.frame(theoretic_count)
+
+
+ggplot(df,aes(Places))+
+   geom_bar(fill="#1E90FF", alpha=0.5)+
+   geom_bar(data=tc_df, aes(theoretic_count,fill="#1E90FF", alpha=0.5))+
+   theme_classic()#+   theme(legend.position="none") 
+
+```
+
+
+```{r 0914}
+
+df$Occup[df$Occup==1]<-.999
+df$Occup[df$Occup==0]<-.001
+
+fit_poisson <- glm(Places~Age+log(Distance+1)+prix_km+Flex+Detour+Autoroute+log(Nombre+1)*Note, family="poisson",data = df)
+
+summary(fit_poisson)
+
+fit_poisson2 <- glm(Places~Age+log(Distance+1)+prix_km+Flex+Detour+Autoroute+log(Nombre+1)*Note, family="quasipoisson",data = df)
+
+export_summs(fit_logit,fit_poisson2, fit_poisson2)
+```
+
+### Modèle de régression beta
+
+
+Encore une autre variation avec le modèle de regression beta qui s'attache à modéliser des variables de proportion par une loi de distribution beta dont la caractéristiques est d'être souple et de s'adapter à toute forme de distribution en respectant la contrainte de varier entre presque 0 et presque 1. Elle dépend de deux paramètres $\alpha$ et $\beta$
+
+
+```{r 0915}
+
+curve(dbeta(x, 4, 12),
+      col = "pink1", 
+      lwd = 2)
+curve(dbeta(x, 8, 4),
+      add = TRUE, col = "pink2", 
+      lwd = 2)
+curve(dbeta(x, 4, 4),
+      add = TRUE, col = "pink3", 
+      lwd = 2)
+```
+
+
+La spécificité de la régression beta est de modéliser les deux paramètre de la fonction de distribution par deux équation linéraire. L'une ajustant la moyenne, l'autre ajustant la dispersion. 
+
+
+```{r 0916}
+
+#recodage
+df$Occup[df$Occup==1]<-.999
+df$Occup[df$Occup==0]<-.001
+
+fit_beta1 <- betareg(Occup~AgeClasse+log(Distance+1)+prix_km+Flex+Detour+Autoroute+log(Nombre+1)*Note, data = df)
+summary(fit_beta1)
+
+```
+
+Dans une régression bêta, a variable dépendante est distribuée selon la loi  bêta avec une espérance μ et une variance μ⋅(1-μ)/(1+ϕ). Ainsi, ϕ est un paramètre de précision : plus ϕ est élevé, plus la variance est faible pour une moyenne μ donnée. Le paramètre de précision ϕ peut dépendre des régresseurs comme la moyenne. 
+
+C'est ce qui est spécifié ci-dessous, en reliant le px au km à ce paramètre de dispersion. La valeur est élevée, la valeur p extrêmement faible, on en déduit qu'effectivement, plus le prix au kilomètre est élevé et plus faible est la variance de la distribution.
+
+```{r 0917}
+
+
+fit_beta2 <- betareg(Occup~AgeClasse+log(Distance+1)+prix_km+Flex+Detour+Autoroute+log(Nombre+1)*Note|prix_km, data = df)
+
+
+summary(fit_beta2)
 
 
 ```
 
 
 
-## un cas d'analyse de survie
+# Un cas d'analyse de survie
 
 voir étude de cas [CartedeFidelité](https://github.com/BenaventC/survival).
 
 
+# Les modèles linéaire hiérarchiques
 
-## Pour généraliser
+Les modèles de panels en économies, ou multiniveaux en sociologie, sont caractérisés par le fait que les données sont un empilement de différents échantillons correspondant à une stratification.
 
-Dans la pratique la construction d'un modèle de régression dépend de trois éléments :
- * la spécification fonctionnelle qui définit f(y, X) autrement dit ce qui relie ce qu'on observe à ce qui peut lui être corrélé de manière linéaires ou moins linéaires.
- * Elle dépend de nature de la constitution du jeu de données : un échantillons aléatoire ? stratifiés ? l'empilement de plusieurs enquête au même moment ? la répétition d'un même enquête sur les mêmes sujets ou des sujets différents à chaque interrogation. De la présence de biais de sélection . 
- * d'un choix de méthodes d'estimation : exacte ou approchée.
- 
+## en guise d'introduction
 
-## Spécification  fonctionnelle
-
-La forme fonctionnelle qui dépend largement de la variable dépendante et de sa distribution :
-
-** normale
-** log normale voire expoentielle
-** binaire
-** proportionnelle
-** durée 
-** dénombrement. Il s'agit des données de comptages
-
-### Structure des données
-
-la structure de l'échantillon - 
-
-panels - 
-
-expérimentation
-
-le temps - l'autoregression
-
-on renvoie au traitement des séries chronologiques
+L'exemple de la performance scolaire va nous éclairer. Supposons que l'on veuille établir l'effet d'une mesure d'aptitude intellectuelle ( par le exemple le score de QI) sur les notes obtenues. On va mesurer cette relation en recueillant les données deux classes et dans deux matières. La classe A est calme, la classe B est agitée, les matières sont les maths et le français.
 
 
+```{r 0918}
+a=.1
+foo_MC<-as.data.frame(rnorm(20, mean=12, sd=10))%>%
+  rename(QI=1) %>% group_by(row_number()) %>% 
+  mutate(e=-5+10*runif(1))%>% ungroup() %>%
+  mutate(Perf=a*QI-3+1+e,matiere="Math", classe="Calme")
 
-'unité d'observation
+foo_MA<-as.data.frame(rnorm(20, mean=12, sd=10))%>%
+  rename(QI=1) %>% group_by(row_number()) %>% 
+  mutate(e=-5+10*runif(1))%>% ungroup() %>%
+  mutate(Perf=a*QI-3-3+e,matiere="Math", classe="Agité")
 
-### les méthodes d'estimation
+foo_FC<-as.data.frame(rnorm(20, mean=12, sd=10))%>%
+  rename(QI=1) %>% group_by(row_number()) %>% 
+  mutate(e=-5+10*runif(1))%>% ungroup() %>%
+  mutate(Perf=a*QI+2+1+e,matiere="Français", classe="Calme")
+
+foo_FA<-as.data.frame(rnorm(20, mean=12, sd=10))%>%
+  rename(QI=1) %>% group_by(row_number()) %>% 
+  mutate(e=-5+10*runif(1))%>% ungroup() %>%
+  mutate(Perf=a*QI+2-3+1+e,matiere="Français", classe="Agité")
 
 
 
-OLS : un modèle pédagogique et exact. La résolution est analytique
+foo<-rbind(foo_MA, foo_MC, foo_FA,foo_FC)
+r =round(cor(foo$QI, foo$Perf),2)
 
-LM : quand on peut attribuer des distributions connues
-
-
-ML : favoriser les critères de prédiction
-
+ggplot(foo, aes(x=QI, y=Perf))+
+  geom_point()+geom_smooth(method="lm")+  labs(title=paste("Corrélation :",r))
 
 
+ggplot(foo, aes(x=QI, y=Perf, shape=matiere, color=classe))+
+  geom_point()+geom_smooth(method="lm")+facet_grid(matiere~classe)
+  labs(title=paste("Corrélation :",r))
+
+
+fit01<-lm(Perf~QI, data=foo)
+fit02<-lm(Perf~QI+matiere*classe, data=foo)
+
+export_summs(fit01,fit02, digit=3)
+```
+
+Dans ce petit exemple, les niveaux sont peu nombreux. On pourrait imaginer qu'ils soient bien plus nombreux, par exemple en réalisant l'enquête sur des dizaines de classes pour lesquelles le degré d'agitation est variable et se distribue certainement de manière normale. Ne tenons plus en compte la matière pour le moment. On ne va prendre que la moyenne des maths.
+
+On peut écrire le modèle où $\beta_{k}$ représente le terme constant de chacune des k classes.
+
+$$y_{ik}=\beta_{k}+\beta_{1}Aptitude_{i}+\epsilon_{ik}
+$$
+en supposant que les $\beta_{k}$ se distribue de manière normale avec une moyenne $\overline{\beta}$ et une variance $\mu_{k}$, on peut réécrire l'équation de la manière suivante
+
+
+$$y_{i}=\overline{\beta}+\beta_{1}Aptitude_{i}+\mu_{k}+\epsilon_{ik}
+$$
+
+C'est un modèle à composantes d'erreur où $\mu_{k}$ représente l'effet de la classe
 
 

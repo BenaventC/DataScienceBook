@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapitre 12 Arbre de Décision | Introduction aux Data Sciences</title>
+  <title>Chapitre 11 Les modèles linéaire hiérarchiques | Introduction aux Data Sciences</title>
   <meta name="description" content="Cours d’analyse de données et de Datascience" />
   <meta name="generator" content="bookdown 0.22.3 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapitre 12 Arbre de Décision | Introduction aux Data Sciences" />
+  <meta property="og:title" content="Chapitre 11 Les modèles linéaire hiérarchiques | Introduction aux Data Sciences" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapitre 12 Arbre de Décision | Introduction aux Data Sciences" />
+  <meta name="twitter:title" content="Chapitre 11 Les modèles linéaire hiérarchiques | Introduction aux Data Sciences" />
   
   <meta name="twitter:description" content="Cours d’analyse de données et de Datascience" />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="les-modèles-linéaire-hiérarchiques.html"/>
-<link rel="next" href="premiers-éléments-de-machine-learning.html"/>
+<link rel="prev" href="un-cas-danalyse-de-survie.html"/>
+<link rel="next" href="arbre-de-décision.html"/>
 <script src="libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -344,124 +344,93 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="arbre-de-décision" class="section level1" number="12">
-<h1><span class="header-section-number">Chapitre 12</span> Arbre de Décision</h1>
-<p>L’objectif de cette note est double. Le premier est une introduction aux méthodes d’arbres de décision et leur généralisation récente par les random forests. Le second est d’introduire à l’approche d’apprentissage et de test, autrement aux machine learning avec le package caret qui facilite la condition des opérations d’échantillonngage, de découpage des échanges et de production des indicateurs.</p>
-<div id="construire-un-arbre-de-décision" class="section level2" number="12.1">
-<h2><span class="header-section-number">12.1</span> Construire un arbre de décision</h2>
-<p>Les origines et le principe</p>
-<p>C’est une approche qui remonte à Morgan and Sonquist (1963)</p>
-<p>généralisés aux variables qualitatives avec Chaid (Kass (1980)) :</p>
-<p>Le principe général suis le pseudo algorithme suivant :</p>
-<p>pour chaque variable potentiellement explicative, trouver le meilleur découpage (dichotomique), c’est à dire celui qui va différencier au mieux la variable de réponse.
-Choisir parmi les variables et leur dichotomitsation celle qui répond au même critère que précedemment
-recommencer l’opération à 1
-Il peut s’appliquer à une variable quantitative ( regression) ou qualitative ( chaid)</p>
-<p>puis Cart avec breiman. Breiman (1998)</p>
-</div>
-<div id="mise-en-oeuvre-avec-partykit" class="section level2" number="12.2">
-<h2><span class="header-section-number">12.2</span> Mise en oeuvre avec Partykit</h2>
-<p>Le package partykit a pour objectif de représenter les arbres de décisions. Il inclue cependant plusieurs méthodes d’arbres de decisions, en en particulier une approche ctree Hothorn et al. (2006) dont le principe est. La méthode est incluse dans partykit Hothorn and Zeileis (2015)</p>
-<p>Avec partykit on contrôle la construction de l’arbre sur différents critères, par exemple : * le type de test employé pour prendre la décision * le nombre minimum d’individus dans une feuille terminale</p>
-<p><a href="https://apiacoa.org/blog/2014/02/initiation-a-rpart.fr.html" class="uri">https://apiacoa.org/blog/2014/02/initiation-a-rpart.fr.html</a></p>
-<p><a href="https://apiacoa.org/blog/2014/02/initiation-a-rpart.fr.html" class="uri">https://apiacoa.org/blog/2014/02/initiation-a-rpart.fr.html</a></p>
-<div class="sourceCode" id="cb153"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb153-1"><a href="arbre-de-décision.html#cb153-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(<span class="at">echo =</span> <span class="cn">TRUE</span>, <span class="at">include=</span><span class="cn">TRUE</span>, <span class="at">cache=</span><span class="cn">TRUE</span>, <span class="at">message=</span><span class="cn">FALSE</span>, <span class="at">warning=</span><span class="cn">FALSE</span>)</span>
-<span id="cb153-2"><a href="arbre-de-décision.html#cb153-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb153-3"><a href="arbre-de-décision.html#cb153-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(partykit)</span>
-<span id="cb153-4"><a href="arbre-de-décision.html#cb153-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb153-5"><a href="arbre-de-décision.html#cb153-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb153-6"><a href="arbre-de-décision.html#cb153-6" aria-hidden="true" tabindex="-1"></a><span class="co">#lecture du fichier</span></span>
-<span id="cb153-7"><a href="arbre-de-décision.html#cb153-7" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;./data/last.rds&quot;</span>) <span class="sc">%&gt;%</span><span class="fu">drop_na</span>()</span>
-<span id="cb153-8"><a href="arbre-de-décision.html#cb153-8" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Age<span class="ot">&lt;-</span><span class="fu">as.factor</span>(df<span class="sc">$</span>Age)</span>
-<span id="cb153-9"><a href="arbre-de-décision.html#cb153-9" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Sexe<span class="ot">&lt;-</span><span class="fu">as.factor</span>(df<span class="sc">$</span>Sexe)</span>
-<span id="cb153-10"><a href="arbre-de-décision.html#cb153-10" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Education<span class="ot">&lt;-</span><span class="fu">factor</span>(df<span class="sc">$</span>Education, <span class="at">ordered =</span> <span class="cn">FALSE</span> )</span>
-<span id="cb153-11"><a href="arbre-de-décision.html#cb153-11" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Situation2<span class="ot">&lt;-</span><span class="fu">as.factor</span>(df<span class="sc">$</span>Situation2)</span>
-<span id="cb153-12"><a href="arbre-de-décision.html#cb153-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb153-13"><a href="arbre-de-décision.html#cb153-13" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Situation3<span class="ot">&lt;-</span><span class="fu">as.factor</span>(<span class="fu">ifelse</span>(df<span class="sc">$</span>Situation<span class="sc">&lt;</span><span class="dv">5</span>,<span class="st">&quot;degradation&quot;</span>,<span class="st">&quot; Amelioration&quot;</span>))</span>
-<span id="cb153-14"><a href="arbre-de-décision.html#cb153-14" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(df<span class="sc">$</span>Situation3)</span></code></pre></div>
-<pre><code>## 
-##  Amelioration   degradation 
-##         20327         19071</code></pre>
-<div class="sourceCode" id="cb155"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb155-1"><a href="arbre-de-décision.html#cb155-1" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span><span class="fu">ctree</span>(Situation3 <span class="sc">~</span> Age<span class="sc">+</span>Sexe<span class="sc">+</span>Education, <span class="at">data=</span>df)</span>
-<span id="cb155-2"><a href="arbre-de-décision.html#cb155-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fit)</span></code></pre></div>
-<pre><code>## 
-## Model formula:
-## Situation3 ~ Age + Sexe + Education
+<div id="les-modèles-linéaire-hiérarchiques" class="section level1" number="11">
+<h1><span class="header-section-number">Chapitre 11</span> Les modèles linéaire hiérarchiques</h1>
+<p>Les modèles de panels en économies, ou multiniveaux en sociologie, sont caractérisés par le fait que les données sont un empilement de différents échantillons correspondant à une stratification.</p>
+<div id="en-guise-dintroduction" class="section level2" number="11.1">
+<h2><span class="header-section-number">11.1</span> en guise d’introduction</h2>
+<p>L’exemple de la performance scolaire va nous éclairer. Supposons que l’on veuille établir l’effet d’une mesure d’aptitude intellectuelle ( par le exemple le score de QI) sur les notes obtenues. On va mesurer cette relation en recueillant les données deux classes et dans deux matières. La classe A est calme, la classe B est agitée, les matières sont les maths et le français.</p>
+<div class="sourceCode" id="cb148"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb148-1"><a href="les-modèles-linéaire-hiérarchiques.html#cb148-1" aria-hidden="true" tabindex="-1"></a>a<span class="ot">=</span>.<span class="dv">1</span></span>
+<span id="cb148-2"><a href="les-modèles-linéaire-hiérarchiques.html#cb148-2" aria-hidden="true" tabindex="-1"></a>foo_MC<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(<span class="fu">rnorm</span>(<span class="dv">20</span>, <span class="at">mean=</span><span class="dv">12</span>, <span class="at">sd=</span><span class="dv">10</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb148-3"><a href="les-modèles-linéaire-hiérarchiques.html#cb148-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">QI=</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(<span class="fu">row_number</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb148-4"><a href="les-modèles-linéaire-hiérarchiques.html#cb148-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">e=</span><span class="sc">-</span><span class="dv">5</span><span class="sc">+</span><span class="dv">10</span><span class="sc">*</span><span class="fu">runif</span>(<span class="dv">1</span>))<span class="sc">%&gt;%</span> <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb148-5"><a href="les-modèles-linéaire-hiérarchiques.html#cb148-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Perf=</span>a<span class="sc">*</span>QI<span class="dv">-3</span><span class="sc">+</span><span class="dv">1</span><span class="sc">+</span>e,<span class="at">matiere=</span><span class="st">&quot;Math&quot;</span>, <span class="at">classe=</span><span class="st">&quot;Calme&quot;</span>)</span>
+<span id="cb148-6"><a href="les-modèles-linéaire-hiérarchiques.html#cb148-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb148-7"><a href="les-modèles-linéaire-hiérarchiques.html#cb148-7" aria-hidden="true" tabindex="-1"></a>foo_MA<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(<span class="fu">rnorm</span>(<span class="dv">20</span>, <span class="at">mean=</span><span class="dv">12</span>, <span class="at">sd=</span><span class="dv">10</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb148-8"><a href="les-modèles-linéaire-hiérarchiques.html#cb148-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">QI=</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(<span class="fu">row_number</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb148-9"><a href="les-modèles-linéaire-hiérarchiques.html#cb148-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">e=</span><span class="sc">-</span><span class="dv">5</span><span class="sc">+</span><span class="dv">10</span><span class="sc">*</span><span class="fu">runif</span>(<span class="dv">1</span>))<span class="sc">%&gt;%</span> <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb148-10"><a href="les-modèles-linéaire-hiérarchiques.html#cb148-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Perf=</span>a<span class="sc">*</span>QI<span class="dv">-3-3</span><span class="sc">+</span>e,<span class="at">matiere=</span><span class="st">&quot;Math&quot;</span>, <span class="at">classe=</span><span class="st">&quot;Agité&quot;</span>)</span>
+<span id="cb148-11"><a href="les-modèles-linéaire-hiérarchiques.html#cb148-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb148-12"><a href="les-modèles-linéaire-hiérarchiques.html#cb148-12" aria-hidden="true" tabindex="-1"></a>foo_FC<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(<span class="fu">rnorm</span>(<span class="dv">20</span>, <span class="at">mean=</span><span class="dv">12</span>, <span class="at">sd=</span><span class="dv">10</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb148-13"><a href="les-modèles-linéaire-hiérarchiques.html#cb148-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">QI=</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(<span class="fu">row_number</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb148-14"><a href="les-modèles-linéaire-hiérarchiques.html#cb148-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">e=</span><span class="sc">-</span><span class="dv">5</span><span class="sc">+</span><span class="dv">10</span><span class="sc">*</span><span class="fu">runif</span>(<span class="dv">1</span>))<span class="sc">%&gt;%</span> <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb148-15"><a href="les-modèles-linéaire-hiérarchiques.html#cb148-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Perf=</span>a<span class="sc">*</span>QI<span class="sc">+</span><span class="dv">2</span><span class="sc">+</span><span class="dv">1</span><span class="sc">+</span>e,<span class="at">matiere=</span><span class="st">&quot;Français&quot;</span>, <span class="at">classe=</span><span class="st">&quot;Calme&quot;</span>)</span>
+<span id="cb148-16"><a href="les-modèles-linéaire-hiérarchiques.html#cb148-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb148-17"><a href="les-modèles-linéaire-hiérarchiques.html#cb148-17" aria-hidden="true" tabindex="-1"></a>foo_FA<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(<span class="fu">rnorm</span>(<span class="dv">20</span>, <span class="at">mean=</span><span class="dv">12</span>, <span class="at">sd=</span><span class="dv">10</span>))<span class="sc">%&gt;%</span></span>
+<span id="cb148-18"><a href="les-modèles-linéaire-hiérarchiques.html#cb148-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">QI=</span><span class="dv">1</span>) <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(<span class="fu">row_number</span>()) <span class="sc">%&gt;%</span> </span>
+<span id="cb148-19"><a href="les-modèles-linéaire-hiérarchiques.html#cb148-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">e=</span><span class="sc">-</span><span class="dv">5</span><span class="sc">+</span><span class="dv">10</span><span class="sc">*</span><span class="fu">runif</span>(<span class="dv">1</span>))<span class="sc">%&gt;%</span> <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb148-20"><a href="les-modèles-linéaire-hiérarchiques.html#cb148-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Perf=</span>a<span class="sc">*</span>QI<span class="sc">+</span><span class="dv">2-3</span><span class="sc">+</span><span class="dv">1</span><span class="sc">+</span>e,<span class="at">matiere=</span><span class="st">&quot;Français&quot;</span>, <span class="at">classe=</span><span class="st">&quot;Agité&quot;</span>)</span>
+<span id="cb148-21"><a href="les-modèles-linéaire-hiérarchiques.html#cb148-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb148-22"><a href="les-modèles-linéaire-hiérarchiques.html#cb148-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb148-23"><a href="les-modèles-linéaire-hiérarchiques.html#cb148-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb148-24"><a href="les-modèles-linéaire-hiérarchiques.html#cb148-24" aria-hidden="true" tabindex="-1"></a>foo<span class="ot">&lt;-</span><span class="fu">rbind</span>(foo_MA, foo_MC, foo_FA,foo_FC)</span>
+<span id="cb148-25"><a href="les-modèles-linéaire-hiérarchiques.html#cb148-25" aria-hidden="true" tabindex="-1"></a>r <span class="ot">=</span><span class="fu">round</span>(<span class="fu">cor</span>(foo<span class="sc">$</span>QI, foo<span class="sc">$</span>Perf),<span class="dv">2</span>)</span>
+<span id="cb148-26"><a href="les-modèles-linéaire-hiérarchiques.html#cb148-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb148-27"><a href="les-modèles-linéaire-hiérarchiques.html#cb148-27" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(foo, <span class="fu">aes</span>(<span class="at">x=</span>QI, <span class="at">y=</span>Perf))<span class="sc">+</span></span>
+<span id="cb148-28"><a href="les-modèles-linéaire-hiérarchiques.html#cb148-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>)<span class="sc">+</span>  <span class="fu">labs</span>(<span class="at">title=</span><span class="fu">paste</span>(<span class="st">&quot;Corrélation :&quot;</span>,r))</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/0918-1.png" width="672" /></p>
+<div class="sourceCode" id="cb149"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb149-1"><a href="les-modèles-linéaire-hiérarchiques.html#cb149-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(foo, <span class="fu">aes</span>(<span class="at">x=</span>QI, <span class="at">y=</span>Perf, <span class="at">shape=</span>matiere, <span class="at">color=</span>classe))<span class="sc">+</span></span>
+<span id="cb149-2"><a href="les-modèles-linéaire-hiérarchiques.html#cb149-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span><span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>)<span class="sc">+</span><span class="fu">facet_grid</span>(matiere<span class="sc">~</span>classe)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/0918-2.png" width="672" /></p>
+<div class="sourceCode" id="cb150"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb150-1"><a href="les-modèles-linéaire-hiérarchiques.html#cb150-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="fu">paste</span>(<span class="st">&quot;Corrélation :&quot;</span>,r))</span></code></pre></div>
+<pre><code>## $title
+## [1] &quot;Corrélation : 0.1&quot;
 ## 
-## Fitted party:
-## [1] root
-## |   [2] Age in 18 - 24 ans, 25 - 34 ans
-## |   |   [3] Age in 18 - 24 ans
-## |   |   |   [4] Sexe in Un homme
-## |   |   |   |   [5] Education in Sans diplôme, Brevet des collèges, Bac +5 (Master, école d&#39;ingénieurs, d&#39;arts...):  Amelioration (n = 725, err = 29.2%)
-## |   |   |   |   [6] Education in CAP/BEP, Bac (général, pro et technologique), Bac +2 (BTS ou autre), Bac +3/4 (Licence, Maîtrise), Bac +7 et plus (doctorat, thèse, etc.):  Amelioration (n = 1710, err = 36.2%)
-## |   |   |   [7] Sexe in Une femme:  Amelioration (n = 3963, err = 38.3%)
-## |   |   [8] Age in 25 - 34 ans
-## |   |   |   [9] Education in Sans diplôme, CAP/BEP, Bac (général, pro et technologique), Bac +2 (BTS ou autre), Bac +3/4 (Licence, Maîtrise):  Amelioration (n = 4956, err = 43.9%)
-## |   |   |   [10] Education in Brevet des collèges, Bac +5 (Master, école d&#39;ingénieurs, d&#39;arts...), Bac +7 et plus (doctorat, thèse, etc.):  Amelioration (n = 1347, err = 37.2%)
-## |   [11] Age in 35 - 44 ans, 45 - 54 ans, 55 - 64 ans, 65 ans et plus
-## |   |   [12] Age in 35 - 44 ans
-## |   |   |   [13] Education in Sans diplôme, CAP/BEP, Bac (général, pro et technologique), Bac +2 (BTS ou autre), Bac +3/4 (Licence, Maîtrise)
-## |   |   |   |   [14] Sexe in Un homme:  Amelioration (n = 2588, err = 47.6%)
-## |   |   |   |   [15] Sexe in Une femme: degradation (n = 4926, err = 48.8%)
-## |   |   |   [16] Education in Brevet des collèges, Bac +5 (Master, école d&#39;ingénieurs, d&#39;arts...), Bac +7 et plus (doctorat, thèse, etc.):  Amelioration (n = 1323, err = 41.3%)
-## |   |   [17] Age in 45 - 54 ans, 55 - 64 ans, 65 ans et plus
-## |   |   |   [18] Sexe in Un homme
-## |   |   |   |   [19] Education in Sans diplôme, CAP/BEP, Bac (général, pro et technologique), Bac +2 (BTS ou autre), Bac +3/4 (Licence, Maîtrise), Bac +7 et plus (doctorat, thèse, etc.): degradation (n = 5675, err = 48.3%)
-## |   |   |   |   [20] Education in Brevet des collèges, Bac +5 (Master, école d&#39;ingénieurs, d&#39;arts...):  Amelioration (n = 1282, err = 45.6%)
-## |   |   |   [21] Sexe in Une femme
-## |   |   |   |   [22] Education in Sans diplôme, Brevet des collèges, Bac +3/4 (Licence, Maîtrise), Bac +5 (Master, école d&#39;ingénieurs, d&#39;arts...): degradation (n = 4250, err = 45.6%)
-## |   |   |   |   [23] Education in CAP/BEP, Bac (général, pro et technologique), Bac +2 (BTS ou autre), Bac +7 et plus (doctorat, thèse, etc.)
-## |   |   |   |   |   [24] Age in 45 - 54 ans: degradation (n = 2929, err = 43.3%)
-## |   |   |   |   |   [25] Age in 55 - 64 ans, 65 ans et plus: degradation (n = 3724, err = 39.4%)
-## 
-## Number of inner nodes:    12
-## Number of terminal nodes: 13</code></pre>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="arbre-de-décision.html#cb157-1" aria-hidden="true" tabindex="-1"></a>pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(fit, df)</span>
-<span id="cb157-2"><a href="arbre-de-décision.html#cb157-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(caret)</span>
-<span id="cb157-3"><a href="arbre-de-décision.html#cb157-3" aria-hidden="true" tabindex="-1"></a>cm <span class="ot">=</span> <span class="fu">confusionMatrix</span>(df<span class="sc">$</span>Situation3, pred)</span>
-<span id="cb157-4"><a href="arbre-de-décision.html#cb157-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(cm)</span></code></pre></div>
-<pre><code>## Confusion Matrix and Statistics
-## 
-##                Reference
-## Prediction       Amelioration degradation
-##    Amelioration         10507        9820
-##   degradation            7387       11684
-##                                           
-##                Accuracy : 0.5633          
-##                  95% CI : (0.5583, 0.5682)
-##     No Information Rate : 0.5458          
-##     P-Value [Acc &gt; NIR] : 1.769e-12       
-##                                           
-##                   Kappa : 0.129           
-##                                           
-##  Mcnemar&#39;s Test P-Value : &lt; 2.2e-16       
-##                                           
-##             Sensitivity : 0.5872          
-##             Specificity : 0.5433          
-##          Pos Pred Value : 0.5169          
-##          Neg Pred Value : 0.6127          
-##              Prevalence : 0.4542          
-##          Detection Rate : 0.2667          
-##    Detection Prevalence : 0.5159          
-##       Balanced Accuracy : 0.5653          
-##                                           
-##        &#39;Positive&#39; Class :  Amelioration   
-## </code></pre>
-<div class="sourceCode" id="cb159"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb159-1"><a href="arbre-de-décision.html#cb159-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggparty)</span>
-<span id="cb159-2"><a href="arbre-de-décision.html#cb159-2" aria-hidden="true" tabindex="-1"></a><span class="fu">autoplot</span>(fit)</span></code></pre></div>
-<p><img src="bookdown-demo_files/figure-html/libraries-1.png" width="1152" /></p>
-<div class="sourceCode" id="cb160"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb160-1"><a href="arbre-de-décision.html#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="co">#library(irks)</span></span>
-<span id="cb160-2"><a href="arbre-de-décision.html#cb160-2" aria-hidden="true" tabindex="-1"></a><span class="co">#rules&lt;-ct_rules(fit)</span></span>
-<span id="cb160-3"><a href="arbre-de-décision.html#cb160-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb160-4"><a href="arbre-de-décision.html#cb160-4" aria-hidden="true" tabindex="-1"></a><span class="co">#rules %&gt;% </span></span>
-<span id="cb160-5"><a href="arbre-de-décision.html#cb160-5" aria-hidden="true" tabindex="-1"></a><span class="co">#  kable() %&gt;%</span></span>
-<span id="cb160-6"><a href="arbre-de-décision.html#cb160-6" aria-hidden="true" tabindex="-1"></a><span class="co">#  kable_styling(bootstrap_options = &quot;striped&quot;, font_size = 10)</span></span></code></pre></div>
-<p><a href="https://topepo.github.io/caret/" class="uri">https://topepo.github.io/caret/</a></p>
-</div>
-<div id="forêts-aléatoires" class="section level2" number="12.3">
-<h2><span class="header-section-number">12.3</span> forêts aléatoires</h2>
-<p><a href="http://r.benavent.fr/caret.html">voire le cas</a></p>
+## attr(,&quot;class&quot;)
+## [1] &quot;labels&quot;</code></pre>
+<div class="sourceCode" id="cb152"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb152-1"><a href="les-modèles-linéaire-hiérarchiques.html#cb152-1" aria-hidden="true" tabindex="-1"></a>fit01<span class="ot">&lt;-</span><span class="fu">lm</span>(Perf<span class="sc">~</span>QI, <span class="at">data=</span>foo)</span>
+<span id="cb152-2"><a href="les-modèles-linéaire-hiérarchiques.html#cb152-2" aria-hidden="true" tabindex="-1"></a>fit02<span class="ot">&lt;-</span><span class="fu">lm</span>(Perf<span class="sc">~</span>QI<span class="sc">+</span>matiere<span class="sc">*</span>classe, <span class="at">data=</span>foo)</span>
+<span id="cb152-3"><a href="les-modèles-linéaire-hiérarchiques.html#cb152-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb152-4"><a href="les-modèles-linéaire-hiérarchiques.html#cb152-4" aria-hidden="true" tabindex="-1"></a><span class="fu">export_summs</span>(fit01,fit02, <span class="at">digit=</span><span class="dv">3</span>)</span></code></pre></div>
+<table class="huxtable" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  " id="tab:0918">
+<caption style="caption-side: top; text-align: center;"><span id="tab:0918">Table 11.1: </span> </caption><col><col><col><tr>
+<th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Model 1</th><th style="vertical-align: top; text-align: center; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">Model 2</th></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(Intercept)</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">-0.69&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.57&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.89)</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.87)&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">QI</th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.05&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.10 **&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.06)</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.04)&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">matiereMath</th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">-7.44 ***</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.94)&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">classeCalme</th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">2.43 *&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(0.96)&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">matiereMath:classeCalme</th><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">2.33&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;"></th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.4pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">(1.34)&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; padding: 6pt 6pt 6pt 6pt; font-weight: normal;">N</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">80&nbsp;&nbsp;&nbsp;&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0.4pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">80&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">R2</th><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.01&nbsp;</td><td style="vertical-align: top; text-align: right; white-space: normal; border-style: solid solid solid solid; border-width: 0pt 0pt 0.8pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;">0.62&nbsp;&nbsp;&nbsp;&nbsp;</td></tr>
+<tr>
+<th colspan="3" style="vertical-align: top; text-align: left; white-space: normal; border-style: solid solid solid solid; border-width: 0.8pt 0pt 0pt 0pt;    padding: 6pt 6pt 6pt 6pt; font-weight: normal;"> *** p &lt; 0.001;  ** p &lt; 0.01;  * p &lt; 0.05.</th></tr>
+</table>
+
+<p>Dans ce petit exemple, les niveaux sont peu nombreux. On pourrait imaginer qu’ils soient bien plus nombreux, par exemple en réalisant l’enquête sur des dizaines de classes pour lesquelles le degré d’agitation est variable et se distribue certainement de manière normale. Ne tenons plus en compte la matière pour le moment. On ne va prendre que la moyenne des maths.</p>
+<p>On peut écrire le modèle où <span class="math inline">\(\beta_{k}\)</span> représente le terme constant de chacune des k classes.</p>
+<p><span class="math display">\[y_{ik}=\beta_{k}+\beta_{1}Aptitude_{i}+\epsilon_{ik}
+\]</span>
+en supposant que les <span class="math inline">\(\beta_{k}\)</span> se distribue de manière normale avec une moyenne <span class="math inline">\(\overline{\beta}\)</span> et une variance <span class="math inline">\(\mu_{k}\)</span>, on peut réécrire l’équation de la manière suivante</p>
+<p><span class="math display">\[y_{i}=\overline{\beta}+\beta_{1}Aptitude_{i}+\mu_{k}+\epsilon_{ik}
+\]</span></p>
+<p>C’est un modèle à composantes d’erreur où <span class="math inline">\(\mu_{k}\)</span> représente l’effet de la classe</p>
 
 </div>
 </div>
@@ -470,8 +439,8 @@ Il peut s’appliquer à une variable quantitative ( regression) ou qualitative 
           </div>
         </div>
       </div>
-<a href="les-modèles-linéaire-hiérarchiques.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="premiers-éléments-de-machine-learning.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="un-cas-danalyse-de-survie.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="arbre-de-décision.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -503,7 +472,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/rstudio/bookdown-demo/edit/master/10-arbredecision.Rmd",
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/09-regression.Rmd",
 "text": "Edit"
 },
 "history": {

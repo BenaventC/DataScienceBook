@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapitre 11 Premiers éléments de Machine Learning | Introduction aux Data Sciences</title>
+  <title>Chapitre 13 Premiers éléments de Machine Learning | Introduction aux Data Sciences</title>
   <meta name="description" content="Cours d’analyse de données et de Datascience" />
   <meta name="generator" content="bookdown 0.22.3 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapitre 11 Premiers éléments de Machine Learning | Introduction aux Data Sciences" />
+  <meta property="og:title" content="Chapitre 13 Premiers éléments de Machine Learning | Introduction aux Data Sciences" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapitre 11 Premiers éléments de Machine Learning | Introduction aux Data Sciences" />
+  <meta name="twitter:title" content="Chapitre 13 Premiers éléments de Machine Learning | Introduction aux Data Sciences" />
   
   <meta name="twitter:description" content="Cours d’analyse de données et de Datascience" />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Christophe Benavent - Université Paris Dauphine" />
 
 
-<meta name="date" content="2022-09-27" />
+<meta name="date" content="2022-10-02" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -156,7 +156,7 @@ div.csl-indent {
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">NLP en r et en français</a></li>
+<li><a href="./">Data Science Book</a></li>
 
 <li class="divider"></li>
 <li><a href="index.html#avant-propos" id="toc-avant-propos"><span class="toc-section-number">1</span> Avant propos</a>
@@ -297,32 +297,32 @@ div.csl-indent {
 </ul></li>
 <li><a href="régression.html#autres-modèles" id="toc-autres-modèles"><span class="toc-section-number">9.5</span> Autres modèles</a>
 <ul>
-<li><a href="régression.html#régression-logistique" id="toc-régression-logistique"><span class="toc-section-number">9.5.1</span> régression logistique</a></li>
+<li><a href="régression.html#régression-logistique" id="toc-régression-logistique"><span class="toc-section-number">9.5.1</span> Régression logistique</a></li>
+<li><a href="régression.html#modèle-de-comptage" id="toc-modèle-de-comptage"><span class="toc-section-number">9.5.2</span> Modèle de comptage</a></li>
+<li><a href="régression.html#modèle-de-régression-beta" id="toc-modèle-de-régression-beta"><span class="toc-section-number">9.5.3</span> Modèle de régression beta</a></li>
 </ul></li>
-<li><a href="régression.html#un-cas-danalyse-de-survie" id="toc-un-cas-danalyse-de-survie"><span class="toc-section-number">9.6</span> un cas d’analyse de survie</a></li>
-<li><a href="régression.html#pour-généraliser" id="toc-pour-généraliser"><span class="toc-section-number">9.7</span> Pour généraliser</a></li>
-<li><a href="régression.html#spécification-fonctionnelle" id="toc-spécification-fonctionnelle"><span class="toc-section-number">9.8</span> Spécification fonctionnelle</a>
+</ul></li>
+<li><a href="un-cas-danalyse-de-survie.html#un-cas-danalyse-de-survie" id="toc-un-cas-danalyse-de-survie"><span class="toc-section-number">10</span> Un cas d’analyse de survie</a></li>
+<li><a href="les-modèles-linéaire-hiérarchiques.html#les-modèles-linéaire-hiérarchiques" id="toc-les-modèles-linéaire-hiérarchiques"><span class="toc-section-number">11</span> Les modèles linéaire hiérarchiques</a>
 <ul>
-<li><a href="régression.html#structure-des-données" id="toc-structure-des-données"><span class="toc-section-number">9.8.1</span> Structure des données</a></li>
-<li><a href="régression.html#les-méthodes-destimation" id="toc-les-méthodes-destimation"><span class="toc-section-number">9.8.2</span> les méthodes d’estimation</a></li>
+<li><a href="les-modèles-linéaire-hiérarchiques.html#en-guise-dintroduction" id="toc-en-guise-dintroduction"><span class="toc-section-number">11.1</span> en guise d’introduction</a></li>
 </ul></li>
-</ul></li>
-<li><a href="arbre-de-décision.html#arbre-de-décision" id="toc-arbre-de-décision"><span class="toc-section-number">10</span> Arbre de Décision</a>
+<li><a href="arbre-de-décision.html#arbre-de-décision" id="toc-arbre-de-décision"><span class="toc-section-number">12</span> Arbre de Décision</a>
 <ul>
-<li><a href="arbre-de-décision.html#construire-un-arbre-de-décision" id="toc-construire-un-arbre-de-décision"><span class="toc-section-number">10.1</span> Construire un arbre de décision</a></li>
-<li><a href="arbre-de-décision.html#mise-en-oeuvre-avec-partykit" id="toc-mise-en-oeuvre-avec-partykit"><span class="toc-section-number">10.2</span> Mise en oeuvre avec Partykit</a></li>
-<li><a href="arbre-de-décision.html#forêts-aléatoires" id="toc-forêts-aléatoires"><span class="toc-section-number">10.3</span> forêts aléatoires</a></li>
+<li><a href="arbre-de-décision.html#construire-un-arbre-de-décision" id="toc-construire-un-arbre-de-décision"><span class="toc-section-number">12.1</span> Construire un arbre de décision</a></li>
+<li><a href="arbre-de-décision.html#mise-en-oeuvre-avec-partykit" id="toc-mise-en-oeuvre-avec-partykit"><span class="toc-section-number">12.2</span> Mise en oeuvre avec Partykit</a></li>
+<li><a href="arbre-de-décision.html#forêts-aléatoires" id="toc-forêts-aléatoires"><span class="toc-section-number">12.3</span> forêts aléatoires</a></li>
 </ul></li>
-<li><a href="premiers-éléments-de-machine-learning.html#premiers-éléments-de-machine-learning" id="toc-premiers-éléments-de-machine-learning"><span class="toc-section-number">11</span> Premiers éléments de Machine Learning</a>
+<li><a href="premiers-éléments-de-machine-learning.html#premiers-éléments-de-machine-learning" id="toc-premiers-éléments-de-machine-learning"><span class="toc-section-number">13</span> Premiers éléments de Machine Learning</a>
 <ul>
-<li><a href="premiers-éléments-de-machine-learning.html#une-typologie-de-modèles" id="toc-une-typologie-de-modèles"><span class="toc-section-number">11.1</span> une typologie de modèles</a>
+<li><a href="premiers-éléments-de-machine-learning.html#une-typologie-de-modèles" id="toc-une-typologie-de-modèles"><span class="toc-section-number">13.1</span> une typologie de modèles</a>
 <ul>
-<li><a href="premiers-éléments-de-machine-learning.html#le-modèle-linéaire" id="toc-le-modèle-linéaire"><span class="toc-section-number">11.1.1</span> le modèle linéaire</a></li>
-<li><a href="premiers-éléments-de-machine-learning.html#le-modèle-logit" id="toc-le-modèle-logit"><span class="toc-section-number">11.1.2</span> le modèle logit</a></li>
-<li><a href="premiers-éléments-de-machine-learning.html#les-modèles-à-régularisation" id="toc-les-modèles-à-régularisation"><span class="toc-section-number">11.1.3</span> les modèles à régularisation</a></li>
-<li><a href="premiers-éléments-de-machine-learning.html#les-random-forest" id="toc-les-random-forest"><span class="toc-section-number">11.1.4</span> les random forest</a></li>
+<li><a href="premiers-éléments-de-machine-learning.html#le-modèle-linéaire" id="toc-le-modèle-linéaire"><span class="toc-section-number">13.1.1</span> le modèle linéaire</a></li>
+<li><a href="premiers-éléments-de-machine-learning.html#le-modèle-logit" id="toc-le-modèle-logit"><span class="toc-section-number">13.1.2</span> le modèle logit</a></li>
+<li><a href="premiers-éléments-de-machine-learning.html#les-modèles-à-régularisation" id="toc-les-modèles-à-régularisation"><span class="toc-section-number">13.1.3</span> les modèles à régularisation</a></li>
+<li><a href="premiers-éléments-de-machine-learning.html#les-random-forest" id="toc-les-random-forest"><span class="toc-section-number">13.1.4</span> les random forest</a></li>
 </ul></li>
-<li><a href="premiers-éléments-de-machine-learning.html#forêts-aléatoires-1" id="toc-forêts-aléatoires-1"><span class="toc-section-number">11.2</span> forêts aléatoires</a></li>
+<li><a href="premiers-éléments-de-machine-learning.html#forêts-aléatoires-1" id="toc-forêts-aléatoires-1"><span class="toc-section-number">13.2</span> forêts aléatoires</a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -344,31 +344,31 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="premiers-éléments-de-machine-learning" class="section level1" number="11">
-<h1><span class="header-section-number">Chapitre 11</span> Premiers éléments de Machine Learning</h1>
+<div id="premiers-éléments-de-machine-learning" class="section level1" number="13">
+<h1><span class="header-section-number">Chapitre 13</span> Premiers éléments de Machine Learning</h1>
 <p>Le Machine Learning ou en français l’apprentissage automatique désigne un processus par lequel on construit un modèle prédictif. C’est en général un modèle qui permet de classifier des observations à parti de leurs caractéristiques. Distinguer les spam du ham, les mauvais emprunteurs des bons emprunteurs, des cookies brulés de ceux bien cuits sur chaine de production. Trois éléments essentiels le caractérise.</p>
 <ul>
 <li><p>un modèle qui asssocie à une variable y que l’on cherche à prédire un vecteur de caractéristiques x. c’est une fonction où y=f(x|theta)+e. Aujourd’hui des dizaines de fonction sont disponibles</p></li>
 <li><p>un processus de validation. Su le modèle est entrainé sur un set de données dit d’apprentissage, sa qualité prédictive est établie sur un set de données qui n’a pas contribué à l’estimation des paramètres.</p></li>
 <li></li>
 </ul>
-<div id="une-typologie-de-modèles" class="section level2" number="11.1">
-<h2><span class="header-section-number">11.1</span> une typologie de modèles</h2>
-<div id="le-modèle-linéaire" class="section level3" number="11.1.1">
-<h3><span class="header-section-number">11.1.1</span> le modèle linéaire</h3>
+<div id="une-typologie-de-modèles" class="section level2" number="13.1">
+<h2><span class="header-section-number">13.1</span> une typologie de modèles</h2>
+<div id="le-modèle-linéaire" class="section level3" number="13.1.1">
+<h3><span class="header-section-number">13.1.1</span> le modèle linéaire</h3>
 </div>
-<div id="le-modèle-logit" class="section level3" number="11.1.2">
-<h3><span class="header-section-number">11.1.2</span> le modèle logit</h3>
+<div id="le-modèle-logit" class="section level3" number="13.1.2">
+<h3><span class="header-section-number">13.1.2</span> le modèle logit</h3>
 </div>
-<div id="les-modèles-à-régularisation" class="section level3" number="11.1.3">
-<h3><span class="header-section-number">11.1.3</span> les modèles à régularisation</h3>
+<div id="les-modèles-à-régularisation" class="section level3" number="13.1.3">
+<h3><span class="header-section-number">13.1.3</span> les modèles à régularisation</h3>
 </div>
-<div id="les-random-forest" class="section level3" number="11.1.4">
-<h3><span class="header-section-number">11.1.4</span> les random forest</h3>
+<div id="les-random-forest" class="section level3" number="13.1.4">
+<h3><span class="header-section-number">13.1.4</span> les random forest</h3>
 </div>
 </div>
-<div id="forêts-aléatoires-1" class="section level2" number="11.2">
-<h2><span class="header-section-number">11.2</span> forêts aléatoires</h2>
+<div id="forêts-aléatoires-1" class="section level2" number="13.2">
+<h2><span class="header-section-number">13.2</span> forêts aléatoires</h2>
 <p><a href="http://r.benavent.fr/MM.html">voire le cas</a></p>
 <p>et pour le texte :</p>
 <p>et surtout <a href="https://benaventc.github.io/NLPBook/machine-learning-supervis%C3%A9-et-nlp.html">celui-ci</a></p>

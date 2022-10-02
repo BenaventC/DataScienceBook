@@ -1,5 +1,7 @@
 tab:anytable
-tab:modO2
+tab:0910
+tab:0914
+tab:0918
 avant-propos
 plan-du-manuel
 les-jeux-de-données
@@ -102,11 +104,11 @@ analyser-la-demande-quest-ce-qui-détermine-le-taux-doccupation
 un-modèle-ols
 autres-modèles
 régression-logistique
+modèle-de-comptage
+modèle-de-régression-beta
 un-cas-danalyse-de-survie
-pour-généraliser
-spécification-fonctionnelle
-structure-des-données
-les-méthodes-destimation
+les-modèles-linéaire-hiérarchiques
+en-guise-dintroduction
 arbre-de-décision
 construire-un-arbre-de-décision
 mise-en-oeuvre-avec-partykit
