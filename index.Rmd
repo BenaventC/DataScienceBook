@@ -5,7 +5,7 @@ date: "`r Sys.Date()`"
 site: bookdown::bookdown_site
 output: bookdown::gitbook
 documentclass: book
-bibliography: [book.bib, packages.bib]
+bibliography: [book.bib, packages.bib, datascience.bib]
 biblio-style: apalike
 link-citations: yes
 github-repo: rstudio/bookdown-demo
@@ -39,7 +39,7 @@ C'est un projet en cours, Les chapitres projetés sont les suivants. certains so
  * 4 - Usage de ggplot - multivarié x
  * 6 - Analyse de variance et régression linéraire x
  * 5 - Tables
- * 6 - Modèles factoriels ( Psych) x
+ * 6 - Modèles factoriels (Psych) x
  * 7 - AFC x
  * 8 - MDS  
  * 9 - Clustering x
@@ -65,9 +65,7 @@ En voici la présentation  des sets de données utilisées dans le syllabus. Ell
  
 ## Le cadre technique et les packages utilisés
 
-Ce  _syllabus_ est écrit en **Markdown** [@allaire_rmarkdown_2021] et  avec le package **Bookdown** [@R-bookdown]
-
-Le code s'appuie très largement sur `tidyverse` et emploie largement les ressources de `ggplot`. Les packages seront introduits au fur et à mesure. En voici la liste complète.
+Ce  _syllabus_ est écrit en **Markdown** [@allaire_rmarkdown_2021] et  avec le package **Bookdown** [@R-bookdown]. Le code s'appuie sur `tidyverse` et emploie largement les ressources de `ggplot`. Les packages seront introduits au fur et à mesure. En voici la liste complète.
 
 
 ```{r 001, echo = TRUE, message=FALSE,warning=FALSE}
@@ -153,7 +151,7 @@ L'ensemble du code est disponible [sur github](https://github.com/BenaventC/Data
 
 Quelques conventions d'écriture du code r
 
- * On appele les dataframes  de manière générale `df`, les tableaux intermédiaires sont appelé systématiquement `foo`
+ * On dénomme les dataframes  de manière générale `df`, les tableaux intermédiaires sont appelé systématiquement `foo`
  * Gestion des palettes de couleurs
   ** une couleur :" royalblue"
   ** deux couleurs

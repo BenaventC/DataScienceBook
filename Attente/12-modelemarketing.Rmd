@@ -1,0 +1,107 @@
+
+# 12 - Des modèles pour le marketing
+
+
+## Modèle de Bass
+
+C'est un des modèles les plus anciens et les plus solides du marketing. On le doit à Frank Bass (1969), il est destiné à modéliser la diffusion de l’innovation. Ses hypothèses sont élémentaires et peuvent s’interpréter aisément au travers du modèle de communication de Katz et Lazarfeld (1955). La diffusion d’un message ou d’une innovation est le fruit d’une influence directe sur des consommateurs innovateurs qui se déterminent en fonction de l’information qu’ils reçoivent, et d’un processus d’interaction entre ces derniers et les autres traduisant un mécanismes d’innovation. 
+
+Le modèle s’écrit comme une équation différentielle qui stipule que le nombre de nouveaux adopteurs est la somme de ces deux processus. 
+
+$$\frac{dN_t}{dt}=q(N_t-K)+pN_t(N_t-K)$$
+
+A chaque période de temps une fraction constante de ceux qui n’ont pas encore adopté le nouveaux produit ou la nouvelle idée se mette à l’adopter :, avec q représentant cette proportion (fonction de l’intensité des dépenses publicitaires et médiatiques), K le potentiel d’adoption et Nt, le nombre cumulés de ceux qui ont déjà adopté l’objet. S’ajoute les effets d’imitation : , où le q représente l’ensemble de toute les interactions possibles entre adopteurs et non-adopteurs et p le coefficient d’imitation, c’est à dire la proportion constante des interactions qui aboutissent à une adoption. Pour plus de détail on consultera le Bass Basement Research Institute.
+
+L’idée simple de ce post est d’évaluer dans quelle mesure le modèle rend compte de la diffusion d’un réseaux sociaux, en l’occurence Linked In dont voici la série brute
+
+```{r 0920}
+
+df <- read_delim("Data/linkedin.csv", delim = ";", escape_double = FALSE, trim_ws = TRUE)%>%filter(time<54)
+
+ggplot(df,aes(x=time, y=Abonnés))+geom_point()
+
+#interpolation
+library("imputeTS")
+df$interp<-na.interpolation(df$Abonnés)
+
+ggplot(df,aes(x=time, y=interp))+geom_point()
+
+
+```
+
+
+
+
+On retrouvera les données ici.  Pour estimer les paramètres du modèle, on utilise la fonction NLS de r, on retrouvera le code ( élémentaire) sur cette page de Cheng-Jun Wang ainsi que quelques suggestions utile pour l’identification des paramètres initiaux dans les commentaires (c’est le problème majeur des procédure d’estimation de regression non linéaire). En voici les résultats, l’ajustement est quasi-parfait au niveau cumulé.
+
+adjustParameters:
+Estimate Std. Error t value Pr(>|t|)
+M 5.695e+02 5.297e+01 10.752 1.17e-10 ***
+P 8.744e-03 9.511e-04 9.193 2.47e-09 ***
+Q 1.098e-01 1.459e-02 7.529 9.07e-08 ***
+—
+Signif. codes: 0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ‘ 1
+Residual standard error: 2.384 on 24 degrees of freedom
+
+Le potentiel de marché (M) est ici de 569, 5 millions. Autrement dit Linked serait largement en phase de maturité puisqu’au premier trimestre 2016, il y a 433 millions d’inscrit ce qui représente 76% du potentiel. On restera prudent car parmi les travaux de recherche certains chercheurs montrent qu’il y a une tendance à la sous-estimation de l’ordre de 20%, surtout lorsque le nombre d’observation est faible ( Bulte et Lilien, 1997). Vraisemblablement le potentiel serait donc l’ordre de 630 millions d’utilisateurs et donc les 2/3 du potentiel étant couvert.
+
+Avec un coefficient d’imitation de 0,1098 et un coefficient d’innovation de 0,0087 ont retrouve des valeurs qui ne sont pas éloignées des valeurs observées dans les nombreuses applications du modèles de Bass dont Farley et Al 1990, trouve des valeurs moyennes respectivement de 0,38 et de 0,03. On sera  surpris que l’effet de diffusion est inférieur à la moyenne, témoignant d’un effet d’imitation moindre que des produits d’équipement des ménages. Le réseau a été lancé en 2003, son potentiel sera atteint vers 2023, il faudra donc 20 ans pour arriver au plein potentiel. Quant au rapport innovateur/imitateurs, le modèle indique qu’il est dans un rapport 1 sur 4. C’est assez difficile à apprécier, mais on pourra sans doute être intrigué par la relative faiblesse de l’effet d’imitation dans une catégorie de produit dont la dynamique est présumée dépendre d’externalité de réseaux, et qui est illustrée dans le diagramme de droite.
+
+BassEstim
+```{r 0919}
+
+
+Bass <- df$interp
+Bass <- ts(Bass, start = c(2009, 1), frequency = 4)
+Time <- df$time
+Time <- ts(Time, start = c(2009, 1), frequency = 4)
+
+Bass2<-diff(Bass,1)
+
+data<-ts.union(Time,Bass, Bass2)
+data<-as.data.frame(data)
+data$Time<-data$Time/4
+
+Bassmodel<-nls(Bass2~M*(((P + Q)^2/P)*exp(-(P+Q)*Time))/(1+(Q/P)*exp(-(P+Q)*Time))^2,
+                      data=data,
+                      start = list(M = 2000, P = 0.025, Q = 0.0005),
+                      trace=TRUE, 
+                      algorithm="port")
+
+summary(Bassmodel)
+
+
+# get coefficient
+Bcoef <- coef(Bassmodel)
+m <- Bcoef[1]
+p <- Bcoef[2]
+q <- Bcoef[3]
+# setting the starting value for M to the recorded total sales.
+
+data$ngete <- exp(-(p+q)*data$Time)
+
+# plot pdf
+data$Bpdf <- m * ((p + q)^2/p) * data$ngete/(1 + (q/p) * data$ngete)^2
+plot(data$Time, data$Bpdf, xlab = "trimester from 2009", ylab = "Sales per year", type = "l")
+points(data$Bass2)
+
+data$Bcdf <- 37+(m*(1-ngete)/(1+(q/p)*ngete))
+plot(data$Time, data$Bcdf, xlab = "trimester from 2009", ylab = "Cumulative adoption", type = "l")
+points(data$Bass)
+```
+
+
+L’exercice mené à des limites que la littérature très abondante ( plusieurs milliers d’articles) a relevé. La première est qu’ici le potentiel M est considéré comme stable alors qu’il devrait évoluer notamment en fonction du nombre d’humains connectés et de l’accroissement du nombre de cadres dans la population mondiale. Une seconde est qu’on ne prend pas en compte les évolution du service qui devrait être plus attractifs. Une troisième technique est que dans l’estimation les premières périodes n’ont pas été prises en compte.  Une quatrième est que l’on travaille à un niveau très agrégé qui néglige les disparités régionales. Il y en a d’autres.
+
+Il reste une approximation qui s’ajuste fort bien et donne des éléments sérieux pour réfléchir à la diffusion des innovations digitales qui ne semble pas se distinguer fortement des autres catégories de produit et ne révèle pas l’illusion des accélération qu’on croit percevoir. C’est aussi une invitation à approfondir l’étude de la dynamique de cette diffusion où l’influence interpersonnelle ne semble pas aussi forte qu’on aurait pu croire. Ce n’est pas si étonnant, qui s’est inscrit sur le réseau suite à une invitation? Le mécanisme d’adoption résulte sans doute d’un autre cheminement : l’intériorisation d’une norme, la croyance qu’il est nécessaire socialement d’adopter ce type de service.
+
+
+### PREFMAP
+
+### logit multinomial
+
+### Analyse conjointe
+
+### xxxx
+ 
+

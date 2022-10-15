@@ -1,0 +1,72 @@
+
+# 11 Les modèles linéaires hiérarchiques (HLM)
+
+Les modèles de panels en économies, ou multi-niveaux en sociologie, sont caractérisés par le fait que les données sont un empilement de différents échantillons correspondant à une stratification.
+
+## en guise d'introduction
+
+L'exemple de la performance scolaire va nous éclairer. Supposons que l'on veuille établir l'effet d'une mesure d'aptitude intellectuelle (par le exemple le score de QI) sur les notes obtenues. On va mesurer cette relation en recueillant les données deux classes et dans deux matières. La classe A est calme, la classe B est agitée, les matières sont les maths et le français.
+
+
+```{r 1101}
+a=.1
+foo_MC<-as.data.frame(rnorm(20, mean=12, sd=10))%>%
+  rename(QI=1) %>% group_by(row_number()) %>% 
+  mutate(e=-5+10*runif(1))%>% ungroup() %>%
+  mutate(Perf=a*QI-3+1+e,matiere="Math", classe="Calme")
+
+foo_MA<-as.data.frame(rnorm(20, mean=12, sd=10))%>%
+  rename(QI=1) %>% group_by(row_number()) %>% 
+  mutate(e=-5+10*runif(1))%>% ungroup() %>%
+  mutate(Perf=a*QI-3-3+e,matiere="Math", classe="Agité")
+
+foo_FC<-as.data.frame(rnorm(20, mean=12, sd=10))%>%
+  rename(QI=1) %>% group_by(row_number()) %>% 
+  mutate(e=-5+10*runif(1))%>% ungroup() %>%
+  mutate(Perf=a*QI+2+1+e,matiere="Français", classe="Calme")
+
+foo_FA<-as.data.frame(rnorm(20, mean=12, sd=10))%>%
+  rename(QI=1) %>% group_by(row_number()) %>% 
+  mutate(e=-5+10*runif(1))%>% ungroup() %>%
+  mutate(Perf=a*QI+2-3+1+e,matiere="Français", classe="Agité")
+
+
+
+foo<-rbind(foo_MA, foo_MC, foo_FA,foo_FC)
+r =round(cor(foo$QI, foo$Perf),2)
+
+ggplot(foo, aes(x=QI, y=Perf))+
+  geom_point()+geom_smooth(method="lm")+  labs(title=paste("Corrélation :",r))
+
+
+ggplot(foo, aes(x=QI, y=Perf, shape=matiere, color=classe))+
+  geom_point()+geom_smooth(method="lm")+facet_grid(matiere~classe)
+  labs(title=paste("Corrélation :",r))
+
+
+fit01<-lm(Perf~QI, data=foo)
+fit02<-lm(Perf~QI+matiere*classe, data=foo)
+
+export_summs(fit01,fit02, digit=3)
+```
+
+Dans ce petit exemple, les niveaux sont peu nombreux. On pourrait imaginer qu'ils soient bien plus nombreux, par exemple en réalisant l'enquête sur des dizaines de classes pour lesquelles le degré d'agitation est variable et se distribue certainement de manière normale. Ne tenons plus en compte la matière pour le moment. On ne va prendre que la moyenne des maths.
+
+On peut écrire le modèle où $\beta_{k}$ représente le terme constant de chacune des k classes.
+
+$$ y_{ik}=\beta_{k}+\beta_{1}Aptitude_{i}+\epsilon_{ik} $$ 
+
+
+en supposant que les $\beta_{k}$ se distribue de manière normale avec une moyenne $\overline{\beta}$ et une variance $\mu_{k}$, on peut réécrire l'équation de la manière suivante
+
+
+
+$$y_{ik}=\overline{\beta}+\beta_{1}Aptitude_{i}+\mu_{k}+\epsilon_{ik} $$
+
+C'est un modèle à composantes d'erreur où $\mu_{k}$ représente l'effet de la classe.
+
+## Une application
+
+voir données BVA
+
+

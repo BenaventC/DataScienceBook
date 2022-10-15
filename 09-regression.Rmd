@@ -605,9 +605,9 @@ summary(fit_beta2)
 voir étude de cas [CartedeFidelité](https://github.com/BenaventC/survival).
 
 
-# Les modèles linéaire hiérarchiques
+# Les modèles linéaires hiérarchiques
 
-Les modèles de panels en économies, ou multiniveaux en sociologie, sont caractérisés par le fait que les données sont un empilement de différents échantillons correspondant à une stratification.
+Les modèles de panels en économies, ou multi-niveaux en sociologie, sont caractérisés par le fait que les données sont un empilement de différents échantillons correspondant à une stratification.
 
 ## en guise d'introduction
 
@@ -660,14 +660,16 @@ Dans ce petit exemple, les niveaux sont peu nombreux. On pourrait imaginer qu'il
 
 On peut écrire le modèle où $\beta_{k}$ représente le terme constant de chacune des k classes.
 
-$$y_{ik}=\beta_{k}+\beta_{1}Aptitude_{i}+\epsilon_{ik}
-$$
+$$ y_{ik}=\beta_{k}+\beta_{1}Aptitude_{i}+\epsilon_{ik} $$ 
+
+
 en supposant que les $\beta_{k}$ se distribue de manière normale avec une moyenne $\overline{\beta}$ et une variance $\mu_{k}$, on peut réécrire l'équation de la manière suivante
 
 
-$$y_{i}=\overline{\beta}+\beta_{1}Aptitude_{i}+\mu_{k}+\epsilon_{ik}
-$$
 
-C'est un modèle à composantes d'erreur où $\mu_{k}$ représente l'effet de la classe
+$$y_{ik}=\overline{\beta}+\beta_{1}Aptitude_{i}+\mu_{k}+\epsilon_{ik} $$
 
+C'est un modèle à composantes d'erreur où $\mu_{k}$ représente l'effet de la classe.
+
+###
 

@@ -2,6 +2,7 @@ tab:anytable
 tab:0910
 tab:0914
 tab:0918
+tab:1101
 avant-propos
 plan-du-manuel
 les-jeux-de-données
@@ -17,11 +18,10 @@ une-lingua-franca
 une-communauté
 la-multiplication-des-sources-de-données.
 du-ml-à-lia
-prise-en-main
+prise-en-main-de-r
 la-convention-du-rmarkdown
 lire-les-données
 la-diversité-des-formats
-les-autres-accès-aux-données
 dplyr-pour-manipuler-les-données
 des-pipes
 des-verbes
@@ -30,8 +30,7 @@ filter
 select
 group_by-et-summarize
 pivot_wider-et-pivot_longer
-merge
-pour-aller-plus-loin
+fusionner-les-données
 analyses-univariées
 la-grammaire-des-graphiques
 un-modèle-en-couche
@@ -107,8 +106,13 @@ régression-logistique
 modèle-de-comptage
 modèle-de-régression-beta
 un-cas-danalyse-de-survie
-les-modèles-linéaire-hiérarchiques
+les-modèles-linéaires-hiérarchiques
 en-guise-dintroduction
+section
+modèle-de-survie
+les-modèles-linéaires-hiérarchiques-hlm
+en-guise-dintroduction-1
+une-application
 arbre-de-décision
 construire-un-arbre-de-décision
 mise-en-oeuvre-avec-partykit

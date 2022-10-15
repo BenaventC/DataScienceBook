@@ -1,0 +1,4 @@
+# 10 - Modèle de survie
+
+voir étude de cas [CartedeFidelité](https://github.com/BenaventC/survival).
+

@@ -1,11 +1,12 @@
-# Prise en main
+# Prise en main de r 
 
 
 Pour démarrer :
 
-1 - Télécharger et installer r sur le site du Comprehensive r Archive Network
-2 - Télécharger et installer Rstudio.(version free)
-3 - Dans le cadre de cet atelier, on adopte la méthode du [rmarkdown](https://rmarkdown.rstudio.com/lesson-1.html). On recommande fortement de lire l’ouvrage de référence, même si la prise en main est très rapide. Il est désormais indispensable d’utiliser le package tidyverse et en particulier les fonctions de manipulation et de pipe ( %>%) fournies par  dplyr
+ * 1 - Télécharger et installer r sur le site du Comprehensive r Archive Network
+ * 2 - Télécharger et installer Rstudio.(version free)
+ * 3 - Dans le cadre de cet atelier, on adopte la méthode du [rmarkdown](https://rmarkdown.rstudio.com/lesson-1.html). On recommande fortement de lire l’ouvrage de référence, même si la prise en main est très rapide. 
+ * 4 - Il est désormais indispensable d’utiliser le package `tidyverse` et en particulier les fonctions de manipulation et de pipe (%>%) fournies par  `dplyr`. Ce sera donc le premier package à installer (attention, il appele de nombreuses dépendences, l'installation peut prendre plusieurs minutes )
 
 
 ## La convention du Rmarkdown
@@ -18,31 +19,28 @@ Quelques éléments de base :
 
 un document markdown est composé de plusieurs éléments
 
- * Yalm dans cet entête les éléments essentiels sont définis et paramétrés
- * Texte : il suit les conventions de mise en forme du html :
- ** des # pour les niveau de titres
- ** (x)[*.html] pour des liens et ![x](image.jpg) pour des images
- ** 
- * Les chunks sont isolé par 3 tiks au début et à la fin. 
- * Résultats apparaissent sous les chunks
+1. Yalm dans cet entête les éléments essentiels sont définis et paramétrés
+2. Texte : il suit les conventions de mise en forme du html :
+   * des # pour les niveau de titres
+   * (x)[*.html] pour des liens et "![x](*.jpg)" pour des images
+3. Les chunks sont isolés par 3 tiks au début et à la fin. 
+4. Résultats apparaissent sous les chunks
  
- 
- https://rmarkdown.rstudio.com/authoring_pandoc_markdown.html#Footnotes
- 
-Ce document peut être excécuté et publié sous différents formats : html, lpadf ou même word  avec les éléments suivants
- * plan
- * texte
- * code
- * résultats
- * Bibliographie
- * Références
- * liens
- * images
+Ce document peut être exécuté et publié sous différents formats : html, pdf ou même word  avec les éléments suivants: 
+
+* plan
+* texte
+* code
+* résultats
+* Bibliographie
+* Références
+* liens
+* images
 
  
 ## Lire les données
 
-La première étape c'est la lecture des données. On commence par le plus simple la lecture de fichiers locaux, dont les formats sont multiples : csv, tsv, xlsx, Spss, etc... Le package readr contribue à cette tâche.
+La première étape c'est la lecture des données. On commence par le plus simple la lecture de fichiers locaux, dont les formats sont multiples : csv, tsv, xlsx, Spss, etc... Le package `readr` contribue à cette tâche.
 
 
 ```{r 0201}
@@ -52,7 +50,7 @@ df <- read_csv("./Data/BXL_listings.csv")
 ```
 
 
-Il est possible aussi d'accéder en  direct aux données du web, c'est bien utile pour s'assurer que les données sont bien fraiches. Par exemple une connexion à Nsppolls qui propose une compilation de tous les sondages d'intention de vote de la présidentielle 2022.
+Il est possible aussi d'accéder en  direct aux données du web, c'est bien utile pour s'assurer que les données sont bien fraîches. Par exemple une connexion à Nsppolls qui propose une compilation de tous les sondages d'intention de vote de la présidentielle 2022.
 
 ```{r 0202}
 
@@ -70,19 +68,6 @@ Peu de formats échappent à r, ils peuvent faire appel à des packages spécifi
  * Json
  * shape et autre GIS : 
  * les formats bibliographique : bib et ris
- 
-### Les autres accès aux données
-
-
-Interfaces
-
-le génie des API : ne pas se soucier de la mise à jour à chaque fois qu'on lance un calcul. 
-
-exemples :
-
- * base d'archive de presse
- * api des réseaux sociaux : tweetr
- * open data
  
 
  
@@ -104,7 +89,7 @@ Un exemple simple . Dans la ligne de code suivante, une première fonction lit l
 
 g <- read_csv("./Data/BXL_listings.csv") %>% 
   ggplot(aes(x=price))+
-  geom_histogram()
+  geom_histogram(binwidth = 10)
 g
 
 ```
@@ -112,16 +97,13 @@ g
 
 ### Des verbes
 
-L'originalité de dplyr est de définir des fonctions comme des verbes. Chaque verbe désigne un type d'action. On va les examiner progressivement : 
-Ils sont simples à comprendre : tansformer une variables, filter les obsersation selon un critère, isoler des variables, les groupper pour en calculer des résultats statistiqyes ( somme, moyenne, variance, max min etc) * les déployer selon un format long ou les distribuer en différents critères, les fusionner enfin selon les grandes modalité du SQL)
+L'originalité de dplyr est de définir des fonctions comme des verbes. Chaque verbe désigne un type d'action. On va les examiner progressivement. Ils sont simples à comprendre : transformer une variables, filtrer les observations selon un critère, isoler des variables, les grouper pour en calculer des résultats statistiques (somme, moyenne, variance, max min etc), les déployer selon un format long ou les distribuer en différents critères, les fusionner enfin selon les grandes modalité du SQL.
 
 #### Mutate
 
 En Français c'est "transformer". On modifie la valeur d'une variable par une fonction plus ou moins complexe, éventuellement en ajoutant des conditions. 
 
-Dans notre exemple, faisant au plus simple, puisque la distribution est asymétrique, une transformation du prix par les log peut donner des résultats intéressants. 
-
-Et c'est le cas. On retrouve une distribution qui semble être gaussienne. 
+Dans notre exemple, faisant au plus simple, puisque la distribution est asymétrique, une transformation du prix par les log peut donner des résultats intéressants. Et c'est le cas. On retrouve une distribution qui semble être gaussienne. 
 
 ```{r 0204}
 
@@ -136,77 +118,118 @@ g
 #### Filter
 
 
-On peut vouloir se concentrer sur une sous population. par exemple les chambres privées.
+On peut vouloir se concentrer sur une sous population. Par exemple les chambres privées.
 
 
 ```{r 0205}
 
 g <- read_csv("./Data/BXL_listings.csv") %>% 
-  filter(room_type=="Private room")%>% 
-  # on note que le signe == est double, c'est pour dire que la variable prend la valeur, ou non, qui est proposée
-  mutate(price=log10(price))%>%
-  ggplot(aes(x=price))+geom_histogram()
+  filter(room_type=="Private room" ) %>% 
+  ggplot(aes(x=price))+
+  geom_histogram()
 g
+
 
 ```
 
 
 #### select
 
-On peut selectionner des colonnes pour créer un tableau spécifique
+On peut sélectionner des colonnes pour créer un tableau spécifique. On en profite pour introduire '[flextable](https://ardata-fr.github.io/flextable-book/index.html)' , une solution élégante pour éditer des tableaux en html.
 
 ```{r 0206}
 
 foo <- read_csv("./Data/BXL_listings.csv") %>%
-  dplyr::select(room_type,price) %>% 
-  head(5) #afficher les 5 premières observations
-foo
+  dplyr::select(room_type,price) 
 
+ft <- flextable(foo[ sample.int(10),])
+ft <- theme_vanilla(ft)
+ft <- autofit(ft)
+ft
 ```
 
 #### Group_by et summarize
 
-c'est une opération clé, en groupant selon les modalités d'une ou pluseirs variables, on peut construire des tableaux aggrégés.On l'associera à `summarize` qui permet de calculer les statistique aggrégé selon le groupe que l'on a définit.
+c'est une opération clé, en groupant selon les modalités d'une ou plusieurs variables, on peut construire des tableaux agrégés. On l'associera à `summarize` qui permet de calculer les statistiques agrégées selon le groupe que l'on a définit.
 
 
 
 ```{r 0207}
 
 foo <- read_csv("./Data/BXL_listings.csv")%>% 
-  dplyr::select(neighbourhood, price)%>%
+  dplyr::select(neighbourhood, price, number_of_reviews)%>%
     group_by(neighbourhood ) %>% 
-  summarise(averageprice=mean(price)) 
+  summarise(averageprice=round(mean(price),2),
+            nombreoffre=n())
 
-head(foo, 5)
+ft <- flextable(foo)%>% 
+  theme_vanilla() 
 
+ft
 
 ```
 
 
 #### Pivot_wider et pivot_longer
 
-Si pour l'habitué des feuilles excell les données croisent des observations avec des variables, ce format n'est pas le seul moyen de réprésenter des données, et pas forcément le meilleur. 
+Si pour l'habitué des feuilles excel les données croisent des observations avec des variables, ce format n'est pas le seul moyen de représenter des données, et pas forcément le meilleur. 
 
 ![merge](./Images/pivot_longer.png)
 
-![merge](./Images/pivot_wider.png)
+L'opération inverste est de partir d'un tableau long vers un tableau large. 
+![pivot_wider](./Images/pivot_wider.png)
+
+On remarquera que l'usage de cette fonction est nécessaire dans l'emploi de ggplot qui suit la logique des tidy data, ou données ordonnées
 
 
+ * une théorie des tidy data : Un ensemble de données est une collection de valeurs, généralement des nombres (si elles sont quantitatives) ou des chaînes de caractères (si elles sont qualitatives). Les valeurs sont organisées de deux manières. Chaque valeur appartient à une variable et à une observation. Une variable contient toutes les valeurs qui mesurent le même attribut sous-jacent (comme la hauteur, la température, la durée) dans différentes unités. Une observation contient toutes les valeurs mesurées sur la même unité (comme une personne, ou un jour, ou une course) à travers les attributs.
 
+
+![merge](./Images/tidydata_1.jpg)
+
+
+#### Fusionner les données
+
+On sera souvent amené à construire des tableaux de données en les enrichissant par d'autres tableaux et   à fusionner les données.
+
+Le cas le plus simple est d'ajouter d'autres observations à un fichier de données. On distingue deux cas :
+
+ * les deux tableaux concernent les mêmes individus classé dans le même ordre, seules les colonnes diffèrent. On utilisera la fonction `cbind()`
+ * si les variables sont identiques mais que les individus sont différents on peut concatène des données avec `rbind()` (L'équivalent de DPLYR est row_bind et column_bind)
+ 
+```{r 0208}
+
+x1<-as.data.frame(c(1,2,3,4,5)) %>%rename(x=1)
+
+y<-as.data.frame(c("a","b","c","d","e"))  %>%rename(y=1)
+
+z<-cbind(x1,y)
+
+ft<-flextable(z)
+ft
+```
+
+```{r 0209}
+
+x2<-as.data.frame(c(9,8,7,6)) %>%rename(x=1)
+
+w<-rbind(x1,x2)
+
+ft<-flextable(w)
+ft
+```
 
  
-#### merge
-
-On sera souvent amené à fabriquer des tableaux de donnée en les enrichissant d'un autre. On sera amené  à fusionner les données.
-
-Le cas le plus simples est d'ajouter d'autres observation à un fichier de données, si les variables sont identitiques on peut concaténer diffrents jeux de données avec la fonction de base rbind au contraire si les observation sont les mêmes, et que seules les variables sont différentes on peut utiliser cbind. L'équivalent de DPLYR est row_bind et column_bind
 
 mais très souvent on sera dans des cas différents et la fusion des données devra suivre des index
 
 ![merge](./Images/merge_ex-1024x624.png)
 
 
-quatre types de fusion
+Plusieurs types de fusion sont proposées.
+
+![Mode de fusions](./Images/join_diagram.png)
+
 
 genérale
 
@@ -214,15 +237,10 @@ fusion à gauche
 
 fusion à droite
 
-https://coletl.github.io/tidy_intro/lessons/dplyr_join/dplyr_join.html
+(Voire ce cours)[https://coletl.github.io/tidy_intro/lessons/dplyr_join/dplyr_join.html]
  
-## Pour aller plus loin
 
-On engage le lecteur à poursuivre avec
 
- * le bookdown au-delà du markdown
- * une théorie des tidy data
- 
 
 
 
