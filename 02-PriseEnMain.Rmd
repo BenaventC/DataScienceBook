@@ -143,7 +143,7 @@ foo <- read_csv("./Data/BXL_listings.csv") %>%
 ft <- flextable(foo[ sample.int(10),])%>%
    set_header_labels(room_type="Type de logement",
   price = "Prix en euros")%>%
-  theme_vanilla()%>% fontsize(ft, size = 7, j = 3)%>%
+  theme_vanilla()%>% fontsize(size = 9)%>%
   autofit()
 ft
 ```

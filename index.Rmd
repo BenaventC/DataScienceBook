@@ -66,7 +66,7 @@ Voici la présentation des sets de données utilisées dans le syllabus. Ils son
  
 ## Le cadre technique et les packages utilisés
 
-Ce  _syllabus_ est écrit en **Markdown** [@allaire_rmarkdown_2021] et  avec le package **Bookdown** [@R-bookdown]. Le code s'appuie sur `tidyverse` et emploie largement les ressources de `ggplot`. Les packages seront introduits au fur et à mesure. En voici la liste complète.
+Ce  _syllabus_ est écrit en **Markdown** [@allaire_rmarkdown_2021] et  avec le package **Bookdown** [@R-bookdown]. Le code s'appuie sur `tidyverse` et emploie largement les ressources de `ggplot`. Les packages seront introduits au fur et à mesure mais un voici la liste complète.
 
 
 ```{r 001, echo = TRUE, message=FALSE,warning=FALSE}
@@ -98,11 +98,8 @@ library(cleanNLP) #annotation syntaxique
 #sentiment
 library(syuzhet)             #analyse du sentimeent
 
-
-
 #mise en page des tableaux
 library(flextable)
-
 
 #statistiques et modèles
 library(lme4) #pour des modèles plus complexe que les mco
@@ -112,21 +109,17 @@ library(nlme)#pour les hlm
 library(psych) #pour la psychometrie
 
 #ACP et AFCM
-
 library("FactoMineR")
 library("factoextra")
-
 
 #ML
 library(caret)
 
 #utilitaires
-library(rcompanion)
+library(rcompanion) #n'est plus maintenu, trouver une autre source pour le V de cramer
 
 #graphismes
 library(ggthemes)
-theme_set(theme_bw())
-
 
 #palettes
 library(colorspace) #pour les couleurs
@@ -140,7 +133,6 @@ library(betareg)
 
 
 # Utilitaires
-
 library(citr) #pour insérer des références dans le markdown
 
 #config plot

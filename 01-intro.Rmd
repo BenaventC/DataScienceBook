@@ -1,30 +1,34 @@
 # Introduction aux data sciences {#intro}
 
-L'objet du manuel est de donner un aperçu général des méthodes d'analyses de données et de data science.
+L'objet du manuel est de donner un aperçu général des méthodes d'analyses de données et de data sciences Mais avant de s'engager dans les procédures une réflexion épistémologique et historique peut être utile. Si les méthodes sont puissantes, inventives, ils faut aussi s'interroger sur leur conditions d'émergences. 
+La discipline fût la statistique, elle alimenta milles champs spécifiques : économétrie, psychométrie, biostatistiques. Derrières les problèmes l'avance des mathématiques pour caractériser les modèles proposés. Elle s'est laissée aller à d'autres terminologies : analyse des données, data mining, Machien learning, deep learning. 
 
-## Science ou technique ?
+## Science, art, technique et pratiques
 
-Plutôt que le terme consacré de Data sciences, il vaudrait mieux parler de data ingénierie dans la mesure où le data scientiste participe à un processus de production qui va de l'acquisition des donnée à leur propagation dans l'organisation ou la société. La technique domine sur la science et l'unité se trouve dans l'intégration de ce processus. La révolution des données vient de l'interopérabilité croissante de ces techniques et d'une intégration qui fluidifie le passage d'une étape à une autre. Standards et langages en sont les éléments clés. 
+Plutôt que le terme consacré de data sciences, il vaudrait mieux parler de data ingénierie dans la mesure où le data scientiste participe à un processus de production qui va de l'acquisition des données à leur propagation dans l'organisation ou la société. La technique domine sur la science et l'unité se trouve dans l'intégration de ce processus. La révolution des données vient de l'interopérabilité croissante de ces techniques et d'une intégration qui fluidifie le passage d'une étape à une autre. Standards et langages en sont les éléments clés. 
 
-Du côté des sciences, ce dont bénéficie l'univers des data sciences, c'est l'héritage de cultures statistiques foisonnantes qui après s'être développées dans leur cocon disciplinaire, se retrouvent désormais rassemblées dans un même langage. Bien sur il y a de manière sous-jascente les mathématiques et les statistiques qui construisent les fondements des modèles et des techniques. Mais leur développement s'est fait souvent quand le scientifique se retrouve face à un problème où une observation. 
+Du côté des sciences, ce dont bénéficie l'univers des data sciences, c'est l'héritage de cultures statistiques foisonnantes qui après s'être développées dans leur cocon disciplinaire, se retrouvent désormais rassemblées dans un même langage. Bien sur il y a de manière sous-jascente les mathématiques et les statistiques qui construisent les fondements des modèles et des techniques. 
 
-Prenons le cas des psychologues qui ont inventé l'analyse factorielle dans le but de pouvoir tester certains de leurs concepts : un degré d'intelligence, une personnalité, des attitudes. 
+Mais leur développement s'est fait souvent quand le scientifique se retrouve face à un problème où une observation. Prenons le cas des psychologues qui ont inventé l'analyse factorielle dans le but de pouvoir tester certains de leurs concepts : un degré d'intelligence, une personnalité, des attitudes. 
 
 Ou celui des écologues qui souhaitent estimer une population de poisson dans une rivière, problème qui a donné naissance aux modèles de capture/recapture. On pourrait ajouter les géographes avec les modèles d'analyse spatiale, les financiers face à la variabilité des cours des places boursières, etc. Celui des économètres est peut-être le plus évident. Les biostatisticiens sont des contributeurs importants.  
 
-Ce que la technique apporte c'est l'intégration par un langage et donc un ensemble de conventions, incarnées par r et python,  d’algorithmes, et de programmes qui ne sont plus spécifique à un domaine, mais peuvent circuler de l'un à l'autre. C'est ainsi que le catalogues de toutes les techniques psychométriques devient accessible aux autres disciplines par le biais d'un package en particulier , psych. De la même manière l'outillage des linguiste devient accessible aux autres disciplines, pensons aux économiste qui intéègre dans le indicateurs des sources textuelle telle que l'analyse du sentiment.
+Ce que la technique apporte c'est l'intégration par un langage et donc un ensemble de conventions, incarnées par r et python,  algorithmes, et de programmes qui ne sont plus spécifiques à un domaine, mais peuvent circuler de l'un à l'autre. C'est ainsi que le catalogues de toutes les techniques psychométriques devient accessible aux autres disciplines par le biais d'un package en particulier, psych. De la même manière l'outillage des linguiste devient accessible aux autres disciplines, pensons aux économiste qui intégrent dans le indicateurs des sources textuelle telle que l'analyse du sentiment. ( ref)
 
-L'interopérabilité apportée par ces langages ne se définit pas que par l'algorithme qui aurait été porté d'un autre langage vers celui-ci (des cas de réécriture ?) mais aussi par des programme passerelle qui à partir de r permettent d'activité des algorithme écrit en C, en javascript ou tout autre langage "plus informatiques" et souvent plus efficace. 
+L'interopérabilité apportée par ces langages ne se définit pas que par l'algorithme qui aurait été porté d'un autre langage vers celui-ci (des cas de réécriture ?) mais aussi par des programme passerelle qui à partir de r permettent d'activité des algorithme écrit en C, en javascript ou tout autre langage "plus informatique" et souvent plus efficace. 
 
 ## Une courte histoires des logiciels statistiques
 
-Et c'est ce qu'on observe dans l'évolution des logiciels
+Ce qu'on observe dans l'évolution des logiciels
 
- * 1980 : statitcf
+ * 1980 : stat-itcf
  * 1980 : SAS comme accès à r
  * 1990 : SPSS
- * 1997 : s puis r
- * ? : python
+ * stata
+ * 1997 : s dès 976  puis r, 1996 fre sofsware          as r. le CRAN nait en 1997. 2003 création dez r foundation.
+ * 1991 - 2001: Python - Guido van Rossum - Python Software Foundation, créée en 2001
+ * keras
+ * tensor flow
 
 http://www.deenov.com/blog-deenov/histoire-du-logiciel-spad.aspx
 
@@ -97,7 +101,7 @@ Les méthodes disponibles se sont accumulées depuis ces dernières 20 années. 
 * 2008 : lda topic
 * 2013 : word2vec
 * 2018 : transformers
-* 
+* ....
 
 KNN, SVM, rf et le retour des réseaux de neurones. 
 
@@ -107,5 +111,5 @@ Il ne reste plus qu'à soulever le capot et de mettre les mains dans le cambouis
 
 Et à se rappeler que si la nécessité de se faire remarquer à conduit les acteurs du domaine à envisager des data sciences, que c'est d'abord un art d'écriture, et une pratique qui permet à leurs artisans de s'échanger des secrets de fabrique. 
 
-On remerciera tous ceux qui développent des packages, nous aurons le point de vue de ceux qui les utilisent. Ce cours est aussi un livre de recette, celui d'un chercheur en sciences sociales qui picore dans l'immensité de la production pour trouver des procédures reproductibles par ses étudiants. 
+On remerciera tous ceux qui développent des Packages, nous aurons le point de vue de ceux qui les utilisent. Ce cours est aussi un livre de recette, celui d'un chercheur en sciences sociales qui picore dans l'immensité de la production pour trouver des procédures reproductibles par ses étudiants. 
 
