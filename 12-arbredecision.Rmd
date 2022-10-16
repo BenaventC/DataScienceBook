@@ -1,4 +1,4 @@
-#  Arbre de Décision
+#  Arbres de Décision
 
 L’objectif de cette note est double. Le premier est une introduction aux méthodes d’arbres de décision et leur généralisation récente par les random forests. Le second est d’introduire à l’approche d’apprentissage et de test, autrement aux machine learning avec le package caret qui facilite la condition des opérations d’échantillonngage, de découpage des échanges et de production des indicateurs.
 
@@ -34,7 +34,7 @@ https://apiacoa.org/blog/2014/02/initiation-a-rpart.fr.html
 
 
 
-```{r libraries, echo=TRUE, include=TRUE,, message=FALSE, warning=FALSE, fig.width=12}
+```{r 1201, echo=TRUE, include=TRUE,, message=FALSE, warning=FALSE, fig.width=12}
 
 knitr::opts_chunk$set(echo = TRUE, include=TRUE, cache=TRUE, message=FALSE, warning=FALSE)
 

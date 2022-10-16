@@ -24,7 +24,7 @@
 <meta name="author" content="Christophe Benavent - Université Paris Dauphine" />
 
 
-<meta name="date" content="2022-10-15" />
+<meta name="date" content="2022-10-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -191,6 +191,7 @@ div.csl-indent {
 <ul>
 <li><a href="prise-en-main-de-r.html#des-pipes" id="toc-des-pipes"><span class="toc-section-number">3.3.1</span> Des pipes %&gt;%</a></li>
 <li><a href="prise-en-main-de-r.html#des-verbes" id="toc-des-verbes"><span class="toc-section-number">3.3.2</span> Des verbes</a></li>
+<li><a href="prise-en-main-de-r.html#fusionner-les-données" id="toc-fusionner-les-données"><span class="toc-section-number">3.3.3</span> Fusionner les données</a></li>
 </ul></li>
 </ul></li>
 <li><a href="analyses-univariées.html#analyses-univariées" id="toc-analyses-univariées"><span class="toc-section-number">4</span> Analyses univariées</a>
@@ -313,12 +314,13 @@ div.csl-indent {
 <ul>
 <li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#en-guise-dintroduction-1" id="toc-en-guise-dintroduction-1"><span class="toc-section-number">13.1</span> en guise d’introduction</a></li>
 <li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#une-application" id="toc-une-application"><span class="toc-section-number">13.2</span> Une application</a></li>
+<li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#sem-avec-lavaan" id="toc-sem-avec-lavaan"><span class="toc-section-number">13.3</span> Sem avec Lavaan</a></li>
 </ul></li>
-<li><a href="arbre-de-décision.html#arbre-de-décision" id="toc-arbre-de-décision"><span class="toc-section-number">14</span> Arbre de Décision</a>
+<li><a href="arbres-de-décision.html#arbres-de-décision" id="toc-arbres-de-décision"><span class="toc-section-number">14</span> Arbres de Décision</a>
 <ul>
-<li><a href="arbre-de-décision.html#construire-un-arbre-de-décision" id="toc-construire-un-arbre-de-décision"><span class="toc-section-number">14.1</span> Construire un arbre de décision</a></li>
-<li><a href="arbre-de-décision.html#mise-en-oeuvre-avec-partykit" id="toc-mise-en-oeuvre-avec-partykit"><span class="toc-section-number">14.2</span> Mise en oeuvre avec Partykit</a></li>
-<li><a href="arbre-de-décision.html#forêts-aléatoires" id="toc-forêts-aléatoires"><span class="toc-section-number">14.3</span> forêts aléatoires</a></li>
+<li><a href="arbres-de-décision.html#construire-un-arbre-de-décision" id="toc-construire-un-arbre-de-décision"><span class="toc-section-number">14.1</span> Construire un arbre de décision</a></li>
+<li><a href="arbres-de-décision.html#mise-en-oeuvre-avec-partykit" id="toc-mise-en-oeuvre-avec-partykit"><span class="toc-section-number">14.2</span> Mise en oeuvre avec Partykit</a></li>
+<li><a href="arbres-de-décision.html#forêts-aléatoires" id="toc-forêts-aléatoires"><span class="toc-section-number">14.3</span> forêts aléatoires</a></li>
 </ul></li>
 <li><a href="premiers-éléments-de-machine-learning.html#premiers-éléments-de-machine-learning" id="toc-premiers-éléments-de-machine-learning"><span class="toc-section-number">15</span> Premiers éléments de Machine Learning</a>
 <ul>
@@ -354,7 +356,7 @@ div.csl-indent {
 <div id="header">
 <h1 class="title">Introduction aux Data Sciences</h1>
 <p class="author"><em>Christophe Benavent - Université Paris Dauphine</em></p>
-<p class="date" style="margin-top: 1.5em;"><em>2022-10-15</em></p>
+<p class="date" style="margin-top: 1.5em;"><em>2022-10-16</em></p>
 </div>
 <div id="avant-propos" class="section level1" number="1">
 <h1><span class="header-section-number">Chapitre 1</span> Avant propos</h1>
@@ -408,38 +410,38 @@ div.csl-indent {
 <span id="cb1-6"><a href="index.html#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cowplot) <span class="co">#pour créer des graphiques composés</span></span>
 <span id="cb1-7"><a href="index.html#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggridges) <span class="co"># le joy division touch</span></span>
 <span id="cb1-8"><a href="index.html#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggmosaic)</span>
-<span id="cb1-9"><a href="index.html#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="index.html#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">#networks</span></span>
-<span id="cb1-11"><a href="index.html#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph)</span>
-<span id="cb1-12"><a href="index.html#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggraph)</span>
-<span id="cb1-13"><a href="index.html#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-14"><a href="index.html#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Accéder aux données</span></span>
-<span id="cb1-15"><a href="index.html#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rtweet)  <span class="co"># une interface efficace pour interroger l&#39;api de Twitter</span></span>
-<span id="cb1-16"><a href="index.html#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="index.html#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># NLP</span></span>
-<span id="cb1-18"><a href="index.html#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tokenizers)</span>
-<span id="cb1-19"><a href="index.html#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda)</span>
-<span id="cb1-20"><a href="index.html#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda.textstats)</span>
-<span id="cb1-21"><a href="index.html#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(udpipe) <span class="co">#annotation syntaxique</span></span>
-<span id="cb1-22"><a href="index.html#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
-<span id="cb1-23"><a href="index.html#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cleanNLP) <span class="co">#annotation syntaxique</span></span>
-<span id="cb1-24"><a href="index.html#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-25"><a href="index.html#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co">#sentiment</span></span>
-<span id="cb1-26"><a href="index.html#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(syuzhet)             <span class="co">#analyse du sentimeent</span></span>
-<span id="cb1-27"><a href="index.html#cb1-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="index.html#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggcorrplot)</span>
+<span id="cb1-10"><a href="index.html#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="index.html#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">#networks</span></span>
+<span id="cb1-12"><a href="index.html#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph)</span>
+<span id="cb1-13"><a href="index.html#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggraph)</span>
+<span id="cb1-14"><a href="index.html#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="index.html#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Accéder aux données</span></span>
+<span id="cb1-16"><a href="index.html#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rtweet)  <span class="co"># une interface efficace pour interroger l&#39;api de Twitter</span></span>
+<span id="cb1-17"><a href="index.html#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="index.html#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># NLP</span></span>
+<span id="cb1-19"><a href="index.html#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tokenizers)</span>
+<span id="cb1-20"><a href="index.html#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda)</span>
+<span id="cb1-21"><a href="index.html#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(quanteda.textstats)</span>
+<span id="cb1-22"><a href="index.html#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(udpipe) <span class="co">#annotation syntaxique</span></span>
+<span id="cb1-23"><a href="index.html#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidytext)</span>
+<span id="cb1-24"><a href="index.html#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(cleanNLP) <span class="co">#annotation syntaxique</span></span>
+<span id="cb1-25"><a href="index.html#cb1-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-26"><a href="index.html#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="co">#sentiment</span></span>
+<span id="cb1-27"><a href="index.html#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(syuzhet)             <span class="co">#analyse du sentimeent</span></span>
 <span id="cb1-28"><a href="index.html#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-29"><a href="index.html#cb1-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-30"><a href="index.html#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="co">#mise en page des tableaux</span></span>
-<span id="cb1-31"><a href="index.html#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flextable)</span>
-<span id="cb1-32"><a href="index.html#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-30"><a href="index.html#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="index.html#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="co">#mise en page des tableaux</span></span>
+<span id="cb1-32"><a href="index.html#cb1-32" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flextable)</span>
 <span id="cb1-33"><a href="index.html#cb1-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-34"><a href="index.html#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co">#statistiques et modèles</span></span>
-<span id="cb1-35"><a href="index.html#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4) <span class="co">#pour des modèles plus complexe que les mco</span></span>
-<span id="cb1-36"><a href="index.html#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jtools) <span class="co">#une série d&#39;utiltaire pour bien représenter les résultats</span></span>
-<span id="cb1-37"><a href="index.html#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(interactions) <span class="co">#traitement des interactions</span></span>
-<span id="cb1-38"><a href="index.html#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-39"><a href="index.html#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span>
-<span id="cb1-40"><a href="index.html#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych) </span>
+<span id="cb1-34"><a href="index.html#cb1-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-35"><a href="index.html#cb1-35" aria-hidden="true" tabindex="-1"></a><span class="co">#statistiques et modèles</span></span>
+<span id="cb1-36"><a href="index.html#cb1-36" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lme4) <span class="co">#pour des modèles plus complexe que les mco</span></span>
+<span id="cb1-37"><a href="index.html#cb1-37" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jtools) <span class="co">#une série d&#39;utiltaire pour bien représenter les résultats</span></span>
+<span id="cb1-38"><a href="index.html#cb1-38" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(interactions) <span class="co">#traitement des interactions</span></span>
+<span id="cb1-39"><a href="index.html#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(nlme)<span class="co">#pour les hlm</span></span>
+<span id="cb1-40"><a href="index.html#cb1-40" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych) <span class="co">#pour la psychometrie</span></span>
 <span id="cb1-41"><a href="index.html#cb1-41" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-42"><a href="index.html#cb1-42" aria-hidden="true" tabindex="-1"></a><span class="co">#ACP et AFCM</span></span>
 <span id="cb1-43"><a href="index.html#cb1-43" aria-hidden="true" tabindex="-1"></a></span>

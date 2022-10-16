@@ -77,6 +77,7 @@ library(tidyverse) # inclut ggplot pour la viz, readr et
 library(cowplot) #pour créer des graphiques composés
 library(ggridges) # le joy division touch
 library(ggmosaic)
+library(ggcorrplot)
 
 #networks
 library(igraph)
@@ -106,9 +107,8 @@ library(flextable)
 library(lme4) #pour des modèles plus complexe que les mco
 library(jtools) #une série d'utiltaire pour bien représenter les résultats
 library(interactions) #traitement des interactions
-
-library(corrplot)
-library(psych) 
+library(nlme)#pour les hlm
+library(psych) #pour la psychometrie
 
 #ACP et AFCM
 

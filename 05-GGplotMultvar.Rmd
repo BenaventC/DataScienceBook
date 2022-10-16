@@ -202,7 +202,7 @@ foo<-df_pol%>%
             std=sd(intentions, na.rm=TRUE))
 
 
-SensiP2<-c("gray90","gray20", "Royalblue", "skyblue", "orange", "yellow", "pink", "firebrick", "green")
+SensiP2<-c("gray90","gray20", "Royalblue", "skyblue", "orange", "yellow", "pink", "firebrick", "green", "gold1", "gold2")
 
 
 g<-ggplot(foo,aes(x=candidat,y=moy))+

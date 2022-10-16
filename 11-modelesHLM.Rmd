@@ -28,7 +28,7 @@ foo_FC<-as.data.frame(rnorm(20, mean=12, sd=10))%>%
 foo_FA<-as.data.frame(rnorm(20, mean=12, sd=10))%>%
   rename(QI=1) %>% group_by(row_number()) %>% 
   mutate(e=-5+10*runif(1))%>% ungroup() %>%
-  mutate(Perf=a*QI+2-3+1+e,matiere="Français", classe="Agité")
+  mutate(Perf=a*QI+2-4+1+e,matiere="Français", classe="Agité")
 
 
 
@@ -36,18 +36,20 @@ foo<-rbind(foo_MA, foo_MC, foo_FA,foo_FC)
 r =round(cor(foo$QI, foo$Perf),2)
 
 ggplot(foo, aes(x=QI, y=Perf))+
-  geom_point()+geom_smooth(method="lm")+  labs(title=paste("Corrélation :",r))
+  geom_point()+geom_smooth(method="lm")+  
+  labs(title=paste("Corrélation :",r))
 
 
 ggplot(foo, aes(x=QI, y=Perf, shape=matiere, color=classe))+
-  geom_point()+geom_smooth(method="lm")+facet_grid(matiere~classe)
+  geom_point()+geom_smooth(method="lm")+facet_grid(matiere~classe)+
   labs(title=paste("Corrélation :",r))
 
 
 fit01<-lm(Perf~QI, data=foo)
-fit02<-lm(Perf~QI+matiere*classe, data=foo)
+fit02<-lm(Perf~QI+matiere+classe, data=foo)
+fit03<-lm(Perf~QI+matiere*classe, data=foo)
 
-export_summs(fit01,fit02, digit=3)
+export_summs(fit01,fit02, fit03, number_format = "%.3g")
 ```
 
 Dans ce petit exemple, les niveaux sont peu nombreux. On pourrait imaginer qu'ils soient bien plus nombreux, par exemple en réalisant l'enquête sur des dizaines de classes pour lesquelles le degré d'agitation est variable et se distribue certainement de manière normale. Ne tenons plus en compte la matière pour le moment. On ne va prendre que la moyenne des maths.
@@ -67,6 +69,142 @@ C'est un modèle à composantes d'erreur où $\mu_{k}$ représente l'effet de la
 
 ## Une application
 
-voir données BVA
+voir données ESS
+
+```{r 1102}
+df <- read_csv("Data/ESS-Data-Wizard-subset-2022-10-06.csv")
 
 
+df$Year<-2000
+#recodage des variables independantes
+df$Year[df$essround==1]<-2002
+df$Year[df$essround==2]<-2004
+df$Year[df$essround==3]<-2006
+df$Year[df$essround==4]<-2008
+df$Year[df$essround==5]<-2010
+df$Year[df$essround==6]<-2012
+df$Year[df$essround==7]<-2014
+df$Year[df$essround==8]<-2016
+df$Year[df$essround==9]<-2018
+df$Year<-as.factor(df$Year) 
+
+df$OP<-" "
+#ggplot(df,aes(x=lrscale))+geom_histogram()
+df$OP[df$lrscale==0] <- "Extrême gauche" 
+df$OP[df$lrscale==1] <- "Gauche" 
+df$OP[df$lrscale==2] <- "Gauche" 
+df$OP[df$lrscale==3] <- "Centre Gauche" 
+df$OP[df$lrscale==4] <- "Centre Gauche" 
+df$OP[df$lrscale==5] <- "Ni G ni D" 
+df$OP[df$lrscale==6] <- "Centre Droit" 
+df$OP[df$lrscale==7] <- "Centre Droit" 
+df$OP[df$lrscale==8] <- "Droite" 
+df$OP[df$lrscale==9] <- "Droite" 
+df$OP[df$lrscale==10] <- "Extrême droite" 
+#la ligne suivante est pour ordonner les modalités de la variables
+df$OP<-factor(df$OP,levels=c("Extrême droite","Droite","Centre Droit","Ni G ni D","Centre Gauche","Gauche","Extrême gauche"))
+
+
+
+df$genre<-" "
+
+df$genre[df$gndr==1]<-"H"
+df$genre[df$gndr==2]<-"F"
+
+df$age<-" "
+
+df$age[df$agea<26]<-"25<"
+df$age[df$agea>25 & df$agea<36]<-"26-35"
+df$age[df$agea>35 & df$agea<46]<-"36-45"
+df$age[df$agea>45 & df$agea<66]<-"46-65"
+df$age[df$agea>65 & df$agea<76]<-"66-75"
+df$age[df$agea>75]<-"75>"
+df$age<-factor(df$age,levels=c("25<","26-35","36-45","46-65","66-75", "75>"))
+
+
+df_confiance<-df%>%
+  dplyr::select(trstep, trstlgl,trstplc,trstplt,trstprl,trstprt,trstun,pplfair,pplhlp, ppltrst) %>%
+  mutate(trstep=ifelse(trstep==77 |trstep==88| trstep==66,NA,trstep),
+         trstlgl=ifelse(trstlgl==77 |trstlgl==88| trstlgl==66,NA,trstlgl),
+         trstplc=ifelse(trstplc==77 |trstplc==88| trstplc==66,NA,trstplc),
+         trstplt=ifelse(trstplt==77 |trstplt==88| trstplt==66,NA,trstplt),
+         trstprt=ifelse(trstprt==77 |trstprt==88| trstprt==66,NA,trstprt),
+         trstun=ifelse(trstun==77 |trstun==88| trstun==66,NA,trstun),
+         trstprl=ifelse(trstprl==77 |trstprl==88| trstprl==66,NA,trstprl),
+         pplfair=ifelse(pplfair==77 |pplfair==88| pplfair==66,NA,pplfair),
+         pplhlp=ifelse(pplhlp==77 |pplhlp==88| pplhlp==66,NA,pplhlp),
+         ppltrst=ifelse(ppltrst==77 |ppltrst==88| ppltrst==66,NA,ppltrst),
+         trust_institution= (trstep+trstlgl+trstplc+trstplt+trstprl+trstprt+trstun)/7,
+         trust_personne= (pplfair+pplhlp+ppltrst)/7
+         )
+
+
+ 
+df_satisfaction<-df%>%
+  dplyr::select(stfeco,stfedu,stfgov, stfhlth, stflife,stfmjob, happy) %>%
+  mutate(stfeco=ifelse(stfeco==77 |stfeco==88| stfeco==66,NA,stfeco),
+         stfedu=ifelse(stfedu==77 |stfedu==88 | stfedu==66,NA,stfedu),
+         stfgov=ifelse(stfgov==77 |stfgov==88 | stfgov==66, NA, stfgov), 
+         stfhlth=ifelse(stfhlth==77 |stfhlth==88|stfhlth==66,NA,stfhlth), 
+         stflife=ifelse(stflife==77 |stflife==88|stflife==66,NA,stflife),
+         happy=ifelse(happy==77 |happy==88|happy==66,NA,happy),
+         stfmjob=ifelse(stfmjob==77 |stfmjob==88|stfmjob==66,NA,stfmjob),
+         satisfaction_vie=(stflife+happy)/2, #à examiner
+         satisfaction_institution=(stfeco+stfgov)/2,
+         satisfaction_care=(stfhlth+stfedu)/2
+)
+
+df_sample<-df%>%
+  dplyr::select(Year, age, OP, genre)
+
+
+df<-cbind(df_sample, df_satisfaction, df_confiance)
+
+table(df$happy)
+
+readRDS("ESS10FR.rds")
+```
+
+```{r 1103}
+library(ggcorrplot)
+foo<-cbind(df_satisfaction, df_confiance) %>%
+  dplyr::select(-stfmjob)%>%
+  drop_na()
+r<-cor(foo)
+ggcorrplot(r, hc.order = TRUE, type = "lower",
+   outline.col = "white",
+   colors = c("#6D9EC1", "white", "#E46726"), lab=TRUE, lab_size=2)
+
+res.pca <- PCA(foo, scale.unit = TRUE, ncp = 3, graph = TRUE)
+fviz_eig(res.pca, addlabels = TRUE, ylim = c(0, 50))
+fviz_pca_var(res.pca, col.var = "cos2",
+             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), 
+             repel = TRUE # Avoid text overlapping
+             )
+
+foo<-df%>% 
+  dplyr::select(satisfaction_vie, satisfaction_care, satisfaction_institution, trust_institution, trust_personne, Year)%>%
+  drop_na()
+
+fit0<-lm(satisfaction_vie~satisfaction_care+satisfaction_institution+trust_institution+trust_personne,  data=df)
+
+fit1<-lm(satisfaction_vie~satisfaction_care+satisfaction_institution+trust_institution+trust_personne+Year,  data=df)
+
+fit2<-lm(satisfaction_vie~age+genre+OP+satisfaction_care+satisfaction_institution+trust_institution+trust_personne+Year,  data=df)
+
+
+
+export_summs(fit0, fit1,fit2, digits=3)
+plot_summs(fit0, fit1,fit2)
+
+fit3<-lmer(satisfaction_vie~satisfaction_care+satisfaction_institution+trust_institution+trust_personne+(1|Year)+(1|age)+(1|OP)+(1|genre),data = df )
+
+summary(fit3)
+
+
+```
+
+## Sem avec Lavaan
+
+
+On reste sur le jeu de données précédent

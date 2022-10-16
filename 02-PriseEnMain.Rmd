@@ -79,17 +79,16 @@ C'est un des packages essentiels de la suite tidyverse. Il permet de manipuler a
  
 ### Des pipes %>%
 
-Une grand part de l'intérêt de dplyr est de reprendre un opérateur de maggritr très utiles : le pipe :  %>%. Celui ci permet de passer le résultats de l'opération à gauche, dans la fonction de droite.
+Une grand part de l'intérêt de dplyr est de reprendre un opérateur de magritr très utile : le pipe noté  `%>%`. Celui ci permet de passer le résultat de l'opération à gauche, dans la fonction à droite.
 
-Un exemple simple . Dans la ligne de code suivante, une première fonction lit le fichier CSV, et envoie le résultat de cette lecture dans une fonction graphique élémentaire: compter le nombre d'occurences des modalité de la variable room_type. On reviendra longuement sur ggplot, à ce stade ce qui compte c'est de retenir le procédé.
+Un exemple simple : dans la ligne de code suivante, une première fonction lit le fichier CSV, et envoie le résultat de cette lecture dans une fonction graphique élémentaire: compter les occurrences des modalités de la variable room_type. 
 
 
 ```{r 0203}
-
-
 g <- read_csv("./Data/BXL_listings.csv") %>% 
-  ggplot(aes(x=price))+
-  geom_histogram(binwidth = 10)
+  ggplot(aes(x=room_type))+
+  geom_bar()+
+  coord_flip()
 g
 
 ```
@@ -97,7 +96,7 @@ g
 
 ### Des verbes
 
-L'originalité de dplyr est de définir des fonctions comme des verbes. Chaque verbe désigne un type d'action. On va les examiner progressivement. Ils sont simples à comprendre : transformer une variables, filtrer les observations selon un critère, isoler des variables, les grouper pour en calculer des résultats statistiques (somme, moyenne, variance, max min etc), les déployer selon un format long ou les distribuer en différents critères, les fusionner enfin selon les grandes modalité du SQL.
+L'originalité de dplyr est de définir des fonctions comme des verbes. Chaque verbe désigne un type d'action. On va les examiner progressivement. Ils sont simples à comprendre : transformer une variable, filtrer les observations selon un critère, isoler des variables, les grouper pour en calculer des résultats statistiques (somme, moyenne, variance, max min etc), les déployer selon un format long ou les distribuer en différents critères, les fusionner enfin.
 
 #### Mutate
 
@@ -106,30 +105,26 @@ En Français c'est "transformer". On modifie la valeur d'une variable par une fo
 Dans notre exemple, faisant au plus simple, puisque la distribution est asymétrique, une transformation du prix par les log peut donner des résultats intéressants. Et c'est le cas. On retrouve une distribution qui semble être gaussienne. 
 
 ```{r 0204}
-
 g <- read_csv("./Data/BXL_listings.csv") %>% 
   mutate(price=log10(price))%>%
-  ggplot(aes(x=price))+geom_histogram()
+  ggplot(aes(x=price))+
+  geom_histogram()
 g
-
 ```
 
  
 #### Filter
 
-
 On peut vouloir se concentrer sur une sous population. Par exemple les chambres privées.
 
 
 ```{r 0205}
-
 g <- read_csv("./Data/BXL_listings.csv") %>% 
   filter(room_type=="Private room" ) %>% 
-  ggplot(aes(x=price))+
+    mutate(price=price)%>%
+  ggplot(aes(x=log10(price)))+
   geom_histogram()
 g
-
-
 ```
 
 
@@ -142,9 +137,11 @@ On peut sélectionner des colonnes pour créer un tableau spécifique. On en pro
 foo <- read_csv("./Data/BXL_listings.csv") %>%
   dplyr::select(room_type,price) 
 
-ft <- flextable(foo[ sample.int(10),])
-ft <- theme_vanilla(ft)
-ft <- autofit(ft)
+ft <- flextable(foo[ sample.int(10),])%>%
+   set_header_labels(room_type="Type de logement",
+  price = "Prix en euros")%>%
+  theme_vanilla()%>%
+  autofit()
 ft
 ```
 
@@ -157,12 +154,15 @@ c'est une opération clé, en groupant selon les modalités d'une ou plusieurs v
 ```{r 0207}
 
 foo <- read_csv("./Data/BXL_listings.csv")%>% 
-  dplyr::select(neighbourhood, price, number_of_reviews)%>%
+  dplyr::select(neighbourhood, price)%>%
     group_by(neighbourhood ) %>% 
   summarise(averageprice=round(mean(price),2),
             nombreoffre=n())
 
 ft <- flextable(foo)%>% 
+     set_header_labels(neighbourhood="Type de logement",
+  averageprice = "Prix en euros",
+  nombreoffre="Nombre d'offre")%>%
   theme_vanilla() 
 
 ft
@@ -172,9 +172,27 @@ ft
 
 #### Pivot_wider et pivot_longer
 
-Si pour l'habitué des feuilles excel les données croisent des observations avec des variables, ce format n'est pas le seul moyen de représenter des données, et pas forcément le meilleur. 
+Si pour l'habitué des feuilles de calculs les données croisent des observations avec des variables, ce format n'est pas le seul moyen de représenter des données, et pas forcément le meilleur. 
+
+Une théorie des tidy data a été proposé par wickham : Un ensemble de données est une collection de valeurs, généralement des nombres (si elles sont quantitatives) ou des chaînes de caractères (si elles sont qualitatives). Les valeurs sont organisées de deux manières. Chaque valeur appartient à une variable et à une observation. Une variable contient toutes les valeurs qui mesurent le même attribut sous-jacent (comme la hauteur, la température, la durée) dans différentes unités. Une observation contient toutes les valeurs mesurées sur la même unité (comme une personne, ou un jour, ou une course) à travers les attributs.
+
+![merge](./Images/tidydata_1.jpg)
+
+Pour passer d'un tableau individu x variable à une structure ordonnée, la fonction pivot_longer est particulièrement appropriée. En voici l'anatomie.
 
 ![merge](./Images/pivot_longer.png)
+Et un exemple numérique :
+
+```{r 0208}
+
+foo <- foo %>%
+  pivot_longer(-neighbourhood,names_to= "Variables",values_to = "Values")
+
+ggplot(foo, aes(x=neighbourhood, y=Values, group=Variables))+
+  geom_line()+facet_wrap(vars(Variables),scales="free")+
+  coord_flip()
+```
+
 
 L'opération inverste est de partir d'un tableau long vers un tableau large. 
 ![pivot_wider](./Images/pivot_wider.png)
@@ -182,13 +200,9 @@ L'opération inverste est de partir d'un tableau long vers un tableau large.
 On remarquera que l'usage de cette fonction est nécessaire dans l'emploi de ggplot qui suit la logique des tidy data, ou données ordonnées
 
 
- * une théorie des tidy data : Un ensemble de données est une collection de valeurs, généralement des nombres (si elles sont quantitatives) ou des chaînes de caractères (si elles sont qualitatives). Les valeurs sont organisées de deux manières. Chaque valeur appartient à une variable et à une observation. Une variable contient toutes les valeurs qui mesurent le même attribut sous-jacent (comme la hauteur, la température, la durée) dans différentes unités. Une observation contient toutes les valeurs mesurées sur la même unité (comme une personne, ou un jour, ou une course) à travers les attributs.
 
 
-![merge](./Images/tidydata_1.jpg)
-
-
-#### Fusionner les données
+### Fusionner les données
 
 On sera souvent amené à construire des tableaux de données en les enrichissant par d'autres tableaux et   à fusionner les données.
 
@@ -197,8 +211,7 @@ Le cas le plus simple est d'ajouter d'autres observations à un fichier de donn�
  * les deux tableaux concernent les mêmes individus classé dans le même ordre, seules les colonnes diffèrent. On utilisera la fonction `cbind()`
  * si les variables sont identiques mais que les individus sont différents on peut concatène des données avec `rbind()` (L'équivalent de DPLYR est row_bind et column_bind)
  
-```{r 0208}
-
+```{r 0209}
 x1<-as.data.frame(c(1,2,3,4,5)) %>%rename(x=1)
 
 y<-as.data.frame(c("a","b","c","d","e"))  %>%rename(y=1)
@@ -209,7 +222,7 @@ ft<-flextable(z)
 ft
 ```
 
-```{r 0209}
+```{r 0210}
 
 x2<-as.data.frame(c(9,8,7,6)) %>%rename(x=1)
 
@@ -237,7 +250,7 @@ fusion à gauche
 
 fusion à droite
 
-(Voire ce cours)[https://coletl.github.io/tidy_intro/lessons/dplyr_join/dplyr_join.html]
+(Voir ce cours)[https://coletl.github.io/tidy_intro/lessons/dplyr_join/dplyr_join.html]
  
 
 

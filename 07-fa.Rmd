@@ -7,7 +7,7 @@
 
 Par analyse factorielle, on entend finalement un ensemble de méthodes dont l'objectifs est d'extraire d'un ensemble multivariée de données, un petit nombre de dimensions, les facteurs, qui rendent compte l'essentiel des variations. Elles partagent aussi une même structure mathématique qui permet de décomposer et de réduire une matrice de données en un ensemble de matrice de dimensions réduite.
 
-On peut en distinguer deux écoles, l'une alimentée par des questions de psychométrie a nourrit plusieurs decennies de recherche en traitant les tests psychométriques. L'autre française s'intéressent aux variables qualitatives, et a une perspective plus descriptive et représentationnelle. 
+On peut en distinguer deux écoles, l'une alimentée par des questions de psychométrie a nourrit plusieurs decennies de recherche en traitant les tests psychométriques. L'autre française s'intéressent aux variables qualitatives, et a une perspective plus descriptive. 
 
 
 ### Une petite histoire de la psychométrie
@@ -81,7 +81,7 @@ S'y ajoutent deux fonctions très utiles pour représenter le résultats des ana
 
 
 ```{r 0601 }
-#library(corrplot)
+library(corrplot)
 #library(psych)
 #library(flextable)
 

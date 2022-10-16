@@ -24,7 +24,7 @@
 <meta name="author" content="Christophe Benavent - Université Paris Dauphine" />
 
 
-<meta name="date" content="2022-10-15" />
+<meta name="date" content="2022-10-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -191,6 +191,7 @@ div.csl-indent {
 <ul>
 <li><a href="prise-en-main-de-r.html#des-pipes" id="toc-des-pipes"><span class="toc-section-number">3.3.1</span> Des pipes %&gt;%</a></li>
 <li><a href="prise-en-main-de-r.html#des-verbes" id="toc-des-verbes"><span class="toc-section-number">3.3.2</span> Des verbes</a></li>
+<li><a href="prise-en-main-de-r.html#fusionner-les-données" id="toc-fusionner-les-données"><span class="toc-section-number">3.3.3</span> Fusionner les données</a></li>
 </ul></li>
 </ul></li>
 <li><a href="analyses-univariées.html#analyses-univariées" id="toc-analyses-univariées"><span class="toc-section-number">4</span> Analyses univariées</a>
@@ -313,12 +314,13 @@ div.csl-indent {
 <ul>
 <li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#en-guise-dintroduction-1" id="toc-en-guise-dintroduction-1"><span class="toc-section-number">13.1</span> en guise d’introduction</a></li>
 <li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#une-application" id="toc-une-application"><span class="toc-section-number">13.2</span> Une application</a></li>
+<li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#sem-avec-lavaan" id="toc-sem-avec-lavaan"><span class="toc-section-number">13.3</span> Sem avec Lavaan</a></li>
 </ul></li>
-<li><a href="arbre-de-décision.html#arbre-de-décision" id="toc-arbre-de-décision"><span class="toc-section-number">14</span> Arbre de Décision</a>
+<li><a href="arbres-de-décision.html#arbres-de-décision" id="toc-arbres-de-décision"><span class="toc-section-number">14</span> Arbres de Décision</a>
 <ul>
-<li><a href="arbre-de-décision.html#construire-un-arbre-de-décision" id="toc-construire-un-arbre-de-décision"><span class="toc-section-number">14.1</span> Construire un arbre de décision</a></li>
-<li><a href="arbre-de-décision.html#mise-en-oeuvre-avec-partykit" id="toc-mise-en-oeuvre-avec-partykit"><span class="toc-section-number">14.2</span> Mise en oeuvre avec Partykit</a></li>
-<li><a href="arbre-de-décision.html#forêts-aléatoires" id="toc-forêts-aléatoires"><span class="toc-section-number">14.3</span> forêts aléatoires</a></li>
+<li><a href="arbres-de-décision.html#construire-un-arbre-de-décision" id="toc-construire-un-arbre-de-décision"><span class="toc-section-number">14.1</span> Construire un arbre de décision</a></li>
+<li><a href="arbres-de-décision.html#mise-en-oeuvre-avec-partykit" id="toc-mise-en-oeuvre-avec-partykit"><span class="toc-section-number">14.2</span> Mise en oeuvre avec Partykit</a></li>
+<li><a href="arbres-de-décision.html#forêts-aléatoires" id="toc-forêts-aléatoires"><span class="toc-section-number">14.3</span> forêts aléatoires</a></li>
 </ul></li>
 <li><a href="premiers-éléments-de-machine-learning.html#premiers-éléments-de-machine-learning" id="toc-premiers-éléments-de-machine-learning"><span class="toc-section-number">15</span> Premiers éléments de Machine Learning</a>
 <ul>
@@ -357,83 +359,83 @@ div.csl-indent {
 <div id="la-confiance-institutionnelle-en-détail" class="section level2" number="6.1">
 <h2><span class="header-section-number">6.1</span> La confiance institutionnelle, en détail</h2>
 <p>On veut reprénter 6 variables, correspondant à 5 types d’habitats et 2 pays.</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="analyse-graphique-multivariée.html#cb66-1" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;./data/dfTrust.rds)&quot;</span>)</span>
-<span id="cb66-2"><a href="analyse-graphique-multivariée.html#cb66-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-3"><a href="analyse-graphique-multivariée.html#cb66-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-4"><a href="analyse-graphique-multivariée.html#cb66-4" aria-hidden="true" tabindex="-1"></a>rad<span class="ot">&lt;-</span>df <span class="sc">%&gt;%</span> </span>
-<span id="cb66-5"><a href="analyse-graphique-multivariée.html#cb66-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span> (habitat,cntry) <span class="sc">%&gt;%</span> </span>
-<span id="cb66-6"><a href="analyse-graphique-multivariée.html#cb66-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Partis=</span><span class="fu">mean</span>(Partis, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
-<span id="cb66-7"><a href="analyse-graphique-multivariée.html#cb66-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Parlement=</span><span class="fu">mean</span>(Parlement, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
-<span id="cb66-8"><a href="analyse-graphique-multivariée.html#cb66-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">Politiques=</span><span class="fu">mean</span>(Politiques, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
-<span id="cb66-9"><a href="analyse-graphique-multivariée.html#cb66-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">Police=</span><span class="fu">mean</span>(Police, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
-<span id="cb66-10"><a href="analyse-graphique-multivariée.html#cb66-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">Justice=</span><span class="fu">mean</span>(Justice, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
-<span id="cb66-11"><a href="analyse-graphique-multivariée.html#cb66-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">NationsUnies=</span><span class="fu">mean</span>(NationsUnies, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
-<span id="cb66-12"><a href="analyse-graphique-multivariée.html#cb66-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">ParlementEurop=</span><span class="fu">mean</span>(ParlementEurop, <span class="at">na.rm=</span><span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb66-13"><a href="analyse-graphique-multivariée.html#cb66-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(habitat)) <span class="sc">%&gt;%</span></span>
-<span id="cb66-14"><a href="analyse-graphique-multivariée.html#cb66-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>(variable, value, <span class="sc">-</span>habitat, <span class="sc">-</span>cntry)</span>
-<span id="cb66-15"><a href="analyse-graphique-multivariée.html#cb66-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb66-16"><a href="analyse-graphique-multivariée.html#cb66-16" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(rad, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(variable, value),<span class="at">y=</span>value, <span class="at">group=</span>habitat))<span class="sc">+</span></span>
-<span id="cb66-17"><a href="analyse-graphique-multivariée.html#cb66-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color=</span>habitat), <span class="at">size=</span><span class="dv">2</span>)<span class="sc">+</span></span>
-<span id="cb66-18"><a href="analyse-graphique-multivariée.html#cb66-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(.<span class="sc">~</span>cntry) <span class="sc">+</span><span class="fu">coord_flip</span>()<span class="sc">+</span></span>
-<span id="cb66-19"><a href="analyse-graphique-multivariée.html#cb66-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">type=</span><span class="st">&quot;div&quot;</span>,<span class="at">palette=</span><span class="dv">3</span>)<span class="sc">+</span><span class="fu">labs</span>(<span class="at">title=</span> <span class="st">&quot;Les éléments de la confiance institutionnelle&quot;</span>, <span class="at">caption=</span><span class="st">&quot;ESS2002-2018&quot;</span>,<span class="at">y=</span> <span class="st">&quot;confiance (de 1 à 10)&quot;</span>,<span class="at">x=</span><span class="st">&quot;institutions&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="analyse-graphique-multivariée.html#cb67-1" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;./data/dfTrust.rds)&quot;</span>)</span>
+<span id="cb67-2"><a href="analyse-graphique-multivariée.html#cb67-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb67-3"><a href="analyse-graphique-multivariée.html#cb67-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb67-4"><a href="analyse-graphique-multivariée.html#cb67-4" aria-hidden="true" tabindex="-1"></a>rad<span class="ot">&lt;-</span>df <span class="sc">%&gt;%</span> </span>
+<span id="cb67-5"><a href="analyse-graphique-multivariée.html#cb67-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span> (habitat,cntry) <span class="sc">%&gt;%</span> </span>
+<span id="cb67-6"><a href="analyse-graphique-multivariée.html#cb67-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Partis=</span><span class="fu">mean</span>(Partis, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb67-7"><a href="analyse-graphique-multivariée.html#cb67-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Parlement=</span><span class="fu">mean</span>(Parlement, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb67-8"><a href="analyse-graphique-multivariée.html#cb67-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">Politiques=</span><span class="fu">mean</span>(Politiques, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb67-9"><a href="analyse-graphique-multivariée.html#cb67-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">Police=</span><span class="fu">mean</span>(Police, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb67-10"><a href="analyse-graphique-multivariée.html#cb67-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">Justice=</span><span class="fu">mean</span>(Justice, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb67-11"><a href="analyse-graphique-multivariée.html#cb67-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">NationsUnies=</span><span class="fu">mean</span>(NationsUnies, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb67-12"><a href="analyse-graphique-multivariée.html#cb67-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">ParlementEurop=</span><span class="fu">mean</span>(ParlementEurop, <span class="at">na.rm=</span><span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb67-13"><a href="analyse-graphique-multivariée.html#cb67-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(habitat)) <span class="sc">%&gt;%</span></span>
+<span id="cb67-14"><a href="analyse-graphique-multivariée.html#cb67-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>(variable, value, <span class="sc">-</span>habitat, <span class="sc">-</span>cntry)</span>
+<span id="cb67-15"><a href="analyse-graphique-multivariée.html#cb67-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb67-16"><a href="analyse-graphique-multivariée.html#cb67-16" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(rad, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(variable, value),<span class="at">y=</span>value, <span class="at">group=</span>habitat))<span class="sc">+</span></span>
+<span id="cb67-17"><a href="analyse-graphique-multivariée.html#cb67-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color=</span>habitat), <span class="at">size=</span><span class="dv">2</span>)<span class="sc">+</span></span>
+<span id="cb67-18"><a href="analyse-graphique-multivariée.html#cb67-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(.<span class="sc">~</span>cntry) <span class="sc">+</span><span class="fu">coord_flip</span>()<span class="sc">+</span></span>
+<span id="cb67-19"><a href="analyse-graphique-multivariée.html#cb67-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">type=</span><span class="st">&quot;div&quot;</span>,<span class="at">palette=</span><span class="dv">3</span>)<span class="sc">+</span><span class="fu">labs</span>(<span class="at">title=</span> <span class="st">&quot;Les éléments de la confiance institutionnelle&quot;</span>, <span class="at">caption=</span><span class="st">&quot;ESS2002-2018&quot;</span>,<span class="at">y=</span> <span class="st">&quot;confiance (de 1 à 10)&quot;</span>,<span class="at">x=</span><span class="st">&quot;institutions&quot;</span>) </span></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/0501-1.png" width="672" /></p>
 <p>Une autre variante qui donne l’évolution de l’évolution de les éléments de la confiance institutionnelle</p>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="analyse-graphique-multivariée.html#cb67-1" aria-hidden="true" tabindex="-1"></a>rad<span class="ot">&lt;-</span>df <span class="sc">%&gt;%</span> </span>
-<span id="cb67-2"><a href="analyse-graphique-multivariée.html#cb67-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span> (Year,cntry) <span class="sc">%&gt;%</span> </span>
-<span id="cb67-3"><a href="analyse-graphique-multivariée.html#cb67-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Partis=</span><span class="fu">mean</span>(Partis, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
-<span id="cb67-4"><a href="analyse-graphique-multivariée.html#cb67-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Parlement=</span><span class="fu">mean</span>(Parlement, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
-<span id="cb67-5"><a href="analyse-graphique-multivariée.html#cb67-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">Politiques=</span><span class="fu">mean</span>(Politiques, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
-<span id="cb67-6"><a href="analyse-graphique-multivariée.html#cb67-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Police=</span><span class="fu">mean</span>(Police, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
-<span id="cb67-7"><a href="analyse-graphique-multivariée.html#cb67-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Justice=</span><span class="fu">mean</span>(Justice, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
-<span id="cb67-8"><a href="analyse-graphique-multivariée.html#cb67-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">NationsUnies=</span><span class="fu">mean</span>(NationsUnies, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
-<span id="cb67-9"><a href="analyse-graphique-multivariée.html#cb67-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">ParlementEurop=</span><span class="fu">mean</span>(ParlementEurop, <span class="at">na.rm=</span><span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb67-10"><a href="analyse-graphique-multivariée.html#cb67-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>(variable, value, <span class="sc">-</span>Year, <span class="sc">-</span>cntry)</span>
-<span id="cb67-11"><a href="analyse-graphique-multivariée.html#cb67-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb67-12"><a href="analyse-graphique-multivariée.html#cb67-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(rad, <span class="fu">aes</span>(<span class="at">x=</span>Year,<span class="at">y=</span>value, <span class="at">group=</span>variable))<span class="sc">+</span></span>
-<span id="cb67-13"><a href="analyse-graphique-multivariée.html#cb67-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color=</span>variable), <span class="at">size=</span><span class="fl">1.2</span>)<span class="sc">+</span></span>
-<span id="cb67-14"><a href="analyse-graphique-multivariée.html#cb67-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(.<span class="sc">~</span>cntry, <span class="at">nrow=</span><span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb67-15"><a href="analyse-graphique-multivariée.html#cb67-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Spectral&quot;</span>)<span class="sc">+</span><span class="fu">labs</span>(<span class="at">title=</span> <span class="st">&quot;Les éléments de la confiance institutionnelle&quot;</span>, <span class="at">caption=</span><span class="st">&quot;ESS2002-2018&quot;</span>,<span class="at">y=</span> <span class="st">&quot;confiance (de 1 à 10)&quot;</span>,<span class="at">x=</span><span class="st">&quot;institutions&quot;</span>) </span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="analyse-graphique-multivariée.html#cb68-1" aria-hidden="true" tabindex="-1"></a>rad<span class="ot">&lt;-</span>df <span class="sc">%&gt;%</span> </span>
+<span id="cb68-2"><a href="analyse-graphique-multivariée.html#cb68-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span> (Year,cntry) <span class="sc">%&gt;%</span> </span>
+<span id="cb68-3"><a href="analyse-graphique-multivariée.html#cb68-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Partis=</span><span class="fu">mean</span>(Partis, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb68-4"><a href="analyse-graphique-multivariée.html#cb68-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Parlement=</span><span class="fu">mean</span>(Parlement, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb68-5"><a href="analyse-graphique-multivariée.html#cb68-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">Politiques=</span><span class="fu">mean</span>(Politiques, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb68-6"><a href="analyse-graphique-multivariée.html#cb68-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Police=</span><span class="fu">mean</span>(Police, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb68-7"><a href="analyse-graphique-multivariée.html#cb68-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Justice=</span><span class="fu">mean</span>(Justice, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb68-8"><a href="analyse-graphique-multivariée.html#cb68-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">NationsUnies=</span><span class="fu">mean</span>(NationsUnies, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb68-9"><a href="analyse-graphique-multivariée.html#cb68-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">ParlementEurop=</span><span class="fu">mean</span>(ParlementEurop, <span class="at">na.rm=</span><span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb68-10"><a href="analyse-graphique-multivariée.html#cb68-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>(variable, value, <span class="sc">-</span>Year, <span class="sc">-</span>cntry)</span>
+<span id="cb68-11"><a href="analyse-graphique-multivariée.html#cb68-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb68-12"><a href="analyse-graphique-multivariée.html#cb68-12" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(rad, <span class="fu">aes</span>(<span class="at">x=</span>Year,<span class="at">y=</span>value, <span class="at">group=</span>variable))<span class="sc">+</span></span>
+<span id="cb68-13"><a href="analyse-graphique-multivariée.html#cb68-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color=</span>variable), <span class="at">size=</span><span class="fl">1.2</span>)<span class="sc">+</span></span>
+<span id="cb68-14"><a href="analyse-graphique-multivariée.html#cb68-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(.<span class="sc">~</span>cntry, <span class="at">nrow=</span><span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb68-15"><a href="analyse-graphique-multivariée.html#cb68-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Spectral&quot;</span>)<span class="sc">+</span><span class="fu">labs</span>(<span class="at">title=</span> <span class="st">&quot;Les éléments de la confiance institutionnelle&quot;</span>, <span class="at">caption=</span><span class="st">&quot;ESS2002-2018&quot;</span>,<span class="at">y=</span> <span class="st">&quot;confiance (de 1 à 10)&quot;</span>,<span class="at">x=</span><span class="st">&quot;institutions&quot;</span>) </span></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/0503-1.png" width="672" /></p>
 <p>La différence entre les deux pays est claire, la rupture est accusée plus fortement en France qu’en Allemagne. L’explication n’est sans doute pas culturelle mais démographique, un coup d’oeil à la carte des densité permet de comprendre mieux : <a href="https://www.populationdata.net/cartes/allemagne-france-densite-de-population-2011/" class="uri">https://www.populationdata.net/cartes/allemagne-france-densite-de-population-2011/</a>.</p>
 <p>On pourra tenté un graphe en radar. Mais il n’est pas si convaincant.</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="analyse-graphique-multivariée.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fmsb)</span>
-<span id="cb68-2"><a href="analyse-graphique-multivariée.html#cb68-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb68-3"><a href="analyse-graphique-multivariée.html#cb68-3" aria-hidden="true" tabindex="-1"></a>rad<span class="ot">&lt;-</span>df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(cntry<span class="sc">==</span><span class="st">&quot;FR&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb68-4"><a href="analyse-graphique-multivariée.html#cb68-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span> (habitat) <span class="sc">%&gt;%</span></span>
-<span id="cb68-5"><a href="analyse-graphique-multivariée.html#cb68-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Partis=</span><span class="fu">mean</span>(Partis, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
-<span id="cb68-6"><a href="analyse-graphique-multivariée.html#cb68-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Parlement=</span><span class="fu">mean</span>(Parlement, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
-<span id="cb68-7"><a href="analyse-graphique-multivariée.html#cb68-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Politiques=</span><span class="fu">mean</span>(Politiques, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
-<span id="cb68-8"><a href="analyse-graphique-multivariée.html#cb68-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">Police=</span><span class="fu">mean</span>(Police, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
-<span id="cb68-9"><a href="analyse-graphique-multivariée.html#cb68-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">Justice=</span><span class="fu">mean</span>(Justice, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
-<span id="cb68-10"><a href="analyse-graphique-multivariée.html#cb68-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">NationsUnies=</span><span class="fu">mean</span>(NationsUnies, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
-<span id="cb68-11"><a href="analyse-graphique-multivariée.html#cb68-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">ParlementEurop=</span><span class="fu">mean</span>(ParlementEurop, <span class="at">na.rm=</span><span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb68-12"><a href="analyse-graphique-multivariée.html#cb68-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(habitat)) <span class="sc">%&gt;%</span> </span>
-<span id="cb68-13"><a href="analyse-graphique-multivariée.html#cb68-13" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>habitat)</span>
-<span id="cb68-14"><a href="analyse-graphique-multivariée.html#cb68-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb68-15"><a href="analyse-graphique-multivariée.html#cb68-15" aria-hidden="true" tabindex="-1"></a><span class="co">#on doit indiquer les valeurs minimale et maximale - la fonction rep permet de repeter (ici 7 fois pour les 7 variables/col)</span></span>
-<span id="cb68-16"><a href="analyse-graphique-multivariée.html#cb68-16" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">rbind</span>(<span class="fu">rep</span>(<span class="dv">7</span>,<span class="dv">7</span>) , <span class="fu">rep</span>(<span class="dv">3</span>,<span class="dv">7</span>) , rad)</span>
-<span id="cb68-17"><a href="analyse-graphique-multivariée.html#cb68-17" aria-hidden="true" tabindex="-1"></a><span class="co">#l&#39;autre method c&#39;est ce choisir maxmin=FALSE</span></span>
-<span id="cb68-18"><a href="analyse-graphique-multivariée.html#cb68-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb68-19"><a href="analyse-graphique-multivariée.html#cb68-19" aria-hidden="true" tabindex="-1"></a><span class="co">#rownames(rad) &lt;- c(&quot;big city&quot;, &quot;suburbs&quot; ,&quot;town&quot;,&quot;village&quot;, &quot;countryside&quot;)</span></span>
-<span id="cb68-20"><a href="analyse-graphique-multivariée.html#cb68-20" aria-hidden="true" tabindex="-1"></a><span class="fu">radarchart</span>(rad, <span class="at">axistype=</span><span class="dv">0</span>, <span class="at">seg=</span><span class="dv">4</span>, <span class="at">title=</span><span class="st">&quot;Moyenne par institution&quot;</span>, <span class="at">maxmin=</span><span class="cn">FALSE</span>)</span>
-<span id="cb68-21"><a href="analyse-graphique-multivariée.html#cb68-21" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="at">x=</span><span class="fl">0.7</span>, <span class="at">y=</span><span class="dv">1</span>, <span class="at">legend =</span> <span class="fu">rownames</span>(rad), <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>,<span class="at">text.col =</span> <span class="st">&quot;grey&quot;</span>, <span class="at">cex=</span><span class="fl">1.2</span>, <span class="at">pt.cex=</span><span class="dv">3</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="analyse-graphique-multivariée.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(fmsb)</span>
+<span id="cb69-2"><a href="analyse-graphique-multivariée.html#cb69-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-3"><a href="analyse-graphique-multivariée.html#cb69-3" aria-hidden="true" tabindex="-1"></a>rad<span class="ot">&lt;-</span>df <span class="sc">%&gt;%</span> <span class="fu">filter</span>(cntry<span class="sc">==</span><span class="st">&quot;FR&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb69-4"><a href="analyse-graphique-multivariée.html#cb69-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span> (habitat) <span class="sc">%&gt;%</span></span>
+<span id="cb69-5"><a href="analyse-graphique-multivariée.html#cb69-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Partis=</span><span class="fu">mean</span>(Partis, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb69-6"><a href="analyse-graphique-multivariée.html#cb69-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">Parlement=</span><span class="fu">mean</span>(Parlement, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb69-7"><a href="analyse-graphique-multivariée.html#cb69-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Politiques=</span><span class="fu">mean</span>(Politiques, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb69-8"><a href="analyse-graphique-multivariée.html#cb69-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">Police=</span><span class="fu">mean</span>(Police, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb69-9"><a href="analyse-graphique-multivariée.html#cb69-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">Justice=</span><span class="fu">mean</span>(Justice, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb69-10"><a href="analyse-graphique-multivariée.html#cb69-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">NationsUnies=</span><span class="fu">mean</span>(NationsUnies, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb69-11"><a href="analyse-graphique-multivariée.html#cb69-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">ParlementEurop=</span><span class="fu">mean</span>(ParlementEurop, <span class="at">na.rm=</span><span class="cn">TRUE</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb69-12"><a href="analyse-graphique-multivariée.html#cb69-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(habitat)) <span class="sc">%&gt;%</span> </span>
+<span id="cb69-13"><a href="analyse-graphique-multivariée.html#cb69-13" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>habitat)</span>
+<span id="cb69-14"><a href="analyse-graphique-multivariée.html#cb69-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-15"><a href="analyse-graphique-multivariée.html#cb69-15" aria-hidden="true" tabindex="-1"></a><span class="co">#on doit indiquer les valeurs minimale et maximale - la fonction rep permet de repeter (ici 7 fois pour les 7 variables/col)</span></span>
+<span id="cb69-16"><a href="analyse-graphique-multivariée.html#cb69-16" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">rbind</span>(<span class="fu">rep</span>(<span class="dv">7</span>,<span class="dv">7</span>) , <span class="fu">rep</span>(<span class="dv">3</span>,<span class="dv">7</span>) , rad)</span>
+<span id="cb69-17"><a href="analyse-graphique-multivariée.html#cb69-17" aria-hidden="true" tabindex="-1"></a><span class="co">#l&#39;autre method c&#39;est ce choisir maxmin=FALSE</span></span>
+<span id="cb69-18"><a href="analyse-graphique-multivariée.html#cb69-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb69-19"><a href="analyse-graphique-multivariée.html#cb69-19" aria-hidden="true" tabindex="-1"></a><span class="co">#rownames(rad) &lt;- c(&quot;big city&quot;, &quot;suburbs&quot; ,&quot;town&quot;,&quot;village&quot;, &quot;countryside&quot;)</span></span>
+<span id="cb69-20"><a href="analyse-graphique-multivariée.html#cb69-20" aria-hidden="true" tabindex="-1"></a><span class="fu">radarchart</span>(rad, <span class="at">axistype=</span><span class="dv">0</span>, <span class="at">seg=</span><span class="dv">4</span>, <span class="at">title=</span><span class="st">&quot;Moyenne par institution&quot;</span>, <span class="at">maxmin=</span><span class="cn">FALSE</span>)</span>
+<span id="cb69-21"><a href="analyse-graphique-multivariée.html#cb69-21" aria-hidden="true" tabindex="-1"></a><span class="fu">legend</span>(<span class="at">x=</span><span class="fl">0.7</span>, <span class="at">y=</span><span class="dv">1</span>, <span class="at">legend =</span> <span class="fu">rownames</span>(rad), <span class="at">bty =</span> <span class="st">&quot;n&quot;</span>,<span class="at">text.col =</span> <span class="st">&quot;grey&quot;</span>, <span class="at">cex=</span><span class="fl">1.2</span>, <span class="at">pt.cex=</span><span class="dv">3</span>)</span></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/0504-1.png" width="672" /></p>
 </div>
 <div id="table-de-corrélation" class="section level2" number="6.2">
 <h2><span class="header-section-number">6.2</span> Table de corrélation</h2>
 <p>Comparer les moyennes est une chose, on souhaiter en plus savoir quelle structure de corrélation les caractérisent. Rien de plus simple</p>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="analyse-graphique-multivariée.html#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggcorrplot)</span>
-<span id="cb69-2"><a href="analyse-graphique-multivariée.html#cb69-2" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;./data/dfTrust.rds)&quot;</span>)<span class="sc">%&gt;%</span><span class="fu">filter</span>(Year<span class="sc">==</span><span class="dv">2018</span>)</span>
-<span id="cb69-3"><a href="analyse-graphique-multivariée.html#cb69-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-4"><a href="analyse-graphique-multivariée.html#cb69-4" aria-hidden="true" tabindex="-1"></a>foo<span class="ot">&lt;-</span>df <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(NationsUnies,ParlementEurop, Parlement, Justice, Police, Politiques, Partis) <span class="sc">%&gt;%</span> </span>
-<span id="cb69-5"><a href="analyse-graphique-multivariée.html#cb69-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span>
-<span id="cb69-6"><a href="analyse-graphique-multivariée.html#cb69-6" aria-hidden="true" tabindex="-1"></a>r<span class="ot">&lt;-</span><span class="fu">cor</span>(foo)</span>
-<span id="cb69-7"><a href="analyse-graphique-multivariée.html#cb69-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-8"><a href="analyse-graphique-multivariée.html#cb69-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggcorrplot</span>(r, <span class="at">hc.order =</span> <span class="cn">TRUE</span>, <span class="at">type =</span> <span class="st">&quot;lower&quot;</span>,</span>
-<span id="cb69-9"><a href="analyse-graphique-multivariée.html#cb69-9" aria-hidden="true" tabindex="-1"></a>   <span class="at">lab =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="analyse-graphique-multivariée.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggcorrplot)</span>
+<span id="cb70-2"><a href="analyse-graphique-multivariée.html#cb70-2" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;./data/dfTrust.rds)&quot;</span>)<span class="sc">%&gt;%</span><span class="fu">filter</span>(Year<span class="sc">==</span><span class="dv">2018</span>)</span>
+<span id="cb70-3"><a href="analyse-graphique-multivariée.html#cb70-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-4"><a href="analyse-graphique-multivariée.html#cb70-4" aria-hidden="true" tabindex="-1"></a>foo<span class="ot">&lt;-</span>df <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>(NationsUnies,ParlementEurop, Parlement, Justice, Police, Politiques, Partis) <span class="sc">%&gt;%</span> </span>
+<span id="cb70-5"><a href="analyse-graphique-multivariée.html#cb70-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span>
+<span id="cb70-6"><a href="analyse-graphique-multivariée.html#cb70-6" aria-hidden="true" tabindex="-1"></a>r<span class="ot">&lt;-</span><span class="fu">cor</span>(foo)</span>
+<span id="cb70-7"><a href="analyse-graphique-multivariée.html#cb70-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb70-8"><a href="analyse-graphique-multivariée.html#cb70-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggcorrplot</span>(r, <span class="at">hc.order =</span> <span class="cn">TRUE</span>, <span class="at">type =</span> <span class="st">&quot;lower&quot;</span>,</span>
+<span id="cb70-9"><a href="analyse-graphique-multivariée.html#cb70-9" aria-hidden="true" tabindex="-1"></a>   <span class="at">lab =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/0505-1.png" width="672" /></p>
-<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="analyse-graphique-multivariée.html#cb70-1" aria-hidden="true" tabindex="-1"></a>g<span class="ot">&lt;-</span><span class="fu">paste0</span>(<span class="st">&quot;./plot/g1&quot;</span>,<span class="st">&quot;.jpg&quot;</span>)</span>
-<span id="cb70-2"><a href="analyse-graphique-multivariée.html#cb70-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(g,<span class="at">plot=</span><span class="fu">last_plot</span>(), <span class="at">width =</span> <span class="dv">27</span>, <span class="at">height =</span> <span class="dv">19</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="analyse-graphique-multivariée.html#cb71-1" aria-hidden="true" tabindex="-1"></a>g<span class="ot">&lt;-</span><span class="fu">paste0</span>(<span class="st">&quot;./plot/g1&quot;</span>,<span class="st">&quot;.jpg&quot;</span>)</span>
+<span id="cb71-2"><a href="analyse-graphique-multivariée.html#cb71-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(g,<span class="at">plot=</span><span class="fu">last_plot</span>(), <span class="at">width =</span> <span class="dv">27</span>, <span class="at">height =</span> <span class="dv">19</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>)</span></code></pre></div>
 </div>
 <div id="un-cas-plus-complexe-présidentielle2020" class="section level2" number="6.3">
 <h2><span class="header-section-number">6.3</span> Un cas plus complexe : présidentielle2020</h2>
@@ -442,177 +444,177 @@ div.csl-indent {
 </div>
 <div id="une-boucle-pour-produire-de-multiple-graphe-en-variant-un-paramètre" class="section level2" number="6.4">
 <h2><span class="header-section-number">6.4</span> une boucle pour produire de multiple graphe en variant un paramètre</h2>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="analyse-graphique-multivariée.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
-<span id="cb71-2"><a href="analyse-graphique-multivariée.html#cb71-2" aria-hidden="true" tabindex="-1"></a>alph<span class="ot">&lt;-</span>.<span class="dv">5</span></span>
-<span id="cb71-3"><a href="analyse-graphique-multivariée.html#cb71-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb71-4"><a href="analyse-graphique-multivariée.html#cb71-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (alph <span class="cf">in</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="dv">0</span>, <span class="at">to=</span> <span class="dv">1</span>, <span class="at">by=</span>.<span class="dv">05</span>)){</span>
-<span id="cb71-5"><a href="analyse-graphique-multivariée.html#cb71-5" aria-hidden="true" tabindex="-1"></a>df_pol <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">&quot;https://raw.githubusercontent.com/nsppolls/nsppolls/master/presidentielle.csv&quot;</span>, </span>
-<span id="cb71-6"><a href="analyse-graphique-multivariée.html#cb71-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">delim =</span> <span class="st">&quot;,&quot;</span>, <span class="at">escape_double =</span> <span class="cn">FALSE</span>, <span class="at">trim_ws =</span> <span class="cn">TRUE</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb71-7"><a href="analyse-graphique-multivariée.html#cb71-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(tour<span class="sc">==</span><span class="st">&quot;Premier tour&quot;</span>) <span class="sc">%&gt;%</span><span class="fu">filter</span>(candidat<span class="sc">==</span><span class="st">&quot;Eric Zemmour&quot;</span><span class="sc">|</span></span>
-<span id="cb71-8"><a href="analyse-graphique-multivariée.html#cb71-8" aria-hidden="true" tabindex="-1"></a>                                           candidat<span class="sc">==</span> <span class="st">&quot;Marine Le Pen&quot;</span><span class="sc">|</span></span>
-<span id="cb71-9"><a href="analyse-graphique-multivariée.html#cb71-9" aria-hidden="true" tabindex="-1"></a>                                           candidat<span class="sc">==</span> <span class="st">&quot;Emmanuel Macron&quot;</span><span class="sc">|</span></span>
-<span id="cb71-10"><a href="analyse-graphique-multivariée.html#cb71-10" aria-hidden="true" tabindex="-1"></a>                                           candidat<span class="sc">==</span> <span class="st">&quot;Jean-Luc Mélenchon&quot;</span><span class="sc">|</span></span>
-<span id="cb71-11"><a href="analyse-graphique-multivariée.html#cb71-11" aria-hidden="true" tabindex="-1"></a>                                           candidat<span class="sc">==</span> <span class="st">&quot;Yannick Jadot&quot;</span><span class="sc">|</span></span>
-<span id="cb71-12"><a href="analyse-graphique-multivariée.html#cb71-12" aria-hidden="true" tabindex="-1"></a>                                           candidat<span class="sc">==</span> <span class="st">&quot;Valérie Pécresse&quot;</span><span class="sc">|</span> </span>
-<span id="cb71-13"><a href="analyse-graphique-multivariée.html#cb71-13" aria-hidden="true" tabindex="-1"></a>                                           candidat<span class="sc">==</span><span class="st">&quot;Fabien Roussel&quot;</span><span class="sc">|</span></span>
-<span id="cb71-14"><a href="analyse-graphique-multivariée.html#cb71-14" aria-hidden="true" tabindex="-1"></a>                                           candidat<span class="sc">==</span><span class="st">&quot;Anne Hidalgo&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb71-15"><a href="analyse-graphique-multivariée.html#cb71-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(fin_enquete<span class="sc">&gt;</span><span class="fu">ymd</span>(<span class="st">&quot;2022-01-09&quot;</span>)) <span class="co"># on commence en septembre , octobre est-il meilleur ?</span></span>
-<span id="cb71-16"><a href="analyse-graphique-multivariée.html#cb71-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb71-17"><a href="analyse-graphique-multivariée.html#cb71-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb71-18"><a href="analyse-graphique-multivariée.html#cb71-18" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(df_pol<span class="sc">$</span>candidat)</span>
-<span id="cb71-19"><a href="analyse-graphique-multivariée.html#cb71-19" aria-hidden="true" tabindex="-1"></a>SensiP1<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;pink&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;gray20&quot;</span>, <span class="st">&quot;red&quot;</span>,<span class="st">&quot;firebrick&quot;</span>, <span class="st">&quot;Royalblue&quot;</span>, <span class="st">&quot; skyblue&quot;</span>, <span class="st">&quot;Chartreuse&quot;</span>)</span>
-<span id="cb71-20"><a href="analyse-graphique-multivariée.html#cb71-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb71-21"><a href="analyse-graphique-multivariée.html#cb71-21" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_pol, <span class="fu">aes</span>(<span class="at">y=</span>intentions, <span class="at">x=</span>fin_enquete))<span class="sc">+</span></span>
-<span id="cb71-22"><a href="analyse-graphique-multivariée.html#cb71-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color=</span>candidat), <span class="at">size=</span>.<span class="dv">5</span>, <span class="at">alpha=</span><span class="dv">1</span><span class="sc">-</span>alph)<span class="sc">+</span></span>
-<span id="cb71-23"><a href="analyse-graphique-multivariée.html#cb71-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">span =</span> alph, <span class="fu">aes</span>(<span class="at">col=</span>candidat,<span class="at">fill=</span>candidat), <span class="at">alpha=</span><span class="fl">0.2</span>)<span class="sc">+</span></span>
-<span id="cb71-24"><a href="analyse-graphique-multivariée.html#cb71-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values=</span>SensiP1)<span class="sc">+</span>  </span>
-<span id="cb71-25"><a href="analyse-graphique-multivariée.html#cb71-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span>SensiP1)<span class="sc">+</span> </span>
-<span id="cb71-26"><a href="analyse-graphique-multivariée.html#cb71-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span> <span class="st">&quot;Evolution des intentions de vote #présidentielle2022 1er tour&quot;</span>,</span>
-<span id="cb71-27"><a href="analyse-graphique-multivariée.html#cb71-27" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span><span class="fu">paste</span>(<span class="st">&quot;Lissage méthode loess. alpha=&quot;</span>,alph, <span class="st">&quot; - ci=95%&quot;</span>),</span>
-<span id="cb71-28"><a href="analyse-graphique-multivariée.html#cb71-28" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">&quot;data @nsppolls viz @benavent&quot;</span>,</span>
-<span id="cb71-29"><a href="analyse-graphique-multivariée.html#cb71-29" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="cn">NULL</span>)<span class="sc">+</span><span class="fu">theme_minimal</span>()<span class="sc">+</span><span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">&quot;1 month&quot;</span>, <span class="at">date_minor_breaks =</span> <span class="st">&quot;1 week&quot;</span>,</span>
-<span id="cb71-30"><a href="analyse-graphique-multivariée.html#cb71-30" aria-hidden="true" tabindex="-1"></a>             <span class="at">date_labels =</span> <span class="st">&quot;%B&quot;</span>)</span>
-<span id="cb71-31"><a href="analyse-graphique-multivariée.html#cb71-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb71-32"><a href="analyse-graphique-multivariée.html#cb71-32" aria-hidden="true" tabindex="-1"></a>sondage_nsppolls<span class="ot">&lt;-</span><span class="fu">paste0</span>(<span class="st">&quot;./nsppolls/sondage_nsppolls&quot;</span>, alph<span class="sc">*</span><span class="dv">20</span>, <span class="st">&quot;.jpg&quot;</span>)</span>
-<span id="cb71-33"><a href="analyse-graphique-multivariée.html#cb71-33" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(sondage_nsppolls,<span class="at">plot=</span><span class="fu">last_plot</span>(), <span class="at">width =</span> <span class="dv">27</span>, <span class="at">height =</span> <span class="dv">19</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>)</span>
-<span id="cb71-34"><a href="analyse-graphique-multivariée.html#cb71-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb71-35"><a href="analyse-graphique-multivariée.html#cb71-35" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb71-36"><a href="analyse-graphique-multivariée.html#cb71-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb71-37"><a href="analyse-graphique-multivariée.html#cb71-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb71-38"><a href="analyse-graphique-multivariée.html#cb71-38" aria-hidden="true" tabindex="-1"></a>n<span class="ot">&lt;-</span>df_pol<span class="sc">%&gt;%</span></span>
-<span id="cb71-39"><a href="analyse-graphique-multivariée.html#cb71-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n=</span><span class="dv">1</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb71-40"><a href="analyse-graphique-multivariée.html#cb71-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(id)<span class="sc">%&gt;%</span><span class="fu">summarise</span>(<span class="at">n=</span><span class="fu">sum</span>(n))</span>
-<span id="cb71-41"><a href="analyse-graphique-multivariée.html#cb71-41" aria-hidden="true" tabindex="-1"></a><span class="co">#nombre de sondage</span></span>
-<span id="cb71-42"><a href="analyse-graphique-multivariée.html#cb71-42" aria-hidden="true" tabindex="-1"></a>n<span class="ot">&lt;-</span><span class="fu">nrow</span>(n)</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="analyse-graphique-multivariée.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb72-2"><a href="analyse-graphique-multivariée.html#cb72-2" aria-hidden="true" tabindex="-1"></a>alph<span class="ot">&lt;-</span>.<span class="dv">5</span></span>
+<span id="cb72-3"><a href="analyse-graphique-multivariée.html#cb72-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-4"><a href="analyse-graphique-multivariée.html#cb72-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (alph <span class="cf">in</span> <span class="fu">seq</span>(<span class="at">from=</span><span class="dv">0</span>, <span class="at">to=</span> <span class="dv">1</span>, <span class="at">by=</span>.<span class="dv">05</span>)){</span>
+<span id="cb72-5"><a href="analyse-graphique-multivariée.html#cb72-5" aria-hidden="true" tabindex="-1"></a>df_pol <span class="ot">&lt;-</span> <span class="fu">read_delim</span>(<span class="st">&quot;https://raw.githubusercontent.com/nsppolls/nsppolls/master/presidentielle.csv&quot;</span>, </span>
+<span id="cb72-6"><a href="analyse-graphique-multivariée.html#cb72-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">delim =</span> <span class="st">&quot;,&quot;</span>, <span class="at">escape_double =</span> <span class="cn">FALSE</span>, <span class="at">trim_ws =</span> <span class="cn">TRUE</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb72-7"><a href="analyse-graphique-multivariée.html#cb72-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(tour<span class="sc">==</span><span class="st">&quot;Premier tour&quot;</span>) <span class="sc">%&gt;%</span><span class="fu">filter</span>(candidat<span class="sc">==</span><span class="st">&quot;Eric Zemmour&quot;</span><span class="sc">|</span></span>
+<span id="cb72-8"><a href="analyse-graphique-multivariée.html#cb72-8" aria-hidden="true" tabindex="-1"></a>                                           candidat<span class="sc">==</span> <span class="st">&quot;Marine Le Pen&quot;</span><span class="sc">|</span></span>
+<span id="cb72-9"><a href="analyse-graphique-multivariée.html#cb72-9" aria-hidden="true" tabindex="-1"></a>                                           candidat<span class="sc">==</span> <span class="st">&quot;Emmanuel Macron&quot;</span><span class="sc">|</span></span>
+<span id="cb72-10"><a href="analyse-graphique-multivariée.html#cb72-10" aria-hidden="true" tabindex="-1"></a>                                           candidat<span class="sc">==</span> <span class="st">&quot;Jean-Luc Mélenchon&quot;</span><span class="sc">|</span></span>
+<span id="cb72-11"><a href="analyse-graphique-multivariée.html#cb72-11" aria-hidden="true" tabindex="-1"></a>                                           candidat<span class="sc">==</span> <span class="st">&quot;Yannick Jadot&quot;</span><span class="sc">|</span></span>
+<span id="cb72-12"><a href="analyse-graphique-multivariée.html#cb72-12" aria-hidden="true" tabindex="-1"></a>                                           candidat<span class="sc">==</span> <span class="st">&quot;Valérie Pécresse&quot;</span><span class="sc">|</span> </span>
+<span id="cb72-13"><a href="analyse-graphique-multivariée.html#cb72-13" aria-hidden="true" tabindex="-1"></a>                                           candidat<span class="sc">==</span><span class="st">&quot;Fabien Roussel&quot;</span><span class="sc">|</span></span>
+<span id="cb72-14"><a href="analyse-graphique-multivariée.html#cb72-14" aria-hidden="true" tabindex="-1"></a>                                           candidat<span class="sc">==</span><span class="st">&quot;Anne Hidalgo&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb72-15"><a href="analyse-graphique-multivariée.html#cb72-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(fin_enquete<span class="sc">&gt;</span><span class="fu">ymd</span>(<span class="st">&quot;2022-01-09&quot;</span>)) <span class="co"># on commence en septembre , octobre est-il meilleur ?</span></span>
+<span id="cb72-16"><a href="analyse-graphique-multivariée.html#cb72-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-17"><a href="analyse-graphique-multivariée.html#cb72-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-18"><a href="analyse-graphique-multivariée.html#cb72-18" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(df_pol<span class="sc">$</span>candidat)</span>
+<span id="cb72-19"><a href="analyse-graphique-multivariée.html#cb72-19" aria-hidden="true" tabindex="-1"></a>SensiP1<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;pink&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;gray20&quot;</span>, <span class="st">&quot;red&quot;</span>,<span class="st">&quot;firebrick&quot;</span>, <span class="st">&quot;Royalblue&quot;</span>, <span class="st">&quot; skyblue&quot;</span>, <span class="st">&quot;Chartreuse&quot;</span>)</span>
+<span id="cb72-20"><a href="analyse-graphique-multivariée.html#cb72-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-21"><a href="analyse-graphique-multivariée.html#cb72-21" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_pol, <span class="fu">aes</span>(<span class="at">y=</span>intentions, <span class="at">x=</span>fin_enquete))<span class="sc">+</span></span>
+<span id="cb72-22"><a href="analyse-graphique-multivariée.html#cb72-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color=</span>candidat), <span class="at">size=</span>.<span class="dv">5</span>, <span class="at">alpha=</span><span class="dv">1</span><span class="sc">-</span>alph)<span class="sc">+</span></span>
+<span id="cb72-23"><a href="analyse-graphique-multivariée.html#cb72-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">span =</span> alph, <span class="fu">aes</span>(<span class="at">col=</span>candidat,<span class="at">fill=</span>candidat), <span class="at">alpha=</span><span class="fl">0.2</span>)<span class="sc">+</span></span>
+<span id="cb72-24"><a href="analyse-graphique-multivariée.html#cb72-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values=</span>SensiP1)<span class="sc">+</span>  </span>
+<span id="cb72-25"><a href="analyse-graphique-multivariée.html#cb72-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span>SensiP1)<span class="sc">+</span> </span>
+<span id="cb72-26"><a href="analyse-graphique-multivariée.html#cb72-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span> <span class="st">&quot;Evolution des intentions de vote #présidentielle2022 1er tour&quot;</span>,</span>
+<span id="cb72-27"><a href="analyse-graphique-multivariée.html#cb72-27" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span><span class="fu">paste</span>(<span class="st">&quot;Lissage méthode loess. alpha=&quot;</span>,alph, <span class="st">&quot; - ci=95%&quot;</span>),</span>
+<span id="cb72-28"><a href="analyse-graphique-multivariée.html#cb72-28" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">&quot;data @nsppolls viz @benavent&quot;</span>,</span>
+<span id="cb72-29"><a href="analyse-graphique-multivariée.html#cb72-29" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="cn">NULL</span>)<span class="sc">+</span><span class="fu">theme_minimal</span>()<span class="sc">+</span><span class="fu">scale_x_date</span>(<span class="at">date_breaks =</span> <span class="st">&quot;1 month&quot;</span>, <span class="at">date_minor_breaks =</span> <span class="st">&quot;1 week&quot;</span>,</span>
+<span id="cb72-30"><a href="analyse-graphique-multivariée.html#cb72-30" aria-hidden="true" tabindex="-1"></a>             <span class="at">date_labels =</span> <span class="st">&quot;%B&quot;</span>)</span>
+<span id="cb72-31"><a href="analyse-graphique-multivariée.html#cb72-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-32"><a href="analyse-graphique-multivariée.html#cb72-32" aria-hidden="true" tabindex="-1"></a>sondage_nsppolls<span class="ot">&lt;-</span><span class="fu">paste0</span>(<span class="st">&quot;./nsppolls/sondage_nsppolls&quot;</span>, alph<span class="sc">*</span><span class="dv">20</span>, <span class="st">&quot;.jpg&quot;</span>)</span>
+<span id="cb72-33"><a href="analyse-graphique-multivariée.html#cb72-33" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(sondage_nsppolls,<span class="at">plot=</span><span class="fu">last_plot</span>(), <span class="at">width =</span> <span class="dv">27</span>, <span class="at">height =</span> <span class="dv">19</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>)</span>
+<span id="cb72-34"><a href="analyse-graphique-multivariée.html#cb72-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-35"><a href="analyse-graphique-multivariée.html#cb72-35" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb72-36"><a href="analyse-graphique-multivariée.html#cb72-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-37"><a href="analyse-graphique-multivariée.html#cb72-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-38"><a href="analyse-graphique-multivariée.html#cb72-38" aria-hidden="true" tabindex="-1"></a>n<span class="ot">&lt;-</span>df_pol<span class="sc">%&gt;%</span></span>
+<span id="cb72-39"><a href="analyse-graphique-multivariée.html#cb72-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n=</span><span class="dv">1</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb72-40"><a href="analyse-graphique-multivariée.html#cb72-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(id)<span class="sc">%&gt;%</span><span class="fu">summarise</span>(<span class="at">n=</span><span class="fu">sum</span>(n))</span>
+<span id="cb72-41"><a href="analyse-graphique-multivariée.html#cb72-41" aria-hidden="true" tabindex="-1"></a><span class="co">#nombre de sondage</span></span>
+<span id="cb72-42"><a href="analyse-graphique-multivariée.html#cb72-42" aria-hidden="true" tabindex="-1"></a>n<span class="ot">&lt;-</span><span class="fu">nrow</span>(n)</span></code></pre></div>
 <p>Pour créer le gif on emplie magick. On a pris soin de sauvegarder les graphes dans un répertoire propre, ça facilite la lecture en boucle et la fabrication du gif.</p>
-<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="analyse-graphique-multivariée.html#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magick)</span>
-<span id="cb72-2"><a href="analyse-graphique-multivariée.html#cb72-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-3"><a href="analyse-graphique-multivariée.html#cb72-3" aria-hidden="true" tabindex="-1"></a><span class="co">#gif                                                     </span></span>
-<span id="cb72-4"><a href="analyse-graphique-multivariée.html#cb72-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-5"><a href="analyse-graphique-multivariée.html#cb72-5" aria-hidden="true" tabindex="-1"></a><span class="co">#on constitue une liste des noms des fichier *.jpg que l&#39;on veut associer                                                     </span></span>
-<span id="cb72-6"><a href="analyse-graphique-multivariée.html#cb72-6" aria-hidden="true" tabindex="-1"></a>frames <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;./nsppolls/&quot;</span>,<span class="st">&quot;sondage_nsppolls&quot;</span>, <span class="dv">0</span><span class="sc">:</span><span class="dv">20</span>,<span class="st">&quot;.jpg&quot;</span>)</span>
-<span id="cb72-7"><a href="analyse-graphique-multivariée.html#cb72-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-8"><a href="analyse-graphique-multivariée.html#cb72-8" aria-hidden="true" tabindex="-1"></a><span class="co">#on lit et on stoke dans m les images</span></span>
-<span id="cb72-9"><a href="analyse-graphique-multivariée.html#cb72-9" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">image_read</span>(frames)</span>
-<span id="cb72-10"><a href="analyse-graphique-multivariée.html#cb72-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb72-11"><a href="analyse-graphique-multivariée.html#cb72-11" aria-hidden="true" tabindex="-1"></a><span class="co">#on fabrique et on sauvergarde le gif</span></span>
-<span id="cb72-12"><a href="analyse-graphique-multivariée.html#cb72-12" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">image_animate</span>(m, <span class="at">fps=</span><span class="dv">1</span>)</span>
-<span id="cb72-13"><a href="analyse-graphique-multivariée.html#cb72-13" aria-hidden="true" tabindex="-1"></a><span class="fu">image_write</span>(m, <span class="st">&quot;./plot/sondages_lissage.gif&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="analyse-graphique-multivariée.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(magick)</span>
+<span id="cb73-2"><a href="analyse-graphique-multivariée.html#cb73-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-3"><a href="analyse-graphique-multivariée.html#cb73-3" aria-hidden="true" tabindex="-1"></a><span class="co">#gif                                                     </span></span>
+<span id="cb73-4"><a href="analyse-graphique-multivariée.html#cb73-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-5"><a href="analyse-graphique-multivariée.html#cb73-5" aria-hidden="true" tabindex="-1"></a><span class="co">#on constitue une liste des noms des fichier *.jpg que l&#39;on veut associer                                                     </span></span>
+<span id="cb73-6"><a href="analyse-graphique-multivariée.html#cb73-6" aria-hidden="true" tabindex="-1"></a>frames <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">&quot;./nsppolls/&quot;</span>,<span class="st">&quot;sondage_nsppolls&quot;</span>, <span class="dv">0</span><span class="sc">:</span><span class="dv">20</span>,<span class="st">&quot;.jpg&quot;</span>)</span>
+<span id="cb73-7"><a href="analyse-graphique-multivariée.html#cb73-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-8"><a href="analyse-graphique-multivariée.html#cb73-8" aria-hidden="true" tabindex="-1"></a><span class="co">#on lit et on stoke dans m les images</span></span>
+<span id="cb73-9"><a href="analyse-graphique-multivariée.html#cb73-9" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">image_read</span>(frames)</span>
+<span id="cb73-10"><a href="analyse-graphique-multivariée.html#cb73-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-11"><a href="analyse-graphique-multivariée.html#cb73-11" aria-hidden="true" tabindex="-1"></a><span class="co">#on fabrique et on sauvergarde le gif</span></span>
+<span id="cb73-12"><a href="analyse-graphique-multivariée.html#cb73-12" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">image_animate</span>(m, <span class="at">fps=</span><span class="dv">1</span>)</span>
+<span id="cb73-13"><a href="analyse-graphique-multivariée.html#cb73-13" aria-hidden="true" tabindex="-1"></a><span class="fu">image_write</span>(m, <span class="st">&quot;./plot/sondages_lissage.gif&quot;</span>)</span></code></pre></div>
 <div id="effet-sondeur" class="section level3" number="6.4.1">
 <h3><span class="header-section-number">6.4.1</span> effet sondeur</h3>
 <p>pour anticiper sur le chapitre suivant</p>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="analyse-graphique-multivariée.html#cb73-1" aria-hidden="true" tabindex="-1"></a>foo<span class="ot">&lt;-</span>df_pol<span class="sc">%&gt;%</span></span>
-<span id="cb73-2"><a href="analyse-graphique-multivariée.html#cb73-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(candidat, intentions, fin_enquete, echantillon,nom_institut)<span class="sc">%&gt;%</span></span>
-<span id="cb73-3"><a href="analyse-graphique-multivariée.html#cb73-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(nom_institut, candidat)<span class="sc">%&gt;%</span></span>
-<span id="cb73-4"><a href="analyse-graphique-multivariée.html#cb73-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">moy=</span><span class="fu">mean</span>(intentions, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
-<span id="cb73-5"><a href="analyse-graphique-multivariée.html#cb73-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">std=</span><span class="fu">sd</span>(intentions, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span>
-<span id="cb73-6"><a href="analyse-graphique-multivariée.html#cb73-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb73-7"><a href="analyse-graphique-multivariée.html#cb73-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb73-8"><a href="analyse-graphique-multivariée.html#cb73-8" aria-hidden="true" tabindex="-1"></a>SensiP2<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;gray90&quot;</span>,<span class="st">&quot;gray20&quot;</span>, <span class="st">&quot;Royalblue&quot;</span>, <span class="st">&quot;skyblue&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;pink&quot;</span>, <span class="st">&quot;firebrick&quot;</span>, <span class="st">&quot;green&quot;</span>)</span>
-<span id="cb73-9"><a href="analyse-graphique-multivariée.html#cb73-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb73-10"><a href="analyse-graphique-multivariée.html#cb73-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb73-11"><a href="analyse-graphique-multivariée.html#cb73-11" aria-hidden="true" tabindex="-1"></a>g<span class="ot">&lt;-</span><span class="fu">ggplot</span>(foo,<span class="fu">aes</span>(<span class="at">x=</span>candidat,<span class="at">y=</span>moy))<span class="sc">+</span></span>
-<span id="cb73-12"><a href="analyse-graphique-multivariée.html#cb73-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> candidat, </span>
-<span id="cb73-13"><a href="analyse-graphique-multivariée.html#cb73-13" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y =</span> <span class="sc">-</span>std<span class="sc">+</span>moy, </span>
-<span id="cb73-14"><a href="analyse-graphique-multivariée.html#cb73-14" aria-hidden="true" tabindex="-1"></a>                   <span class="at">xend =</span> candidat, </span>
-<span id="cb73-15"><a href="analyse-graphique-multivariée.html#cb73-15" aria-hidden="true" tabindex="-1"></a>                   <span class="at">yend =</span> std<span class="sc">+</span>moy, </span>
-<span id="cb73-16"><a href="analyse-graphique-multivariée.html#cb73-16" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color =</span> nom_institut), <span class="at">size=</span><span class="fl">1.2</span>)<span class="sc">+</span></span>
-<span id="cb73-17"><a href="analyse-graphique-multivariée.html#cb73-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color=</span>nom_institut), <span class="at">size=</span><span class="dv">2</span>)<span class="sc">+</span></span>
-<span id="cb73-18"><a href="analyse-graphique-multivariée.html#cb73-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> SensiP2)<span class="sc">+</span></span>
-<span id="cb73-19"><a href="analyse-graphique-multivariée.html#cb73-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
-<span id="cb73-20"><a href="analyse-graphique-multivariée.html#cb73-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span>
-<span id="cb73-21"><a href="analyse-graphique-multivariée.html#cb73-21" aria-hidden="true" tabindex="-1"></a>g</span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="analyse-graphique-multivariée.html#cb74-1" aria-hidden="true" tabindex="-1"></a>foo<span class="ot">&lt;-</span>df_pol<span class="sc">%&gt;%</span></span>
+<span id="cb74-2"><a href="analyse-graphique-multivariée.html#cb74-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(candidat, intentions, fin_enquete, echantillon,nom_institut)<span class="sc">%&gt;%</span></span>
+<span id="cb74-3"><a href="analyse-graphique-multivariée.html#cb74-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(nom_institut, candidat)<span class="sc">%&gt;%</span></span>
+<span id="cb74-4"><a href="analyse-graphique-multivariée.html#cb74-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">moy=</span><span class="fu">mean</span>(intentions, <span class="at">na.rm=</span><span class="cn">TRUE</span>),</span>
+<span id="cb74-5"><a href="analyse-graphique-multivariée.html#cb74-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">std=</span><span class="fu">sd</span>(intentions, <span class="at">na.rm=</span><span class="cn">TRUE</span>))</span>
+<span id="cb74-6"><a href="analyse-graphique-multivariée.html#cb74-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-7"><a href="analyse-graphique-multivariée.html#cb74-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-8"><a href="analyse-graphique-multivariée.html#cb74-8" aria-hidden="true" tabindex="-1"></a>SensiP2<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;gray90&quot;</span>,<span class="st">&quot;gray20&quot;</span>, <span class="st">&quot;Royalblue&quot;</span>, <span class="st">&quot;skyblue&quot;</span>, <span class="st">&quot;orange&quot;</span>, <span class="st">&quot;yellow&quot;</span>, <span class="st">&quot;pink&quot;</span>, <span class="st">&quot;firebrick&quot;</span>, <span class="st">&quot;green&quot;</span>, <span class="st">&quot;gold1&quot;</span>, <span class="st">&quot;gold2&quot;</span>)</span>
+<span id="cb74-9"><a href="analyse-graphique-multivariée.html#cb74-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-10"><a href="analyse-graphique-multivariée.html#cb74-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-11"><a href="analyse-graphique-multivariée.html#cb74-11" aria-hidden="true" tabindex="-1"></a>g<span class="ot">&lt;-</span><span class="fu">ggplot</span>(foo,<span class="fu">aes</span>(<span class="at">x=</span>candidat,<span class="at">y=</span>moy))<span class="sc">+</span></span>
+<span id="cb74-12"><a href="analyse-graphique-multivariée.html#cb74-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_segment</span>(<span class="fu">aes</span>(<span class="at">x =</span> candidat, </span>
+<span id="cb74-13"><a href="analyse-graphique-multivariée.html#cb74-13" aria-hidden="true" tabindex="-1"></a>                   <span class="at">y =</span> <span class="sc">-</span>std<span class="sc">+</span>moy, </span>
+<span id="cb74-14"><a href="analyse-graphique-multivariée.html#cb74-14" aria-hidden="true" tabindex="-1"></a>                   <span class="at">xend =</span> candidat, </span>
+<span id="cb74-15"><a href="analyse-graphique-multivariée.html#cb74-15" aria-hidden="true" tabindex="-1"></a>                   <span class="at">yend =</span> std<span class="sc">+</span>moy, </span>
+<span id="cb74-16"><a href="analyse-graphique-multivariée.html#cb74-16" aria-hidden="true" tabindex="-1"></a>                   <span class="at">color =</span> nom_institut), <span class="at">size=</span><span class="fl">1.2</span>)<span class="sc">+</span></span>
+<span id="cb74-17"><a href="analyse-graphique-multivariée.html#cb74-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color=</span>nom_institut), <span class="at">size=</span><span class="dv">2</span>)<span class="sc">+</span></span>
+<span id="cb74-18"><a href="analyse-graphique-multivariée.html#cb74-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> SensiP2)<span class="sc">+</span></span>
+<span id="cb74-19"><a href="analyse-graphique-multivariée.html#cb74-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb74-20"><a href="analyse-graphique-multivariée.html#cb74-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()</span>
+<span id="cb74-21"><a href="analyse-graphique-multivariée.html#cb74-21" aria-hidden="true" tabindex="-1"></a>g</span></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/0510-1.png" width="672" /></p>
 </div>
 </div>
 <div id="modéliser-le-biais-du-sondeur" class="section level2" number="6.5">
 <h2><span class="header-section-number">6.5</span> Modéliser le biais du sondeur</h2>
 <p><a href="http://www.stat.yale.edu/Courses/1997-98/101/anovareg.htm" class="uri">http://www.stat.yale.edu/Courses/1997-98/101/anovareg.htm</a></p>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="analyse-graphique-multivariée.html#cb74-1" aria-hidden="true" tabindex="-1"></a>df_pol<span class="sc">$</span>tps<span class="ot">&lt;-</span><span class="dv">2</span></span>
-<span id="cb74-2"><a href="analyse-graphique-multivariée.html#cb74-2" aria-hidden="true" tabindex="-1"></a>df_pol<span class="sc">$</span>tps[df_pol<span class="sc">$</span>fin_enquete <span class="sc">&lt;</span> <span class="fu">ymd</span>(<span class="st">&quot;2022-01-31&quot;</span>)]<span class="ot">&lt;-</span><span class="dv">1</span></span>
-<span id="cb74-3"><a href="analyse-graphique-multivariée.html#cb74-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb74-4"><a href="analyse-graphique-multivariée.html#cb74-4" aria-hidden="true" tabindex="-1"></a>df_pol<span class="sc">$</span>tps[df_pol<span class="sc">$</span>fin_enquete <span class="sc">&gt;</span> <span class="fu">ymd</span>(<span class="st">&quot;2022-03-01&quot;</span>)]<span class="ot">&lt;-</span><span class="dv">3</span></span>
-<span id="cb74-5"><a href="analyse-graphique-multivariée.html#cb74-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb74-6"><a href="analyse-graphique-multivariée.html#cb74-6" aria-hidden="true" tabindex="-1"></a>df_pol<span class="sc">$</span>tps<span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df_pol<span class="sc">$</span>tps)</span>
-<span id="cb74-7"><a href="analyse-graphique-multivariée.html#cb74-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb74-8"><a href="analyse-graphique-multivariée.html#cb74-8" aria-hidden="true" tabindex="-1"></a>fit1<span class="ot">&lt;-</span> <span class="fu">lm</span>(intentions<span class="sc">~</span>candidat<span class="sc">*</span>tps,<span class="at">data=</span>df_pol)</span>
-<span id="cb74-9"><a href="analyse-graphique-multivariée.html#cb74-9" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit1)</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="analyse-graphique-multivariée.html#cb75-1" aria-hidden="true" tabindex="-1"></a>df_pol<span class="sc">$</span>tps<span class="ot">&lt;-</span><span class="dv">2</span></span>
+<span id="cb75-2"><a href="analyse-graphique-multivariée.html#cb75-2" aria-hidden="true" tabindex="-1"></a>df_pol<span class="sc">$</span>tps[df_pol<span class="sc">$</span>fin_enquete <span class="sc">&lt;</span> <span class="fu">ymd</span>(<span class="st">&quot;2022-01-31&quot;</span>)]<span class="ot">&lt;-</span><span class="dv">1</span></span>
+<span id="cb75-3"><a href="analyse-graphique-multivariée.html#cb75-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-4"><a href="analyse-graphique-multivariée.html#cb75-4" aria-hidden="true" tabindex="-1"></a>df_pol<span class="sc">$</span>tps[df_pol<span class="sc">$</span>fin_enquete <span class="sc">&gt;</span> <span class="fu">ymd</span>(<span class="st">&quot;2022-03-01&quot;</span>)]<span class="ot">&lt;-</span><span class="dv">3</span></span>
+<span id="cb75-5"><a href="analyse-graphique-multivariée.html#cb75-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-6"><a href="analyse-graphique-multivariée.html#cb75-6" aria-hidden="true" tabindex="-1"></a>df_pol<span class="sc">$</span>tps<span class="ot">&lt;-</span> <span class="fu">as.factor</span>(df_pol<span class="sc">$</span>tps)</span>
+<span id="cb75-7"><a href="analyse-graphique-multivariée.html#cb75-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb75-8"><a href="analyse-graphique-multivariée.html#cb75-8" aria-hidden="true" tabindex="-1"></a>fit1<span class="ot">&lt;-</span> <span class="fu">lm</span>(intentions<span class="sc">~</span>candidat<span class="sc">*</span>tps,<span class="at">data=</span>df_pol)</span>
+<span id="cb75-9"><a href="analyse-graphique-multivariée.html#cb75-9" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit1)</span></code></pre></div>
 <pre><code>## Analysis of Variance Table
 ## 
 ## Response: intentions
-##                Df Sum Sq Mean Sq   F value    Pr(&gt;F)    
-## candidat        7  91455 13065.0 13327.297 &lt; 2.2e-16 ***
-## tps             2     22    11.1    11.336 1.291e-05 ***
-## candidat:tps   14   2591   185.1   188.785 &lt; 2.2e-16 ***
-## Residuals    1608   1576     1.0                        
+##                Df Sum Sq Mean Sq    F value    Pr(&gt;F)    
+## candidat        7 122735 17533.6 10705.9435 &lt; 2.2e-16 ***
+## tps             2     25    12.7     7.7658 0.0004363 ***
+## candidat:tps   14   4534   323.9   197.7554 &lt; 2.2e-16 ***
+## Residuals    2096   3433     1.6                         
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="analyse-graphique-multivariée.html#cb76-1" aria-hidden="true" tabindex="-1"></a>fit2<span class="ot">&lt;-</span> <span class="fu">lm</span>(intentions<span class="sc">~</span>candidat<span class="sc">*</span>tps<span class="sc">+</span>candidat<span class="sc">*</span>nom_institut,<span class="at">data=</span>df_pol)</span>
-<span id="cb76-2"><a href="analyse-graphique-multivariée.html#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit2)</span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="analyse-graphique-multivariée.html#cb77-1" aria-hidden="true" tabindex="-1"></a>fit2<span class="ot">&lt;-</span> <span class="fu">lm</span>(intentions<span class="sc">~</span>candidat<span class="sc">*</span>tps<span class="sc">+</span>candidat<span class="sc">*</span>nom_institut,<span class="at">data=</span>df_pol)</span>
+<span id="cb77-2"><a href="analyse-graphique-multivariée.html#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit2)</span></code></pre></div>
 <pre><code>## Analysis of Variance Table
 ## 
 ## Response: intentions
 ##                         Df Sum Sq Mean Sq    F value    Pr(&gt;F)    
-## candidat                 7  91455 13065.0 18131.7707 &lt; 2.2e-16 ***
-## tps                      2     22    11.1    15.4233 2.332e-07 ***
-## nom_institut             8     22     2.7     3.7658 0.0002207 ***
-## candidat:tps            14   2591   185.1   256.8418 &lt; 2.2e-16 ***
-## candidat:nom_institut   56    442     7.9    10.9564 &lt; 2.2e-16 ***
-## Residuals             1544   1113     0.7                         
+## candidat                 7 122735 17533.6 12742.2074 &lt; 2.2e-16 ***
+## tps                      2     25    12.7     9.2428  0.000101 ***
+## nom_institut            10     25     2.5     1.8283  0.051096 .  
+## candidat:tps            14   4534   323.9   235.3684 &lt; 2.2e-16 ***
+## candidat:nom_institut   70    633     9.0     6.5768 &lt; 2.2e-16 ***
+## Residuals             2016   2774     1.4                         
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="analyse-graphique-multivariée.html#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit1,fit2)</span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="analyse-graphique-multivariée.html#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(fit1,fit2)</span></code></pre></div>
 <pre><code>## Analysis of Variance Table
 ## 
 ## Model 1: intentions ~ candidat * tps
 ## Model 2: intentions ~ candidat * tps + candidat * nom_institut
 ##   Res.Df    RSS Df Sum of Sq      F    Pr(&gt;F)    
-## 1   1608 1576.3                                  
-## 2   1544 1112.5 64    463.81 10.057 &lt; 2.2e-16 ***
+## 1   2096 3432.7                                  
+## 2   2016 2774.1 80    658.65 5.9832 &lt; 2.2e-16 ***
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
-<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="analyse-graphique-multivariée.html#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit1)</span></code></pre></div>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="analyse-graphique-multivariée.html#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit1)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = intentions ~ candidat * tps, data = df_pol)
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -3.7639 -0.5882  0.0062  0.5741  4.0741 
+## -5.2585 -0.6350 -0.0278  0.6021  5.6493 
 ## 
 ## Coefficients:
 ##                                 Estimate Std. Error t value Pr(&gt;|t|)    
-## (Intercept)                       3.1765     0.1386  22.911  &lt; 2e-16 ***
-## candidatEmmanuel Macron          21.5392     0.1961 109.854  &lt; 2e-16 ***
-## candidatEric Zemmour              9.7549     0.1961  49.752  &lt; 2e-16 ***
-## candidatFabien Roussel           -0.8039     0.1961  -4.100 4.33e-05 ***
-## candidatJean-Luc Mélenchon        6.4118     0.1961  32.701  &lt; 2e-16 ***
-## candidatMarine Le Pen            13.7353     0.1961  70.053  &lt; 2e-16 ***
-## candidatValérie Pécresse         13.2255     0.1961  67.453  &lt; 2e-16 ***
-## candidatYannick Jadot             2.7255     0.1961  13.901  &lt; 2e-16 ***
-## tps2                             -0.6765     0.1812  -3.733 0.000196 ***
-## tps3                             -0.8431     0.1770  -4.764 2.07e-06 ***
-## candidatEmmanuel Macron:tps2      0.6844     0.2563   2.671 0.007648 ** 
-## candidatEric Zemmour:tps2         2.0645     0.2563   8.056 1.52e-15 ***
-## candidatFabien Roussel:tps2       2.1511     0.2563   8.394  &lt; 2e-16 ***
-## candidatJean-Luc Mélenchon:tps2   1.6438     0.2563   6.414 1.86e-10 ***
-## candidatMarine Le Pen:tps2        0.5842     0.2563   2.279 0.022772 *  
-## candidatValérie Pécresse:tps2    -0.9616     0.2563  -3.752 0.000181 ***
-## candidatYannick Jadot:tps2       -0.1630     0.2563  -0.636 0.524863    
-## candidatEmmanuel Macron:tps3      5.5534     0.2503  22.187  &lt; 2e-16 ***
-## candidatEric Zemmour:tps3        -0.4956     0.2503  -1.980 0.047850 *  
-## candidatFabien Roussel:tps3       2.2607     0.2503   9.032  &lt; 2e-16 ***
-## candidatJean-Luc Mélenchon:tps3   3.4956     0.2503  13.966  &lt; 2e-16 ***
-## candidatMarine Le Pen:tps3        1.6968     0.2503   6.779 1.69e-11 ***
-## candidatValérie Pécresse:tps3    -4.0650     0.2503 -16.241  &lt; 2e-16 ***
-## candidatYannick Jadot:tps3        0.4967     0.2503   1.985 0.047363 *  
+## (Intercept)                       3.1765     0.1792  17.726  &lt; 2e-16 ***
+## candidatEmmanuel Macron          21.5392     0.2534  84.992  &lt; 2e-16 ***
+## candidatEric Zemmour              9.7549     0.2534  38.492  &lt; 2e-16 ***
+## candidatFabien Roussel           -0.8039     0.2534  -3.172 0.001535 ** 
+## candidatJean-Luc Mélenchon        6.4118     0.2534  25.300  &lt; 2e-16 ***
+## candidatMarine Le Pen            13.7353     0.2534  54.198  &lt; 2e-16 ***
+## candidatValérie Pécresse         13.2255     0.2534  52.187  &lt; 2e-16 ***
+## candidatYannick Jadot             2.7255     0.2534  10.755  &lt; 2e-16 ***
+## tps2                             -0.6765     0.2342  -2.888 0.003915 ** 
+## tps3                             -0.9765     0.2089  -4.674 3.14e-06 ***
+## candidatEmmanuel Macron:tps2      0.6844     0.3312   2.066 0.038934 *  
+## candidatEric Zemmour:tps2         2.0645     0.3312   6.233 5.52e-10 ***
+## candidatFabien Roussel:tps2       2.1511     0.3312   6.494 1.04e-10 ***
+## candidatJean-Luc Mélenchon:tps2   1.6438     0.3312   4.963 7.52e-07 ***
+## candidatMarine Le Pen:tps2        0.5842     0.3312   1.764 0.077955 .  
+## candidatValérie Pécresse:tps2    -0.9616     0.3312  -2.903 0.003734 ** 
+## candidatYannick Jadot:tps2       -0.1630     0.3312  -0.492 0.622725    
+## candidatEmmanuel Macron:tps3      4.6819     0.2955  15.847  &lt; 2e-16 ***
+## candidatEric Zemmour:tps3        -1.0570     0.2955  -3.578 0.000355 ***
+## candidatFabien Roussel:tps3       2.0919     0.2955   7.080 1.95e-12 ***
+## candidatJean-Luc Mélenchon:tps3   5.1319     0.2955  17.370  &lt; 2e-16 ***
+## candidatMarine Le Pen:tps3        3.4154     0.2955  11.560  &lt; 2e-16 ***
+## candidatValérie Pécresse:tps3    -4.8670     0.2955 -16.473  &lt; 2e-16 ***
+## candidatYannick Jadot:tps3        0.4724     0.2955   1.599 0.109995    
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 0.9901 on 1608 degrees of freedom
-## Multiple R-squared:  0.9835, Adjusted R-squared:  0.9833 
-## F-statistic:  4172 on 23 and 1608 DF,  p-value: &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb82"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb82-1"><a href="analyse-graphique-multivariée.html#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit2)</span></code></pre></div>
+## Residual standard error: 1.28 on 2096 degrees of freedom
+## Multiple R-squared:  0.9737, Adjusted R-squared:  0.9735 
+## F-statistic:  3379 on 23 and 2096 DF,  p-value: &lt; 2.2e-16</code></pre>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="analyse-graphique-multivariée.html#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit2)</span></code></pre></div>
 <pre><code>## 
 ## Call:
 ## lm(formula = intentions ~ candidat * tps + candidat * nom_institut, 
@@ -620,201 +622,233 @@ div.csl-indent {
 ## 
 ## Residuals:
 ##     Min      1Q  Median      3Q     Max 
-## -3.0364 -0.4365 -0.0473  0.5315  4.0598 
+## -4.7981 -0.5456 -0.0272  0.5924  5.2019 
 ## 
 ## Coefficients:
-##                                                            Estimate Std. Error
-## (Intercept)                                                2.996288   0.343330
-## candidatEmmanuel Macron                                   21.420362   0.485542
-## candidatEric Zemmour                                      10.309018   0.485542
-## candidatFabien Roussel                                    -0.698575   0.485542
-## candidatJean-Luc Mélenchon                                 6.675419   0.485542
-## candidatMarine Le Pen                                     13.939990   0.485542
-## candidatValérie Pécresse                                  13.036636   0.485542
-## candidatYannick Jadot                                      2.896003   0.485542
-## tps2                                                      -0.677181   0.156273
-## tps3                                                      -0.904913   0.158066
-## nom_institutCluster17                                     -0.653941   0.419813
-## nom_institutElabe                                         -0.404567   0.405893
-## nom_institutHarris Interactive                             0.203762   0.400643
-## nom_institutIfop                                           0.232704   0.341681
-## nom_institutIpsos                                          0.458974   0.373498
-## nom_institutKantar Public                                 -0.333952   0.586121
-## nom_institutOdoxa                                         -0.455241   0.681187
-## nom_institutOpinion Way                                    0.377135   0.335325
-## candidatEmmanuel Macron:tps2                               0.746163   0.221004
-## candidatEric Zemmour:tps2                                  2.129084   0.221004
-## candidatFabien Roussel:tps2                                2.123362   0.221004
-## candidatJean-Luc Mélenchon:tps2                            1.701235   0.221004
-## candidatMarine Le Pen:tps2                                 0.573065   0.221004
-## candidatValérie Pécresse:tps2                             -0.988110   0.221004
-## candidatYannick Jadot:tps2                                -0.145368   0.221004
-## candidatEmmanuel Macron:tps3                               5.641284   0.223539
-## candidatEric Zemmour:tps3                                 -0.355324   0.223539
-## candidatFabien Roussel:tps3                                2.285824   0.223539
-## candidatJean-Luc Mélenchon:tps3                            3.717399   0.223539
-## candidatMarine Le Pen:tps3                                 1.943484   0.223539
-## candidatValérie Pécresse:tps3                             -3.945058   0.223539
-## candidatYannick Jadot:tps3                                 0.379679   0.223539
-## candidatEmmanuel Macron:nom_institutCluster17             -0.411213   0.593705
-## candidatEric Zemmour:nom_institutCluster17                 1.545945   0.593705
-## candidatFabien Roussel:nom_institutCluster17               0.563482   0.593705
-## candidatJean-Luc Mélenchon:nom_institutCluster17           3.078867   0.593705
-## candidatMarine Le Pen:nom_institutCluster17               -1.052262   0.593705
-## candidatValérie Pécresse:nom_institutCluster17            -0.357875   0.593705
-## candidatYannick Jadot:nom_institutCluster17                0.198241   0.593705
-## candidatEmmanuel Macron:nom_institutElabe                  0.691749   0.574020
-## candidatEric Zemmour:nom_institutElabe                    -0.982306   0.574020
-## candidatFabien Roussel:nom_institutElabe                   0.325718   0.574020
-## candidatJean-Luc Mélenchon:nom_institutElabe               0.769716   0.574020
-## candidatMarine Le Pen:nom_institutElabe                    0.085361   0.574020
-## candidatValérie Pécresse:nom_institutElabe                 0.236341   0.574020
-## candidatYannick Jadot:nom_institutElabe                    0.486314   0.574020
-## candidatEmmanuel Macron:nom_institutHarris Interactive     0.336971   0.566595
-## candidatEric Zemmour:nom_institutHarris Interactive       -0.007437   0.566595
-## candidatFabien Roussel:nom_institutHarris Interactive     -0.645601   0.566595
-## candidatJean-Luc Mélenchon:nom_institutHarris Interactive  0.543168   0.566595
-## candidatMarine Le Pen:nom_institutHarris Interactive       0.198796   0.566595
-## candidatValérie Pécresse:nom_institutHarris Interactive   -0.823119   0.566595
-## candidatYannick Jadot:nom_institutHarris Interactive       0.072290   0.566595
-## candidatEmmanuel Macron:nom_institutIfop                   0.558648   0.483210
-## candidatEric Zemmour:nom_institutIfop                     -0.271076   0.483210
-## candidatFabien Roussel:nom_institutIfop                   -0.156132   0.483210
-## candidatJean-Luc Mélenchon:nom_institutIfop               -0.513746   0.483210
-## candidatMarine Le Pen:nom_institutIfop                    -0.037347   0.483210
-## candidatValérie Pécresse:nom_institutIfop                  0.270337   0.483210
-## candidatYannick Jadot:nom_institutIfop                    -0.365942   0.483210
-## candidatEmmanuel Macron:nom_institutIpsos                  0.311750   0.528206
-## candidatEric Zemmour:nom_institutIpsos                    -0.761888   0.528206
-## candidatFabien Roussel:nom_institutIpsos                  -0.459298   0.528206
-## candidatJean-Luc Mélenchon:nom_institutIpsos              -0.818654   0.528206
-## candidatMarine Le Pen:nom_institutIpsos                   -1.908563   0.528206
-## candidatValérie Pécresse:nom_institutIpsos                -1.004626   0.528206
-## candidatYannick Jadot:nom_institutIpsos                    0.916043   0.528206
-## candidatEmmanuel Macron:nom_institutKantar Public          1.070060   0.828900
-## candidatEric Zemmour:nom_institutKantar Public             0.884836   0.828900
-## candidatFabien Roussel:nom_institutKantar Public          -0.033096   0.828900
-## candidatJean-Luc Mélenchon:nom_institutKantar Public       0.779237   0.828900
-## candidatMarine Le Pen:nom_institutKantar Public            0.573332   0.828900
-## candidatValérie Pécresse:nom_institutKantar Public        -0.577227   0.828900
-## candidatYannick Jadot:nom_institutKantar Public           -0.767333   0.828900
-## candidatEmmanuel Macron:nom_institutOdoxa                  0.635914   0.963344
-## candidatEric Zemmour:nom_institutOdoxa                    -0.445898   0.963344
-## candidatFabien Roussel:nom_institutOdoxa                   0.743981   0.963344
-## candidatJean-Luc Mélenchon:nom_institutOdoxa               0.115264   0.963344
-## candidatMarine Le Pen:nom_institutOdoxa                    1.801735   0.963344
-## candidatValérie Pécresse:nom_institutOdoxa                -0.820052   0.963344
-## candidatYannick Jadot:nom_institutOdoxa                   -0.013158   0.963344
-## candidatEmmanuel Macron:nom_institutOpinion Way           -0.493794   0.474222
-## candidatEric Zemmour:nom_institutOpinion Way              -1.309243   0.474222
-## candidatFabien Roussel:nom_institutOpinion Way            -0.073700   0.474222
-## candidatJean-Luc Mélenchon:nom_institutOpinion Way        -1.004659   0.474222
-## candidatMarine Le Pen:nom_institutOpinion Way             -0.240672   0.474222
-## candidatValérie Pécresse:nom_institutOpinion Way           0.632251   0.474222
-## candidatYannick Jadot:nom_institutOpinion Way             -0.380987   0.474222
+##                                                           Estimate Std. Error
+## (Intercept)                                                3.39409    1.18971
+## candidatEmmanuel Macron                                   20.60082    1.68251
+## candidatEric Zemmour                                      10.59844    1.68251
+## candidatFabien Roussel                                    -2.19508    1.68251
+## candidatJean-Luc Mélenchon                                11.04593    1.68251
+## candidatMarine Le Pen                                     15.30968    1.68251
+## candidatValérie Pécresse                                   7.55835    1.68251
+## candidatYannick Jadot                                      2.30826    1.68251
+## tps2                                                      -0.68106    0.21565
+## tps3                                                      -0.99409    0.19847
+## nom_institutBVA                                           -0.30224    1.23753
+## nom_institutCluster17                                     -0.84531    1.21657
+## nom_institutElabe                                         -0.71509    1.21215
+## nom_institutHarris Interactive                            -0.18347    1.21291
+## nom_institutIfop                                          -0.18249    1.18474
+## nom_institutIpsos                                         -0.08904    1.19038
+## nom_institutKantar Public                                 -0.47826    1.31223
+## nom_institutOdoxa                                         -0.67101    1.35576
+## nom_institutOpinion Way                                   -0.04925    1.18126
+## nom_institutYouGov                                        -1.40000    1.65893
+## candidatEmmanuel Macron:tps2                               0.73921    0.30498
+## candidatEric Zemmour:tps2                                  2.12294    0.30498
+## candidatFabien Roussel:tps2                                2.12788    0.30498
+## candidatJean-Luc Mélenchon:tps2                            1.71555    0.30498
+## candidatMarine Le Pen:tps2                                 0.60025    0.30498
+## candidatValérie Pécresse:tps2                             -0.97779    0.30498
+## candidatYannick Jadot:tps2                                -0.15932    0.30498
+## candidatEmmanuel Macron:tps3                               4.79918    0.28068
+## candidatEric Zemmour:tps3                                 -0.99844    0.28068
+## candidatFabien Roussel:tps3                                2.09508    0.28068
+## candidatJean-Luc Mélenchon:tps3                            5.15407    0.28068
+## candidatMarine Le Pen:tps3                                 3.59032    0.28068
+## candidatValérie Pécresse:tps3                             -4.65835    0.28068
+## candidatYannick Jadot:tps3                                 0.29174    0.28068
+## candidatEmmanuel Macron:nom_institutBVA                    0.75768    1.75014
+## candidatEric Zemmour:nom_institutBVA                      -0.46013    1.75014
+## candidatFabien Roussel:nom_institutBVA                     1.43661    1.75014
+## candidatJean-Luc Mélenchon:nom_institutBVA                -4.47432    1.75014
+## candidatMarine Le Pen:nom_institutBVA                     -1.61439    1.75014
+## candidatValérie Pécresse:nom_institutBVA                   5.43117    1.75014
+## candidatYannick Jadot:nom_institutBVA                      0.47709    1.75014
+## candidatEmmanuel Macron:nom_institutCluster17              0.21696    1.72049
+## candidatEric Zemmour:nom_institutCluster17                 0.93708    1.72049
+## candidatFabien Roussel:nom_institutCluster17               1.75386    1.72049
+## candidatJean-Luc Mélenchon:nom_institutCluster17          -1.72026    1.72049
+## candidatMarine Le Pen:nom_institutCluster17               -2.63348    1.72049
+## candidatValérie Pécresse:nom_institutCluster17             5.22876    1.72049
+## candidatYannick Jadot:nom_institutCluster17                0.59139    1.72049
+## candidatEmmanuel Macron:nom_institutElabe                  1.38103    1.71424
+## candidatEric Zemmour:nom_institutElabe                    -1.35629    1.71424
+## candidatFabien Roussel:nom_institutElabe                   1.64477    1.71424
+## candidatJean-Luc Mélenchon:nom_institutElabe              -3.52444    1.71424
+## candidatMarine Le Pen:nom_institutElabe                   -0.78677    1.71424
+## candidatValérie Pécresse:nom_institutElabe                 5.34773    1.71424
+## candidatYannick Jadot:nom_institutElabe                    0.80139    1.71424
+## candidatEmmanuel Macron:nom_institutHarris Interactive     1.05598    1.71531
+## candidatEric Zemmour:nom_institutHarris Interactive       -0.57494    1.71531
+## candidatFabien Roussel:nom_institutHarris Interactive      0.83821    1.71531
+## candidatJean-Luc Mélenchon:nom_institutHarris Interactive -3.70231    1.71531
+## candidatMarine Le Pen:nom_institutHarris Interactive      -0.96863    1.71531
+## candidatValérie Pécresse:nom_institutHarris Interactive    4.65034    1.71531
+## candidatYannick Jadot:nom_institutHarris Interactive       0.56962    1.71531
+## candidatEmmanuel Macron:nom_institutIfop                   1.34434    1.67547
+## candidatEric Zemmour:nom_institutIfop                     -0.55201    1.67547
+## candidatFabien Roussel:nom_institutIfop                    1.38693    1.67547
+## candidatJean-Luc Mélenchon:nom_institutIfop               -4.84893    1.67547
+## candidatMarine Le Pen:nom_institutIfop                    -1.37146    1.67547
+## candidatValérie Pécresse:nom_institutIfop                  5.78598    1.67547
+## candidatYannick Jadot:nom_institutIfop                     0.22809    1.67547
+## candidatEmmanuel Macron:nom_institutIpsos                  0.79936    1.68345
+## candidatEric Zemmour:nom_institutIpsos                    -0.87532    1.68345
+## candidatFabien Roussel:nom_institutIpsos                   1.26446    1.68345
+## candidatJean-Luc Mélenchon:nom_institutIpsos              -4.62283    1.68345
+## candidatMarine Le Pen:nom_institutIpsos                   -2.71909    1.68345
+## candidatValérie Pécresse:nom_institutIpsos                 4.63358    1.68345
+## candidatYannick Jadot:nom_institutIpsos                    1.44225    1.68345
+## candidatEmmanuel Macron:nom_institutKantar Public          1.11499    1.85577
+## candidatEric Zemmour:nom_institutKantar Public             0.49465    1.85577
+## candidatFabien Roussel:nom_institutKantar Public           1.34180    1.85577
+## candidatJean-Luc Mélenchon:nom_institutKantar Public      -4.09037    1.85577
+## candidatMarine Le Pen:nom_institutKantar Public           -1.02748    1.85577
+## candidatValérie Pécresse:nom_institutKantar Public         4.67986    1.85577
+## candidatYannick Jadot:nom_institutKantar Public           -0.11224    1.85577
+## candidatEmmanuel Macron:nom_institutOdoxa                  1.45332    1.91734
+## candidatEric Zemmour:nom_institutOdoxa                    -1.47379    1.91734
+## candidatFabien Roussel:nom_institutOdoxa                   1.92240    1.91734
+## candidatJean-Luc Mélenchon:nom_institutOdoxa              -4.05383    1.91734
+## candidatMarine Le Pen:nom_institutOdoxa                    0.76336    1.91734
+## candidatValérie Pécresse:nom_institutOdoxa                 4.03981    1.91734
+## candidatYannick Jadot:nom_institutOdoxa                    0.55035    1.91734
+## candidatEmmanuel Macron:nom_institutOpinion Way            0.50026    1.67056
+## candidatEric Zemmour:nom_institutOpinion Way              -1.46076    1.67056
+## candidatFabien Roussel:nom_institutOpinion Way             1.44706    1.67056
+## candidatJean-Luc Mélenchon:nom_institutOpinion Way        -5.45426    1.67056
+## candidatMarine Le Pen:nom_institutOpinion Way             -1.84075    1.67056
+## candidatValérie Pécresse:nom_institutOpinion Way           6.12136    1.67056
+## candidatYannick Jadot:nom_institutOpinion Way              0.33856    1.67056
+## candidatEmmanuel Macron:nom_institutYouGov                 0.60000    2.34608
+## candidatEric Zemmour:nom_institutYouGov                   -1.60000    2.34608
+## candidatFabien Roussel:nom_institutYouGov                  1.10000    2.34608
+## candidatJean-Luc Mélenchon:nom_institutYouGov             -2.20000    2.34608
+## candidatMarine Le Pen:nom_institutYouGov                   5.10000    2.34608
+## candidatValérie Pécresse:nom_institutYouGov                4.10000    2.34608
+## candidatYannick Jadot:nom_institutYouGov                   2.40000    2.34608
 ##                                                           t value Pr(&gt;|t|)    
-## (Intercept)                                                 8.727  &lt; 2e-16 ***
-## candidatEmmanuel Macron                                    44.116  &lt; 2e-16 ***
-## candidatEric Zemmour                                       21.232  &lt; 2e-16 ***
-## candidatFabien Roussel                                     -1.439 0.150424    
-## candidatJean-Luc Mélenchon                                 13.748  &lt; 2e-16 ***
-## candidatMarine Le Pen                                      28.710  &lt; 2e-16 ***
-## candidatValérie Pécresse                                   26.850  &lt; 2e-16 ***
-## candidatYannick Jadot                                       5.964 3.04e-09 ***
-## tps2                                                       -4.333 1.56e-05 ***
-## tps3                                                       -5.725 1.24e-08 ***
-## nom_institutCluster17                                      -1.558 0.119510    
-## nom_institutElabe                                          -0.997 0.319050    
-## nom_institutHarris Interactive                              0.509 0.611114    
-## nom_institutIfop                                            0.681 0.495938    
-## nom_institutIpsos                                           1.229 0.219314    
-## nom_institutKantar Public                                  -0.570 0.568919    
-## nom_institutOdoxa                                          -0.668 0.504039    
-## nom_institutOpinion Way                                     1.125 0.260898    
-## candidatEmmanuel Macron:tps2                                3.376 0.000753 ***
-## candidatEric Zemmour:tps2                                   9.634  &lt; 2e-16 ***
-## candidatFabien Roussel:tps2                                 9.608  &lt; 2e-16 ***
-## candidatJean-Luc Mélenchon:tps2                             7.698 2.46e-14 ***
-## candidatMarine Le Pen:tps2                                  2.593 0.009604 ** 
-## candidatValérie Pécresse:tps2                              -4.471 8.35e-06 ***
-## candidatYannick Jadot:tps2                                 -0.658 0.510788    
-## candidatEmmanuel Macron:tps3                               25.236  &lt; 2e-16 ***
-## candidatEric Zemmour:tps3                                  -1.590 0.112144    
-## candidatFabien Roussel:tps3                                10.226  &lt; 2e-16 ***
-## candidatJean-Luc Mélenchon:tps3                            16.630  &lt; 2e-16 ***
-## candidatMarine Le Pen:tps3                                  8.694  &lt; 2e-16 ***
-## candidatValérie Pécresse:tps3                             -17.648  &lt; 2e-16 ***
-## candidatYannick Jadot:tps3                                  1.698 0.089617 .  
-## candidatEmmanuel Macron:nom_institutCluster17              -0.693 0.488651    
-## candidatEric Zemmour:nom_institutCluster17                  2.604 0.009306 ** 
-## candidatFabien Roussel:nom_institutCluster17                0.949 0.342721    
-## candidatJean-Luc Mélenchon:nom_institutCluster17            5.186 2.43e-07 ***
-## candidatMarine Le Pen:nom_institutCluster17                -1.772 0.076531 .  
-## candidatValérie Pécresse:nom_institutCluster17             -0.603 0.546743    
-## candidatYannick Jadot:nom_institutCluster17                 0.334 0.738497    
-## candidatEmmanuel Macron:nom_institutElabe                   1.205 0.228351    
-## candidatEric Zemmour:nom_institutElabe                     -1.711 0.087231 .  
-## candidatFabien Roussel:nom_institutElabe                    0.567 0.570503    
-## candidatJean-Luc Mélenchon:nom_institutElabe                1.341 0.180143    
-## candidatMarine Le Pen:nom_institutElabe                     0.149 0.881803    
-## candidatValérie Pécresse:nom_institutElabe                  0.412 0.680595    
-## candidatYannick Jadot:nom_institutElabe                     0.847 0.397011    
-## candidatEmmanuel Macron:nom_institutHarris Interactive      0.595 0.552111    
-## candidatEric Zemmour:nom_institutHarris Interactive        -0.013 0.989529    
-## candidatFabien Roussel:nom_institutHarris Interactive      -1.139 0.254696    
-## candidatJean-Luc Mélenchon:nom_institutHarris Interactive   0.959 0.337884    
-## candidatMarine Le Pen:nom_institutHarris Interactive        0.351 0.725741    
-## candidatValérie Pécresse:nom_institutHarris Interactive    -1.453 0.146497    
-## candidatYannick Jadot:nom_institutHarris Interactive        0.128 0.898493    
-## candidatEmmanuel Macron:nom_institutIfop                    1.156 0.247812    
-## candidatEric Zemmour:nom_institutIfop                      -0.561 0.574886    
-## candidatFabien Roussel:nom_institutIfop                    -0.323 0.746652    
-## candidatJean-Luc Mélenchon:nom_institutIfop                -1.063 0.287860    
-## candidatMarine Le Pen:nom_institutIfop                     -0.077 0.938404    
-## candidatValérie Pécresse:nom_institutIfop                   0.559 0.575929    
-## candidatYannick Jadot:nom_institutIfop                     -0.757 0.448977    
-## candidatEmmanuel Macron:nom_institutIpsos                   0.590 0.555140    
-## candidatEric Zemmour:nom_institutIpsos                     -1.442 0.149390    
-## candidatFabien Roussel:nom_institutIpsos                   -0.870 0.384685    
-## candidatJean-Luc Mélenchon:nom_institutIpsos               -1.550 0.121376    
-## candidatMarine Le Pen:nom_institutIpsos                    -3.613 0.000312 ***
-## candidatValérie Pécresse:nom_institutIpsos                 -1.902 0.057362 .  
-## candidatYannick Jadot:nom_institutIpsos                     1.734 0.083073 .  
-## candidatEmmanuel Macron:nom_institutKantar Public           1.291 0.196918    
-## candidatEric Zemmour:nom_institutKantar Public              1.067 0.285921    
-## candidatFabien Roussel:nom_institutKantar Public           -0.040 0.968156    
-## candidatJean-Luc Mélenchon:nom_institutKantar Public        0.940 0.347321    
-## candidatMarine Le Pen:nom_institutKantar Public             0.692 0.489244    
-## candidatValérie Pécresse:nom_institutKantar Public         -0.696 0.486297    
-## candidatYannick Jadot:nom_institutKantar Public            -0.926 0.354734    
-## candidatEmmanuel Macron:nom_institutOdoxa                   0.660 0.509281    
-## candidatEric Zemmour:nom_institutOdoxa                     -0.463 0.643526    
-## candidatFabien Roussel:nom_institutOdoxa                    0.772 0.440061    
-## candidatJean-Luc Mélenchon:nom_institutOdoxa                0.120 0.904776    
-## candidatMarine Le Pen:nom_institutOdoxa                     1.870 0.061632 .  
-## candidatValérie Pécresse:nom_institutOdoxa                 -0.851 0.394760    
-## candidatYannick Jadot:nom_institutOdoxa                    -0.014 0.989104    
-## candidatEmmanuel Macron:nom_institutOpinion Way            -1.041 0.297912    
-## candidatEric Zemmour:nom_institutOpinion Way               -2.761 0.005834 ** 
-## candidatFabien Roussel:nom_institutOpinion Way             -0.155 0.876516    
-## candidatJean-Luc Mélenchon:nom_institutOpinion Way         -2.119 0.034288 *  
-## candidatMarine Le Pen:nom_institutOpinion Way              -0.508 0.611870    
-## candidatValérie Pécresse:nom_institutOpinion Way            1.333 0.182650    
-## candidatYannick Jadot:nom_institutOpinion Way              -0.803 0.421871    
+## (Intercept)                                                 2.853 0.004377 ** 
+## candidatEmmanuel Macron                                    12.244  &lt; 2e-16 ***
+## candidatEric Zemmour                                        6.299 3.66e-10 ***
+## candidatFabien Roussel                                     -1.305 0.192163    
+## candidatJean-Luc Mélenchon                                  6.565 6.59e-11 ***
+## candidatMarine Le Pen                                       9.099  &lt; 2e-16 ***
+## candidatValérie Pécresse                                    4.492 7.44e-06 ***
+## candidatYannick Jadot                                       1.372 0.170242    
+## tps2                                                       -3.158 0.001611 ** 
+## tps3                                                       -5.009 5.96e-07 ***
+## nom_institutBVA                                            -0.244 0.807081    
+## nom_institutCluster17                                      -0.695 0.487241    
+## nom_institutElabe                                          -0.590 0.555298    
+## nom_institutHarris Interactive                             -0.151 0.879779    
+## nom_institutIfop                                           -0.154 0.877598    
+## nom_institutIpsos                                          -0.075 0.940383    
+## nom_institutKantar Public                                  -0.364 0.715551    
+## nom_institutOdoxa                                          -0.495 0.620703    
+## nom_institutOpinion Way                                    -0.042 0.966747    
+## nom_institutYouGov                                         -0.844 0.398816    
+## candidatEmmanuel Macron:tps2                                2.424 0.015445 *  
+## candidatEric Zemmour:tps2                                   6.961 4.55e-12 ***
+## candidatFabien Roussel:tps2                                 6.977 4.07e-12 ***
+## candidatJean-Luc Mélenchon:tps2                             5.625 2.11e-08 ***
+## candidatMarine Le Pen:tps2                                  1.968 0.049184 *  
+## candidatValérie Pécresse:tps2                              -3.206 0.001367 ** 
+## candidatYannick Jadot:tps2                                 -0.522 0.601458    
+## candidatEmmanuel Macron:tps3                               17.098  &lt; 2e-16 ***
+## candidatEric Zemmour:tps3                                  -3.557 0.000383 ***
+## candidatFabien Roussel:tps3                                 7.464 1.24e-13 ***
+## candidatJean-Luc Mélenchon:tps3                            18.363  &lt; 2e-16 ***
+## candidatMarine Le Pen:tps3                                 12.791  &lt; 2e-16 ***
+## candidatValérie Pécresse:tps3                             -16.597  &lt; 2e-16 ***
+## candidatYannick Jadot:tps3                                  1.039 0.298749    
+## candidatEmmanuel Macron:nom_institutBVA                     0.433 0.665115    
+## candidatEric Zemmour:nom_institutBVA                       -0.263 0.792645    
+## candidatFabien Roussel:nom_institutBVA                      0.821 0.411826    
+## candidatJean-Luc Mélenchon:nom_institutBVA                 -2.557 0.010644 *  
+## candidatMarine Le Pen:nom_institutBVA                      -0.922 0.356411    
+## candidatValérie Pécresse:nom_institutBVA                    3.103 0.001940 ** 
+## candidatYannick Jadot:nom_institutBVA                       0.273 0.785186    
+## candidatEmmanuel Macron:nom_institutCluster17               0.126 0.899664    
+## candidatEric Zemmour:nom_institutCluster17                  0.545 0.586049    
+## candidatFabien Roussel:nom_institutCluster17                1.019 0.308139    
+## candidatJean-Luc Mélenchon:nom_institutCluster17           -1.000 0.317496    
+## candidatMarine Le Pen:nom_institutCluster17                -1.531 0.126012    
+## candidatValérie Pécresse:nom_institutCluster17              3.039 0.002403 ** 
+## candidatYannick Jadot:nom_institutCluster17                 0.344 0.731085    
+## candidatEmmanuel Macron:nom_institutElabe                   0.806 0.420553    
+## candidatEric Zemmour:nom_institutElabe                     -0.791 0.428924    
+## candidatFabien Roussel:nom_institutElabe                    0.959 0.337434    
+## candidatJean-Luc Mélenchon:nom_institutElabe               -2.056 0.039913 *  
+## candidatMarine Le Pen:nom_institutElabe                    -0.459 0.646309    
+## candidatValérie Pécresse:nom_institutElabe                  3.120 0.001837 ** 
+## candidatYannick Jadot:nom_institutElabe                     0.467 0.640200    
+## candidatEmmanuel Macron:nom_institutHarris Interactive      0.616 0.538214    
+## candidatEric Zemmour:nom_institutHarris Interactive        -0.335 0.737521    
+## candidatFabien Roussel:nom_institutHarris Interactive       0.489 0.625133    
+## candidatJean-Luc Mélenchon:nom_institutHarris Interactive  -2.158 0.031015 *  
+## candidatMarine Le Pen:nom_institutHarris Interactive       -0.565 0.572343    
+## candidatValérie Pécresse:nom_institutHarris Interactive     2.711 0.006763 ** 
+## candidatYannick Jadot:nom_institutHarris Interactive        0.332 0.739863    
+## candidatEmmanuel Macron:nom_institutIfop                    0.802 0.422437    
+## candidatEric Zemmour:nom_institutIfop                      -0.329 0.741837    
+## candidatFabien Roussel:nom_institutIfop                     0.828 0.407892    
+## candidatJean-Luc Mélenchon:nom_institutIfop                -2.894 0.003844 ** 
+## candidatMarine Le Pen:nom_institutIfop                     -0.819 0.413138    
+## candidatValérie Pécresse:nom_institutIfop                   3.453 0.000565 ***
+## candidatYannick Jadot:nom_institutIfop                      0.136 0.891729    
+## candidatEmmanuel Macron:nom_institutIpsos                   0.475 0.634955    
+## candidatEric Zemmour:nom_institutIpsos                     -0.520 0.603149    
+## candidatFabien Roussel:nom_institutIpsos                    0.751 0.452670    
+## candidatJean-Luc Mélenchon:nom_institutIpsos               -2.746 0.006085 ** 
+## candidatMarine Le Pen:nom_institutIpsos                    -1.615 0.106425    
+## candidatValérie Pécresse:nom_institutIpsos                  2.752 0.005968 ** 
+## candidatYannick Jadot:nom_institutIpsos                     0.857 0.391697    
+## candidatEmmanuel Macron:nom_institutKantar Public           0.601 0.548025    
+## candidatEric Zemmour:nom_institutKantar Public              0.267 0.789843    
+## candidatFabien Roussel:nom_institutKantar Public            0.723 0.469738    
+## candidatJean-Luc Mélenchon:nom_institutKantar Public       -2.204 0.027628 *  
+## candidatMarine Le Pen:nom_institutKantar Public            -0.554 0.579867    
+## candidatValérie Pécresse:nom_institutKantar Public          2.522 0.011753 *  
+## candidatYannick Jadot:nom_institutKantar Public            -0.060 0.951779    
+## candidatEmmanuel Macron:nom_institutOdoxa                   0.758 0.448546    
+## candidatEric Zemmour:nom_institutOdoxa                     -0.769 0.442182    
+## candidatFabien Roussel:nom_institutOdoxa                    1.003 0.316155    
+## candidatJean-Luc Mélenchon:nom_institutOdoxa               -2.114 0.034612 *  
+## candidatMarine Le Pen:nom_institutOdoxa                     0.398 0.690574    
+## candidatValérie Pécresse:nom_institutOdoxa                  2.107 0.035242 *  
+## candidatYannick Jadot:nom_institutOdoxa                     0.287 0.774112    
+## candidatEmmanuel Macron:nom_institutOpinion Way             0.299 0.764623    
+## candidatEric Zemmour:nom_institutOpinion Way               -0.874 0.381997    
+## candidatFabien Roussel:nom_institutOpinion Way              0.866 0.386475    
+## candidatJean-Luc Mélenchon:nom_institutOpinion Way         -3.265 0.001113 ** 
+## candidatMarine Le Pen:nom_institutOpinion Way              -1.102 0.270647    
+## candidatValérie Pécresse:nom_institutOpinion Way            3.664 0.000254 ***
+## candidatYannick Jadot:nom_institutOpinion Way               0.203 0.839420    
+## candidatEmmanuel Macron:nom_institutYouGov                  0.256 0.798174    
+## candidatEric Zemmour:nom_institutYouGov                    -0.682 0.495325    
+## candidatFabien Roussel:nom_institutYouGov                   0.469 0.639216    
+## candidatJean-Luc Mélenchon:nom_institutYouGov              -0.938 0.348494    
+## candidatMarine Le Pen:nom_institutYouGov                    2.174 0.029834 *  
+## candidatValérie Pécresse:nom_institutYouGov                 1.748 0.080687 .  
+## candidatYannick Jadot:nom_institutYouGov                    1.023 0.306439    
 ## ---
 ## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
 ## 
-## Residual standard error: 0.8489 on 1544 degrees of freedom
-## Multiple R-squared:  0.9884, Adjusted R-squared:  0.9877 
-## F-statistic:  1508 on 87 and 1544 DF,  p-value: &lt; 2.2e-16</code></pre>
-<div class="sourceCode" id="cb84"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb84-1"><a href="analyse-graphique-multivariée.html#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jtools)</span>
-<span id="cb84-2"><a href="analyse-graphique-multivariée.html#cb84-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb84-3"><a href="analyse-graphique-multivariée.html#cb84-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(interactions)</span>
-<span id="cb84-4"><a href="analyse-graphique-multivariée.html#cb84-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat_plot</span>(fit2, <span class="at">pred=</span>candidat,<span class="at">modx=</span> nom_institut, <span class="at">color.class=</span><span class="st">&quot;Spectral&quot;</span>)<span class="sc">+</span></span>
-<span id="cb84-5"><a href="analyse-graphique-multivariée.html#cb84-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> SensiP2)<span class="sc">+</span><span class="fu">coord_flip</span>()</span></code></pre></div>
+## Residual standard error: 1.173 on 2016 degrees of freedom
+## Multiple R-squared:  0.9788, Adjusted R-squared:  0.9777 
+## F-statistic: 902.8 on 103 and 2016 DF,  p-value: &lt; 2.2e-16</code></pre>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="analyse-graphique-multivariée.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(jtools)</span>
+<span id="cb85-2"><a href="analyse-graphique-multivariée.html#cb85-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-3"><a href="analyse-graphique-multivariée.html#cb85-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(interactions)</span>
+<span id="cb85-4"><a href="analyse-graphique-multivariée.html#cb85-4" aria-hidden="true" tabindex="-1"></a><span class="fu">cat_plot</span>(fit2, <span class="at">pred=</span>candidat,<span class="at">modx=</span> nom_institut, <span class="at">color.class=</span><span class="st">&quot;Spectral&quot;</span>)<span class="sc">+</span></span>
+<span id="cb85-5"><a href="analyse-graphique-multivariée.html#cb85-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> SensiP2)<span class="sc">+</span><span class="fu">coord_flip</span>()</span></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/biais-1.png" width="672" /></p>
-<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="analyse-graphique-multivariée.html#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat_plot</span>(fit2, <span class="at">pred=</span> tps,<span class="at">modx=</span>candidat, <span class="at">color.class=</span><span class="st">&quot;Spectral&quot;</span>, <span class="at">dodge.width=</span><span class="dv">0</span>)<span class="sc">+</span></span>
-<span id="cb85-2"><a href="analyse-graphique-multivariée.html#cb85-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> SensiP2)<span class="sc">+</span><span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color=</span>candidat))</span></code></pre></div>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="analyse-graphique-multivariée.html#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat_plot</span>(fit2, <span class="at">pred=</span> tps,<span class="at">modx=</span>candidat, <span class="at">color.class=</span><span class="st">&quot;Spectral&quot;</span>, <span class="at">dodge.width=</span><span class="dv">0</span>)<span class="sc">+</span></span>
+<span id="cb86-2"><a href="analyse-graphique-multivariée.html#cb86-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> SensiP2)<span class="sc">+</span><span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">color=</span>candidat))</span></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/biais-2.png" width="672" /></p>
 
 </div>

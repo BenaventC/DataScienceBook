@@ -24,7 +24,7 @@
 <meta name="author" content="Christophe Benavent - Université Paris Dauphine" />
 
 
-<meta name="date" content="2022-10-15" />
+<meta name="date" content="2022-10-16" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -191,6 +191,7 @@ div.csl-indent {
 <ul>
 <li><a href="prise-en-main-de-r.html#des-pipes" id="toc-des-pipes"><span class="toc-section-number">3.3.1</span> Des pipes %&gt;%</a></li>
 <li><a href="prise-en-main-de-r.html#des-verbes" id="toc-des-verbes"><span class="toc-section-number">3.3.2</span> Des verbes</a></li>
+<li><a href="prise-en-main-de-r.html#fusionner-les-données" id="toc-fusionner-les-données"><span class="toc-section-number">3.3.3</span> Fusionner les données</a></li>
 </ul></li>
 </ul></li>
 <li><a href="analyses-univariées.html#analyses-univariées" id="toc-analyses-univariées"><span class="toc-section-number">4</span> Analyses univariées</a>
@@ -313,12 +314,13 @@ div.csl-indent {
 <ul>
 <li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#en-guise-dintroduction-1" id="toc-en-guise-dintroduction-1"><span class="toc-section-number">13.1</span> en guise d’introduction</a></li>
 <li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#une-application" id="toc-une-application"><span class="toc-section-number">13.2</span> Une application</a></li>
+<li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#sem-avec-lavaan" id="toc-sem-avec-lavaan"><span class="toc-section-number">13.3</span> Sem avec Lavaan</a></li>
 </ul></li>
-<li><a href="arbre-de-décision.html#arbre-de-décision" id="toc-arbre-de-décision"><span class="toc-section-number">14</span> Arbre de Décision</a>
+<li><a href="arbres-de-décision.html#arbres-de-décision" id="toc-arbres-de-décision"><span class="toc-section-number">14</span> Arbres de Décision</a>
 <ul>
-<li><a href="arbre-de-décision.html#construire-un-arbre-de-décision" id="toc-construire-un-arbre-de-décision"><span class="toc-section-number">14.1</span> Construire un arbre de décision</a></li>
-<li><a href="arbre-de-décision.html#mise-en-oeuvre-avec-partykit" id="toc-mise-en-oeuvre-avec-partykit"><span class="toc-section-number">14.2</span> Mise en oeuvre avec Partykit</a></li>
-<li><a href="arbre-de-décision.html#forêts-aléatoires" id="toc-forêts-aléatoires"><span class="toc-section-number">14.3</span> forêts aléatoires</a></li>
+<li><a href="arbres-de-décision.html#construire-un-arbre-de-décision" id="toc-construire-un-arbre-de-décision"><span class="toc-section-number">14.1</span> Construire un arbre de décision</a></li>
+<li><a href="arbres-de-décision.html#mise-en-oeuvre-avec-partykit" id="toc-mise-en-oeuvre-avec-partykit"><span class="toc-section-number">14.2</span> Mise en oeuvre avec Partykit</a></li>
+<li><a href="arbres-de-décision.html#forêts-aléatoires" id="toc-forêts-aléatoires"><span class="toc-section-number">14.3</span> forêts aléatoires</a></li>
 </ul></li>
 <li><a href="premiers-éléments-de-machine-learning.html#premiers-éléments-de-machine-learning" id="toc-premiers-éléments-de-machine-learning"><span class="toc-section-number">15</span> Premiers éléments de Machine Learning</a>
 <ul>
@@ -415,7 +417,14 @@ histoire de python</p>
 </div>
 <div id="du-ml-à-lia" class="section level3" number="2.5.4">
 <h3><span class="header-section-number">2.5.4</span> du ML à l’IA</h3>
-<p>Le retour au boites noires dans les années 2000. Ce qui distingue les statistiques traditionnelles de l’approche machine learning réside d’abord par une approche de la modèlisation différente. Les modèles statistiques et économétriques considèrent non seulement une structure ( moddèle linéaires par ex), la spécification du modèle, mais aussi des modèles de distribution qui définissent le cadre d’estimation. L’évaluation passe par le test du respects des hypothèses de constructions ( distribution des erreurs), et de la qualité d’ajustement. Le machine learning, se concentre sur la valeur prédictive, et considère n’importe quelle spécification même si elle est peu intelligible et comprend de grandes quantité de paramètres.</p>
+<p>Le retour au boites noires dans les années 2000. Ce qui distingue les statistiques traditionnelles de l’approche machine learning réside d’abord par une approche de la modélisation différente.</p>
+<p>Les modèles statistiques et économétriques considèrent une structure de relation, la spécification du modèle (ex : le modèle linéaire), mais aussi des modèles de distribution des erreurs qui définissent le cadre d’estimation. L’évaluation passe par le test des hypothèses sur les paramètres de la qualité d’ajustement.</p>
+<p>Le machine learning, se concentre sur la valeur prédictive, et considère n’importe quelle spécification même si elle est peu intelligible et comprend de grandes quantités de paramètres sur lesquels aucun test n’est produit.</p>
+<p>Les deux approches ont plutôt tendance à ce compléter, les première testant des théories, les secondes procurant aux première de nouvelles hypothèse par de nouvelle mesure. Pour en donner un exemple simple, l’analyse de sentiment emploie des modèles complexes pour le prédire avec le seul texte, l’IA permet d’enrichir des données empiriques par exemple en testant en finance la relation de cet indicateurs aux prix de marché. Un autre exemple en marketing.</p>
+<p>Les méthodes disponible se sont accumulée depuis ces derbière 20 années</p>
+<ul>
+<li>1960</li>
+</ul>
 <p>KNN, SVM, rf et le retour des réseaux de neurones.</p>
 <p>La révolution des convolutions et la multiplication des architectures</p>
 
