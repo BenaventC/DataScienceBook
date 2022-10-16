@@ -17,50 +17,51 @@ description: "Cours d'analyse de données et de Datascience"
 
 ![](./Images/ggridge.png)
 
-Ce bookdown présent les éléments d'un cours de data science avec r. Il est reproductible, on peut en cloner les élements à partir du [repository](https://github.com/BenaventC/DataScienceBook). Le texte est encore hasardeux, les codes sont vérifiés. Il sera dynamique, modifié à mesure de nos cours, séminaires et ateliers. 
+Ce bookdown présent les éléments d'un cours de data science avec r. Il est reproductible, on peut en cloner les éléments à partir du [repository](https://github.com/BenaventC/DataScienceBook). Le texte est encore hasardeux mais les codes sont vérifiés. Il sera dynamique, modifié à mesure de nos cours, séminaires et ateliers. 
 
-L'illustration de couverture représente l'évolution de la longueur des films de la base [Imbd](https://www.imdb.com/) et raconte en chiffres un aspect de l'histoire du cinéma. Jusqu'aux années 30, la longueur est hétérogène ensuite elle se se stabilise : les courts-métrages ont une durée de l'ordre de 15mn qui se raccourcit avec les décennies, ce genre menace de disparaître dans les années 80 et reprend du poil de la bête dans les années 2000. Les films longs voient leur longueur s’accroître et se stabiliser autour d'un peu moins de 100 mn, soit une heure et quarante minutes. On observera enfin qu'au cours des années 1990 les films de taille intermédiaires réapparaissent. On devinera dans cette évolution l'émergence de standards, ou de conventions. Les faits viennent au secours des théories...
+L'illustration de couverture représente l'évolution de la longueur des films de la base [Imbd](https://www.imdb.com/) et raconte en chiffres un aspect de l'histoire du cinéma. Jusqu'aux années 30, la longueur est hétérogène puis elle se se stabilise : les courts-métrages ont une durée de l'ordre de 15 mn qui se raccourcit avec les décennies, ce genre menace de disparaître dans les années 80 et reprend du poil de la bête dans les années 2000. Les films longs voient leur longueur s'accroître et se stabiliser autour d'un peu moins de 100 mn, soit une heure et quarante minutes. On observera enfin qu'au cours des années 1990 les films de taille intermédiaires réapparaissent. On devinera dans cette évolution l'émergence de standards, ou de conventions. Dans ce graphique il y a tous les éléments des data sciences contemporaines : un jeu de données riche et systématique, un modèle statistique fondamental avec la notion de densité de probabilité, une mesure, un critère de comparaison. 
 
-Dans ce graphique il y a tous les éléments des data sciences contemporaines : un jeu de données riche et systématique, un modèle statistique fondamental avec la notion de densité de probabilité, une mesure, un critère de comparaison. 
-
-Les diagrammes ridges, c'est ainsi qu'on les appelent, sont inspirés de la pochette de l'album [Unknown Pleasures de  Joy division](https://www.youtube.com/watch?v=7PtvIr2oiaE) sorti en pleine période New Wave, en 1979. Un article de Vice en rappele l'[origine et le destin du graphisme](https://i-d.vice.com/fr/article/pabjam/pourquoi-cette-pochette-dalbum-de-joy-division-a-inspire-le-monde-entier) qu'on connait mieux imprimé sur des t-shirt que dans les cours de statistiques.
+Les diagrammes ridges, c'est ainsi qu'on les appele, sont inspirés de la pochette de l'album [Unknown Pleasures de  Joy division](https://www.youtube.com/watch?v=7PtvIr2oiaE) sorti en pleine période New Wave, en 1979. Un article de Vice en rappele l'[origine et le destin du graphisme](https://i-d.vice.com/fr/article/pabjam/pourquoi-cette-pochette-dalbum-de-joy-division-a-inspire-le-monde-entier) qu'on connait mieux imprimé sur des t-shirt que dans les cours de statistiques.
 
 
-
-
+![](./Images/joydivisiondetail.jpg)
 
 ## Plan du manuel
 
-C'est un projet en cours, Les chapitres projetés sont les suivants. certains sont dans les limbes, d'autres ont pris consistances 
+C'est un projet en cours, Le plan général projeté est le suivant. Certains chapitres sont publiés ( mêmes incomplets) d'autres sont dans les limbes. On les ajoutera  progressivement. 
 
  * 1 - L'environnement r x
  * 2 - Installation et prise en main x
  * 3 - Usage de ggplot - uni et bivarié x
  * 4 - Usage de ggplot - multivarié x
- * 6 - Analyse de variance et régression linéraire x
- * 5 - Tables
+ * 5 - Tables avec flex
  * 6 - Modèles factoriels (Psych) x
  * 7 - AFC x
  * 8 - MDS  
  * 9 - Clustering x
- * 10 - Analyse de réseaux
- * 10 - Modèle d'équations structurelles (Lavaan)
- * 11 - Modèle linéaire généralisé
- * 12 - Modèles à décomposition d'erreur
- * 13 - Times series
- * 14 - Analyse spatiale et géographique
- * 15 - Machine learning x
+ * 10 - Analyse de réseaux 
+ * 11 - Analyse de variance et régression linéraire x
+ * 12 - Modèle linéaire généralisé x
+ * 13 - Modèles à décomposition d'erreur x
+ * 14 - Modèle d'équations structurelles (Lavaan)
+ * 15 - Times series
+ * 16 - Analyse spatiale et géographique
+ * 17 - Machine learning x
  
 
 ## Les jeux de données 
 
-Au cours du développement, plusieurs cas pratiques - souvent réduit en volume pour rester exemplaire, seront employés. Les données seront partagées.
+Au cours du développement, plusieurs cas pratiques - souvent réduit en volume pour rester exemplaire, seront employés. Les données sont partagées.
 
-En voici la présentation  des sets de données utilisées dans le syllabus. Elle sont disponible dans le répertoire "./data/"
+Voici la présentation des sets de données utilisées dans le syllabus. Ils sont disponibles dans le répertoire "./data/"
 
- * ESS : c'est une très belle base de données de sociologie.
+ * ESS : c'est une très belle base de données de sociologie
  * happydemics : observatoire de la présidentielle2022
- * Arpur
+ * NSPools
+ * Arpur : commerce de paris
+ * Botanic
+ * ...
+ 
  
  
 ## Le cadre technique et les packages utilisés

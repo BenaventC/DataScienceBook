@@ -328,7 +328,7 @@ La matrice de variance-covariance, ou de corrélation, si on a, au préalable, c
 $$
 \Sigma = XX^t
 $$
-Comme $\Sigma$ est symétrique, elle est diagonalisable et peut-être représentée par une matrice de score W et une matrice diagonale D. 
+Comme $$\Sigma$$ est symétrique, elle est diagonalisable et peut-être représentée par une matrice de score W et une matrice diagonale D. 
 
 
 $$
@@ -525,7 +525,7 @@ Si ACP, AFC et AFCM ont pris le devant de la scène, bien d'autre méthodes anal
 
 1) une idée essentielle : réduire de nombreuses variables à un petit jeu de variables synthétiques
 
-2) des méthode au coeur de l'analyse des données
+2) des méthodes au cœur de l'analyse des données
 
 3) une autre idée essentielle : celle de vectoriser les données qu'on observe  
 

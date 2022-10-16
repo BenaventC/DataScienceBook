@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapitre 13 11 Les modèles linéaires hiérarchiques (HLM) | Introduction aux Data Sciences</title>
+  <title>Chapitre 13 Les modèles linéaires hiérarchiques (HLM) | Introduction aux Data Sciences</title>
   <meta name="description" content="Cours d’analyse de données et de Datascience" />
   <meta name="generator" content="bookdown 0.22.3 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapitre 13 11 Les modèles linéaires hiérarchiques (HLM) | Introduction aux Data Sciences" />
+  <meta property="og:title" content="Chapitre 13 Les modèles linéaires hiérarchiques (HLM) | Introduction aux Data Sciences" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapitre 13 11 Les modèles linéaires hiérarchiques (HLM) | Introduction aux Data Sciences" />
+  <meta name="twitter:title" content="Chapitre 13 Les modèles linéaires hiérarchiques (HLM) | Introduction aux Data Sciences" />
   
   <meta name="twitter:description" content="Cours d’analyse de données et de Datascience" />
   
@@ -33,7 +33,7 @@
   
 <link rel="prev" href="modèle-de-survie.html"/>
 <link rel="next" href="arbres-de-décision.html"/>
-<script src="libs/header-attrs-2.10/header-attrs.js"></script>
+<script src="libs/header-attrs-2.17/header-attrs.js"></script>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -51,8 +51,9 @@
 
 
 
-<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
-<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -159,179 +160,183 @@ div.csl-indent {
 <li><a href="./">Data Science Book</a></li>
 
 <li class="divider"></li>
-<li><a href="index.html#avant-propos" id="toc-avant-propos"><span class="toc-section-number">1</span> Avant propos</a>
+<li><a href="index.html#avant-propos" id="toc-avant-propos"><span class="toc-section-number">1</span> Avant propos<span></span></a>
 <ul>
-<li><a href="index.html#plan-du-manuel" id="toc-plan-du-manuel"><span class="toc-section-number">1.1</span> Plan du manuel</a></li>
-<li><a href="index.html#les-jeux-de-données" id="toc-les-jeux-de-données"><span class="toc-section-number">1.2</span> Les jeux de données</a></li>
-<li><a href="index.html#le-cadre-technique-et-les-packages-utilisés" id="toc-le-cadre-technique-et-les-packages-utilisés"><span class="toc-section-number">1.3</span> Le cadre technique et les packages utilisés</a></li>
-<li><a href="index.html#a-faire" id="toc-a-faire"><span class="toc-section-number">1.4</span> A faire</a></li>
+<li><a href="index.html#plan-du-manuel" id="toc-plan-du-manuel"><span class="toc-section-number">1.1</span> Plan du manuel<span></span></a></li>
+<li><a href="index.html#les-jeux-de-données" id="toc-les-jeux-de-données"><span class="toc-section-number">1.2</span> Les jeux de données<span></span></a></li>
+<li><a href="index.html#le-cadre-technique-et-les-packages-utilisés" id="toc-le-cadre-technique-et-les-packages-utilisés"><span class="toc-section-number">1.3</span> Le cadre technique et les packages utilisés<span></span></a></li>
+<li><a href="index.html#a-faire" id="toc-a-faire"><span class="toc-section-number">1.4</span> A faire<span></span></a></li>
 </ul></li>
-<li><a href="intro.html#intro" id="toc-intro"><span class="toc-section-number">2</span> Introduction aux data sciences</a>
+<li><a href="intro.html#intro" id="toc-intro"><span class="toc-section-number">2</span> Introduction aux data sciences<span></span></a>
 <ul>
-<li><a href="intro.html#objectif-et-sommaire" id="toc-objectif-et-sommaire"><span class="toc-section-number">2.1</span> Objectif et sommaire</a></li>
-<li><a href="intro.html#science-ou-technique" id="toc-science-ou-technique"><span class="toc-section-number">2.2</span> Science ou technique ?</a></li>
-<li><a href="intro.html#histoires-des-logiciels-statistiques" id="toc-histoires-des-logiciels-statistiques"><span class="toc-section-number">2.3</span> histoires des logiciels statistiques</a></li>
-<li><a href="intro.html#le-processus-de-traitement-des-données" id="toc-le-processus-de-traitement-des-données"><span class="toc-section-number">2.4</span> Le processus de traitement des données</a></li>
-<li><a href="intro.html#les-facteurs-de-développement-des-datasciences" id="toc-les-facteurs-de-développement-des-datasciences"><span class="toc-section-number">2.5</span> Les facteurs de développement des datasciences</a>
+<li><a href="intro.html#objectif-et-sommaire" id="toc-objectif-et-sommaire"><span class="toc-section-number">2.1</span> Objectif et sommaire<span></span></a></li>
+<li><a href="intro.html#science-ou-technique" id="toc-science-ou-technique"><span class="toc-section-number">2.2</span> Science ou technique ?<span></span></a></li>
+<li><a href="intro.html#histoires-des-logiciels-statistiques" id="toc-histoires-des-logiciels-statistiques"><span class="toc-section-number">2.3</span> histoires des logiciels statistiques<span></span></a></li>
+<li><a href="intro.html#le-processus-de-traitement-des-données" id="toc-le-processus-de-traitement-des-données"><span class="toc-section-number">2.4</span> Le processus de traitement des données<span></span></a></li>
+<li><a href="intro.html#les-facteurs-de-développement-des-datasciences" id="toc-les-facteurs-de-développement-des-datasciences"><span class="toc-section-number">2.5</span> Les facteurs de développement des datasciences<span></span></a>
 <ul>
-<li><a href="intro.html#une-lingua-franca" id="toc-une-lingua-franca"><span class="toc-section-number">2.5.1</span> Une lingua franca</a></li>
-<li><a href="intro.html#une-communauté" id="toc-une-communauté"><span class="toc-section-number">2.5.2</span> Une communauté</a></li>
-<li><a href="intro.html#la-multiplication-des-sources-de-données." id="toc-la-multiplication-des-sources-de-données."><span class="toc-section-number">2.5.3</span> La multiplication des sources de données.</a></li>
-<li><a href="intro.html#du-ml-à-lia" id="toc-du-ml-à-lia"><span class="toc-section-number">2.5.4</span> du ML à l’IA</a></li>
-</ul></li>
-</ul></li>
-<li><a href="prise-en-main-de-r.html#prise-en-main-de-r" id="toc-prise-en-main-de-r"><span class="toc-section-number">3</span> Prise en main de r</a>
-<ul>
-<li><a href="prise-en-main-de-r.html#la-convention-du-rmarkdown" id="toc-la-convention-du-rmarkdown"><span class="toc-section-number">3.1</span> La convention du Rmarkdown</a></li>
-<li><a href="prise-en-main-de-r.html#lire-les-données" id="toc-lire-les-données"><span class="toc-section-number">3.2</span> Lire les données</a>
-<ul>
-<li><a href="prise-en-main-de-r.html#la-diversité-des-formats" id="toc-la-diversité-des-formats"><span class="toc-section-number">3.2.1</span> La diversité des formats</a></li>
-</ul></li>
-<li><a href="prise-en-main-de-r.html#dplyr-pour-manipuler-les-données" id="toc-dplyr-pour-manipuler-les-données"><span class="toc-section-number">3.3</span> <code>Dplyr</code> pour manipuler les données</a>
-<ul>
-<li><a href="prise-en-main-de-r.html#des-pipes" id="toc-des-pipes"><span class="toc-section-number">3.3.1</span> Des pipes %&gt;%</a></li>
-<li><a href="prise-en-main-de-r.html#des-verbes" id="toc-des-verbes"><span class="toc-section-number">3.3.2</span> Des verbes</a></li>
-<li><a href="prise-en-main-de-r.html#fusionner-les-données" id="toc-fusionner-les-données"><span class="toc-section-number">3.3.3</span> Fusionner les données</a></li>
+<li><a href="intro.html#une-lingua-franca" id="toc-une-lingua-franca"><span class="toc-section-number">2.5.1</span> Une lingua franca<span></span></a></li>
+<li><a href="intro.html#une-communauté" id="toc-une-communauté"><span class="toc-section-number">2.5.2</span> Une communauté<span></span></a></li>
+<li><a href="intro.html#la-multiplication-des-sources-de-données." id="toc-la-multiplication-des-sources-de-données."><span class="toc-section-number">2.5.3</span> La multiplication des sources de données.<span></span></a></li>
+<li><a href="intro.html#du-ml-à-lia" id="toc-du-ml-à-lia"><span class="toc-section-number">2.5.4</span> du ML à l’IA<span></span></a></li>
 </ul></li>
 </ul></li>
-<li><a href="analyses-univariées.html#analyses-univariées" id="toc-analyses-univariées"><span class="toc-section-number">4</span> Analyses univariées</a>
+<li><a href="prise-en-main-de-r.html#prise-en-main-de-r" id="toc-prise-en-main-de-r"><span class="toc-section-number">3</span> Prise en main de r<span></span></a>
 <ul>
-<li><a href="analyses-univariées.html#la-grammaire-des-graphiques" id="toc-la-grammaire-des-graphiques"><span class="toc-section-number">4.1</span> La grammaire des graphiques</a>
+<li><a href="prise-en-main-de-r.html#la-convention-du-rmarkdown" id="toc-la-convention-du-rmarkdown"><span class="toc-section-number">3.1</span> La convention du Rmarkdown<span></span></a></li>
+<li><a href="prise-en-main-de-r.html#lire-les-données" id="toc-lire-les-données"><span class="toc-section-number">3.2</span> Lire les données<span></span></a>
 <ul>
-<li><a href="analyses-univariées.html#un-modèle-en-couche" id="toc-un-modèle-en-couche"><span class="toc-section-number">4.1.1</span> Un modèle en couche</a></li>
-<li><a href="analyses-univariées.html#une-typologie-des-représentations" id="toc-une-typologie-des-représentations"><span class="toc-section-number">4.1.2</span> Une typologie des représentations</a></li>
-<li><a href="analyses-univariées.html#lesthétique" id="toc-lesthétique"><span class="toc-section-number">4.1.3</span> L’esthétique</a></li>
+<li><a href="prise-en-main-de-r.html#la-diversité-des-formats" id="toc-la-diversité-des-formats"><span class="toc-section-number">3.2.1</span> La diversité des formats<span></span></a></li>
 </ul></li>
-<li><a href="analyses-univariées.html#une-étude-de-cas" id="toc-une-étude-de-cas"><span class="toc-section-number">4.2</span> Une étude de cas</a>
+<li><a href="prise-en-main-de-r.html#dplyr-pour-manipuler-les-données" id="toc-dplyr-pour-manipuler-les-données"><span class="toc-section-number">3.3</span> <code>Dplyr</code> pour manipuler les données<span></span></a>
 <ul>
-<li><a href="analyses-univariées.html#le-cas-des-variables-quantitatives" id="toc-le-cas-des-variables-quantitatives"><span class="toc-section-number">4.2.1</span> Le cas des variables quantitatives</a></li>
-<li><a href="analyses-univariées.html#quand-la-variable-est-qualitative" id="toc-quand-la-variable-est-qualitative"><span class="toc-section-number">4.2.2</span> Quand la variable est qualitative</a></li>
-</ul></li>
-</ul></li>
-<li><a href="analyse-bi-variée.html#analyse-bi-variée" id="toc-analyse-bi-variée"><span class="toc-section-number">5</span> Analyse bi variée</a>
-<ul>
-<li><a href="analyse-bi-variée.html#diagrammes-xy---la-magie-des-corrélations" id="toc-diagrammes-xy---la-magie-des-corrélations"><span class="toc-section-number">5.1</span> Diagrammes xy - la magie des corrélations</a></li>
-<li><a href="analyse-bi-variée.html#comparer-les-distributions-et-des-moyennes" id="toc-comparer-les-distributions-et-des-moyennes"><span class="toc-section-number">5.2</span> Comparer les distributions et des moyennes</a>
-<ul>
-<li><a href="analyse-bi-variée.html#comparaison-de-moyennes" id="toc-comparaison-de-moyennes"><span class="toc-section-number">5.2.1</span> Comparaison de moyennes</a></li>
-<li><a href="analyse-bi-variée.html#deux-variables-qualitatives" id="toc-deux-variables-qualitatives"><span class="toc-section-number">5.2.2</span> Deux variables qualitatives</a></li>
+<li><a href="prise-en-main-de-r.html#des-pipes" id="toc-des-pipes"><span class="toc-section-number">3.3.1</span> Des pipes %&gt;%<span></span></a></li>
+<li><a href="prise-en-main-de-r.html#des-verbes" id="toc-des-verbes"><span class="toc-section-number">3.3.2</span> Des verbes<span></span></a></li>
+<li><a href="prise-en-main-de-r.html#fusionner-les-données" id="toc-fusionner-les-données"><span class="toc-section-number">3.3.3</span> Fusionner les données<span></span></a></li>
 </ul></li>
 </ul></li>
-<li><a href="analyse-graphique-multivariée.html#analyse-graphique-multivariée" id="toc-analyse-graphique-multivariée"><span class="toc-section-number">6</span> Analyse graphique multivariée</a>
+<li><a href="analyses-univariées.html#analyses-univariées" id="toc-analyses-univariées"><span class="toc-section-number">4</span> Analyses univariées<span></span></a>
 <ul>
-<li><a href="analyse-graphique-multivariée.html#la-confiance-institutionnelle-en-détail" id="toc-la-confiance-institutionnelle-en-détail"><span class="toc-section-number">6.1</span> La confiance institutionnelle, en détail</a></li>
-<li><a href="analyse-graphique-multivariée.html#table-de-corrélation" id="toc-table-de-corrélation"><span class="toc-section-number">6.2</span> Table de corrélation</a></li>
-<li><a href="analyse-graphique-multivariée.html#un-cas-plus-complexe-présidentielle2020" id="toc-un-cas-plus-complexe-présidentielle2020"><span class="toc-section-number">6.3</span> Un cas plus complexe : présidentielle2020</a></li>
-<li><a href="analyse-graphique-multivariée.html#une-boucle-pour-produire-de-multiple-graphe-en-variant-un-paramètre" id="toc-une-boucle-pour-produire-de-multiple-graphe-en-variant-un-paramètre"><span class="toc-section-number">6.4</span> une boucle pour produire de multiple graphe en variant un paramètre</a>
+<li><a href="analyses-univariées.html#la-grammaire-des-graphiques" id="toc-la-grammaire-des-graphiques"><span class="toc-section-number">4.1</span> La grammaire des graphiques<span></span></a>
 <ul>
-<li><a href="analyse-graphique-multivariée.html#effet-sondeur" id="toc-effet-sondeur"><span class="toc-section-number">6.4.1</span> effet sondeur</a></li>
+<li><a href="analyses-univariées.html#un-modèle-en-couche" id="toc-un-modèle-en-couche"><span class="toc-section-number">4.1.1</span> Un modèle en couche<span></span></a></li>
+<li><a href="analyses-univariées.html#une-typologie-des-représentations" id="toc-une-typologie-des-représentations"><span class="toc-section-number">4.1.2</span> Une typologie des représentations<span></span></a></li>
+<li><a href="analyses-univariées.html#lesthétique" id="toc-lesthétique"><span class="toc-section-number">4.1.3</span> L’esthétique<span></span></a></li>
 </ul></li>
-<li><a href="analyse-graphique-multivariée.html#modéliser-le-biais-du-sondeur" id="toc-modéliser-le-biais-du-sondeur"><span class="toc-section-number">6.5</span> Modéliser le biais du sondeur</a></li>
-</ul></li>
-<li><a href="analyses-factorielles.html#analyses-factorielles" id="toc-analyses-factorielles"><span class="toc-section-number">7</span> Analyses factorielles</a>
+<li><a href="analyses-univariées.html#une-étude-de-cas" id="toc-une-étude-de-cas"><span class="toc-section-number">4.2</span> Une étude de cas<span></span></a>
 <ul>
-<li><a href="analyses-factorielles.html#origine-et-histoire" id="toc-origine-et-histoire"><span class="toc-section-number">7.1</span> Origine et histoire</a>
-<ul>
-<li><a href="analyses-factorielles.html#une-petite-histoire-de-la-psychométrie" id="toc-une-petite-histoire-de-la-psychométrie"><span class="toc-section-number">7.1.1</span> Une petite histoire de la psychométrie</a></li>
-<li><a href="analyses-factorielles.html#lécole-française-de-lanalyse-des-données-appliquée-aux-sciences-sociales" id="toc-lécole-française-de-lanalyse-des-données-appliquée-aux-sciences-sociales"><span class="toc-section-number">7.1.2</span> L’école française de l’analyse des données appliquée aux sciences sociales</a></li>
-</ul></li>
-<li><a href="analyses-factorielles.html#le-modèle-factoriel-des-tests-psychologiques" id="toc-le-modèle-factoriel-des-tests-psychologiques"><span class="toc-section-number">7.2</span> Le modèle factoriel des tests psychologiques</a>
-<ul>
-<li><a href="analyses-factorielles.html#un-peu-de-théorie" id="toc-un-peu-de-théorie"><span class="toc-section-number">7.2.1</span> Un peu de théorie</a></li>
-<li><a href="analyses-factorielles.html#lestimation" id="toc-lestimation"><span class="toc-section-number">7.2.2</span> L’estimation</a></li>
-<li><a href="analyses-factorielles.html#ressources" id="toc-ressources"><span class="toc-section-number">7.2.3</span> Ressources</a></li>
-<li><a href="analyses-factorielles.html#cas-dapplication" id="toc-cas-dapplication"><span class="toc-section-number">7.2.4</span> Cas d’application</a></li>
-</ul></li>
-<li><a href="analyses-factorielles.html#examen-de-la-matrice-de-corrélation" id="toc-examen-de-la-matrice-de-corrélation"><span class="toc-section-number">7.3</span> Examen de la matrice de corrélation</a></li>
-<li><a href="analyses-factorielles.html#modèle-factoriel" id="toc-modèle-factoriel"><span class="toc-section-number">7.4</span> Modèle factoriel</a></li>
-<li><a href="analyses-factorielles.html#lanalyse-en-composante-principale" id="toc-lanalyse-en-composante-principale"><span class="toc-section-number">7.5</span> L’analyse en composante principale</a>
-<ul>
-<li><a href="analyses-factorielles.html#le-problème-théorique" id="toc-le-problème-théorique"><span class="toc-section-number">7.5.1</span> le problème théorique</a></li>
-<li><a href="analyses-factorielles.html#une-représentation-symbolique" id="toc-une-représentation-symbolique"><span class="toc-section-number">7.5.2</span> Une représentation symbolique</a></li>
-<li><a href="analyses-factorielles.html#application" id="toc-application"><span class="toc-section-number">7.5.3</span> Application</a></li>
-</ul></li>
-<li><a href="analyses-factorielles.html#une-généralisation-de-lacp-lafc" id="toc-une-généralisation-de-lacp-lafc"><span class="toc-section-number">7.6</span> Une généralisation de l’ACP : l’AFC</a>
-<ul>
-<li><a href="analyses-factorielles.html#afcm-multiple" id="toc-afcm-multiple"><span class="toc-section-number">7.6.1</span> AFCM multiple</a></li>
-</ul></li>
-<li><a href="analyses-factorielles.html#développements" id="toc-développements"><span class="toc-section-number">7.7</span> Développements</a>
-<ul>
-<li><a href="analyses-factorielles.html#le-svd" id="toc-le-svd"><span class="toc-section-number">7.7.1</span> le SVD</a></li>
-<li><a href="analyses-factorielles.html#acm-analyse-canonique-analyse-discriminante" id="toc-acm-analyse-canonique-analyse-discriminante"><span class="toc-section-number">7.7.2</span> ACM , analyse canonique , analyse discriminante</a></li>
-</ul></li>
-<li><a href="analyses-factorielles.html#en-conclusion" id="toc-en-conclusion"><span class="toc-section-number">7.8</span> En conclusion</a></li>
-</ul></li>
-<li><a href="clus.html#clus" id="toc-clus"><span class="toc-section-number">8</span> Clustering</a>
-<ul>
-<li><a href="clus.html#les-méthodes-hiérarchiques-ascendantes" id="toc-les-méthodes-hiérarchiques-ascendantes"><span class="toc-section-number">8.1</span> Les méthodes hiérarchiques ascendantes</a>
-<ul>
-<li><a href="clus.html#mise-en-oeuvre" id="toc-mise-en-oeuvre"><span class="toc-section-number">8.1.1</span> Mise en oeuvre</a></li>
-</ul></li>
-<li><a href="clus.html#segmentation-simplifiée" id="toc-segmentation-simplifiée"><span class="toc-section-number">8.2</span> segmentation simplifiée</a></li>
-<li><a href="clus.html#tableaux-croisés-de-la-typologie-et-des-critères-sociaux-démos" id="toc-tableaux-croisés-de-la-typologie-et-des-critères-sociaux-démos"><span class="toc-section-number">8.3</span> tableaux croisés de la typologie et des critères sociaux démos</a></li>
-<li><a href="clus.html#afcm-pour-une-synthèse" id="toc-afcm-pour-une-synthèse"><span class="toc-section-number">8.4</span> AFCM pour une synthèse</a>
-<ul>
-<li><a href="clus.html#forces-et-limites" id="toc-forces-et-limites"><span class="toc-section-number">8.4.1</span> Forces et limites</a></li>
-</ul></li>
-<li><a href="clus.html#les-méthodes-non-hiérarchiques" id="toc-les-méthodes-non-hiérarchiques"><span class="toc-section-number">8.5</span> Les méthodes non-hiérarchiques</a>
-<ul>
-<li><a href="clus.html#principe" id="toc-principe"><span class="toc-section-number">8.5.1</span> principe</a></li>
-<li><a href="clus.html#application-1" id="toc-application-1"><span class="toc-section-number">8.5.2</span> Application</a></li>
-<li><a href="clus.html#le-problème-de-la-détermination-du-nombre-optimal-de-groupe" id="toc-le-problème-de-la-détermination-du-nombre-optimal-de-groupe"><span class="toc-section-number">8.5.3</span> Le problème de la détermination du nombre optimal de groupe</a></li>
-</ul></li>
-<li><a href="clus.html#autres-méthodes" id="toc-autres-méthodes"><span class="toc-section-number">8.6</span> Autres méthodes</a></li>
-<li><a href="clus.html#conclusion" id="toc-conclusion"><span class="toc-section-number">8.7</span> Conclusion</a></li>
-</ul></li>
-<li><a href="régression.html#régression" id="toc-régression"><span class="toc-section-number">9</span> 9 - Régression</a>
-<ul>
-<li><a href="régression.html#une-étude-de-cas-les-offres-blablacar" id="toc-une-étude-de-cas-les-offres-blablacar"><span class="toc-section-number">9.1</span> Une étude de cas : les offres Blablacar</a>
-<ul>
-<li><a href="régression.html#les-caractérisques-de-loffre" id="toc-les-caractérisques-de-loffre"><span class="toc-section-number">9.1.1</span> Les caractérisques de l’offre</a></li>
-</ul></li>
-<li><a href="régression.html#notes-prix-et-taux-doccupations" id="toc-notes-prix-et-taux-doccupations"><span class="toc-section-number">9.2</span> Notes, prix et taux d’occupations</a></li>
-<li><a href="régression.html#analyse-des-prix" id="toc-analyse-des-prix"><span class="toc-section-number">9.3</span> Analyse des prix</a></li>
-<li><a href="régression.html#analyser-la-demande-quest-ce-qui-détermine-le-taux-doccupation" id="toc-analyser-la-demande-quest-ce-qui-détermine-le-taux-doccupation"><span class="toc-section-number">9.4</span> Analyser la demande : qu’est ce qui détermine le taux d’occupation ?</a>
-<ul>
-<li><a href="régression.html#un-modèle-ols" id="toc-un-modèle-ols"><span class="toc-section-number">9.4.1</span> Un modèle OLS</a></li>
-</ul></li>
-<li><a href="régression.html#autres-modèles" id="toc-autres-modèles"><span class="toc-section-number">9.5</span> Autres modèles</a>
-<ul>
-<li><a href="régression.html#régression-logistique" id="toc-régression-logistique"><span class="toc-section-number">9.5.1</span> Régression logistique</a></li>
-<li><a href="régression.html#modèle-de-comptage" id="toc-modèle-de-comptage"><span class="toc-section-number">9.5.2</span> Modèle de comptage</a></li>
-<li><a href="régression.html#modèle-de-régression-beta" id="toc-modèle-de-régression-beta"><span class="toc-section-number">9.5.3</span> Modèle de régression beta</a></li>
+<li><a href="analyses-univariées.html#le-cas-des-variables-quantitatives" id="toc-le-cas-des-variables-quantitatives"><span class="toc-section-number">4.2.1</span> Le cas des variables quantitatives<span></span></a></li>
+<li><a href="analyses-univariées.html#quand-la-variable-est-qualitative" id="toc-quand-la-variable-est-qualitative"><span class="toc-section-number">4.2.2</span> Quand la variable est qualitative<span></span></a></li>
 </ul></li>
 </ul></li>
-<li><a href="un-cas-danalyse-de-survie.html#un-cas-danalyse-de-survie" id="toc-un-cas-danalyse-de-survie"><span class="toc-section-number">10</span> Un cas d’analyse de survie</a></li>
-<li><a href="les-modèles-linéaires-hiérarchiques.html#les-modèles-linéaires-hiérarchiques" id="toc-les-modèles-linéaires-hiérarchiques"><span class="toc-section-number">11</span> Les modèles linéaires hiérarchiques</a>
+<li><a href="analyse-bi-variée.html#analyse-bi-variée" id="toc-analyse-bi-variée"><span class="toc-section-number">5</span> Analyse bi variée<span></span></a>
 <ul>
-<li><a href="les-modèles-linéaires-hiérarchiques.html#en-guise-dintroduction" id="toc-en-guise-dintroduction"><span class="toc-section-number">11.1</span> en guise d’introduction</a>
+<li><a href="analyse-bi-variée.html#diagrammes-xy---la-magie-des-corrélations" id="toc-diagrammes-xy---la-magie-des-corrélations"><span class="toc-section-number">5.1</span> Diagrammes xy - la magie des corrélations<span></span></a></li>
+<li><a href="analyse-bi-variée.html#comparer-les-distributions-et-des-moyennes" id="toc-comparer-les-distributions-et-des-moyennes"><span class="toc-section-number">5.2</span> Comparer les distributions et des moyennes<span></span></a>
+<ul>
+<li><a href="analyse-bi-variée.html#comparaison-de-moyennes" id="toc-comparaison-de-moyennes"><span class="toc-section-number">5.2.1</span> Comparaison de moyennes<span></span></a></li>
+<li><a href="analyse-bi-variée.html#deux-variables-qualitatives" id="toc-deux-variables-qualitatives"><span class="toc-section-number">5.2.2</span> Deux variables qualitatives<span></span></a></li>
+</ul></li>
+</ul></li>
+<li><a href="analyse-graphique-multivariée.html#analyse-graphique-multivariée" id="toc-analyse-graphique-multivariée"><span class="toc-section-number">6</span> Analyse graphique multivariée<span></span></a>
+<ul>
+<li><a href="analyse-graphique-multivariée.html#la-confiance-institutionnelle-en-détail" id="toc-la-confiance-institutionnelle-en-détail"><span class="toc-section-number">6.1</span> La confiance institutionnelle, en détail<span></span></a></li>
+<li><a href="analyse-graphique-multivariée.html#table-de-corrélation" id="toc-table-de-corrélation"><span class="toc-section-number">6.2</span> Table de corrélation<span></span></a></li>
+<li><a href="analyse-graphique-multivariée.html#un-cas-plus-complexe-présidentielle2020" id="toc-un-cas-plus-complexe-présidentielle2020"><span class="toc-section-number">6.3</span> Un cas plus complexe : présidentielle2020<span></span></a></li>
+<li><a href="analyse-graphique-multivariée.html#une-boucle-pour-produire-de-multiple-graphe-en-variant-un-paramètre" id="toc-une-boucle-pour-produire-de-multiple-graphe-en-variant-un-paramètre"><span class="toc-section-number">6.4</span> une boucle pour produire de multiple graphe en variant un paramètre<span></span></a>
+<ul>
+<li><a href="analyse-graphique-multivariée.html#effet-sondeur" id="toc-effet-sondeur"><span class="toc-section-number">6.4.1</span> effet sondeur<span></span></a></li>
+</ul></li>
+<li><a href="analyse-graphique-multivariée.html#modéliser-le-biais-du-sondeur" id="toc-modéliser-le-biais-du-sondeur"><span class="toc-section-number">6.5</span> Modéliser le biais du sondeur<span></span></a></li>
+</ul></li>
+<li><a href="analyses-factorielles.html#analyses-factorielles" id="toc-analyses-factorielles"><span class="toc-section-number">7</span> Analyses factorielles<span></span></a>
+<ul>
+<li><a href="analyses-factorielles.html#origine-et-histoire" id="toc-origine-et-histoire"><span class="toc-section-number">7.1</span> Origine et histoire<span></span></a>
+<ul>
+<li><a href="analyses-factorielles.html#une-petite-histoire-de-la-psychométrie" id="toc-une-petite-histoire-de-la-psychométrie"><span class="toc-section-number">7.1.1</span> Une petite histoire de la psychométrie<span></span></a></li>
+<li><a href="analyses-factorielles.html#lécole-française-de-lanalyse-des-données-appliquée-aux-sciences-sociales" id="toc-lécole-française-de-lanalyse-des-données-appliquée-aux-sciences-sociales"><span class="toc-section-number">7.1.2</span> L’école française de l’analyse des données appliquée aux sciences sociales<span></span></a></li>
+</ul></li>
+<li><a href="analyses-factorielles.html#le-modèle-factoriel-des-tests-psychologiques" id="toc-le-modèle-factoriel-des-tests-psychologiques"><span class="toc-section-number">7.2</span> Le modèle factoriel des tests psychologiques<span></span></a>
+<ul>
+<li><a href="analyses-factorielles.html#un-peu-de-théorie" id="toc-un-peu-de-théorie"><span class="toc-section-number">7.2.1</span> Un peu de théorie<span></span></a></li>
+<li><a href="analyses-factorielles.html#lestimation" id="toc-lestimation"><span class="toc-section-number">7.2.2</span> L’estimation<span></span></a></li>
+<li><a href="analyses-factorielles.html#ressources" id="toc-ressources"><span class="toc-section-number">7.2.3</span> Ressources<span></span></a></li>
+<li><a href="analyses-factorielles.html#cas-dapplication" id="toc-cas-dapplication"><span class="toc-section-number">7.2.4</span> Cas d’application<span></span></a></li>
+</ul></li>
+<li><a href="analyses-factorielles.html#examen-de-la-matrice-de-corrélation" id="toc-examen-de-la-matrice-de-corrélation"><span class="toc-section-number">7.3</span> Examen de la matrice de corrélation<span></span></a></li>
+<li><a href="analyses-factorielles.html#modèle-factoriel" id="toc-modèle-factoriel"><span class="toc-section-number">7.4</span> Modèle factoriel<span></span></a></li>
+<li><a href="analyses-factorielles.html#lanalyse-en-composante-principale" id="toc-lanalyse-en-composante-principale"><span class="toc-section-number">7.5</span> L’analyse en composante principale<span></span></a>
+<ul>
+<li><a href="analyses-factorielles.html#le-problème-théorique" id="toc-le-problème-théorique"><span class="toc-section-number">7.5.1</span> le problème théorique<span></span></a></li>
+<li><a href="analyses-factorielles.html#une-représentation-symbolique" id="toc-une-représentation-symbolique"><span class="toc-section-number">7.5.2</span> Une représentation symbolique<span></span></a></li>
+<li><a href="analyses-factorielles.html#application" id="toc-application"><span class="toc-section-number">7.5.3</span> Application<span></span></a></li>
+</ul></li>
+<li><a href="analyses-factorielles.html#une-généralisation-de-lacp-lafc" id="toc-une-généralisation-de-lacp-lafc"><span class="toc-section-number">7.6</span> Une généralisation de l’ACP : l’AFC<span></span></a>
+<ul>
+<li><a href="analyses-factorielles.html#afcm-multiple" id="toc-afcm-multiple"><span class="toc-section-number">7.6.1</span> AFCM multiple<span></span></a></li>
+</ul></li>
+<li><a href="analyses-factorielles.html#développements" id="toc-développements"><span class="toc-section-number">7.7</span> Développements<span></span></a>
+<ul>
+<li><a href="analyses-factorielles.html#le-svd" id="toc-le-svd"><span class="toc-section-number">7.7.1</span> le SVD<span></span></a></li>
+<li><a href="analyses-factorielles.html#acm-analyse-canonique-analyse-discriminante" id="toc-acm-analyse-canonique-analyse-discriminante"><span class="toc-section-number">7.7.2</span> ACM , analyse canonique , analyse discriminante<span></span></a></li>
+</ul></li>
+<li><a href="analyses-factorielles.html#en-conclusion" id="toc-en-conclusion"><span class="toc-section-number">7.8</span> En conclusion<span></span></a></li>
+</ul></li>
+<li><a href="clus.html#clus" id="toc-clus"><span class="toc-section-number">8</span> Clustering<span></span></a>
+<ul>
+<li><a href="clus.html#les-méthodes-hiérarchiques-ascendantes" id="toc-les-méthodes-hiérarchiques-ascendantes"><span class="toc-section-number">8.1</span> Les méthodes hiérarchiques ascendantes<span></span></a>
+<ul>
+<li><a href="clus.html#mise-en-oeuvre" id="toc-mise-en-oeuvre"><span class="toc-section-number">8.1.1</span> Mise en oeuvre<span></span></a></li>
+</ul></li>
+<li><a href="clus.html#segmentation-simplifiée" id="toc-segmentation-simplifiée"><span class="toc-section-number">8.2</span> segmentation simplifiée<span></span></a></li>
+<li><a href="clus.html#tableaux-croisés-de-la-typologie-et-des-critères-sociaux-démos" id="toc-tableaux-croisés-de-la-typologie-et-des-critères-sociaux-démos"><span class="toc-section-number">8.3</span> tableaux croisés de la typologie et des critères sociaux démos<span></span></a></li>
+<li><a href="clus.html#afcm-pour-une-synthèse" id="toc-afcm-pour-une-synthèse"><span class="toc-section-number">8.4</span> AFCM pour une synthèse<span></span></a>
+<ul>
+<li><a href="clus.html#forces-et-limites" id="toc-forces-et-limites"><span class="toc-section-number">8.4.1</span> Forces et limites<span></span></a></li>
+</ul></li>
+<li><a href="clus.html#les-méthodes-non-hiérarchiques" id="toc-les-méthodes-non-hiérarchiques"><span class="toc-section-number">8.5</span> Les méthodes non-hiérarchiques<span></span></a>
+<ul>
+<li><a href="clus.html#principe" id="toc-principe"><span class="toc-section-number">8.5.1</span> principe<span></span></a></li>
+<li><a href="clus.html#application-1" id="toc-application-1"><span class="toc-section-number">8.5.2</span> Application<span></span></a></li>
+<li><a href="clus.html#le-problème-de-la-détermination-du-nombre-optimal-de-groupe" id="toc-le-problème-de-la-détermination-du-nombre-optimal-de-groupe"><span class="toc-section-number">8.5.3</span> Le problème de la détermination du nombre optimal de groupe<span></span></a></li>
+</ul></li>
+<li><a href="clus.html#autres-méthodes" id="toc-autres-méthodes"><span class="toc-section-number">8.6</span> Autres méthodes<span></span></a></li>
+<li><a href="clus.html#conclusion" id="toc-conclusion"><span class="toc-section-number">8.7</span> Conclusion<span></span></a></li>
+</ul></li>
+<li><a href="régression.html#régression" id="toc-régression"><span class="toc-section-number">9</span> 9 - Régression<span></span></a>
+<ul>
+<li><a href="régression.html#une-étude-de-cas-les-offres-blablacar" id="toc-une-étude-de-cas-les-offres-blablacar"><span class="toc-section-number">9.1</span> Une étude de cas : les offres Blablacar<span></span></a>
+<ul>
+<li><a href="régression.html#les-caractérisques-de-loffre" id="toc-les-caractérisques-de-loffre"><span class="toc-section-number">9.1.1</span> Les caractérisques de l’offre<span></span></a></li>
+</ul></li>
+<li><a href="régression.html#notes-prix-et-taux-doccupations" id="toc-notes-prix-et-taux-doccupations"><span class="toc-section-number">9.2</span> Notes, prix et taux d’occupations<span></span></a></li>
+<li><a href="régression.html#analyse-des-prix" id="toc-analyse-des-prix"><span class="toc-section-number">9.3</span> Analyse des prix<span></span></a></li>
+<li><a href="régression.html#analyser-la-demande-quest-ce-qui-détermine-le-taux-doccupation" id="toc-analyser-la-demande-quest-ce-qui-détermine-le-taux-doccupation"><span class="toc-section-number">9.4</span> Analyser la demande : qu’est ce qui détermine le taux d’occupation ?<span></span></a>
+<ul>
+<li><a href="régression.html#un-modèle-ols" id="toc-un-modèle-ols"><span class="toc-section-number">9.4.1</span> Un modèle OLS<span></span></a></li>
+</ul></li>
+<li><a href="régression.html#autres-modèles" id="toc-autres-modèles"><span class="toc-section-number">9.5</span> Autres modèles<span></span></a>
+<ul>
+<li><a href="régression.html#régression-logistique" id="toc-régression-logistique"><span class="toc-section-number">9.5.1</span> Régression logistique<span></span></a></li>
+<li><a href="régression.html#modèle-de-comptage" id="toc-modèle-de-comptage"><span class="toc-section-number">9.5.2</span> Modèle de comptage<span></span></a></li>
+<li><a href="régression.html#modèle-de-régression-beta" id="toc-modèle-de-régression-beta"><span class="toc-section-number">9.5.3</span> Modèle de régression beta<span></span></a></li>
+</ul></li>
+</ul></li>
+<li><a href="un-cas-danalyse-de-survie.html#un-cas-danalyse-de-survie" id="toc-un-cas-danalyse-de-survie"><span class="toc-section-number">10</span> Un cas d’analyse de survie<span></span></a></li>
+<li><a href="les-modèles-linéaires-hiérarchiques.html#les-modèles-linéaires-hiérarchiques" id="toc-les-modèles-linéaires-hiérarchiques"><span class="toc-section-number">11</span> Les modèles linéaires hiérarchiques<span></span></a>
+<ul>
+<li><a href="les-modèles-linéaires-hiérarchiques.html#en-guise-dintroduction" id="toc-en-guise-dintroduction"><span class="toc-section-number">11.1</span> en guise d’introduction<span></span></a>
 <ul>
 <li><a href="les-modèles-linéaires-hiérarchiques.html#section" id="toc-section"><span class="toc-section-number">11.1.1</span> </a></li>
 </ul></li>
 </ul></li>
-<li><a href="modèle-de-survie.html#modèle-de-survie" id="toc-modèle-de-survie"><span class="toc-section-number">12</span> 10 - Modèle de survie</a></li>
-<li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#les-modèles-linéaires-hiérarchiques-hlm" id="toc-les-modèles-linéaires-hiérarchiques-hlm"><span class="toc-section-number">13</span> 11 Les modèles linéaires hiérarchiques (HLM)</a>
+<li><a href="modèle-de-survie.html#modèle-de-survie" id="toc-modèle-de-survie"><span class="toc-section-number">12</span> 10 - Modèle de survie<span></span></a></li>
+<li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#les-modèles-linéaires-hiérarchiques-hlm" id="toc-les-modèles-linéaires-hiérarchiques-hlm"><span class="toc-section-number">13</span> Les modèles linéaires hiérarchiques (HLM)<span></span></a>
 <ul>
-<li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#en-guise-dintroduction-1" id="toc-en-guise-dintroduction-1"><span class="toc-section-number">13.1</span> en guise d’introduction</a></li>
-<li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#une-application" id="toc-une-application"><span class="toc-section-number">13.2</span> Une application</a></li>
-<li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#sem-avec-lavaan" id="toc-sem-avec-lavaan"><span class="toc-section-number">13.3</span> Sem avec Lavaan</a></li>
+<li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#en-guise-dintroduction-1" id="toc-en-guise-dintroduction-1"><span class="toc-section-number">13.1</span> en guise d’introduction<span></span></a></li>
+<li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#une-application" id="toc-une-application"><span class="toc-section-number">13.2</span> Une application<span></span></a></li>
+<li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#sem-avec-lavaan" id="toc-sem-avec-lavaan"><span class="toc-section-number">13.3</span> Sem avec Lavaan<span></span></a></li>
 </ul></li>
-<li><a href="arbres-de-décision.html#arbres-de-décision" id="toc-arbres-de-décision"><span class="toc-section-number">14</span> Arbres de Décision</a>
+<li><a href="arbres-de-décision.html#arbres-de-décision" id="toc-arbres-de-décision"><span class="toc-section-number">14</span> Arbres de Décision<span></span></a>
 <ul>
-<li><a href="arbres-de-décision.html#construire-un-arbre-de-décision" id="toc-construire-un-arbre-de-décision"><span class="toc-section-number">14.1</span> Construire un arbre de décision</a></li>
-<li><a href="arbres-de-décision.html#mise-en-oeuvre-avec-partykit" id="toc-mise-en-oeuvre-avec-partykit"><span class="toc-section-number">14.2</span> Mise en oeuvre avec Partykit</a></li>
-<li><a href="arbres-de-décision.html#forêts-aléatoires" id="toc-forêts-aléatoires"><span class="toc-section-number">14.3</span> forêts aléatoires</a></li>
+<li><a href="arbres-de-décision.html#construire-un-arbre-de-décision" id="toc-construire-un-arbre-de-décision"><span class="toc-section-number">14.1</span> Construire un arbre de décision<span></span></a></li>
+<li><a href="arbres-de-décision.html#mise-en-oeuvre-avec-partykit" id="toc-mise-en-oeuvre-avec-partykit"><span class="toc-section-number">14.2</span> Mise en oeuvre avec Partykit<span></span></a></li>
+<li><a href="arbres-de-décision.html#forêts-aléatoires" id="toc-forêts-aléatoires"><span class="toc-section-number">14.3</span> forêts aléatoires<span></span></a></li>
 </ul></li>
-<li><a href="premiers-éléments-de-machine-learning.html#premiers-éléments-de-machine-learning" id="toc-premiers-éléments-de-machine-learning"><span class="toc-section-number">15</span> Premiers éléments de Machine Learning</a>
+<li><a href="premiers-éléments-de-machine-learning.html#premiers-éléments-de-machine-learning" id="toc-premiers-éléments-de-machine-learning"><span class="toc-section-number">15</span> Premiers éléments de Machine Learning<span></span></a>
 <ul>
-<li><a href="premiers-éléments-de-machine-learning.html#une-typologie-de-modèles" id="toc-une-typologie-de-modèles"><span class="toc-section-number">15.1</span> une typologie de modèles</a>
+<li><a href="premiers-éléments-de-machine-learning.html#une-typologie-de-modèles" id="toc-une-typologie-de-modèles"><span class="toc-section-number">15.1</span> une typologie de modèles<span></span></a>
 <ul>
-<li><a href="premiers-éléments-de-machine-learning.html#le-modèle-linéaire" id="toc-le-modèle-linéaire"><span class="toc-section-number">15.1.1</span> le modèle linéaire</a></li>
-<li><a href="premiers-éléments-de-machine-learning.html#le-modèle-logit" id="toc-le-modèle-logit"><span class="toc-section-number">15.1.2</span> le modèle logit</a></li>
-<li><a href="premiers-éléments-de-machine-learning.html#les-modèles-à-régularisation" id="toc-les-modèles-à-régularisation"><span class="toc-section-number">15.1.3</span> les modèles à régularisation</a></li>
-<li><a href="premiers-éléments-de-machine-learning.html#les-random-forest" id="toc-les-random-forest"><span class="toc-section-number">15.1.4</span> les random forest</a></li>
+<li><a href="premiers-éléments-de-machine-learning.html#le-modèle-linéaire" id="toc-le-modèle-linéaire"><span class="toc-section-number">15.1.1</span> le modèle linéaire<span></span></a></li>
+<li><a href="premiers-éléments-de-machine-learning.html#le-modèle-logit" id="toc-le-modèle-logit"><span class="toc-section-number">15.1.2</span> le modèle logit<span></span></a></li>
+<li><a href="premiers-éléments-de-machine-learning.html#les-modèles-à-régularisation" id="toc-les-modèles-à-régularisation"><span class="toc-section-number">15.1.3</span> les modèles à régularisation<span></span></a></li>
+<li><a href="premiers-éléments-de-machine-learning.html#les-random-forest" id="toc-les-random-forest"><span class="toc-section-number">15.1.4</span> les random forest<span></span></a></li>
 </ul></li>
-<li><a href="premiers-éléments-de-machine-learning.html#forêts-aléatoires-1" id="toc-forêts-aléatoires-1"><span class="toc-section-number">15.2</span> forêts aléatoires</a></li>
+<li><a href="premiers-éléments-de-machine-learning.html#forêts-aléatoires-1" id="toc-forêts-aléatoires-1"><span class="toc-section-number">15.2</span> forêts aléatoires<span></span></a></li>
+</ul></li>
+<li><a href="annexes.html#annexes" id="toc-annexes"><span class="toc-section-number">16</span> 20 Annexes<span></span></a>
+<ul>
+<li><a href="annexes.html#données-eric-ess" id="toc-données-eric-ess"><span class="toc-section-number">16.1</span> Données Eric-ESS<span></span></a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -353,11 +358,11 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="les-modèles-linéaires-hiérarchiques-hlm" class="section level1" number="13">
-<h1><span class="header-section-number">Chapitre 13</span> 11 Les modèles linéaires hiérarchiques (HLM)</h1>
+<div id="les-modèles-linéaires-hiérarchiques-hlm" class="section level1 hasAnchor" number="13">
+<h1><span class="header-section-number">Chapitre 13</span> Les modèles linéaires hiérarchiques (HLM)<a href="les-modèles-linéaires-hiérarchiques-hlm.html#les-modèles-linéaires-hiérarchiques-hlm" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>Les modèles de panels en économies, ou multi-niveaux en sociologie, sont caractérisés par le fait que les données sont un empilement de différents échantillons correspondant à une stratification.</p>
-<div id="en-guise-dintroduction-1" class="section level2" number="13.1">
-<h2><span class="header-section-number">13.1</span> en guise d’introduction</h2>
+<div id="en-guise-dintroduction-1" class="section level2 hasAnchor" number="13.1">
+<h2><span class="header-section-number">13.1</span> en guise d’introduction<a href="les-modèles-linéaires-hiérarchiques-hlm.html#en-guise-dintroduction-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>L’exemple de la performance scolaire va nous éclairer. Supposons que l’on veuille établir l’effet d’une mesure d’aptitude intellectuelle (par le exemple le score de QI) sur les notes obtenues. On va mesurer cette relation en recueillant les données deux classes et dans deux matières. La classe A est calme, la classe B est agitée, les matières sont les maths et le français.</p>
 <div class="sourceCode" id="cb154"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb154-1"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb154-1" aria-hidden="true" tabindex="-1"></a>a<span class="ot">=</span>.<span class="dv">1</span></span>
 <span id="cb154-2"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb154-2" aria-hidden="true" tabindex="-1"></a>foo_MC<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(<span class="fu">rnorm</span>(<span class="dv">20</span>, <span class="at">mean=</span><span class="dv">12</span>, <span class="at">sd=</span><span class="dv">10</span>))<span class="sc">%&gt;%</span></span>
@@ -431,100 +436,15 @@ div.csl-indent {
 
 <p>Dans ce petit exemple, les niveaux sont peu nombreux. On pourrait imaginer qu’ils soient bien plus nombreux, par exemple en réalisant l’enquête sur des dizaines de classes pour lesquelles le degré d’agitation est variable et se distribue certainement de manière normale. Ne tenons plus en compte la matière pour le moment. On ne va prendre que la moyenne des maths.</p>
 <p>On peut écrire le modèle où <span class="math inline">\(\beta_{k}\)</span> représente le terme constant de chacune des k classes.</p>
-<p><span class="math display">\[ y_{ik}=\beta_{k}+\beta_{1}Aptitude_{i}+\epsilon_{ik} \]</span></p>
+<p><span class="math display">\[y_{ik}=\beta_{k}+\beta_{1}Aptitude_{i}+\epsilon_{ik}\]</span></p>
 <p>en supposant que les <span class="math inline">\(\beta_{k}\)</span> se distribue de manière normale avec une moyenne <span class="math inline">\(\overline{\beta}\)</span> et une variance <span class="math inline">\(\mu_{k}\)</span>, on peut réécrire l’équation de la manière suivante</p>
 <p><span class="math display">\[y_{ik}=\overline{\beta}+\beta_{1}Aptitude_{i}+\mu_{k}+\epsilon_{ik} \]</span></p>
 <p>C’est un modèle à composantes d’erreur où <span class="math inline">\(\mu_{k}\)</span> représente l’effet de la classe.</p>
 </div>
-<div id="une-application" class="section level2" number="13.2">
-<h2><span class="header-section-number">13.2</span> Une application</h2>
+<div id="une-application" class="section level2 hasAnchor" number="13.2">
+<h2><span class="header-section-number">13.2</span> Une application<a href="les-modèles-linéaires-hiérarchiques-hlm.html#une-application" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>voir données ESS</p>
-<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">&quot;Data/ESS-Data-Wizard-subset-2022-10-06.csv&quot;</span>)</span>
-<span id="cb157-2"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb157-3"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb157-4"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-4" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Year<span class="ot">&lt;-</span><span class="dv">2000</span></span>
-<span id="cb157-5"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-5" aria-hidden="true" tabindex="-1"></a><span class="co">#recodage des variables independantes</span></span>
-<span id="cb157-6"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-6" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Year[df<span class="sc">$</span>essround<span class="sc">==</span><span class="dv">1</span>]<span class="ot">&lt;-</span><span class="dv">2002</span></span>
-<span id="cb157-7"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-7" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Year[df<span class="sc">$</span>essround<span class="sc">==</span><span class="dv">2</span>]<span class="ot">&lt;-</span><span class="dv">2004</span></span>
-<span id="cb157-8"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-8" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Year[df<span class="sc">$</span>essround<span class="sc">==</span><span class="dv">3</span>]<span class="ot">&lt;-</span><span class="dv">2006</span></span>
-<span id="cb157-9"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-9" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Year[df<span class="sc">$</span>essround<span class="sc">==</span><span class="dv">4</span>]<span class="ot">&lt;-</span><span class="dv">2008</span></span>
-<span id="cb157-10"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-10" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Year[df<span class="sc">$</span>essround<span class="sc">==</span><span class="dv">5</span>]<span class="ot">&lt;-</span><span class="dv">2010</span></span>
-<span id="cb157-11"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-11" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Year[df<span class="sc">$</span>essround<span class="sc">==</span><span class="dv">6</span>]<span class="ot">&lt;-</span><span class="dv">2012</span></span>
-<span id="cb157-12"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-12" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Year[df<span class="sc">$</span>essround<span class="sc">==</span><span class="dv">7</span>]<span class="ot">&lt;-</span><span class="dv">2014</span></span>
-<span id="cb157-13"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-13" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Year[df<span class="sc">$</span>essround<span class="sc">==</span><span class="dv">8</span>]<span class="ot">&lt;-</span><span class="dv">2016</span></span>
-<span id="cb157-14"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-14" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Year[df<span class="sc">$</span>essround<span class="sc">==</span><span class="dv">9</span>]<span class="ot">&lt;-</span><span class="dv">2018</span></span>
-<span id="cb157-15"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-15" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>Year<span class="ot">&lt;-</span><span class="fu">as.factor</span>(df<span class="sc">$</span>Year) </span>
-<span id="cb157-16"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb157-17"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-17" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>OP<span class="ot">&lt;-</span><span class="st">&quot; &quot;</span></span>
-<span id="cb157-18"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-18" aria-hidden="true" tabindex="-1"></a><span class="co">#ggplot(df,aes(x=lrscale))+geom_histogram()</span></span>
-<span id="cb157-19"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-19" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>OP[df<span class="sc">$</span>lrscale<span class="sc">==</span><span class="dv">0</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Extrême gauche&quot;</span> </span>
-<span id="cb157-20"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-20" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>OP[df<span class="sc">$</span>lrscale<span class="sc">==</span><span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Gauche&quot;</span> </span>
-<span id="cb157-21"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-21" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>OP[df<span class="sc">$</span>lrscale<span class="sc">==</span><span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Gauche&quot;</span> </span>
-<span id="cb157-22"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-22" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>OP[df<span class="sc">$</span>lrscale<span class="sc">==</span><span class="dv">3</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Centre Gauche&quot;</span> </span>
-<span id="cb157-23"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-23" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>OP[df<span class="sc">$</span>lrscale<span class="sc">==</span><span class="dv">4</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Centre Gauche&quot;</span> </span>
-<span id="cb157-24"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-24" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>OP[df<span class="sc">$</span>lrscale<span class="sc">==</span><span class="dv">5</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Ni G ni D&quot;</span> </span>
-<span id="cb157-25"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-25" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>OP[df<span class="sc">$</span>lrscale<span class="sc">==</span><span class="dv">6</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Centre Droit&quot;</span> </span>
-<span id="cb157-26"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-26" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>OP[df<span class="sc">$</span>lrscale<span class="sc">==</span><span class="dv">7</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Centre Droit&quot;</span> </span>
-<span id="cb157-27"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-27" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>OP[df<span class="sc">$</span>lrscale<span class="sc">==</span><span class="dv">8</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Droite&quot;</span> </span>
-<span id="cb157-28"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-28" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>OP[df<span class="sc">$</span>lrscale<span class="sc">==</span><span class="dv">9</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Droite&quot;</span> </span>
-<span id="cb157-29"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-29" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>OP[df<span class="sc">$</span>lrscale<span class="sc">==</span><span class="dv">10</span>] <span class="ot">&lt;-</span> <span class="st">&quot;Extrême droite&quot;</span> </span>
-<span id="cb157-30"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-30" aria-hidden="true" tabindex="-1"></a><span class="co">#la ligne suivante est pour ordonner les modalités de la variables</span></span>
-<span id="cb157-31"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-31" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>OP<span class="ot">&lt;-</span><span class="fu">factor</span>(df<span class="sc">$</span>OP,<span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;Extrême droite&quot;</span>,<span class="st">&quot;Droite&quot;</span>,<span class="st">&quot;Centre Droit&quot;</span>,<span class="st">&quot;Ni G ni D&quot;</span>,<span class="st">&quot;Centre Gauche&quot;</span>,<span class="st">&quot;Gauche&quot;</span>,<span class="st">&quot;Extrême gauche&quot;</span>))</span>
-<span id="cb157-32"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb157-33"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb157-34"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb157-35"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-35" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>genre<span class="ot">&lt;-</span><span class="st">&quot; &quot;</span></span>
-<span id="cb157-36"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb157-37"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-37" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>genre[df<span class="sc">$</span>gndr<span class="sc">==</span><span class="dv">1</span>]<span class="ot">&lt;-</span><span class="st">&quot;H&quot;</span></span>
-<span id="cb157-38"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-38" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>genre[df<span class="sc">$</span>gndr<span class="sc">==</span><span class="dv">2</span>]<span class="ot">&lt;-</span><span class="st">&quot;F&quot;</span></span>
-<span id="cb157-39"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb157-40"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-40" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>age<span class="ot">&lt;-</span><span class="st">&quot; &quot;</span></span>
-<span id="cb157-41"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb157-42"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-42" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>age[df<span class="sc">$</span>agea<span class="sc">&lt;</span><span class="dv">26</span>]<span class="ot">&lt;-</span><span class="st">&quot;25&lt;&quot;</span></span>
-<span id="cb157-43"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-43" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>age[df<span class="sc">$</span>agea<span class="sc">&gt;</span><span class="dv">25</span> <span class="sc">&amp;</span> df<span class="sc">$</span>agea<span class="sc">&lt;</span><span class="dv">36</span>]<span class="ot">&lt;-</span><span class="st">&quot;26-35&quot;</span></span>
-<span id="cb157-44"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-44" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>age[df<span class="sc">$</span>agea<span class="sc">&gt;</span><span class="dv">35</span> <span class="sc">&amp;</span> df<span class="sc">$</span>agea<span class="sc">&lt;</span><span class="dv">46</span>]<span class="ot">&lt;-</span><span class="st">&quot;36-45&quot;</span></span>
-<span id="cb157-45"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-45" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>age[df<span class="sc">$</span>agea<span class="sc">&gt;</span><span class="dv">45</span> <span class="sc">&amp;</span> df<span class="sc">$</span>agea<span class="sc">&lt;</span><span class="dv">66</span>]<span class="ot">&lt;-</span><span class="st">&quot;46-65&quot;</span></span>
-<span id="cb157-46"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-46" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>age[df<span class="sc">$</span>agea<span class="sc">&gt;</span><span class="dv">65</span> <span class="sc">&amp;</span> df<span class="sc">$</span>agea<span class="sc">&lt;</span><span class="dv">76</span>]<span class="ot">&lt;-</span><span class="st">&quot;66-75&quot;</span></span>
-<span id="cb157-47"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-47" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>age[df<span class="sc">$</span>agea<span class="sc">&gt;</span><span class="dv">75</span>]<span class="ot">&lt;-</span><span class="st">&quot;75&gt;&quot;</span></span>
-<span id="cb157-48"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-48" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>age<span class="ot">&lt;-</span><span class="fu">factor</span>(df<span class="sc">$</span>age,<span class="at">levels=</span><span class="fu">c</span>(<span class="st">&quot;25&lt;&quot;</span>,<span class="st">&quot;26-35&quot;</span>,<span class="st">&quot;36-45&quot;</span>,<span class="st">&quot;46-65&quot;</span>,<span class="st">&quot;66-75&quot;</span>, <span class="st">&quot;75&gt;&quot;</span>))</span>
-<span id="cb157-49"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb157-50"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb157-51"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-51" aria-hidden="true" tabindex="-1"></a>df_confiance<span class="ot">&lt;-</span>df<span class="sc">%&gt;%</span></span>
-<span id="cb157-52"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-52" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(trstep, trstlgl,trstplc,trstplt,trstprl,trstprt,trstun,pplfair,pplhlp, ppltrst) <span class="sc">%&gt;%</span></span>
-<span id="cb157-53"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">trstep=</span><span class="fu">ifelse</span>(trstep<span class="sc">==</span><span class="dv">77</span> <span class="sc">|</span>trstep<span class="sc">==</span><span class="dv">88</span><span class="sc">|</span> trstep<span class="sc">==</span><span class="dv">66</span>,<span class="cn">NA</span>,trstep),</span>
-<span id="cb157-54"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-54" aria-hidden="true" tabindex="-1"></a>         <span class="at">trstlgl=</span><span class="fu">ifelse</span>(trstlgl<span class="sc">==</span><span class="dv">77</span> <span class="sc">|</span>trstlgl<span class="sc">==</span><span class="dv">88</span><span class="sc">|</span> trstlgl<span class="sc">==</span><span class="dv">66</span>,<span class="cn">NA</span>,trstlgl),</span>
-<span id="cb157-55"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-55" aria-hidden="true" tabindex="-1"></a>         <span class="at">trstplc=</span><span class="fu">ifelse</span>(trstplc<span class="sc">==</span><span class="dv">77</span> <span class="sc">|</span>trstplc<span class="sc">==</span><span class="dv">88</span><span class="sc">|</span> trstplc<span class="sc">==</span><span class="dv">66</span>,<span class="cn">NA</span>,trstplc),</span>
-<span id="cb157-56"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-56" aria-hidden="true" tabindex="-1"></a>         <span class="at">trstplt=</span><span class="fu">ifelse</span>(trstplt<span class="sc">==</span><span class="dv">77</span> <span class="sc">|</span>trstplt<span class="sc">==</span><span class="dv">88</span><span class="sc">|</span> trstplt<span class="sc">==</span><span class="dv">66</span>,<span class="cn">NA</span>,trstplt),</span>
-<span id="cb157-57"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-57" aria-hidden="true" tabindex="-1"></a>         <span class="at">trstprt=</span><span class="fu">ifelse</span>(trstprt<span class="sc">==</span><span class="dv">77</span> <span class="sc">|</span>trstprt<span class="sc">==</span><span class="dv">88</span><span class="sc">|</span> trstprt<span class="sc">==</span><span class="dv">66</span>,<span class="cn">NA</span>,trstprt),</span>
-<span id="cb157-58"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-58" aria-hidden="true" tabindex="-1"></a>         <span class="at">trstun=</span><span class="fu">ifelse</span>(trstun<span class="sc">==</span><span class="dv">77</span> <span class="sc">|</span>trstun<span class="sc">==</span><span class="dv">88</span><span class="sc">|</span> trstun<span class="sc">==</span><span class="dv">66</span>,<span class="cn">NA</span>,trstun),</span>
-<span id="cb157-59"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-59" aria-hidden="true" tabindex="-1"></a>         <span class="at">trstprl=</span><span class="fu">ifelse</span>(trstprl<span class="sc">==</span><span class="dv">77</span> <span class="sc">|</span>trstprl<span class="sc">==</span><span class="dv">88</span><span class="sc">|</span> trstprl<span class="sc">==</span><span class="dv">66</span>,<span class="cn">NA</span>,trstprl),</span>
-<span id="cb157-60"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-60" aria-hidden="true" tabindex="-1"></a>         <span class="at">pplfair=</span><span class="fu">ifelse</span>(pplfair<span class="sc">==</span><span class="dv">77</span> <span class="sc">|</span>pplfair<span class="sc">==</span><span class="dv">88</span><span class="sc">|</span> pplfair<span class="sc">==</span><span class="dv">66</span>,<span class="cn">NA</span>,pplfair),</span>
-<span id="cb157-61"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-61" aria-hidden="true" tabindex="-1"></a>         <span class="at">pplhlp=</span><span class="fu">ifelse</span>(pplhlp<span class="sc">==</span><span class="dv">77</span> <span class="sc">|</span>pplhlp<span class="sc">==</span><span class="dv">88</span><span class="sc">|</span> pplhlp<span class="sc">==</span><span class="dv">66</span>,<span class="cn">NA</span>,pplhlp),</span>
-<span id="cb157-62"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-62" aria-hidden="true" tabindex="-1"></a>         <span class="at">ppltrst=</span><span class="fu">ifelse</span>(ppltrst<span class="sc">==</span><span class="dv">77</span> <span class="sc">|</span>ppltrst<span class="sc">==</span><span class="dv">88</span><span class="sc">|</span> ppltrst<span class="sc">==</span><span class="dv">66</span>,<span class="cn">NA</span>,ppltrst),</span>
-<span id="cb157-63"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-63" aria-hidden="true" tabindex="-1"></a>         <span class="at">trust_institution=</span> (trstep<span class="sc">+</span>trstlgl<span class="sc">+</span>trstplc<span class="sc">+</span>trstplt<span class="sc">+</span>trstprl<span class="sc">+</span>trstprt<span class="sc">+</span>trstun)<span class="sc">/</span><span class="dv">7</span>,</span>
-<span id="cb157-64"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-64" aria-hidden="true" tabindex="-1"></a>         <span class="at">trust_personne=</span> (pplfair<span class="sc">+</span>pplhlp<span class="sc">+</span>ppltrst)<span class="sc">/</span><span class="dv">7</span></span>
-<span id="cb157-65"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-65" aria-hidden="true" tabindex="-1"></a>         )</span>
-<span id="cb157-66"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-66" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb157-67"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb157-68"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-68" aria-hidden="true" tabindex="-1"></a> </span>
-<span id="cb157-69"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-69" aria-hidden="true" tabindex="-1"></a>df_satisfaction<span class="ot">&lt;-</span>df<span class="sc">%&gt;%</span></span>
-<span id="cb157-70"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-70" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(stfeco,stfedu,stfgov, stfhlth, stflife,stfmjob, happy) <span class="sc">%&gt;%</span></span>
-<span id="cb157-71"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-71" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">stfeco=</span><span class="fu">ifelse</span>(stfeco<span class="sc">==</span><span class="dv">77</span> <span class="sc">|</span>stfeco<span class="sc">==</span><span class="dv">88</span><span class="sc">|</span> stfeco<span class="sc">==</span><span class="dv">66</span>,<span class="cn">NA</span>,stfeco),</span>
-<span id="cb157-72"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-72" aria-hidden="true" tabindex="-1"></a>         <span class="at">stfedu=</span><span class="fu">ifelse</span>(stfedu<span class="sc">==</span><span class="dv">77</span> <span class="sc">|</span>stfedu<span class="sc">==</span><span class="dv">88</span> <span class="sc">|</span> stfedu<span class="sc">==</span><span class="dv">66</span>,<span class="cn">NA</span>,stfedu),</span>
-<span id="cb157-73"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-73" aria-hidden="true" tabindex="-1"></a>         <span class="at">stfgov=</span><span class="fu">ifelse</span>(stfgov<span class="sc">==</span><span class="dv">77</span> <span class="sc">|</span>stfgov<span class="sc">==</span><span class="dv">88</span> <span class="sc">|</span> stfgov<span class="sc">==</span><span class="dv">66</span>, <span class="cn">NA</span>, stfgov), </span>
-<span id="cb157-74"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-74" aria-hidden="true" tabindex="-1"></a>         <span class="at">stfhlth=</span><span class="fu">ifelse</span>(stfhlth<span class="sc">==</span><span class="dv">77</span> <span class="sc">|</span>stfhlth<span class="sc">==</span><span class="dv">88</span><span class="sc">|</span>stfhlth<span class="sc">==</span><span class="dv">66</span>,<span class="cn">NA</span>,stfhlth), </span>
-<span id="cb157-75"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-75" aria-hidden="true" tabindex="-1"></a>         <span class="at">stflife=</span><span class="fu">ifelse</span>(stflife<span class="sc">==</span><span class="dv">77</span> <span class="sc">|</span>stflife<span class="sc">==</span><span class="dv">88</span><span class="sc">|</span>stflife<span class="sc">==</span><span class="dv">66</span>,<span class="cn">NA</span>,stflife),</span>
-<span id="cb157-76"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-76" aria-hidden="true" tabindex="-1"></a>         <span class="at">stfmjob=</span><span class="fu">ifelse</span>(stfmjob<span class="sc">==</span><span class="dv">77</span> <span class="sc">|</span>stfmjob<span class="sc">==</span><span class="dv">88</span><span class="sc">|</span>stfmjob<span class="sc">==</span><span class="dv">66</span>,<span class="cn">NA</span>,stfmjob),</span>
-<span id="cb157-77"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-77" aria-hidden="true" tabindex="-1"></a>         <span class="at">satisfaction_vie=</span>(stflife<span class="sc">+</span>happy)<span class="sc">/</span><span class="dv">2</span>, <span class="co">#à examiner</span></span>
-<span id="cb157-78"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-78" aria-hidden="true" tabindex="-1"></a>         <span class="at">satisfaction_institution=</span>(stfeco<span class="sc">+</span>stfgov)<span class="sc">/</span><span class="dv">2</span>,</span>
-<span id="cb157-79"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-79" aria-hidden="true" tabindex="-1"></a>         <span class="at">satisfaction_care=</span>(stfhlth<span class="sc">+</span>stfedu)<span class="sc">/</span><span class="dv">2</span></span>
-<span id="cb157-80"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-80" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb157-81"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-81" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb157-82"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-82" aria-hidden="true" tabindex="-1"></a>df_sample<span class="ot">&lt;-</span>df<span class="sc">%&gt;%</span></span>
-<span id="cb157-83"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-83" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(Year, age, OP, genre)</span>
-<span id="cb157-84"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb157-85"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb157-86"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-86" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">cbind</span>(df_sample, df_satisfaction, df_confiance)</span></code></pre></div>
+<div class="sourceCode" id="cb157"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb157-1"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb157-1" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;./data/ESS10fr.rds&quot;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb158"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb158-1"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggcorrplot)</span>
 <span id="cb158-2"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb158-2" aria-hidden="true" tabindex="-1"></a>foo<span class="ot">&lt;-</span><span class="fu">cbind</span>(df_satisfaction, df_confiance) <span class="sc">%&gt;%</span></span>
 <span id="cb158-3"><a href="les-modèles-linéaires-hiérarchiques-hlm.html#cb158-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>stfmjob)<span class="sc">%&gt;%</span></span>
@@ -708,8 +628,8 @@ div.csl-indent {
 ## trst_nstttn -0.078 -0.225    -0.439          
 ## trust_prsnn -0.260 -0.057    -0.101    -0.242</code></pre>
 </div>
-<div id="sem-avec-lavaan" class="section level2" number="13.3">
-<h2><span class="header-section-number">13.3</span> Sem avec Lavaan</h2>
+<div id="sem-avec-lavaan" class="section level2 hasAnchor" number="13.3">
+<h2><span class="header-section-number">13.3</span> Sem avec Lavaan<a href="les-modèles-linéaires-hiérarchiques-hlm.html#sem-avec-lavaan" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>On reste sur le jeu de données précédent</p>
 
 </div>

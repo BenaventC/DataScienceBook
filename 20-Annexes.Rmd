@@ -1,79 +1,14 @@
+# 20 Annexes
 
-# 11 Les modèles linéaires hiérarchiques (HLM)
+## Données Eric-ESS
 
-Les modèles de panels en économies, ou multi-niveaux en sociologie, sont caractérisés par le fait que les données sont un empilement de différents échantillons correspondant à une stratification.
+Extraction France
 
-## en guise d'introduction
-
-L'exemple de la performance scolaire va nous éclairer. Supposons que l'on veuille établir l'effet d'une mesure d'aptitude intellectuelle (par le exemple le score de QI) sur les notes obtenues. On va mesurer cette relation en recueillant les données deux classes et dans deux matières. La classe A est calme, la classe B est agitée, les matières sont les maths et le français.
-
-
-```{r 1101}
-a=.1
-foo_MC<-as.data.frame(rnorm(20, mean=12, sd=10))%>%
-  rename(QI=1) %>% group_by(row_number()) %>% 
-  mutate(e=-5+10*runif(1))%>% ungroup() %>%
-  mutate(Perf=a*QI-3+1+e,matiere="Math", classe="Calme")
-
-foo_MA<-as.data.frame(rnorm(20, mean=12, sd=10))%>%
-  rename(QI=1) %>% group_by(row_number()) %>% 
-  mutate(e=-5+10*runif(1))%>% ungroup() %>%
-  mutate(Perf=a*QI-3-3+e,matiere="Math", classe="Agité")
-
-foo_FC<-as.data.frame(rnorm(20, mean=12, sd=10))%>%
-  rename(QI=1) %>% group_by(row_number()) %>% 
-  mutate(e=-5+10*runif(1))%>% ungroup() %>%
-  mutate(Perf=a*QI+2+1+e,matiere="Français", classe="Calme")
-
-foo_FA<-as.data.frame(rnorm(20, mean=12, sd=10))%>%
-  rename(QI=1) %>% group_by(row_number()) %>% 
-  mutate(e=-5+10*runif(1))%>% ungroup() %>%
-  mutate(Perf=a*QI+2-4+1+e,matiere="Français", classe="Agité")
+Le fichier est disponible sous format ESS10fr.rds
 
 
-
-foo<-rbind(foo_MA, foo_MC, foo_FA,foo_FC)
-r =round(cor(foo$QI, foo$Perf),2)
-
-ggplot(foo, aes(x=QI, y=Perf))+
-  geom_point()+geom_smooth(method="lm")+  
-  labs(title=paste("Corrélation :",r))
-
-
-ggplot(foo, aes(x=QI, y=Perf, shape=matiere, color=classe))+
-  geom_point()+geom_smooth(method="lm")+facet_grid(matiere~classe)+
-  labs(title=paste("Corrélation :",r))
-
-
-fit01<-lm(Perf~QI, data=foo)
-fit02<-lm(Perf~QI+matiere+classe, data=foo)
-fit03<-lm(Perf~QI+matiere*classe, data=foo)
-
-export_summs(fit01,fit02, fit03, number_format = "%.3g")
-```
-
-Dans ce petit exemple, les niveaux sont peu nombreux. On pourrait imaginer qu'ils soient bien plus nombreux, par exemple en réalisant l'enquête sur des dizaines de classes pour lesquelles le degré d'agitation est variable et se distribue certainement de manière normale. Ne tenons plus en compte la matière pour le moment. On ne va prendre que la moyenne des maths.
-
-On peut écrire le modèle où $\beta_{k}$ représente le terme constant de chacune des k classes.
-
-$$ y_{ik}=\beta_{k}+\beta_{1}Aptitude_{i}+\epsilon_{ik} $$ 
-
-
-en supposant que les $\beta_{k}$ se distribue de manière normale avec une moyenne $\overline{\beta}$ et une variance $\mu_{k}$, on peut réécrire l'équation de la manière suivante
-
-
-
-$$y_{ik}=\overline{\beta}+\beta_{1}Aptitude_{i}+\mu_{k}+\epsilon_{ik} $$
-
-C'est un modèle à composantes d'erreur où $\mu_{k}$ représente l'effet de la classe.
-
-## Une application
-
-voir données ESS
-
-```{r 1102}
+```{r 2001}
 df <- read_csv("Data/ESS-Data-Wizard-subset-2022-10-06.csv")
-
 
 df$Year<-2000
 #recodage des variables independantes
@@ -104,15 +39,11 @@ df$OP[df$lrscale==10] <- "Extrême droite"
 #la ligne suivante est pour ordonner les modalités de la variables
 df$OP<-factor(df$OP,levels=c("Extrême droite","Droite","Centre Droit","Ni G ni D","Centre Gauche","Gauche","Extrême gauche"))
 
-
-
 df$genre<-" "
-
 df$genre[df$gndr==1]<-"H"
 df$genre[df$gndr==2]<-"F"
 
 df$age<-" "
-
 df$age[df$agea<26]<-"25<"
 df$age[df$agea>25 & df$agea<36]<-"26-35"
 df$age[df$agea>35 & df$agea<46]<-"36-45"
@@ -120,7 +51,6 @@ df$age[df$agea>45 & df$agea<66]<-"46-65"
 df$age[df$agea>65 & df$agea<76]<-"66-75"
 df$age[df$agea>75]<-"75>"
 df$age<-factor(df$age,levels=c("25<","26-35","36-45","46-65","66-75", "75>"))
-
 
 df_confiance<-df%>%
   dplyr::select(trstep, trstlgl,trstplc,trstplt,trstprl,trstprt,trstun,pplfair,pplhlp, ppltrst) %>%
@@ -160,50 +90,12 @@ df_sample<-df%>%
 
 df<-cbind(df_sample, df_satisfaction, df_confiance)
 
-table(df$happy)
-
+saveRDS(df, "./data/ESS10fr.rds")
 ```
 
-```{r 1103}
-library(ggcorrplot)
-foo<-cbind(df_satisfaction, df_confiance) %>%
-  dplyr::select(-stfmjob)%>%
-  drop_na()
-r<-cor(foo)
-ggcorrplot(r, hc.order = TRUE, type = "lower",
-   outline.col = "white",
-   colors = c("#6D9EC1", "white", "#E46726"), lab=TRUE, lab_size=2)
 
-res.pca <- PCA(foo, scale.unit = TRUE, ncp = 3, graph = TRUE)
-fviz_eig(res.pca, addlabels = TRUE, ylim = c(0, 50))
-fviz_pca_var(res.pca, col.var = "cos2",
-             gradient.cols = c("#00AFBB", "#E7B800", "#FC4E07"), 
-             repel = TRUE # Avoid text overlapping
-             )
+## fichier Airbnb Bruxelles
 
-foo<-df%>% 
-  dplyr::select(satisfaction_vie, satisfaction_care, satisfaction_institution, trust_institution, trust_personne, Year)%>%
-  drop_na()
+La source est InsideAirbnb. L'extraction est de 2020.
 
-fit0<-lm(satisfaction_vie~satisfaction_care+satisfaction_institution+trust_institution+trust_personne,  data=df)
-
-fit1<-lm(satisfaction_vie~satisfaction_care+satisfaction_institution+trust_institution+trust_personne+Year,  data=df)
-
-fit2<-lm(satisfaction_vie~age+genre+OP+satisfaction_care+satisfaction_institution+trust_institution+trust_personne+Year,  data=df)
-
-
-
-export_summs(fit0, fit1,fit2, digits=3)
-plot_summs(fit0, fit1,fit2)
-
-fit3<-lmer(satisfaction_vie~satisfaction_care+satisfaction_institution+trust_institution+trust_personne+(1|Year)+(1|age)+(1|OP)+(1|genre),data = df )
-
-summary(fit3)
-
-
-```
-
-## Sem avec Lavaan
-
-
-On reste sur le jeu de données précédent
+##

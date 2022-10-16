@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.10.16)  16 OCT 2022 14:40
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.10.16)  16 OCT 2022 17:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -304,88 +304,134 @@ Package: amsthm 2020/05/29 v2.20.6
 \thm@postskip=\skip63
 \thm@headsep=\skip64
 \dth@everypar=\toks29
-) (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/multirow/multirow.sty
-Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
-\multirow@colwidth=\skip65
-\multirow@cntb=\count302
-\multirow@dima=\skip66
-\bigstrutjot=\dimen178
-) (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/multicol.sty
-Package: multicol 2021/11/30 v1.9d multicolumn formatting (FMi)
-\c@tracingmulticols=\count303
-\mult@box=\box63
-\multicol@leftmargin=\dimen179
-\c@unbalance=\count304
-\c@collectmore=\count305
-\doublecol@number=\count306
-\multicoltolerance=\count307
-\multicolpretolerance=\count308
-\full@width=\dimen180
-\page@free=\dimen181
-\premulticols=\dimen182
-\postmulticols=\dimen183
-\multicolsep=\skip67
-\multicolbaselineskip=\skip68
-\partial@page=\box64
-\last@line=\box65
-\maxbalancingoverflow=\dimen184
-\mult@rightbox=\box66
-\mult@grightbox=\box67
-\mult@firstbox=\box68
-\mult@gfirstbox=\box69
-\@tempa=\box70
-\@tempa=\box71
-\@tempa=\box72
-\@tempa=\box73
-\@tempa=\box74
-\@tempa=\box75
-\@tempa=\box76
-\@tempa=\box77
-\@tempa=\box78
-\@tempa=\box79
-\@tempa=\box80
-\@tempa=\box81
-\@tempa=\box82
-\@tempa=\box83
-\@tempa=\box84
-\@tempa=\box85
-\@tempa=\box86
-\@tempa=\box87
-\@tempa=\box88
-\@tempa=\box89
-\@tempa=\box90
-\@tempa=\box91
-\@tempa=\box92
-\@tempa=\box93
-\@tempa=\box94
-\@tempa=\box95
-\@tempa=\box96
-\@tempa=\box97
-\@tempa=\box98
-\@tempa=\box99
-\@tempa=\box100
-\@tempa=\box101
-\@tempa=\box102
-\@tempa=\box103
-\@tempa=\box104
-\@tempa=\box105
-\c@minrows=\count309
-\c@columnbadness=\count310
-\c@finalcolumnbadness=\count311
-\last@try=\dimen185
-\multicolovershoot=\dimen186
-\multicolundershoot=\dimen187
-\mult@nat@firstbox=\box106
-\colbreak@box=\box107
-\mc@col@check@num=\count312
+) (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2022/03/01 v3.6b Customizing captions (AR)
+(c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
+\caption@tempdima=\dimen178
+\captionmargin=\dimen179
+\caption@leftmargin=\dimen180
+\caption@rightmargin=\dimen181
+\caption@width=\dimen182
+\caption@indent=\dimen183
+\caption@parindent=\dimen184
+\caption@hangindent=\dimen185
+Package caption Info: Standard document class detected.
+)
+\c@caption@flags=\count302
+\c@continuedfloat=\count303
+Package caption Info: longtable package is loaded.
+(c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/ltcaption.sty
+Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
+)) (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/siunitx/siunitx.sty
+Package: siunitx 2022-10-04 v3.1.8 A comprehensive (SI) units package
+\l__siunitx_angle_tmp_dim=\dimen186
+\l__siunitx_angle_marker_box=\box63
+\l__siunitx_angle_unit_box=\box64
+\l__siunitx_compound_count_int=\count304
+\l__siunitx_number_exponent_fixed_int=\count305
+\l__siunitx_number_min_decimal_int=\count306
+\l__siunitx_number_min_integer_int=\count307
+\l__siunitx_number_round_precision_int=\count308
+\l__siunitx_number_group_first_int=\count309
+\l__siunitx_number_group_size_int=\count310
+\l__siunitx_number_group_minimum_int=\count311
+\l__siunitx_table_tmp_box=\box65
+\l__siunitx_table_tmp_dim=\dimen187
+\l__siunitx_table_column_width_dim=\dimen188
+\l__siunitx_table_integer_box=\box66
+\l__siunitx_table_decimal_box=\box67
+\l__siunitx_table_before_box=\box68
+\l__siunitx_table_after_box=\box69
+\l__siunitx_table_before_dim=\dimen189
+\l__siunitx_table_carry_dim=\dimen190
+\l__siunitx_unit_tmp_int=\count312
+\l__siunitx_unit_position_int=\count313
+\l__siunitx_unit_total_int=\count314
+) (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ulem/ulem.sty
+\UL@box=\box70
+\UL@hyphenbox=\box71
+\UL@skip=\skip65
+\UL@hook=\toks30
+\UL@height=\dimen191
+\UL@pe=\count315
+\UL@pixel=\dimen192
+\ULC@box=\box72
+Package: ulem 2019/11/18
+\ULdepth=\dimen193
 ) (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/colortbl/colortbl.sty
 Package: colortbl 2022/06/20 v1.0f Color table columns (DPC)
-\everycr=\toks30
-\minrowclearance=\skip69
-\rownum=\count313
+\everycr=\toks31
+\minrowclearance=\skip66
+\rownum=\count316
+) (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2021/03/15 v2.8 Span multiple rows of a table
+\multirow@colwidth=\skip67
+\multirow@cntb=\count317
+\multirow@dima=\skip68
+\bigstrutjot=\dimen194
 ) (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/hhline.sty
 Package: hhline 2020/01/04 v2.04 Table rule package (DPC)
-) (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
+) (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/tabularx.sty
+Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
+\TX@col@width=\dimen195
+\TX@old@table=\dimen196
+\TX@old@col=\dimen197
+\TX@target=\dimen198
+\TX@delta=\dimen199
+\TX@cols=\count318
+\TX@ftn=\toks32
+) (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/threeparttable/threeparttable.sty
+Package: threeparttable 2003/06/13  v 3.0
+\@tempboxb=\box73
+) (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/wrapfig/wrapfig.sty
+\wrapoverhang=\dimen256
+\WF@size=\dimen257
+\c@WF@wrappedlines=\count319
+\WF@box=\box74
+\WF@everypar=\toks33
+Package: wrapfig 2003/01/31  v 3.6
+) (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/adjustbox/adjustbox.sty
+Package: adjustbox 2020/08/19 v1.3 Adjusting TeX boxes (trim, clip, ...)
+(c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.sty
+Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
+(c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xkeyval/xkeyval.tex (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xkeyval/xkvutils.tex
+\XKV@toks=\toks34
+\XKV@tempa@toks=\toks35
+)
+\XKV@depth=\count320
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+)) (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/adjustbox/adjcalc.sty
+Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back-ends (calc, etex, pgfmath)
+) (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/adjustbox/trimclip.sty
+Package: trimclip 2020/08/19 v1.2 Trim and clip general TeX material
+(c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/collectbox/collectbox.sty
+Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
+\collectedbox=\box75
+)
+\tc@llx=\dimen258
+\tc@lly=\dimen259
+\tc@urx=\dimen260
+\tc@ury=\dimen261
+Package trimclip Info: Using driver 'tc-xetex.def'.
+(c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/adjustbox/tc-xetex.def
+File: tc-xetex.def 2019/01/04 v2.2 Clipping driver for xetex
+))
+\adjbox@Width=\dimen262
+\adjbox@Height=\dimen263
+\adjbox@Depth=\dimen264
+\adjbox@Totalheight=\dimen265
+\adjbox@pwidth=\dimen266
+\adjbox@pheight=\dimen267
+\adjbox@pdepth=\dimen268
+\adjbox@ptotalheight=\dimen269
+(c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/varwidth/varwidth.sty
+Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
+\@vwid@box=\box76
+\sift@deathcycles=\count321
+\@vwid@loff=\dimen270
+\@vwid@roff=\dimen271
+)) (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2022-09-22 v7.00t Hypertext links for LaTeX
 (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
 Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
@@ -418,11 +464,11 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count314
+\c@section@level=\count322
 )
-\@linkdim=\dimen188
-\Hy@linkcounter=\count315
-\Hy@pagecounter=\count316
+\@linkdim=\dimen272
+\Hy@linkcounter=\count323
+\Hy@pagecounter=\count324
 (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2022-09-22 v7.00t Hyperref: PDFDocEncoding definition (HO)
 ) (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
@@ -430,7 +476,7 @@ Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 ) (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count317
+\Hy@SavedSpaceFactor=\count325
 (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2022-09-22 v7.00t Hyperref: PDF Unicode definition (HO)
 )
@@ -442,21 +488,21 @@ Package hyperref Info: Plain pages OFF on input line 4177.
 Package hyperref Info: Backreferencing OFF on input line 4182.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4410.
-\c@Hy@tempcnt=\count318
+\c@Hy@tempcnt=\count326
 (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip18
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 4748.
-\XeTeXLinkMargin=\dimen189
+\XeTeXLinkMargin=\dimen273
 (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count319
-\Field@Width=\dimen190
-\Fld@charsize=\dimen191
+\Fld@menulength=\count327
+\Field@Width=\dimen274
+\Fld@charsize=\dimen275
 Package hyperref Info: Hyper figures OFF on input line 6027.
 Package hyperref Info: Link nesting OFF on input line 6032.
 Package hyperref Info: Hyper index ON on input line 6035.
@@ -468,9 +514,9 @@ Package hyperref Info: PDF/A mode OFF on input line 6057.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count320
-\c@Item=\count321
-\c@Hfootnote=\count322
+\Hy@abspage=\count328
+\c@Item=\count329
+\c@Hfootnote=\count330
 )
 Package hyperref Info: Driver (autodetected): hxetex.
 (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/hyperref/hxetex.def
@@ -478,11 +524,11 @@ File: hxetex.def 2022-09-22 v7.00t Hyperref driver for XeTeX
 (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/stringenc/stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO)
 )
-\pdfm@box=\box108
-\c@Hy@AnnotLevel=\count323
-\HyField@AnnotCount=\count324
-\Fld@listcount=\count325
-\c@bookmark@seq@number=\count326
+\pdfm@box=\box77
+\c@Hy@AnnotLevel=\count331
+\HyField@AnnotCount=\count332
+\Fld@listcount=\count333
+\c@bookmark@seq@number=\count334
 (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
 Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
 (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/base/atveryend-ltx.sty
@@ -493,215 +539,50 @@ Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
 Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
-\Hy@SectionHShift=\skip70
-) (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption.sty
-Package: caption 2022/03/01 v3.6b Customizing captions (AR)
-(c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/caption3.sty
-Package: caption3 2022/03/17 v2.3b caption3 kernel (AR)
-\caption@tempdima=\dimen192
-\captionmargin=\dimen193
-\caption@leftmargin=\dimen194
-\caption@rightmargin=\dimen195
-\caption@width=\dimen196
-\caption@indent=\dimen197
-\caption@parindent=\dimen198
-\caption@hangindent=\dimen199
-Package caption Info: Standard document class detected.
-)
-\c@caption@flags=\count327
-\c@continuedfloat=\count328
-Package caption Info: hyperref package is loaded.
-Package caption Info: longtable package is loaded.
-(c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/caption/ltcaption.sty
-Package: ltcaption 2021/01/08 v1.4c longtable captions (AR)
-)) (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/siunitx/siunitx.sty
-Package: siunitx 2022-10-04 v3.1.8 A comprehensive (SI) units package
-\l__siunitx_angle_tmp_dim=\dimen256
-\l__siunitx_angle_marker_box=\box109
-\l__siunitx_angle_unit_box=\box110
-\l__siunitx_compound_count_int=\count329
-\l__siunitx_number_exponent_fixed_int=\count330
-\l__siunitx_number_min_decimal_int=\count331
-\l__siunitx_number_min_integer_int=\count332
-\l__siunitx_number_round_precision_int=\count333
-\l__siunitx_number_group_first_int=\count334
-\l__siunitx_number_group_size_int=\count335
-\l__siunitx_number_group_minimum_int=\count336
-\l__siunitx_table_tmp_box=\box111
-\l__siunitx_table_tmp_dim=\dimen257
-\l__siunitx_table_column_width_dim=\dimen258
-\l__siunitx_table_integer_box=\box112
-\l__siunitx_table_decimal_box=\box113
-\l__siunitx_table_before_box=\box114
-\l__siunitx_table_after_box=\box115
-\l__siunitx_table_before_dim=\dimen259
-\l__siunitx_table_carry_dim=\dimen260
-\l__siunitx_unit_tmp_int=\count337
-\l__siunitx_unit_position_int=\count338
-\l__siunitx_unit_total_int=\count339
-) (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/ulem/ulem.sty
-\UL@box=\box116
-\UL@hyphenbox=\box117
-\UL@skip=\skip71
-\UL@hook=\toks31
-\UL@height=\dimen261
-\UL@pe=\count340
-\UL@pixel=\dimen262
-\ULC@box=\box118
-Package: ulem 2019/11/18
-\ULdepth=\dimen263
-) (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tools/tabularx.sty
-Package: tabularx 2020/01/15 v2.11c `tabularx' package (DPC)
-\TX@col@width=\dimen264
-\TX@old@table=\dimen265
-\TX@old@col=\dimen266
-\TX@target=\dimen267
-\TX@delta=\dimen268
-\TX@cols=\count341
-\TX@ftn=\toks32
-) (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/threeparttable/threeparttable.sty
-Package: threeparttable 2003/06/13  v 3.0
-\@tempboxb=\box119
-) (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/wrapfig/wrapfig.sty
-\wrapoverhang=\dimen269
-\WF@size=\dimen270
-\c@WF@wrappedlines=\count342
-\WF@box=\box120
-\WF@everypar=\toks33
-Package: wrapfig 2003/01/31  v 3.6
-) (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/adjustbox/adjustbox.sty
-Package: adjustbox 2020/08/19 v1.3 Adjusting TeX boxes (trim, clip, ...)
-(c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/xkeyval/xkeyval.sty
-Package: xkeyval 2022/06/16 v2.9 package option processing (HA)
-(c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xkeyval/xkeyval.tex (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/generic/xkeyval/xkvutils.tex
-\XKV@toks=\toks34
-\XKV@tempa@toks=\toks35
-)
-\XKV@depth=\count343
-File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
-)) (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/adjustbox/adjcalc.sty
-Package: adjcalc 2012/05/16 v1.1 Provides advanced setlength with multiple back-ends (calc, etex, pgfmath)
-) (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/adjustbox/trimclip.sty
-Package: trimclip 2020/08/19 v1.2 Trim and clip general TeX material
-(c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/collectbox/collectbox.sty
-Package: collectbox 2012/05/17 v0.4b Collect macro arguments as boxes
-\collectedbox=\box121
-)
-\tc@llx=\dimen271
-\tc@lly=\dimen272
-\tc@urx=\dimen273
-\tc@ury=\dimen274
-Package trimclip Info: Using driver 'tc-xetex.def'.
-(c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/adjustbox/tc-xetex.def
-File: tc-xetex.def 2019/01/04 v2.2 Clipping driver for xetex
-))
-\adjbox@Width=\dimen275
-\adjbox@Height=\dimen276
-\adjbox@Depth=\dimen277
-\adjbox@Totalheight=\dimen278
-\adjbox@pwidth=\dimen279
-\adjbox@pheight=\dimen280
-\adjbox@pdepth=\dimen281
-\adjbox@ptotalheight=\dimen282
-(c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/varwidth/varwidth.sty
-Package: varwidth 2009/03/30 ver 0.92;  Variable-width minipages
-\@vwid@box=\box122
-\sift@deathcycles=\count344
-\@vwid@loff=\dimen283
-\@vwid@roff=\dimen284
-)) (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/float/float.sty
-Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count345
-\float@exts=\toks36
-\float@box=\box123
-\@float@everytoks=\toks37
-\@floatcapt=\box124
-) (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/pdflscape/pdflscape.sty
-Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
-(c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/graphics/lscape.sty
-Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
-)
-Package pdflscape Info: Auto-detected driver: dvipdfm (xetex) on input line 98.
-) (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/tabu/tabu.sty
-Package: tabu 2019/01/11 v2.9 - flexible LaTeX tabulars (FC+tabu-fixed)
-\c@taburow=\count346
-\tabu@nbcols=\count347
-\tabu@cnt=\count348
-\tabu@Xcol=\count349
-\tabu@alloc=\count350
-\tabu@nested=\count351
-\tabu@target=\dimen285
-\tabu@spreadtarget=\dimen286
-\tabu@naturalX=\dimen287
-\tabucolX=\dimen288
-\tabu@Xsum=\dimen289
-\extrarowdepth=\dimen290
-\abovetabulinesep=\dimen291
-\belowtabulinesep=\dimen292
-\tabustrutrule=\dimen293
-\tabu@thebody=\toks38
-\tabu@footnotes=\toks39
-\tabu@box=\box125
-\tabu@arstrutbox=\box126
-\tabu@hleads=\box127
-\tabu@vleads=\box128
-\tabu@cellskip=\skip72
-) (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/threeparttablex/threeparttablex.sty
-Package: threeparttablex 2013/07/23 v0.3 by daleif
-(c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/environ/environ.sty
-Package: environ 2014/05/04 v0.3 A new way to define environments
-(c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/trimspaces/trimspaces.sty
-Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
-))
-\TPTL@width=\skip73
-) (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/makecell/makecell.sty
-Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
-\rotheadsize=\dimen294
-\c@nlinenum=\count352
-\TeXr@lab=\toks40
+\Hy@SectionHShift=\skip69
 ) (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip74
-\bibsep=\skip75
+\bibhang=\skip70
+\bibsep=\skip71
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count353
+\c@NAT@ctr=\count335
 ) (./bookdown-demo.aux)
 \openout1 = `bookdown-demo.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 153.
-LaTeX Font Info:    ... okay on input line 153.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 143.
+LaTeX Font Info:    ... okay on input line 143.
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 153.
+(Font)                  OT1/lmr/m/n --> TU/lmr/m/n on input line 143.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 153.
+(Font)                  OT1/lmr/m/it --> TU/lmr/m/it on input line 143.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 153.
+(Font)                  OT1/lmr/bx/n --> TU/lmr/bx/n on input line 143.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 153.
+(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 143.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 153.
+(Font)                  OT1/lmss/bx/n --> TU/lmss/bx/n on input line 143.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 153.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 143.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 153.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/bx/n on input line 143.
 
 Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
 
@@ -727,7 +608,7 @@ Package fontspec Info: Font family 'latinmodern-math.otf(0)' created for font
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(0)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 153.
+(Font)              scaled to size 10.0pt on input line 143.
 
 Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
 
@@ -759,15 +640,15 @@ Package fontspec Info: Font family 'latinmodern-math.otf(1)' created for font
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 153.
+(Font)              scaled to size 10.0pt on input line 143.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 153.
+(Font)              `operators' in the math version `normal' on input line 143.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input line 153.
+(Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input line 143.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 153.
+(Font)              `operators' in the math version `bold' on input line 143.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on input line 153.
+(Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on input line 143.
 
 Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
 
@@ -846,13 +727,13 @@ Package fontspec Info: Font family 'latinmodern-math.otf(2)' created for font
 (fontspec)             \fontdimen 21\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 153.
+(Font)              `symbols' in the math version `normal' on input line 143.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
-(Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on input line 153.
+(Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on input line 143.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 153.
+(Font)              `symbols' in the math version `bold' on input line 143.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on input line 153.
+(Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on input line 143.
 
 Package fontspec Info: latinmodern-math scale = 0.9999964596882403.
 
@@ -913,50 +794,50 @@ Package fontspec Info: Font family 'latinmodern-math.otf(3)' created for font
 (fontspec)             =6.0pt\relax \fontdimen 13\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `normal' on input line 153.
+(Font)              `largesymbols' in the math version `normal' on input line 143.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on input line 153.
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on input line 143.
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 153.
+(Font)              `largesymbols' in the math version `bold' on input line 143.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on input line 153.
-Package hyperref Info: Link coloring OFF on input line 153.
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on input line 143.
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: hyperref package is loaded.
+Package caption Info: threeparttable package is loaded.
+Package caption Info: wrapfig package is loaded.
+Package caption Info: End \AtBeginDocument code.
+Package hyperref Info: Link coloring OFF on input line 143.
 (./bookdown-demo.out) (./bookdown-demo.out)
 \@outlinefile=\write4
 \openout4 = `bookdown-demo.out'.
 
-Package caption Info: Begin \AtBeginDocument code.
-Package caption Info: float package is loaded.
-Package caption Info: threeparttable package is loaded.
-Package caption Info: wrapfig package is loaded.
-Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 155.
+(Font)              scaled to size 12.0pt on input line 145.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 155.
+(Font)              scaled to size 8.0pt on input line 145.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 155.
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 155.
+(Font)              scaled to size 6.0pt on input line 145.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 145.
 (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 12.0011pt on input line 155.
+(Font)              scaled to size 12.0011pt on input line 145.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 8.00073pt on input line 155.
+(Font)              scaled to size 8.00073pt on input line 145.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 6.00055pt on input line 155.
+(Font)              scaled to size 6.00055pt on input line 145.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 11.99872pt on input line 155.
+(Font)              scaled to size 11.99872pt on input line 145.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.99915pt on input line 155.
+(Font)              scaled to size 7.99915pt on input line 145.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.99936pt on input line 155.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 155.
+(Font)              scaled to size 5.99936pt on input line 145.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 145.
 (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 155.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 145.
 (c:/Users/33623/AppData/Roaming/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
@@ -975,44 +856,44 @@ Chapter 1.
 File: ./Images/ggridge.png Graphic file (type bmp)
 <./Images/ggridge.png>
 [5]
-Underfull \hbox (badness 10000) in paragraph at lines 197--199
+Underfull \hbox (badness 10000) in paragraph at lines 185--187
 
  []
 
 [6]
 
-Package natbib Warning: Citation `allaire_rmarkdown_2021' on page 7 undefined on input line 236.
+Package natbib Warning: Citation `allaire_rmarkdown_2021' on page 7 undefined on input line 226.
 
 
-Package natbib Warning: Citation `R-bookdown' on page 7 undefined on input line 236.
+Package natbib Warning: Citation `R-bookdown' on page 7 undefined on input line 226.
 
 [7]
-Underfull \vbox (badness 10000) detected at line 316
+Underfull \vbox (badness 10000) detected at line 306
  []
 
 
-Underfull \vbox (badness 10000) detected at line 316
+Underfull \vbox (badness 10000) detected at line 306
  []
 
 [8]
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 347.
+(Font)              scaled to size 7.0pt on input line 337.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 347.
+(Font)              scaled to size 5.0pt on input line 337.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.00092pt on input line 347.
+(Font)              scaled to size 10.00092pt on input line 337.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.00064pt on input line 347.
+(Font)              scaled to size 7.00064pt on input line 337.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.00046pt on input line 347.
+(Font)              scaled to size 5.00046pt on input line 337.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.99893pt on input line 347.
+(Font)              scaled to size 9.99893pt on input line 337.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 347.
+(Font)              scaled to size 6.99925pt on input line 337.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 347.
+(Font)              scaled to size 4.99947pt on input line 337.
 
-Underfull \hbox (badness 10000) in paragraph at lines 347--349
+Underfull \hbox (badness 10000) in paragraph at lines 337--339
 [][][][][][][][][] [] [][][][][][][][] [] [][][] [][] [][] [][] [][][][][][][] [][] [][][][][][] [][] [][][][][][][][][] [][] [][] [][] [][] [][] [][][][][][][][][] [][]
  []
 
@@ -1031,21 +912,2609 @@ Chapter 3.
 [15
 
 ]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 583.
+[16]
+File: bookdown-demo_files/figure-latex/0203-1.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/0203-1.pdf>
+[17]
+File: bookdown-demo_files/figure-latex/0204-1.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/0204-1.pdf>
+[18]
+File: bookdown-demo_files/figure-latex/0205-1.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/0205-1.pdf>
+[19]
 
-LaTeX Warning: File `*.jpg' not found on input line 520.
+Package fontspec Info: Arial scale = 0.8311536146592658.
 
-! Unable to load picture or PDF file '*.jpg'.
-<to be read again> 
-                   }
-l.520 ...ur des liens et ``\includegraphics{*.jpg}
-                                                  '' pour des images 
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial/B scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial/B scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial/I scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial/I scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial/BI scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial/BI scale = 0.8311536146592658.
+
+
+Package fontspec Info: Font family 'Arial(0)' created for font 'Arial' with
+(fontspec)             options [Scale=MatchLowercase,Ligatures=TeX,Scale=1].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[1]"Arial/OT:script=latn;language=dflt;mapping=tex-text;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
+(fontspec)             <->s*[1]"Arial/OT:script=latn;language=dflt;+smcp;mapping=tex-text;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[1]"Arial/B/OT:script=latn;language=dflt;mapping=tex-text;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.:
+(fontspec)             <->s*[1]"Arial/B/OT:script=latn;language=dflt;+smcp;mapping=tex-text;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[1]"Arial/I/OT:script=latn;language=dflt;mapping=tex-text;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
+(fontspec)             <->s*[1]"Arial/I/OT:script=latn;language=dflt;+smcp;mapping=tex-text;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[1]"Arial/BI/OT:script=latn;language=dflt;mapping=tex-text;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
+(fontspec)             <->s*[1]"Arial/BI/OT:script=latn;language=dflt;+smcp;mapping=tex-text;"
+
+LaTeX Font Info:    Font shape `TU/Arial(0)/m/n' will be
+(Font)              scaled to size 11.0pt on input line 679.
+
+Package fontspec Info: Arial scale = 0.9999973249515148.
+
+
+Package fontspec Info: Arial scale = 0.9999973249515148.
+
+
+Package fontspec Info: Arial scale = 0.9999973249515148.
+
+
+Package fontspec Info: Arial/B scale = 0.9999973249515148.
+
+
+Package fontspec Info: Arial/B scale = 0.9999973249515148.
+
+
+Package fontspec Info: Arial/I scale = 0.9999973249515148.
+
+
+Package fontspec Info: Arial/I scale = 0.9999973249515148.
+
+
+Package fontspec Info: Arial/BI scale = 0.9999973249515148.
+
+
+Package fontspec Info: Arial/BI scale = 0.9999973249515148.
+
+
+Package fontspec Info: Font family 'Arial(1)' created for font 'Arial' with
+(fontspec)             options [Scale=MatchLowercase].
+(fontspec)              
+(fontspec)              This font family consists of the following NFSS
+(fontspec)             series/shapes:
+(fontspec)              
+(fontspec)             - 'normal' (m/n) with NFSS spec.:
+(fontspec)             <->s*[0.9999973249515148]"Arial/OT:script=latn;language=dflt;"
+(fontspec)             - 'small caps'  (m/sc) with NFSS spec.:
+(fontspec)             <->s*[0.9999973249515148]"Arial/OT:script=latn;language=dflt;+smcp;"
+(fontspec)             - 'bold' (b/n) with NFSS spec.:
+(fontspec)             <->s*[0.9999973249515148]"Arial/B/OT:script=latn;language=dflt;"
+(fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.:
+(fontspec)             <->s*[0.9999973249515148]"Arial/B/OT:script=latn;language=dflt;+smcp;"
+(fontspec)             - 'italic' (m/it) with NFSS spec.:
+(fontspec)             <->s*[0.9999973249515148]"Arial/I/OT:script=latn;language=dflt;"
+(fontspec)             - 'italic small caps'  (m/scit) with NFSS spec.:
+(fontspec)             <->s*[0.9999973249515148]"Arial/I/OT:script=latn;language=dflt;+smcp;"
+(fontspec)             - 'bold italic' (b/it) with NFSS spec.:
+(fontspec)             <->s*[0.9999973249515148]"Arial/BI/OT:script=latn;language=dflt;"
+(fontspec)             - 'bold italic small caps'  (b/scit) with NFSS spec.:
+(fontspec)             <->s*[0.9999973249515148]"Arial/BI/OT:script=latn;language=dflt;+smcp;"
+
+LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
+(Font)                  TU/lmr/m/n --> TU/Arial(1)/m/n on input line 679.
+LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
+(Font)                  TU/lmr/m/it --> TU/Arial(1)/m/it on input line 679.
+LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
+(Font)                  TU/lmr/bx/n --> TU/Arial(1)/b/n on input line 679.
+LaTeX Font Info:    Font shape `TU/Arial(0)/b/n' will be
+(Font)              scaled to size 11.0pt on input line 679.
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Overfull \hbox (2.66664pt too wide) in paragraph at lines 810--810
+[]|[]\TU/Arial(0)/m/n/11 Auderghem[]|  
+ []
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Overfull \hbox (1.4474pt too wide) in paragraph at lines 864--864
+[]|[]\TU/Arial(0)/m/n/11 Koekelberg[]|  
+ []
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Overfull \hbox (3.27357pt too wide) in paragraph at lines 870--870
+[]|[]\TU/Arial(0)/m/n/11 Molenbeek- 
+ []
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Overfull \hbox (4.50356pt too wide) in paragraph at lines 888--888
+[]|[]\TU/Arial(0)/m/n/11 Schaerbeek[]|  
+ []
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Overfull \hbox (2.23158pt too wide) in paragraph at lines 900--900
+[]|[]\TU/Arial(0)/m/n/11 Watermael- 
+ []
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+[20]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[21]
+File: ./Images/tidydata_1.jpg Graphic file (type bmp)
+<./Images/tidydata_1.jpg>
+File: ./Images/pivot_longer.png Graphic file (type bmp)
+<./Images/pivot_longer.png>
+[22]
+File: bookdown-demo_files/figure-latex/0208-1.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/0208-1.pdf>
+File: ./Images/pivot_wider.png Graphic file (type bmp)
+<./Images/pivot_wider.png>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[23]
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+[24]
+File: ./Images/merge_ex-1024x624.png Graphic file (type bmp)
+<./Images/merge_ex-1024x624.png>
+File: ./Images/join_diagram.png Graphic file (type bmp)
+<./Images/join_diagram.png>
+[25] [26]
+Chapter 4.
+File: ./Images/graphiclayers.png Graphic file (type bmp)
+<./Images/graphiclayers.png>
+[27
+
+] [28]
+
+Package hyperref Warning: Suppressing link with empty target on input line 1241.
+
+[29]
+Underfull \vbox (badness 10000) detected at line 1354
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1354
+ []
+
+[30]
+File: bookdown-demo_files/figure-latex/301-1.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/301-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[31] [32]
+File: bookdown-demo_files/figure-latex/302-1.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/302-1.pdf>
+File: bookdown-demo_files/figure-latex/302-2.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/302-2.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[33] [34]
+File: bookdown-demo_files/figure-latex/303-1.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/303-1.pdf>
+File: bookdown-demo_files/figure-latex/304-1.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/304-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[35]
+File: bookdown-demo_files/figure-latex/305-1.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/305-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[36]
+File: bookdown-demo_files/figure-latex/306-1.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/306-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[37]
+File: bookdown-demo_files/figure-latex/307-1.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/307-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[38]
+File: bookdown-demo_files/figure-latex/307-2.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/307-2.pdf>
+[39]
+File: bookdown-demo_files/figure-latex/308a-1.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/308a-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[40]
+File: bookdown-demo_files/figure-latex/308-1.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/308-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[41]
+File: bookdown-demo_files/figure-latex/309-1.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/309-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[42]
+File: bookdown-demo_files/figure-latex/310-1.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/310-1.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 1642--1644
+[][]
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 1642--1644
+[]$[][][][][] [] [] [] [][][][] [] [] [][] [][][][][][][] [] [][][] [] [][][] [] [][][][][][][][] [] [][][][][][][][][][] [] [][][][][][][][][] [] [][][][][][][][][][][][] [][]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[43]
+File: bookdown-demo_files/figure-latex/311-1.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/311-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[44] [45] [46
+
+]
+Chapter 5.
+File: bookdown-demo_files/figure-latex/412-1.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/412-1.pdf>
+[47] [48]
+File: bookdown-demo_files/figure-latex/415-1.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/415-1.pdf>
+[49]
+File: bookdown-demo_files/figure-latex/416-1.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/416-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[50] [51]
+File: bookdown-demo_files/figure-latex/418-1.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/418-1.pdf>
+File: bookdown-demo_files/figure-latex/418-2.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/418-2.pdf>
+
+Underfull \vbox (badness 1546) has occurred while \output is active []
+
+[52] [53]
+File: bookdown-demo_files/figure-latex/0420-1.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/0420-1.pdf>
+[54]
+Underfull \vbox (badness 10000) detected at line 1962
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 1962
+ []
+
+[55]
+File: bookdown-demo_files/figure-latex/0422-1.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/0422-1.pdf>
+[56]
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Overfull \hbox (46.854pt too wide) in alignment at lines 2010--2020
+ [] [] [] [] [] [] 
+ []
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Overfull \hbox (46.854pt too wide) in alignment at lines 2020--2026
+ [] [] [] [] [] [] 
+ []
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Overfull \hbox (46.854pt too wide) in alignment at lines 2026--2042
+ [] [] [] [] [] [] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 2068--2068
+[]\TU/lmtt/m/n/10 ##                                 Big city Suburbs Town Village Countryside[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 2068--2068
+[]\TU/lmtt/m/n/10 ##   Vie confortable                    118      82  161     142          31[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 2068--2068
+[]\TU/lmtt/m/n/10 ##   Se débrouille avec son revenu      120     109  275     227          58[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 2068--2068
+[]\TU/lmtt/m/n/10 ##   Revenu insuffisant                  48      38  129      88          22[] 
+ []
+
+
+Overfull \hbox (54.0pt too wide) in paragraph at lines 2068--2068
+[]\TU/lmtt/m/n/10 ##   Revenu très insuffisant              9       5   18      10           0[] 
+ []
+
+[57]
+Overfull \hbox (64.5pt too wide) in paragraph at lines 2089--2089
+[]\TU/lmtt/m/n/10 ##                                   Big city    Suburbs       Town    Village[] 
+ []
+
+
+Overfull \hbox (64.5pt too wide) in paragraph at lines 2089--2089
+[]\TU/lmtt/m/n/10 ##   Vie confortable               0.40000000 0.35042735 0.27615780 0.30406852[] 
+ []
+
+
+Overfull \hbox (64.5pt too wide) in paragraph at lines 2089--2089
+[]\TU/lmtt/m/n/10 ##   Se débrouille avec son revenu 0.40677966 0.46581197 0.47169811 0.48608137[] 
+ []
+
+
+Overfull \hbox (64.5pt too wide) in paragraph at lines 2089--2089
+[]\TU/lmtt/m/n/10 ##   Revenu insuffisant            0.16271186 0.16239316 0.22126930 0.18843683[] 
+ []
+
+
+Overfull \hbox (64.5pt too wide) in paragraph at lines 2089--2089
+[]\TU/lmtt/m/n/10 ##   Revenu très insuffisant       0.03050847 0.02136752 0.03087479 0.02141328[] 
+ []
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Overfull \hbox (430.37314pt too wide) in alignment at lines 2108--2122
+ [] [] [] [] [] [] [] [] 
+ []
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Overfull \hbox (430.37314pt too wide) in alignment at lines 2122--2134
+ [] [] [] [] [] [] [] [] 
+ []
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Overfull \hbox (430.37314pt too wide) in alignment at lines 2134--2186
+ [] [] [] [] [] [] [] [] 
+ []
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Overfull \hbox (420.97768pt too wide) in alignment at lines 2203--2217
+ [] [] [] [] [] [] [] [] 
+ []
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Overfull \hbox (420.97768pt too wide) in alignment at lines 2217--2229
+ [] [] [] [] [] [] [] [] 
+ []
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Overfull \hbox (420.97768pt too wide) in alignment at lines 2229--2287
+ [] [] [] [] [] [] [] [] 
+ []
+
+[58] [59]
+File: bookdown-demo_files/figure-latex/0428-1.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/0428-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[60]
+File: bookdown-demo_files/figure-latex/0429-1.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/0429-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[61]
+File: bookdown-demo_files/figure-latex/0430-1.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/0430-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[62]
+File: bookdown-demo_files/figure-latex/0431-1.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/0431-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[63] [64]
+Chapter 6.
+File: bookdown-demo_files/figure-latex/0501-1.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/0501-1.pdf>
+[65
+
+]
+File: bookdown-demo_files/figure-latex/0503-1.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/0503-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[66] [67]
+File: bookdown-demo_files/figure-latex/0504-1.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/0504-1.pdf>
+File: bookdown-demo_files/figure-latex/0505-1.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/0505-1.pdf>
+
+Underfull \vbox (badness 3612) has occurred while \output is active []
+
+[68]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 2551.
+[69] [70]
+File: bookdown-demo_files/figure-latex/0510-1.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/0510-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (110.69904pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 6.4.  UNE BOUCLE POUR PRODUIRE DE MULTIPLE GRAPHE EN VARIANT UN PARAMÈTRE \TU/lmr/m/n/10 71
+ []
+
+[71] [72]
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2698--2698
+[]\TU/lmtt/m/n/10 ## candidat                 7 122735 17533.6 12742.2074 < 2.2e-16 ***[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2698--2698
+[]\TU/lmtt/m/n/10 ## tps                      2     25    12.7     9.2428  0.000101 ***[] 
+ []
+
+
+Overfull \hbox (6.75pt too wide) in paragraph at lines 2698--2698
+[]\TU/lmtt/m/n/10 ## nom_institut            10     25     2.5     1.8283  0.051096 .[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2698--2698
+[]\TU/lmtt/m/n/10 ## candidat:tps            14   4534   323.9   235.3684 < 2.2e-16 ***[] 
+ []
+
+
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2698--2698
+[]\TU/lmtt/m/n/10 ## candidat:nom_institut   70    633     9.0     6.5768 < 2.2e-16 ***[] 
+ []
+
+
+Overfull \hbox (27.75pt too wide) in paragraph at lines 2765--2765
+[]\TU/lmtt/m/n/10 ##                                 Estimate Std. Error t value Pr(>|t|)[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2765--2765
+[]\TU/lmtt/m/n/10 ## (Intercept)                       3.1765     0.1792  17.726  < 2e-16 ***[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2765--2765
+[]\TU/lmtt/m/n/10 ## candidatEmmanuel Macron          21.5392     0.2534  84.992  < 2e-16 ***[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2765--2765
+[]\TU/lmtt/m/n/10 ## candidatEric Zemmour              9.7549     0.2534  38.492  < 2e-16 ***[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 2765--2765
+[]\TU/lmtt/m/n/10 ## candidatFabien Roussel           -0.8039     0.2534  -3.172 0.001535 **[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2765--2765
+[]\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon        6.4118     0.2534  25.300  < 2e-16 ***[] 
+ []
+
+[73]
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2765--2765
+[]\TU/lmtt/m/n/10 ## candidatMarine Le Pen            13.7353     0.2534  54.198  < 2e-16 ***[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2765--2765
+[]\TU/lmtt/m/n/10 ## candidatValérie Pécresse         13.2255     0.2534  52.187  < 2e-16 ***[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2765--2765
+[]\TU/lmtt/m/n/10 ## candidatYannick Jadot             2.7255     0.2534  10.755  < 2e-16 ***[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 2765--2765
+[]\TU/lmtt/m/n/10 ## tps2                             -0.6765     0.2342  -2.888 0.003915 **[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2765--2765
+[]\TU/lmtt/m/n/10 ## tps3                             -0.9765     0.2089  -4.674 3.14e-06 ***[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 2765--2765
+[]\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:tps2      0.6844     0.3312   2.066 0.038934 *[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2765--2765
+[]\TU/lmtt/m/n/10 ## candidatEric Zemmour:tps2         2.0645     0.3312   6.233 5.52e-10 ***[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2765--2765
+[]\TU/lmtt/m/n/10 ## candidatFabien Roussel:tps2       2.1511     0.3312   6.494 1.04e-10 ***[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2765--2765
+[]\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:tps2   1.6438     0.3312   4.963 7.52e-07 ***[] 
+ []
+
+
+Overfull \hbox (38.25pt too wide) in paragraph at lines 2765--2765
+[]\TU/lmtt/m/n/10 ## candidatMarine Le Pen:tps2        0.5842     0.3312   1.764 0.077955 .[] 
+ []
+
+
+Overfull \hbox (43.5pt too wide) in paragraph at lines 2765--2765
+[]\TU/lmtt/m/n/10 ## candidatValérie Pécresse:tps2    -0.9616     0.3312  -2.903 0.003734 **[] 
+ []
+
+
+Overfull \hbox (27.75pt too wide) in paragraph at lines 2765--2765
+[]\TU/lmtt/m/n/10 ## candidatYannick Jadot:tps2       -0.1630     0.3312  -0.492 0.622725[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2765--2765
+[]\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:tps3      4.6819     0.2955  15.847  < 2e-16 ***[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2765--2765
+[]\TU/lmtt/m/n/10 ## candidatEric Zemmour:tps3        -1.0570     0.2955  -3.578 0.000355 ***[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2765--2765
+[]\TU/lmtt/m/n/10 ## candidatFabien Roussel:tps3       2.0919     0.2955   7.080 1.95e-12 ***[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2765--2765
+[]\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:tps3   5.1319     0.2955  17.370  < 2e-16 ***[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2765--2765
+[]\TU/lmtt/m/n/10 ## candidatMarine Le Pen:tps3        3.4154     0.2955  11.560  < 2e-16 ***[] 
+ []
+
+
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2765--2765
+[]\TU/lmtt/m/n/10 ## candidatValérie Pécresse:tps3    -4.8670     0.2955 -16.473  < 2e-16 ***[] 
+ []
+
+
+Overfull \hbox (27.75pt too wide) in paragraph at lines 2765--2765
+[]\TU/lmtt/m/n/10 ## candidatYannick Jadot:tps3        0.4724     0.2955   1.599 0.109995[] 
+ []
+
+
+Overfull \hbox (22.5pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## lm(formula = intentions ~ candidat * tps + candidat * nom_institut,[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ##                                                           Estimate Std. Error[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## (Intercept)                                                3.39409    1.18971[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEmmanuel Macron                                   20.60082    1.68251[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEric Zemmour                                      10.59844    1.68251[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatFabien Roussel                                    -2.19508    1.68251[] 
+ []
+
+[74]
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon                                11.04593    1.68251[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatMarine Le Pen                                     15.30968    1.68251[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatValérie Pécresse                                   7.55835    1.68251[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatYannick Jadot                                      2.30826    1.68251[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## tps2                                                      -0.68106    0.21565[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## tps3                                                      -0.99409    0.19847[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## nom_institutBVA                                           -0.30224    1.23753[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## nom_institutCluster17                                     -0.84531    1.21657[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## nom_institutElabe                                         -0.71509    1.21215[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## nom_institutHarris Interactive                            -0.18347    1.21291[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## nom_institutIfop                                          -0.18249    1.18474[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## nom_institutIpsos                                         -0.08904    1.19038[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## nom_institutKantar Public                                 -0.47826    1.31223[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## nom_institutOdoxa                                         -0.67101    1.35576[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## nom_institutOpinion Way                                   -0.04925    1.18126[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## nom_institutYouGov                                        -1.40000    1.65893[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:tps2                               0.73921    0.30498[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEric Zemmour:tps2                                  2.12294    0.30498[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatFabien Roussel:tps2                                2.12788    0.30498[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:tps2                            1.71555    0.30498[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatMarine Le Pen:tps2                                 0.60025    0.30498[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatValérie Pécresse:tps2                             -0.97779    0.30498[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatYannick Jadot:tps2                                -0.15932    0.30498[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:tps3                               4.79918    0.28068[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEric Zemmour:tps3                                 -0.99844    0.28068[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatFabien Roussel:tps3                                2.09508    0.28068[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:tps3                            5.15407    0.28068[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatMarine Le Pen:tps3                                 3.59032    0.28068[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatValérie Pécresse:tps3                             -4.65835    0.28068[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatYannick Jadot:tps3                                 0.29174    0.28068[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutBVA                    0.75768    1.75014[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutBVA                      -0.46013    1.75014[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutBVA                     1.43661    1.75014[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutBVA                -4.47432    1.75014[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutBVA                     -1.61439    1.75014[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutBVA                   5.43117    1.75014[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutBVA                      0.47709    1.75014[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutCluster17              0.21696    1.72049[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutCluster17                 0.93708    1.72049[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutCluster17               1.75386    1.72049[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutCluster17          -1.72026    1.72049[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutCluster17               -2.63348    1.72049[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutCluster17             5.22876    1.72049[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutCluster17                0.59139    1.72049[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutElabe                  1.38103    1.71424[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutElabe                    -1.35629    1.71424[] 
+ []
+
+[75]
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutElabe                   1.64477    1.71424[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutElabe              -3.52444    1.71424[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutElabe                   -0.78677    1.71424[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutElabe                 5.34773    1.71424[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutElabe                    0.80139    1.71424[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutHarris Interactive     1.05598    1.71531[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutHarris Interactive       -0.57494    1.71531[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutHarris Interactive      0.83821    1.71531[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutHarris Interactive -3.70231    1.71531[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutHarris Interactive      -0.96863    1.71531[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutHarris Interactive    4.65034    1.71531[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutHarris Interactive       0.56962    1.71531[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutIfop                   1.34434    1.67547[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutIfop                     -0.55201    1.67547[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutIfop                    1.38693    1.67547[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutIfop               -4.84893    1.67547[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutIfop                    -1.37146    1.67547[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutIfop                  5.78598    1.67547[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutIfop                     0.22809    1.67547[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutIpsos                  0.79936    1.68345[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutIpsos                    -0.87532    1.68345[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutIpsos                   1.26446    1.68345[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutIpsos              -4.62283    1.68345[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutIpsos                   -2.71909    1.68345[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutIpsos                 4.63358    1.68345[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutIpsos                    1.44225    1.68345[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutKantar Public          1.11499    1.85577[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutKantar Public             0.49465    1.85577[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutKantar Public           1.34180    1.85577[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutKantar Public      -4.09037    1.85577[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutKantar Public           -1.02748    1.85577[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutKantar Public         4.67986    1.85577[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutKantar Public           -0.11224    1.85577[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutOdoxa                  1.45332    1.91734[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutOdoxa                    -1.47379    1.91734[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutOdoxa                   1.92240    1.91734[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutOdoxa              -4.05383    1.91734[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutOdoxa                    0.76336    1.91734[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutOdoxa                 4.03981    1.91734[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutOdoxa                    0.55035    1.91734[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutOpinion Way            0.50026    1.67056[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutOpinion Way              -1.46076    1.67056[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutOpinion Way             1.44706    1.67056[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutOpinion Way        -5.45426    1.67056[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutOpinion Way             -1.84075    1.67056[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutOpinion Way           6.12136    1.67056[] 
+ []
+
+[76]
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutOpinion Way              0.33856    1.67056[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutYouGov                 0.60000    2.34608[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutYouGov                   -1.60000    2.34608[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutYouGov                  1.10000    2.34608[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutYouGov             -2.20000    2.34608[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutYouGov                   5.10000    2.34608[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutYouGov                4.10000    2.34608[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutYouGov                   2.40000    2.34608[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ##                                                           t value Pr(>|t|)[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## (Intercept)                                                 2.853 0.004377 **[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEmmanuel Macron                                    12.244  < 2e-16 ***[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEric Zemmour                                        6.299 3.66e-10 ***[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatFabien Roussel                                     -1.305 0.192163[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon                                  6.565 6.59e-11 ***[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatMarine Le Pen                                       9.099  < 2e-16 ***[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatValérie Pécresse                                    4.492 7.44e-06 ***[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatYannick Jadot                                       1.372 0.170242[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## tps2                                                       -3.158 0.001611 **[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## tps3                                                       -5.009 5.96e-07 ***[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## nom_institutBVA                                            -0.244 0.807081[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## nom_institutCluster17                                      -0.695 0.487241[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## nom_institutElabe                                          -0.590 0.555298[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## nom_institutHarris Interactive                             -0.151 0.879779[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## nom_institutIfop                                           -0.154 0.877598[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## nom_institutIpsos                                          -0.075 0.940383[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## nom_institutKantar Public                                  -0.364 0.715551[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## nom_institutOdoxa                                          -0.495 0.620703[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## nom_institutOpinion Way                                    -0.042 0.966747[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## nom_institutYouGov                                         -0.844 0.398816[] 
+ []
+
+
+Overfull \hbox (69.75pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:tps2                                2.424 0.015445 *[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEric Zemmour:tps2                                   6.961 4.55e-12 ***[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatFabien Roussel:tps2                                 6.977 4.07e-12 ***[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:tps2                             5.625 2.11e-08 ***[] 
+ []
+
+
+Overfull \hbox (69.75pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatMarine Le Pen:tps2                                  1.968 0.049184 *[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatValérie Pécresse:tps2                              -3.206 0.001367 **[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatYannick Jadot:tps2                                 -0.522 0.601458[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:tps3                               17.098  < 2e-16 ***[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEric Zemmour:tps3                                  -3.557 0.000383 ***[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatFabien Roussel:tps3                                 7.464 1.24e-13 ***[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:tps3                            18.363  < 2e-16 ***[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatMarine Le Pen:tps3                                 12.791  < 2e-16 ***[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatValérie Pécresse:tps3                             -16.597  < 2e-16 ***[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatYannick Jadot:tps3                                  1.039 0.298749[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutBVA                     0.433 0.665115[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutBVA                       -0.263 0.792645[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutBVA                      0.821 0.411826[] 
+ []
+
+[77]
+Overfull \hbox (69.75pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutBVA                 -2.557 0.010644 *[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutBVA                      -0.922 0.356411[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutBVA                    3.103 0.001940 **[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutBVA                       0.273 0.785186[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutCluster17               0.126 0.899664[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutCluster17                  0.545 0.586049[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutCluster17                1.019 0.308139[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutCluster17           -1.000 0.317496[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutCluster17                -1.531 0.126012[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutCluster17              3.039 0.002403 **[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutCluster17                 0.344 0.731085[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutElabe                   0.806 0.420553[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutElabe                     -0.791 0.428924[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutElabe                    0.959 0.337434[] 
+ []
+
+
+Overfull \hbox (69.75pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutElabe               -2.056 0.039913 *[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutElabe                    -0.459 0.646309[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutElabe                  3.120 0.001837 **[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutElabe                     0.467 0.640200[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutHarris Interactive      0.616 0.538214[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutHarris Interactive        -0.335 0.737521[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutHarris Interactive       0.489 0.625133[] 
+ []
+
+
+Overfull \hbox (69.75pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutHarris Interactive  -2.158 0.031015 *[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutHarris Interactive       -0.565 0.572343[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutHarris Interactive     2.711 0.006763 **[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutHarris Interactive        0.332 0.739863[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutIfop                    0.802 0.422437[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutIfop                      -0.329 0.741837[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutIfop                     0.828 0.407892[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutIfop                -2.894 0.003844 **[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutIfop                     -0.819 0.413138[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutIfop                   3.453 0.000565 ***[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutIfop                      0.136 0.891729[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutIpsos                   0.475 0.634955[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutIpsos                     -0.520 0.603149[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutIpsos                    0.751 0.452670[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutIpsos               -2.746 0.006085 **[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutIpsos                    -1.615 0.106425[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutIpsos                  2.752 0.005968 **[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutIpsos                     0.857 0.391697[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutKantar Public           0.601 0.548025[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutKantar Public              0.267 0.789843[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutKantar Public            0.723 0.469738[] 
+ []
+
+
+Overfull \hbox (69.75pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutKantar Public       -2.204 0.027628 *[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutKantar Public            -0.554 0.579867[] 
+ []
+
+
+Overfull \hbox (69.75pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutKantar Public          2.522 0.011753 *[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutKantar Public            -0.060 0.951779[] 
+ []
+
+[78]
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutOdoxa                   0.758 0.448546[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutOdoxa                     -0.769 0.442182[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutOdoxa                    1.003 0.316155[] 
+ []
+
+
+Overfull \hbox (69.75pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutOdoxa               -2.114 0.034612 *[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutOdoxa                     0.398 0.690574[] 
+ []
+
+
+Overfull \hbox (69.75pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutOdoxa                  2.107 0.035242 *[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutOdoxa                     0.287 0.774112[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutOpinion Way             0.299 0.764623[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutOpinion Way               -0.874 0.381997[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutOpinion Way              0.866 0.386475[] 
+ []
+
+
+Overfull \hbox (75.0pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutOpinion Way         -3.265 0.001113 **[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutOpinion Way              -1.102 0.270647[] 
+ []
+
+
+Overfull \hbox (80.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutOpinion Way            3.664 0.000254 ***[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutOpinion Way               0.203 0.839420[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutYouGov                  0.256 0.798174[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutYouGov                    -0.682 0.495325[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutYouGov                   0.469 0.639216[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutYouGov              -0.938 0.348494[] 
+ []
+
+
+Overfull \hbox (69.75pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutYouGov                    2.174 0.029834 *[] 
+ []
+
+
+Overfull \hbox (69.75pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutYouGov                 1.748 0.080687 .[] 
+ []
+
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3000--3000
+[]\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutYouGov                    1.023 0.306439[] 
+ []
+
+File: bookdown-demo_files/figure-latex/biais-1.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/biais-1.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[79]
+File: bookdown-demo_files/figure-latex/biais-2.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/biais-2.pdf>
+[80]
+Chapter 7.
+[81
+
+]
+Missing character: There is no 𝜀 (U+1D700) in font [lmroman10-regular]:mapping=tex-text;!
+! Missing $ inserted.
+<inserted text> 
+                $
+l.3062 ...}F\_\{i1\} + a\_\{2j\}F\_\{i2\} + \cdots
+                                                   + a\_\{jk\}F\_\{ik\}+\var... 
 Here is how much of TeX's memory you used:
- 24164 strings out of 477743
- 477758 string characters out of 5842429
- 941072 words of memory out of 5000000
- 44854 multiletter control sequences out of 15000+600000
- 475832 words of font info for 84 fonts, out of 8000000 for 9000
+ 23418 strings out of 477743
+ 475616 string characters out of 5842429
+ 948394 words of memory out of 5000000
+ 44093 multiletter control sequences out of 15000+600000
+ 475960 words of font info for 100 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 86i,7n,121p,854b,854s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 86i,9n,128p,1875b,914s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on bookdown-demo.pdf (15 pages).
+Output written on bookdown-demo.pdf (81 pages).

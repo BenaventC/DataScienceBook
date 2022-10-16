@@ -17,50 +17,51 @@ description: "Cours d'analyse de données et de Datascience"
 
 ![](./Images/ggridge.png)
 
-Ce bookdown présent les éléments d'un cours de data science avec r. Il est reproductible, on peut en cloner les élements à partir du [repository](https://github.com/BenaventC/DataScienceBook). Le texte est encore hasardeux, les codes sont vérifiés. Il sera dynamique, modifié à mesure de nos cours, séminaires et ateliers. 
+Ce bookdown présent les éléments d'un cours de data science avec r. Il est reproductible, on peut en cloner les éléments à partir du [repository](https://github.com/BenaventC/DataScienceBook). Le texte est encore hasardeux mais les codes sont vérifiés. Il sera dynamique, modifié à mesure de nos cours, séminaires et ateliers. 
 
-L'illustration de couverture représente l'évolution de la longueur des films de la base [Imbd](https://www.imdb.com/) et raconte en chiffres un aspect de l'histoire du cinéma. Jusqu'aux années 30, la longueur est hétérogène ensuite elle se se stabilise : les courts-métrages ont une durée de l'ordre de 15mn qui se raccourcit avec les décennies, ce genre menace de disparaître dans les années 80 et reprend du poil de la bête dans les années 2000. Les films longs voient leur longueur s’accroître et se stabiliser autour d'un peu moins de 100 mn, soit une heure et quarante minutes. On observera enfin qu'au cours des années 1990 les films de taille intermédiaires réapparaissent. On devinera dans cette évolution l'émergence de standards, ou de conventions. Les faits viennent au secours des théories...
+L'illustration de couverture représente l'évolution de la longueur des films de la base [Imbd](https://www.imdb.com/) et raconte en chiffres un aspect de l'histoire du cinéma. Jusqu'aux années 30, la longueur est hétérogène puis elle se se stabilise : les courts-métrages ont une durée de l'ordre de 15 mn qui se raccourcit avec les décennies, ce genre menace de disparaître dans les années 80 et reprend du poil de la bête dans les années 2000. Les films longs voient leur longueur s'accroître et se stabiliser autour d'un peu moins de 100 mn, soit une heure et quarante minutes. On observera enfin qu'au cours des années 1990 les films de taille intermédiaires réapparaissent. On devinera dans cette évolution l'émergence de standards, ou de conventions. Dans ce graphique il y a tous les éléments des data sciences contemporaines : un jeu de données riche et systématique, un modèle statistique fondamental avec la notion de densité de probabilité, une mesure, un critère de comparaison. 
 
-Dans ce graphique il y a tous les éléments des data sciences contemporaines : un jeu de données riche et systématique, un modèle statistique fondamental avec la notion de densité de probabilité, une mesure, un critère de comparaison. 
-
-Les diagrammes ridges, c'est ainsi qu'on les appelent, sont inspirés de la pochette de l'album [Unknown Pleasures de  Joy division](https://www.youtube.com/watch?v=7PtvIr2oiaE) sorti en pleine période New Wave, en 1979. Un article de Vice en rappele l'[origine et le destin du graphisme](https://i-d.vice.com/fr/article/pabjam/pourquoi-cette-pochette-dalbum-de-joy-division-a-inspire-le-monde-entier) qu'on connait mieux imprimé sur des t-shirt que dans les cours de statistiques.
+Les diagrammes ridges, c'est ainsi qu'on les appele, sont inspirés de la pochette de l'album [Unknown Pleasures de  Joy division](https://www.youtube.com/watch?v=7PtvIr2oiaE) sorti en pleine période New Wave, en 1979. Un article de Vice en rappele l'[origine et le destin du graphisme](https://i-d.vice.com/fr/article/pabjam/pourquoi-cette-pochette-dalbum-de-joy-division-a-inspire-le-monde-entier) qu'on connait mieux imprimé sur des t-shirt que dans les cours de statistiques.
 
 
-
-
+![](./Images/joydivisiondetail.jpg)
 
 ## Plan du manuel
 
-C'est un projet en cours, Les chapitres projetés sont les suivants. certains sont dans les limbes, d'autres ont pris consistances 
+C'est un projet en cours, Le plan général projeté est le suivant. Certains chapitres sont publiés ( mêmes incomplets) d'autres sont dans les limbes. On les ajoutera  progressivement. 
 
  * 1 - L'environnement r x
  * 2 - Installation et prise en main x
  * 3 - Usage de ggplot - uni et bivarié x
  * 4 - Usage de ggplot - multivarié x
- * 6 - Analyse de variance et régression linéraire x
- * 5 - Tables
+ * 5 - Tables avec flex
  * 6 - Modèles factoriels (Psych) x
  * 7 - AFC x
  * 8 - MDS  
  * 9 - Clustering x
- * 10 - Analyse de réseaux
- * 10 - Modèle d'équations structurelles (Lavaan)
- * 11 - Modèle linéaire généralisé
- * 12 - Modèles à décomposition d'erreur
- * 13 - Times series
- * 14 - Analyse spatiale et géographique
- * 15 - Machine learning x
+ * 10 - Analyse de réseaux 
+ * 11 - Analyse de variance et régression linéraire x
+ * 12 - Modèle linéaire généralisé x
+ * 13 - Modèles à décomposition d'erreur x
+ * 14 - Modèle d'équations structurelles (Lavaan)
+ * 15 - Times series
+ * 16 - Analyse spatiale et géographique
+ * 17 - Machine learning x
  
 
 ## Les jeux de données 
 
-Au cours du développement, plusieurs cas pratiques - souvent réduit en volume pour rester exemplaire, seront employés. Les données seront partagées.
+Au cours du développement, plusieurs cas pratiques - souvent réduit en volume pour rester exemplaire, seront employés. Les données sont partagées.
 
-En voici la présentation  des sets de données utilisées dans le syllabus. Elle sont disponible dans le répertoire "./data/"
+Voici la présentation des sets de données utilisées dans le syllabus. Ils sont disponibles dans le répertoire "./data/"
 
- * ESS : c'est une très belle base de données de sociologie.
+ * ESS : c'est une très belle base de données de sociologie
  * happydemics : observatoire de la présidentielle2022
- * Arpur
+ * NSPools
+ * Arpur : commerce de paris
+ * Botanic
+ * ...
+ 
  
  
 ## Le cadre technique et les packages utilisés
@@ -175,49 +176,49 @@ todo list :
 
 # Introduction aux data sciences {#intro}
 
-## Objectif et sommaire
-
 L'objet du manuel est de donner un aperçu général des méthodes d'analyses de données et de data science.
 
 ## Science ou technique ?
 
-Plûtôt que le terme consacré de Data sciences, il vaudrait mieux parler de data ingiénérie dans la mesure où le data scientiste participe à un processus de production qui va de l'acquisition des donnée à leur propagation dans l'organisation ou la société. La technique domine sur la science et l'unité se trouve dans l'intégration de ce processus. La révolution des données vient de l'interopérabilité croissante de ces techniques et d'une intégration qui fluidifie le passage d'une étape à une autre. Standards et langages en sont les éléments clés. 
+Plutôt que le terme consacré de Data sciences, il vaudrait mieux parler de data ingénierie dans la mesure où le data scientiste participe à un processus de production qui va de l'acquisition des donnée à leur propagation dans l'organisation ou la société. La technique domine sur la science et l'unité se trouve dans l'intégration de ce processus. La révolution des données vient de l'interopérabilité croissante de ces techniques et d'une intégration qui fluidifie le passage d'une étape à une autre. Standards et langages en sont les éléments clés. 
 
-Du côté des sciences, ce dont bénéficie l'univers des data sciences, c'est l'héritage de cultures statistiques foisonnantes qui après s'être développées dans leur cocon displinaire, se retrouvent désormais rassemblées dans un même langage. Bien sur il y a de manière sous-jascente à ces cultures les mathématiques et les statistiques mathématiques qui construisent les fondements des modèles et des techniques. Mais le développement s'est fait souvent quand le scientifique se retrouve face à un problème où une observation. 
+Du côté des sciences, ce dont bénéficie l'univers des data sciences, c'est l'héritage de cultures statistiques foisonnantes qui après s'être développées dans leur cocon disciplinaire, se retrouvent désormais rassemblées dans un même langage. Bien sur il y a de manière sous-jascente les mathématiques et les statistiques qui construisent les fondements des modèles et des techniques. Mais leur développement s'est fait souvent quand le scientifique se retrouve face à un problème où une observation. 
 
 Prenons le cas des psychologues qui ont inventé l'analyse factorielle dans le but de pouvoir tester certains de leurs concepts : un degré d'intelligence, une personnalité, des attitudes. 
 
-Ou celui des écologues qui souhatent estimer une population de poisson dans une rivière, problème qui a donné naissance aux modèles de capture recapture. On pourrait ajouter les géographes avec les modèles d'analyse spatiale, les financiers face à la variabilité des cours des places boursières, etc. Celui des économètres est peut-être le plus évident. Les biostatisticiens sont des contributeurs importants.  
+Ou celui des écologues qui souhaitent estimer une population de poisson dans une rivière, problème qui a donné naissance aux modèles de capture/recapture. On pourrait ajouter les géographes avec les modèles d'analyse spatiale, les financiers face à la variabilité des cours des places boursières, etc. Celui des économètres est peut-être le plus évident. Les biostatisticiens sont des contributeurs importants.  
 
-Ce que la technique apporte c'est l'intégration par un langage et donc un ensemble de conventions, incarnées par r et python,  d'algoritmes, et de programmes qui ne sont plus spécifique à un domaine, mais peuvent circuler de l'un à l'autre. C'est ainsi que le catalogues de toutes les techniques psychométriques devient accessible aux autres disciplines par le biais d'un pachage en particulier , psych. De la même manière l'outillage des linguiste devient accessible aux autres disciplines, pensons aux économiste qui intéègre dans le indicateurs des sources textuelle telle que l'analyse du sentiment.
+Ce que la technique apporte c'est l'intégration par un langage et donc un ensemble de conventions, incarnées par r et python,  d’algorithmes, et de programmes qui ne sont plus spécifique à un domaine, mais peuvent circuler de l'un à l'autre. C'est ainsi que le catalogues de toutes les techniques psychométriques devient accessible aux autres disciplines par le biais d'un package en particulier , psych. De la même manière l'outillage des linguiste devient accessible aux autres disciplines, pensons aux économiste qui intéègre dans le indicateurs des sources textuelle telle que l'analyse du sentiment.
 
-L'interopérabilité apportée par ces langages ne se définit pas que par l'algorithme qui aurait été porté d'un autre langage vers celui-ci ( des cas de réécriture ?) mais aussi par des programme passerelle qui à partir de r permettent d'activité des algorithme écrit en C, en javascript ou tout autre langage "plus informatiques" et souvent plus éfficace. 
+L'interopérabilité apportée par ces langages ne se définit pas que par l'algorithme qui aurait été porté d'un autre langage vers celui-ci (des cas de réécriture ?) mais aussi par des programme passerelle qui à partir de r permettent d'activité des algorithme écrit en C, en javascript ou tout autre langage "plus informatiques" et souvent plus efficace. 
 
-## histoires des logiciels statistiques
+## Une courte histoires des logiciels statistiques
 
 Et c'est ce qu'on observe dans l'évolution des logiciels
 
  * 1980 : statitcf
  * 1980 : SAS comme accès à r
  * 1990 : SPSS
+ * 1997 : s puis r
+ * ? : python
 
 http://www.deenov.com/blog-deenov/histoire-du-logiciel-spad.aspx
 
-des système portable
 
-intégration graphique
+Un des grand mouvement du domaine est l'hésitation entre le programmatique et le no-code. La pression commerciale conduit certains acteurs à encourager l'usage de sur-couche logiciel qui débarrasse l'utilisateur de l'exigence techniques, il peut se laisser guider par l'intuition, mais l'aliène en dissimulant la mécanique profonde des processus de traitement des données. 
 
-la modularisation : base /fonction/ packages 
+Le succès de python et de r réside dans 
 
+* La modularisation : langage de base /fonction/ package et notion de dépendance
+* L'interopérabilité pas toujours parfaite ( versions, classes de données)
+* La cumulativité : les fonction s'ajoutent aux fonctions, se sédimentent
+* L'accès 
 
 ## Le processus de traitement des données
 
-
+Les data sciences ne sont finalement que l'intégration d'un flot de traitement des données qui va de l'acquisition à la divulgation. 
 
 ![](./Images/datascience2.png)
-
-
-
 
  * Acquisition 
  * Codification , filtrage et correction d'erreur
@@ -231,45 +232,58 @@ la modularisation : base /fonction/ packages
  * Contrôle :
  * Publication : dash board, pdf , slide etc, webb site
 
+## Les facteurs sociaux du développement des datasciences
 
-## Les facteurs de développement des datasciences
-
-Ces développements sont favorisés par un environnement fertile dont trois facteurs se renforcent mutuellement.
+Ces développements sont favorisés par un environnement fertile dont quatre facteurs se renforcent mutuellement. La constitution d'un système de communication commun organisé autour de peu de langage, et d'un ensemble de normes de données mais aussi la vitalité d'une communauté. La multiplicité des sources de données et l'évolution des technologies de la mesure et du nombre constitue un second groupe de facteurs. 
 
 ### Une lingua franca
 
-histoire de r
-histoire de python
+La lingua franca est la langue des ports et du commerce de la méditerranée au XIVème siècle, un mélange de langage qui sert l'échange, un commun pourrait-on dire aujourd'hui. C'est ce que sont devenus python et r parmi d'autres, la seconde langue après l'anglais qui s'est imposé comme la langue d'écriture. Le langage des scientifiques est sans doute désormais un pidgin, un créole d'anglais, et de r ou de python, sans compter les sparc, les C+++ ou javascript. Les langues de la donnée se mêlent volontiers, elle sont de plus en plus agnostique. 
 
+L’environnement r par exemple devient de plus en plus ouverts à python, à la fois de manière directe en permettant de coder dans un même document des calculs en r pluis en python, mais aussi de manière indirecte parce que prolifèrent des packages passerelles permettant d'aller chercher des ressources écrites dans un autre langage. 
 
 ### Une communauté
 
-Le second facteur , intimement lié au premier, est la constitution d’une large communauté de développeurs et d’utilisateurs qui se retrouvent aujourd’hui dans des plateformes de dépots (Github, Gitlab), de plateformes de type quora (StalkOverFlow), de tutoriaux, de blogs (BloggeR), de journaux (Journal of Statistical Software) et de bookdown.
+Le second facteur, intimement lié au premier, est la constitution d’une large communauté de développeurs et utilisateurs qui se retrouvent aujourd’hui dans des plateformes de dépôts (Github, Gitlab), de plateformes de type quora (StalkOverFlow), de tutoriaux, de blogs (BloggeR), de journaux (Journal of Statistical Software) et de bookdown. Des ressources abondantes sont disponibles et facilitent la formation des chercheurs et des data scientists. Toutes les conditions sont réunies pour  engendrer une effervescence créative. 
 
-Des ressources abondantes sont ainsi disponibles et facilitent la formation des chercheurs et des data scientists. Toutes les conditions sont réunies pour  engendrer une effervescence créative. 
+Cette communauté se reproduit à petite échelles dans les procédures de laboratoire et les conventions de travail en commun des chercheurs. Elle peut se développer autant verticalement qu'horizontalement : des hubs qui concentrent l'ensemble des acteurs et des ressources, qu'un grand nombre de micro communauté focalisés sur des problèmes très locaux.
 
 ### La multiplication des sources de données.
 
-Le troisième est la multiplication des sources de données et leur facilité d’accès. Les données privées, et en particulier celles des réseaux sociaux,  même si un péage doit être payé pour accéder aux APIs, popularisent le traitement de données massives. Le mouvement des données ouvertes (open data) proposent et facilitent l’accès à des milliers de corps de données : retards de la SNCF, grand débat, le formidable travail de l’Insee, european survey etc.
+Le troisième est la multiplication des sources de données et leur facilité d’accès. Les données privées, et en particulier celles des réseaux sociaux,  même si un péage doit être payé pour accéder aux APIs, popularisent le traitement de données massives. 
+
+Le mouvement des données ouvertes (open data) proposent et facilitent accès à des milliers de corps de données : retards de la SNCF, grand débat, le formidable travail de l’Insee, european survey etc.
  
  
-### du ML à l'IA
+### de la statistique à l'IA
 
 Le retour au boites noires dans les années 2000. Ce qui distingue les statistiques traditionnelles de l'approche machine learning réside d'abord par une approche de la modélisation différente. 
 
-Les modèles statistiques et économétriques considèrent une structure de relation, la spécification du modèle (ex : le modèle linéaire), mais aussi des modèles de distribution des erreurs qui définissent le cadre d'estimation. L'évaluation passe par le test des hypothèses sur les paramètres de la qualité d'ajustement. 
+Les modèles statistiques et économétriques considèrent une structure de relation, la spécification du modèle (ex : le modèle linéaire), mais aussi des modèles de distribution des erreurs qui définissent le cadre d'estimation. L'évaluation passe par le test des hypothèses sur les paramètres et par la qualité d'ajustement. 
 
 Le machine learning, se concentre sur la valeur prédictive, et considère n'importe quelle spécification même si elle est peu intelligible et comprend de grandes quantités de paramètres sur lesquels aucun test n'est produit. 
 
 Les deux approches ont plutôt tendance à ce compléter, les première testant des théories, les secondes procurant aux première de nouvelles hypothèse par de nouvelle mesure. Pour en donner un exemple simple, l'analyse de sentiment emploie des modèles complexes pour le prédire avec le seul texte, l'IA permet d'enrichir des données empiriques par exemple en testant en finance la relation de cet indicateurs aux prix de marché. Un autre exemple en marketing. 
 
-Les méthodes disponible se sont accumulée depuis ces derbière 20 années
+Les méthodes disponibles se sont accumulées depuis ces dernières 20 années. faisons-en une courte liste.
 
-* 1960 
+* 1956  :perceptron
+* 1963 : arbre de décision
+* 2005 : CNN
+* 2008 : lda topic
+* 2013 : word2vec
+* 2018 : transformers
+* 
 
 KNN, SVM, rf et le retour des réseaux de neurones. 
 
-La révolution des convolutions et la multiplication des architectures
+## Conclusion
+
+Il ne reste plus qu'à soulever le capot et de mettre les mains dans le cambouis.
+
+Et à se rappeler que si la nécessité de se faire remarquer à conduit les acteurs du domaine à envisager des data sciences, que c'est d'abord un art d'écriture, et une pratique qui permet à leurs artisans de s'échanger des secrets de fabrique. 
+
+On remerciera tous ceux qui développent des packages, nous aurons le point de vue de ceux qui les utilisent. Ce cours est aussi un livre de recette, celui d'un chercheur en sciences sociales qui picore dans l'immensité de la production pour trouver des procédures reproductibles par ses étudiants. 
 
 
 <!--chapter:end:01-intro.Rmd-->
@@ -295,38 +309,36 @@ Quelques éléments de base :
 
 un document markdown est composé de plusieurs éléments
 
-1. Yalm dans cet entête les éléments essentiels sont définis et paramétrés
+1. Yalm :  dans cet entête les éléments essentiels sont définis et paramétrés
 2. Texte : il suit les conventions de mise en forme du html :
    * des # pour les niveau de titres
-   * (x)[*.html] pour des liens et "![x](*.jpg)" pour des images
+   * une syntaxe (x)[.xxx] pour des liens vers les URLS ou des images.
 3. Les chunks sont isolés par 3 tiks au début et à la fin. 
-4. Résultats apparaissent sous les chunks
+4. Résultats apparaissent sous les chunks après avoir été exécutés
  
-Ce document peut être exécuté et publié sous différents formats : html, pdf ou même word  avec les éléments suivants: 
+Ce document peut être publié sous différents formats : html, pdf ou même word. 
 
-* plan
-* texte
-* code
-* résultats
+Il comprend les éléments suivants :
+
+* Plan
+* Texte
+* Code
+* Résultats
 * Bibliographie
 * Références
-* liens
-* images
+* Liens
+* Images
 
- 
 ## Lire les données
 
-La première étape c'est la lecture des données. On commence par le plus simple la lecture de fichiers locaux, dont les formats sont multiples : csv, tsv, xlsx, Spss, etc... Le package `readr` contribue à cette tâche.
-
+La première étape c'est la lecture des données. On commence par lecture de fichiers locaux, dont les formats sont multiples : csv, tsv, xlsx, Spss, etc... Pour chacun d'eux existe une fonction dédiée.
+Le package `readr` contribue à cette tâche pour les fichiers *.csv.
 
 ```{r 0201}
-
 df <- read_csv("./Data/BXL_listings.csv")
-
+head(df,5)
 ```
-
-
-Il est possible aussi d'accéder en  direct aux données du web, c'est bien utile pour s'assurer que les données sont bien fraîches. Par exemple une connexion à Nsppolls qui propose une compilation de tous les sondages d'intention de vote de la présidentielle 2022.
+Il est possible aussi d'accéder en  direct aux données du web, c'est bien utile pour s'assurer que les données sont bien fraîches. Par exemple une connexion à [Nsppolls](https://github.com/nsppolls/nsppolls) qui propose une compilation de tous les sondages d'intention de vote de la présidentielle 2022.
 
 ```{r 0202}
 
@@ -334,7 +346,7 @@ df_pol <- read_delim("https://raw.githubusercontent.com/nsppolls/nsppolls/master
                      delim = ",", escape_double = FALSE, trim_ws = TRUE)
 
 ```
-
+Bien d'autre possibilités sont offertes, on pourra utiliser des API, des programmes de scrapping., ire en bouche des fichiers dans un répertoire, interroger des bases SQL des [SGBD](https://sql.sh/sgbd)) ou d'autres systèmes.  
 
 ### La diversité des formats
 
@@ -342,43 +354,49 @@ Peu de formats échappent à r, ils peuvent faire appel à des packages spécifi
 
  * excell
  * Json
- * shape et autre GIS : 
- * les formats bibliographique : bib et ris
- 
-
+ * shape et autre données géographiques.
+ * les formats bibliographiques sont plus exotique : bib et ris
+ * les xml pourront donner des maux de têtes.
  
 ## `Dplyr` pour manipuler les données
 
-C'est un des packages essentiels de la suite tidyverse. Il permet de manipuler aisément les données et mérite une étude approfondie. Un [point de départ](https://dplyr.tidyverse.org/articles/dplyr.html) ou en français :  [dplyr](http://larmarange.github.io/analyse-R/manipuler-les-donnees-avec-dplyr.html) .
+Dès lors que les données sont chargées en mémoire il va souvent être nécessaire d'en travailler, l'aspect et la structure. L'aspect concerne les formats et les significations, les recodages. La structure est relative à la forme des tableaux. Il faudra souvent traiter les données brutes pour proposer à nos modèles des structures appropriées. 
 
+`Dplyr` est un des packages essentiels de la suite tidyverse. Il permet de manipuler aisément les données et mérite une étude approfondie. Un [point de départ](https://dplyr.tidyverse.org/articles/dplyr.html) ou en français : [dplyr](http://larmarange.github.io/analyse-R/manipuler-les-donnees-avec-dplyr.html).
 
- 
+Deux idées sont au coeur de `Dplyr`  d'abord celle du pipe, ensuite celle du verbe. `Dplyr` encourage une approche processus et performative.
+
 ### Des pipes %>%
 
-Une grand part de l'intérêt de dplyr est de reprendre un opérateur de magritr très utile : le pipe noté  `%>%`. Celui ci permet de passer le résultat de l'opération à gauche, dans la fonction à droite.
+Une grand part de l'intérêt de dplyr est de reprendre un opérateur de magritr très utile : le pipe noté  `data %>% f() %>% g()..`. Celui ci permet de passer le résultat de l'opération à gauche f() sur les données `data`, dans la fonction g() à droite.
 
 Un exemple simple : dans la ligne de code suivante, une première fonction lit le fichier CSV, et envoie le résultat de cette lecture dans une fonction graphique élémentaire: compter les occurrences des modalités de la variable room_type. 
-
 
 ```{r 0203}
 g <- read_csv("./Data/BXL_listings.csv") %>% 
   ggplot(aes(x=room_type))+
   geom_bar()+
-  coord_flip()
+  coord_flip()+
+  labs(x=NULL, y= "Fréquence", title=" Distribution des types de logement à Bruxelles en 2020")
 g
-
 ```
 
 
 ### Des verbes
 
-L'originalité de dplyr est de définir des fonctions comme des verbes. Chaque verbe désigne un type d'action. On va les examiner progressivement. Ils sont simples à comprendre : transformer une variable, filtrer les observations selon un critère, isoler des variables, les grouper pour en calculer des résultats statistiques (somme, moyenne, variance, max min etc), les déployer selon un format long ou les distribuer en différents critères, les fusionner enfin.
+L'originalité de `dplyr `est de définir les fonctions comme des verbes. Chaque verbe désigne une action particulière. On va les examiner progressivement.
+* transformer une variable, 
+* filtrer les observations selon un critère, 
+* isoler des variables, 
+* les grouper pour en calculer des résultats statistiques (somme, moyenne, variance, max min etc), 
+* les déployer selon un format long ou les distribuer en différents critères, 
+* les fusionner enfin.
 
 #### Mutate
 
 En Français c'est "transformer". On modifie la valeur d'une variable par une fonction plus ou moins complexe, éventuellement en ajoutant des conditions. 
 
-Dans notre exemple, faisant au plus simple, puisque la distribution est asymétrique, une transformation du prix par les log peut donner des résultats intéressants. Et c'est le cas. On retrouve une distribution qui semble être gaussienne. 
+Dans notre exemple, faisant au plus simple, puisque la distribution est asymétrique, une transformation du prix par les log10 peut donner des résultats intéressants. Et c'est le cas, on retrouve une distribution qui semble être gaussienne. 
 
 ```{r 0204}
 g <- read_csv("./Data/BXL_listings.csv") %>% 
@@ -403,7 +421,6 @@ g <- read_csv("./Data/BXL_listings.csv") %>%
 g
 ```
 
-
 #### select
 
 On peut sélectionner des colonnes pour créer un tableau spécifique. On en profite pour introduire '[flextable](https://ardata-fr.github.io/flextable-book/index.html)' , une solution élégante pour éditer des tableaux en html.
@@ -416,31 +433,29 @@ foo <- read_csv("./Data/BXL_listings.csv") %>%
 ft <- flextable(foo[ sample.int(10),])%>%
    set_header_labels(room_type="Type de logement",
   price = "Prix en euros")%>%
-  theme_vanilla()%>%
+  theme_vanilla()%>% fontsize(ft, size = 7, j = 3)%>%
   autofit()
 ft
 ```
 
 #### Group_by et summarize
 
-c'est une opération clé, en groupant selon les modalités d'une ou plusieurs variables, on peut construire des tableaux agrégés. On l'associera à `summarize` qui permet de calculer les statistiques agrégées selon le groupe que l'on a définit.
-
-
+c'est une opération clé, en groupant les observations selon les modalités d'une variables, on peut construire des tableaux agrégés avec `summarise` qui permet de calculer de nombreuses statistiques : somme, moyenne, variance, max, min .. à travers les groupes.
 
 ```{r 0207}
-
 foo <- read_csv("./Data/BXL_listings.csv")%>% 
   dplyr::select(neighbourhood, price)%>%
     group_by(neighbourhood ) %>% 
-  summarise(averageprice=round(mean(price),2),
+  summarise(averageprice=round(mean(price),1),
             nombreoffre=n())
 
+#mise en forme flextable
 ft <- flextable(foo)%>% 
-     set_header_labels(neighbourhood="Type de logement",
+  set_header_labels(neighbourhood="Quartier",
   averageprice = "Prix en euros",
-  nombreoffre="Nombre d'offre")%>%
+  nombreoffre="Nombre d'offre", size=9)%>%  
+  fontsize(size = 9)%>%
   theme_vanilla() 
-
 ft
 
 ```
@@ -1935,7 +1950,7 @@ La matrice de variance-covariance, ou de corrélation, si on a, au préalable, c
 $$
 \Sigma = XX^t
 $$
-Comme $\Sigma$ est symétrique, elle est diagonalisable et peut-être représentée par une matrice de score W et une matrice diagonale D. 
+Comme $$\Sigma$$ est symétrique, elle est diagonalisable et peut-être représentée par une matrice de score W et une matrice diagonale D. 
 
 
 $$
@@ -2132,7 +2147,7 @@ Si ACP, AFC et AFCM ont pris le devant de la scène, bien d'autre méthodes anal
 
 1) une idée essentielle : réduire de nombreuses variables à un petit jeu de variables synthétiques
 
-2) des méthode au coeur de l'analyse des données
+2) des méthodes au cœur de l'analyse des données
 
 3) une autre idée essentielle : celle de vectoriser les données qu'on observe  
 
@@ -2968,7 +2983,7 @@ Dans la pratique la construction d'un modèle de régression dépend de trois é
 
 Dans ce cas on va utiliser une méthode de modèle linéaire généralisé (GLM) qui reposent sur 3 éléments:
 
-* Un prédicteur linéaire ($\eta$) qui décrit la combinaison linéaire des variables explicatives.
+* Un prédicteur linéaire $$\eta$$ qui décrit la combinaison linéaire des variables explicatives.
 
 $$\eta=\sum_{n=1}^{10}\beta_{0}+\beta_{i}x_{i}$$
 
@@ -2980,6 +2995,7 @@ Par exemple, pour les données de comptage :
 
 $$log(\mu_{y})=\eta$$
 ou dans le cas de données binaire ( modèle de régression logistique)
+
 $$log(\frac{\mu_{y}}{1-\mu_{y}})=\eta$$
 
 Le but de la fonction de lien est de contraindre les valeurs prédites à être dans l’échelle des valeurs observées. Ainsi, dans le cas des données de comptage, qui sont obligatoirement positives, ou nulles, la fonction de lien log contraint les valeurs prédites par le prédicteur linéaire à devenir également positives ou nulles après l’emploi de la fonction inverse du log.
@@ -3240,7 +3256,7 @@ voir étude de cas [CartedeFidelité](https://github.com/BenaventC/survival).
 <!--chapter:end:10-modeledesurvie.Rmd-->
 
 
-# 11 Les modèles linéaires hiérarchiques (HLM)
+# Les modèles linéaires hiérarchiques (HLM)
 
 Les modèles de panels en économies, ou multi-niveaux en sociologie, sont caractérisés par le fait que les données sont un empilement de différents échantillons correspondant à une stratification.
 
@@ -3295,12 +3311,12 @@ export_summs(fit01,fit02, fit03, number_format = "%.3g")
 
 Dans ce petit exemple, les niveaux sont peu nombreux. On pourrait imaginer qu'ils soient bien plus nombreux, par exemple en réalisant l'enquête sur des dizaines de classes pour lesquelles le degré d'agitation est variable et se distribue certainement de manière normale. Ne tenons plus en compte la matière pour le moment. On ne va prendre que la moyenne des maths.
 
-On peut écrire le modèle où $\beta_{k}$ représente le terme constant de chacune des k classes.
+On peut écrire le modèle où $$\beta_{k}$$ représente le terme constant de chacune des k classes.
 
-$$ y_{ik}=\beta_{k}+\beta_{1}Aptitude_{i}+\epsilon_{ik} $$ 
+$$y_{ik}=\beta_{k}+\beta_{1}Aptitude_{i}+\epsilon_{ik}$$ 
 
 
-en supposant que les $\beta_{k}$ se distribue de manière normale avec une moyenne $\overline{\beta}$ et une variance $\mu_{k}$, on peut réécrire l'équation de la manière suivante
+en supposant que les $$\beta_{k}$$ se distribue de manière normale avec une moyenne $$\overline{\beta}$$ et une variance $$\mu_{k}$$, on peut réécrire l'équation de la manière suivante
 
 
 
@@ -3313,96 +3329,7 @@ C'est un modèle à composantes d'erreur où $\mu_{k}$ représente l'effet de la
 voir données ESS
 
 ```{r 1102}
-df <- read_csv("Data/ESS-Data-Wizard-subset-2022-10-06.csv")
-
-
-df$Year<-2000
-#recodage des variables independantes
-df$Year[df$essround==1]<-2002
-df$Year[df$essround==2]<-2004
-df$Year[df$essround==3]<-2006
-df$Year[df$essround==4]<-2008
-df$Year[df$essround==5]<-2010
-df$Year[df$essround==6]<-2012
-df$Year[df$essround==7]<-2014
-df$Year[df$essround==8]<-2016
-df$Year[df$essround==9]<-2018
-df$Year<-as.factor(df$Year) 
-
-df$OP<-" "
-#ggplot(df,aes(x=lrscale))+geom_histogram()
-df$OP[df$lrscale==0] <- "Extrême gauche" 
-df$OP[df$lrscale==1] <- "Gauche" 
-df$OP[df$lrscale==2] <- "Gauche" 
-df$OP[df$lrscale==3] <- "Centre Gauche" 
-df$OP[df$lrscale==4] <- "Centre Gauche" 
-df$OP[df$lrscale==5] <- "Ni G ni D" 
-df$OP[df$lrscale==6] <- "Centre Droit" 
-df$OP[df$lrscale==7] <- "Centre Droit" 
-df$OP[df$lrscale==8] <- "Droite" 
-df$OP[df$lrscale==9] <- "Droite" 
-df$OP[df$lrscale==10] <- "Extrême droite" 
-#la ligne suivante est pour ordonner les modalités de la variables
-df$OP<-factor(df$OP,levels=c("Extrême droite","Droite","Centre Droit","Ni G ni D","Centre Gauche","Gauche","Extrême gauche"))
-
-
-
-df$genre<-" "
-
-df$genre[df$gndr==1]<-"H"
-df$genre[df$gndr==2]<-"F"
-
-df$age<-" "
-
-df$age[df$agea<26]<-"25<"
-df$age[df$agea>25 & df$agea<36]<-"26-35"
-df$age[df$agea>35 & df$agea<46]<-"36-45"
-df$age[df$agea>45 & df$agea<66]<-"46-65"
-df$age[df$agea>65 & df$agea<76]<-"66-75"
-df$age[df$agea>75]<-"75>"
-df$age<-factor(df$age,levels=c("25<","26-35","36-45","46-65","66-75", "75>"))
-
-
-df_confiance<-df%>%
-  dplyr::select(trstep, trstlgl,trstplc,trstplt,trstprl,trstprt,trstun,pplfair,pplhlp, ppltrst) %>%
-  mutate(trstep=ifelse(trstep==77 |trstep==88| trstep==66,NA,trstep),
-         trstlgl=ifelse(trstlgl==77 |trstlgl==88| trstlgl==66,NA,trstlgl),
-         trstplc=ifelse(trstplc==77 |trstplc==88| trstplc==66,NA,trstplc),
-         trstplt=ifelse(trstplt==77 |trstplt==88| trstplt==66,NA,trstplt),
-         trstprt=ifelse(trstprt==77 |trstprt==88| trstprt==66,NA,trstprt),
-         trstun=ifelse(trstun==77 |trstun==88| trstun==66,NA,trstun),
-         trstprl=ifelse(trstprl==77 |trstprl==88| trstprl==66,NA,trstprl),
-         pplfair=ifelse(pplfair==77 |pplfair==88| pplfair==66,NA,pplfair),
-         pplhlp=ifelse(pplhlp==77 |pplhlp==88| pplhlp==66,NA,pplhlp),
-         ppltrst=ifelse(ppltrst==77 |ppltrst==88| ppltrst==66,NA,ppltrst),
-         trust_institution= (trstep+trstlgl+trstplc+trstplt+trstprl+trstprt+trstun)/7,
-         trust_personne= (pplfair+pplhlp+ppltrst)/7
-         )
-
-
- 
-df_satisfaction<-df%>%
-  dplyr::select(stfeco,stfedu,stfgov, stfhlth, stflife,stfmjob, happy) %>%
-  mutate(stfeco=ifelse(stfeco==77 |stfeco==88| stfeco==66,NA,stfeco),
-         stfedu=ifelse(stfedu==77 |stfedu==88 | stfedu==66,NA,stfedu),
-         stfgov=ifelse(stfgov==77 |stfgov==88 | stfgov==66, NA, stfgov), 
-         stfhlth=ifelse(stfhlth==77 |stfhlth==88|stfhlth==66,NA,stfhlth), 
-         stflife=ifelse(stflife==77 |stflife==88|stflife==66,NA,stflife),
-         happy=ifelse(happy==77 |happy==88|happy==66,NA,happy),
-         stfmjob=ifelse(stfmjob==77 |stfmjob==88|stfmjob==66,NA,stfmjob),
-         satisfaction_vie=(stflife+happy)/2, #à examiner
-         satisfaction_institution=(stfeco+stfgov)/2,
-         satisfaction_care=(stfhlth+stfedu)/2
-)
-
-df_sample<-df%>%
-  dplyr::select(Year, age, OP, genre)
-
-
-df<-cbind(df_sample, df_satisfaction, df_confiance)
-
-table(df$happy)
-
+df<-readRDS("./data/ESS10fr.rds")
 ```
 
 ```{r 1103}
@@ -3578,4 +3505,108 @@ et pour le texte :
 et surtout [celui-ci](https://benaventc.github.io/NLPBook/machine-learning-supervis%C3%A9-et-nlp.html)
 
 <!--chapter:end:13-machinelearning.Rmd-->
+
+# 20 Annexes
+
+## Données Eric-ESS
+
+Extraction France
+
+Le fichier est disponible sous format ESS10fr.rds
+
+
+```{r 2001}
+df <- read_csv("Data/ESS-Data-Wizard-subset-2022-10-06.csv")
+
+df$Year<-2000
+#recodage des variables independantes
+df$Year[df$essround==1]<-2002
+df$Year[df$essround==2]<-2004
+df$Year[df$essround==3]<-2006
+df$Year[df$essround==4]<-2008
+df$Year[df$essround==5]<-2010
+df$Year[df$essround==6]<-2012
+df$Year[df$essround==7]<-2014
+df$Year[df$essround==8]<-2016
+df$Year[df$essround==9]<-2018
+df$Year<-as.factor(df$Year) 
+
+df$OP<-" "
+#ggplot(df,aes(x=lrscale))+geom_histogram()
+df$OP[df$lrscale==0] <- "Extrême gauche" 
+df$OP[df$lrscale==1] <- "Gauche" 
+df$OP[df$lrscale==2] <- "Gauche" 
+df$OP[df$lrscale==3] <- "Centre Gauche" 
+df$OP[df$lrscale==4] <- "Centre Gauche" 
+df$OP[df$lrscale==5] <- "Ni G ni D" 
+df$OP[df$lrscale==6] <- "Centre Droit" 
+df$OP[df$lrscale==7] <- "Centre Droit" 
+df$OP[df$lrscale==8] <- "Droite" 
+df$OP[df$lrscale==9] <- "Droite" 
+df$OP[df$lrscale==10] <- "Extrême droite" 
+#la ligne suivante est pour ordonner les modalités de la variables
+df$OP<-factor(df$OP,levels=c("Extrême droite","Droite","Centre Droit","Ni G ni D","Centre Gauche","Gauche","Extrême gauche"))
+
+df$genre<-" "
+df$genre[df$gndr==1]<-"H"
+df$genre[df$gndr==2]<-"F"
+
+df$age<-" "
+df$age[df$agea<26]<-"25<"
+df$age[df$agea>25 & df$agea<36]<-"26-35"
+df$age[df$agea>35 & df$agea<46]<-"36-45"
+df$age[df$agea>45 & df$agea<66]<-"46-65"
+df$age[df$agea>65 & df$agea<76]<-"66-75"
+df$age[df$agea>75]<-"75>"
+df$age<-factor(df$age,levels=c("25<","26-35","36-45","46-65","66-75", "75>"))
+
+df_confiance<-df%>%
+  dplyr::select(trstep, trstlgl,trstplc,trstplt,trstprl,trstprt,trstun,pplfair,pplhlp, ppltrst) %>%
+  mutate(trstep=ifelse(trstep==77 |trstep==88| trstep==66,NA,trstep),
+         trstlgl=ifelse(trstlgl==77 |trstlgl==88| trstlgl==66,NA,trstlgl),
+         trstplc=ifelse(trstplc==77 |trstplc==88| trstplc==66,NA,trstplc),
+         trstplt=ifelse(trstplt==77 |trstplt==88| trstplt==66,NA,trstplt),
+         trstprt=ifelse(trstprt==77 |trstprt==88| trstprt==66,NA,trstprt),
+         trstun=ifelse(trstun==77 |trstun==88| trstun==66,NA,trstun),
+         trstprl=ifelse(trstprl==77 |trstprl==88| trstprl==66,NA,trstprl),
+         pplfair=ifelse(pplfair==77 |pplfair==88| pplfair==66,NA,pplfair),
+         pplhlp=ifelse(pplhlp==77 |pplhlp==88| pplhlp==66,NA,pplhlp),
+         ppltrst=ifelse(ppltrst==77 |ppltrst==88| ppltrst==66,NA,ppltrst),
+         trust_institution= (trstep+trstlgl+trstplc+trstplt+trstprl+trstprt+trstun)/7,
+         trust_personne= (pplfair+pplhlp+ppltrst)/7
+         )
+
+
+ 
+df_satisfaction<-df%>%
+  dplyr::select(stfeco,stfedu,stfgov, stfhlth, stflife,stfmjob, happy) %>%
+  mutate(stfeco=ifelse(stfeco==77 |stfeco==88| stfeco==66,NA,stfeco),
+         stfedu=ifelse(stfedu==77 |stfedu==88 | stfedu==66,NA,stfedu),
+         stfgov=ifelse(stfgov==77 |stfgov==88 | stfgov==66, NA, stfgov), 
+         stfhlth=ifelse(stfhlth==77 |stfhlth==88|stfhlth==66,NA,stfhlth), 
+         stflife=ifelse(stflife==77 |stflife==88|stflife==66,NA,stflife),
+         happy=ifelse(happy==77 |happy==88|happy==66,NA,happy),
+         stfmjob=ifelse(stfmjob==77 |stfmjob==88|stfmjob==66,NA,stfmjob),
+         satisfaction_vie=(stflife+happy)/2, #à examiner
+         satisfaction_institution=(stfeco+stfgov)/2,
+         satisfaction_care=(stfhlth+stfedu)/2
+)
+
+df_sample<-df%>%
+  dplyr::select(Year, age, OP, genre)
+
+
+df<-cbind(df_sample, df_satisfaction, df_confiance)
+
+saveRDS(df, "./data/ESS10fr.rds")
+```
+
+
+## fichier Airbnb Bruxelles
+
+La source est InsideAirbnb. L'extraction est de 2020.
+
+##
+
+<!--chapter:end:20-Annexes.Rmd-->
 

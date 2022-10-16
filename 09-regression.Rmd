@@ -412,7 +412,7 @@ Dans la pratique la construction d'un modèle de régression dépend de trois é
 
 Dans ce cas on va utiliser une méthode de modèle linéaire généralisé (GLM) qui reposent sur 3 éléments:
 
-* Un prédicteur linéaire ($\eta$) qui décrit la combinaison linéaire des variables explicatives.
+* Un prédicteur linéaire $$\eta$$ qui décrit la combinaison linéaire des variables explicatives.
 
 $$\eta=\sum_{n=1}^{10}\beta_{0}+\beta_{i}x_{i}$$
 
@@ -424,6 +424,7 @@ Par exemple, pour les données de comptage :
 
 $$log(\mu_{y})=\eta$$
 ou dans le cas de données binaire ( modèle de régression logistique)
+
 $$log(\frac{\mu_{y}}{1-\mu_{y}})=\eta$$
 
 Le but de la fonction de lien est de contraindre les valeurs prédites à être dans l’échelle des valeurs observées. Ainsi, dans le cas des données de comptage, qui sont obligatoirement positives, ou nulles, la fonction de lien log contraint les valeurs prédites par le prédicteur linéaire à devenir également positives ou nulles après l’emploi de la fonction inverse du log.
