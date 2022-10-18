@@ -1,16 +1,14 @@
 tab:anytable
 tab:0910
 tab:0914
-tab:0918
 tab:1101
 tab:1103
 avant-propos
 plan-du-manuel
 les-jeux-de-données
 le-cadre-technique-et-les-packages-utilisés
-a-faire
 intro
-science-ou-technique
+science-art-technique-et-pratiques
 une-courte-histoires-des-logiciels-statistiques
 le-processus-de-traitement-des-données
 les-facteurs-sociaux-du-développement-des-datasciences
@@ -49,7 +47,7 @@ deux-variables-qualitatives
 tableau-croisé
 le-valeureux-chi²
 diagramme-en-mosaique
-les-chi2s-partiel-et-des-cartes-de-chaleur.
+les-chi2s-partiels-et-des-cartes-de-chaleur.
 les-treemaps-cest-merveilleux
 analyse-graphique-multivariée
 la-confiance-institutionnelle-en-détail
@@ -58,6 +56,7 @@ un-cas-plus-complexe-présidentielle2020
 une-boucle-pour-produire-de-multiple-graphe-en-variant-un-paramètre
 effet-sondeur
 modéliser-le-biais-du-sondeur
+données-géographique
 analyses-factorielles
 origine-et-histoire
 une-petite-histoire-de-la-psychométrie
@@ -69,7 +68,6 @@ ressources
 cas-dapplication
 examen-de-la-matrice-de-corrélation
 modèle-factoriel
-lanalyse-en-composante-principale
 le-problème-théorique
 une-représentation-symbolique
 application
@@ -106,13 +104,9 @@ autres-modèles
 régression-logistique
 modèle-de-comptage
 modèle-de-régression-beta
-un-cas-danalyse-de-survie
-les-modèles-linéaires-hiérarchiques
-en-guise-dintroduction
-section
 modèle-de-survie
 les-modèles-linéaires-hiérarchiques-hlm
-en-guise-dintroduction-1
+en-guise-dintroduction
 une-application
 sem-avec-lavaan
 arbres-de-décision
@@ -129,4 +123,4 @@ forêts-aléatoires-1
 annexes
 données-eric-ess
 fichier-airbnb-bruxelles
-section-1
+section

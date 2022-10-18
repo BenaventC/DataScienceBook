@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapitre 8 Clustering | Introduction aux Data Sciences</title>
+  <title>Chapitre 9 Clustering | Introduction aux Data Sciences/nAvec r</title>
   <meta name="description" content="Cours d’analyse de données et de Datascience" />
   <meta name="generator" content="bookdown 0.22.3 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapitre 8 Clustering | Introduction aux Data Sciences" />
+  <meta property="og:title" content="Chapitre 9 Clustering | Introduction aux Data Sciences/nAvec r" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapitre 8 Clustering | Introduction aux Data Sciences" />
+  <meta name="twitter:title" content="Chapitre 9 Clustering | Introduction aux Data Sciences/nAvec r" />
   
   <meta name="twitter:description" content="Cours d’analyse de données et de Datascience" />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Christophe Benavent - Université Paris Dauphine" />
 
 
-<meta name="date" content="2022-10-16" />
+<meta name="date" content="2022-10-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -166,11 +166,10 @@ div.csl-indent {
 <li><a href="index.html#plan-du-manuel" id="toc-plan-du-manuel"><span class="toc-section-number">1.1</span> Plan du manuel<span></span></a></li>
 <li><a href="index.html#les-jeux-de-données" id="toc-les-jeux-de-données"><span class="toc-section-number">1.2</span> Les jeux de données<span></span></a></li>
 <li><a href="index.html#le-cadre-technique-et-les-packages-utilisés" id="toc-le-cadre-technique-et-les-packages-utilisés"><span class="toc-section-number">1.3</span> Le cadre technique et les packages utilisés<span></span></a></li>
-<li><a href="index.html#a-faire" id="toc-a-faire"><span class="toc-section-number">1.4</span> A faire<span></span></a></li>
 </ul></li>
 <li><a href="intro.html#intro" id="toc-intro"><span class="toc-section-number">2</span> Introduction aux data sciences<span></span></a>
 <ul>
-<li><a href="intro.html#science-ou-technique" id="toc-science-ou-technique"><span class="toc-section-number">2.1</span> Science ou technique ?<span></span></a></li>
+<li><a href="intro.html#science-art-technique-et-pratiques" id="toc-science-art-technique-et-pratiques"><span class="toc-section-number">2.1</span> Science, art, technique et pratiques<span></span></a></li>
 <li><a href="intro.html#une-courte-histoires-des-logiciels-statistiques" id="toc-une-courte-histoires-des-logiciels-statistiques"><span class="toc-section-number">2.2</span> Une courte histoires des logiciels statistiques<span></span></a></li>
 <li><a href="intro.html#le-processus-de-traitement-des-données" id="toc-le-processus-de-traitement-des-données"><span class="toc-section-number">2.3</span> Le processus de traitement des données<span></span></a></li>
 <li><a href="intro.html#les-facteurs-sociaux-du-développement-des-datasciences" id="toc-les-facteurs-sociaux-du-développement-des-datasciences"><span class="toc-section-number">2.4</span> Les facteurs sociaux du développement des datasciences<span></span></a>
@@ -230,116 +229,108 @@ div.csl-indent {
 </ul></li>
 <li><a href="analyse-graphique-multivariée.html#modéliser-le-biais-du-sondeur" id="toc-modéliser-le-biais-du-sondeur"><span class="toc-section-number">6.5</span> Modéliser le biais du sondeur<span></span></a></li>
 </ul></li>
-<li><a href="analyses-factorielles.html#analyses-factorielles" id="toc-analyses-factorielles"><span class="toc-section-number">7</span> Analyses factorielles<span></span></a>
+<li><a href="données-géographique.html#données-géographique" id="toc-données-géographique"><span class="toc-section-number">7</span> Données géographique<span></span></a></li>
+<li><a href="analyses-factorielles.html#analyses-factorielles" id="toc-analyses-factorielles"><span class="toc-section-number">8</span> Analyses factorielles<span></span></a>
 <ul>
-<li><a href="analyses-factorielles.html#origine-et-histoire" id="toc-origine-et-histoire"><span class="toc-section-number">7.1</span> Origine et histoire<span></span></a>
+<li><a href="analyses-factorielles.html#origine-et-histoire" id="toc-origine-et-histoire"><span class="toc-section-number">8.1</span> Origine et histoire<span></span></a>
 <ul>
-<li><a href="analyses-factorielles.html#une-petite-histoire-de-la-psychométrie" id="toc-une-petite-histoire-de-la-psychométrie"><span class="toc-section-number">7.1.1</span> Une petite histoire de la psychométrie<span></span></a></li>
-<li><a href="analyses-factorielles.html#lécole-française-de-lanalyse-des-données-appliquée-aux-sciences-sociales" id="toc-lécole-française-de-lanalyse-des-données-appliquée-aux-sciences-sociales"><span class="toc-section-number">7.1.2</span> L’école française de l’analyse des données appliquée aux sciences sociales<span></span></a></li>
+<li><a href="analyses-factorielles.html#une-petite-histoire-de-la-psychométrie" id="toc-une-petite-histoire-de-la-psychométrie"><span class="toc-section-number">8.1.1</span> Une petite histoire de la psychométrie<span></span></a></li>
+<li><a href="analyses-factorielles.html#lécole-française-de-lanalyse-des-données-appliquée-aux-sciences-sociales" id="toc-lécole-française-de-lanalyse-des-données-appliquée-aux-sciences-sociales"><span class="toc-section-number">8.1.2</span> L’école française de l’analyse des données appliquée aux sciences sociales<span></span></a></li>
 </ul></li>
-<li><a href="analyses-factorielles.html#le-modèle-factoriel-des-tests-psychologiques" id="toc-le-modèle-factoriel-des-tests-psychologiques"><span class="toc-section-number">7.2</span> Le modèle factoriel des tests psychologiques<span></span></a>
+<li><a href="analyses-factorielles.html#le-modèle-factoriel-des-tests-psychologiques" id="toc-le-modèle-factoriel-des-tests-psychologiques"><span class="toc-section-number">8.2</span> Le modèle factoriel des tests psychologiques<span></span></a>
 <ul>
-<li><a href="analyses-factorielles.html#un-peu-de-théorie" id="toc-un-peu-de-théorie"><span class="toc-section-number">7.2.1</span> Un peu de théorie<span></span></a></li>
-<li><a href="analyses-factorielles.html#lestimation" id="toc-lestimation"><span class="toc-section-number">7.2.2</span> L’estimation<span></span></a></li>
-<li><a href="analyses-factorielles.html#ressources" id="toc-ressources"><span class="toc-section-number">7.2.3</span> Ressources<span></span></a></li>
-<li><a href="analyses-factorielles.html#cas-dapplication" id="toc-cas-dapplication"><span class="toc-section-number">7.2.4</span> Cas d’application<span></span></a></li>
+<li><a href="analyses-factorielles.html#un-peu-de-théorie" id="toc-un-peu-de-théorie"><span class="toc-section-number">8.2.1</span> Un peu de théorie<span></span></a></li>
+<li><a href="analyses-factorielles.html#lestimation" id="toc-lestimation"><span class="toc-section-number">8.2.2</span> L’estimation<span></span></a></li>
+<li><a href="analyses-factorielles.html#ressources" id="toc-ressources"><span class="toc-section-number">8.2.3</span> Ressources<span></span></a></li>
+<li><a href="analyses-factorielles.html#cas-dapplication" id="toc-cas-dapplication"><span class="toc-section-number">8.2.4</span> Cas d’application<span></span></a></li>
 </ul></li>
-<li><a href="analyses-factorielles.html#examen-de-la-matrice-de-corrélation" id="toc-examen-de-la-matrice-de-corrélation"><span class="toc-section-number">7.3</span> Examen de la matrice de corrélation<span></span></a></li>
-<li><a href="analyses-factorielles.html#modèle-factoriel" id="toc-modèle-factoriel"><span class="toc-section-number">7.4</span> Modèle factoriel<span></span></a></li>
-<li><a href="analyses-factorielles.html#lanalyse-en-composante-principale" id="toc-lanalyse-en-composante-principale"><span class="toc-section-number">7.5</span> L’analyse en composante principale<span></span></a>
+<li><a href="analyses-factorielles.html#examen-de-la-matrice-de-corrélation" id="toc-examen-de-la-matrice-de-corrélation"><span class="toc-section-number">8.3</span> Examen de la matrice de corrélation<span></span></a></li>
+<li><a href="analyses-factorielles.html#modèle-factoriel" id="toc-modèle-factoriel"><span class="toc-section-number">8.4</span> Modèle factoriel<span></span></a>
 <ul>
-<li><a href="analyses-factorielles.html#le-problème-théorique" id="toc-le-problème-théorique"><span class="toc-section-number">7.5.1</span> le problème théorique<span></span></a></li>
-<li><a href="analyses-factorielles.html#une-représentation-symbolique" id="toc-une-représentation-symbolique"><span class="toc-section-number">7.5.2</span> Une représentation symbolique<span></span></a></li>
-<li><a href="analyses-factorielles.html#application" id="toc-application"><span class="toc-section-number">7.5.3</span> Application<span></span></a></li>
+<li><a href="analyses-factorielles.html#le-problème-théorique" id="toc-le-problème-théorique"><span class="toc-section-number">8.4.1</span> le problème théorique<span></span></a></li>
+<li><a href="analyses-factorielles.html#une-représentation-symbolique" id="toc-une-représentation-symbolique"><span class="toc-section-number">8.4.2</span> Une représentation symbolique<span></span></a></li>
+<li><a href="analyses-factorielles.html#application" id="toc-application"><span class="toc-section-number">8.4.3</span> Application<span></span></a></li>
 </ul></li>
-<li><a href="analyses-factorielles.html#une-généralisation-de-lacp-lafc" id="toc-une-généralisation-de-lacp-lafc"><span class="toc-section-number">7.6</span> Une généralisation de l’ACP : l’AFC<span></span></a>
+<li><a href="analyses-factorielles.html#une-généralisation-de-lacp-lafc" id="toc-une-généralisation-de-lacp-lafc"><span class="toc-section-number">8.5</span> Une généralisation de l’ACP : l’AFC<span></span></a>
 <ul>
-<li><a href="analyses-factorielles.html#afcm-multiple" id="toc-afcm-multiple"><span class="toc-section-number">7.6.1</span> AFCM multiple<span></span></a></li>
+<li><a href="analyses-factorielles.html#afcm-multiple" id="toc-afcm-multiple"><span class="toc-section-number">8.5.1</span> AFCM multiple<span></span></a></li>
 </ul></li>
-<li><a href="analyses-factorielles.html#développements" id="toc-développements"><span class="toc-section-number">7.7</span> Développements<span></span></a>
+<li><a href="analyses-factorielles.html#développements" id="toc-développements"><span class="toc-section-number">8.6</span> Développements<span></span></a>
 <ul>
-<li><a href="analyses-factorielles.html#le-svd" id="toc-le-svd"><span class="toc-section-number">7.7.1</span> le SVD<span></span></a></li>
-<li><a href="analyses-factorielles.html#acm-analyse-canonique-analyse-discriminante" id="toc-acm-analyse-canonique-analyse-discriminante"><span class="toc-section-number">7.7.2</span> ACM , analyse canonique , analyse discriminante<span></span></a></li>
+<li><a href="analyses-factorielles.html#le-svd" id="toc-le-svd"><span class="toc-section-number">8.6.1</span> le SVD<span></span></a></li>
+<li><a href="analyses-factorielles.html#acm-analyse-canonique-analyse-discriminante" id="toc-acm-analyse-canonique-analyse-discriminante"><span class="toc-section-number">8.6.2</span> ACM , analyse canonique , analyse discriminante<span></span></a></li>
 </ul></li>
-<li><a href="analyses-factorielles.html#en-conclusion" id="toc-en-conclusion"><span class="toc-section-number">7.8</span> En conclusion<span></span></a></li>
+<li><a href="analyses-factorielles.html#en-conclusion" id="toc-en-conclusion"><span class="toc-section-number">8.7</span> En conclusion<span></span></a></li>
 </ul></li>
-<li><a href="clus.html#clus" id="toc-clus"><span class="toc-section-number">8</span> Clustering<span></span></a>
+<li><a href="clus.html#clus" id="toc-clus"><span class="toc-section-number">9</span> Clustering<span></span></a>
 <ul>
-<li><a href="clus.html#les-méthodes-hiérarchiques-ascendantes" id="toc-les-méthodes-hiérarchiques-ascendantes"><span class="toc-section-number">8.1</span> Les méthodes hiérarchiques ascendantes<span></span></a>
+<li><a href="clus.html#les-méthodes-hiérarchiques-ascendantes" id="toc-les-méthodes-hiérarchiques-ascendantes"><span class="toc-section-number">9.1</span> Les méthodes hiérarchiques ascendantes<span></span></a>
 <ul>
-<li><a href="clus.html#mise-en-oeuvre" id="toc-mise-en-oeuvre"><span class="toc-section-number">8.1.1</span> Mise en oeuvre<span></span></a></li>
+<li><a href="clus.html#mise-en-oeuvre" id="toc-mise-en-oeuvre"><span class="toc-section-number">9.1.1</span> Mise en oeuvre<span></span></a></li>
 </ul></li>
-<li><a href="clus.html#segmentation-simplifiée" id="toc-segmentation-simplifiée"><span class="toc-section-number">8.2</span> segmentation simplifiée<span></span></a></li>
-<li><a href="clus.html#tableaux-croisés-de-la-typologie-et-des-critères-sociaux-démos" id="toc-tableaux-croisés-de-la-typologie-et-des-critères-sociaux-démos"><span class="toc-section-number">8.3</span> tableaux croisés de la typologie et des critères sociaux démos<span></span></a></li>
-<li><a href="clus.html#afcm-pour-une-synthèse" id="toc-afcm-pour-une-synthèse"><span class="toc-section-number">8.4</span> AFCM pour une synthèse<span></span></a>
+<li><a href="clus.html#segmentation-simplifiée" id="toc-segmentation-simplifiée"><span class="toc-section-number">9.2</span> segmentation simplifiée<span></span></a></li>
+<li><a href="clus.html#tableaux-croisés-de-la-typologie-et-des-critères-sociaux-démos" id="toc-tableaux-croisés-de-la-typologie-et-des-critères-sociaux-démos"><span class="toc-section-number">9.3</span> tableaux croisés de la typologie et des critères sociaux démos<span></span></a></li>
+<li><a href="clus.html#afcm-pour-une-synthèse" id="toc-afcm-pour-une-synthèse"><span class="toc-section-number">9.4</span> AFCM pour une synthèse<span></span></a>
 <ul>
-<li><a href="clus.html#forces-et-limites" id="toc-forces-et-limites"><span class="toc-section-number">8.4.1</span> Forces et limites<span></span></a></li>
+<li><a href="clus.html#forces-et-limites" id="toc-forces-et-limites"><span class="toc-section-number">9.4.1</span> Forces et limites<span></span></a></li>
 </ul></li>
-<li><a href="clus.html#les-méthodes-non-hiérarchiques" id="toc-les-méthodes-non-hiérarchiques"><span class="toc-section-number">8.5</span> Les méthodes non-hiérarchiques<span></span></a>
+<li><a href="clus.html#les-méthodes-non-hiérarchiques" id="toc-les-méthodes-non-hiérarchiques"><span class="toc-section-number">9.5</span> Les méthodes non-hiérarchiques<span></span></a>
 <ul>
-<li><a href="clus.html#principe" id="toc-principe"><span class="toc-section-number">8.5.1</span> principe<span></span></a></li>
-<li><a href="clus.html#application-1" id="toc-application-1"><span class="toc-section-number">8.5.2</span> Application<span></span></a></li>
-<li><a href="clus.html#le-problème-de-la-détermination-du-nombre-optimal-de-groupe" id="toc-le-problème-de-la-détermination-du-nombre-optimal-de-groupe"><span class="toc-section-number">8.5.3</span> Le problème de la détermination du nombre optimal de groupe<span></span></a></li>
+<li><a href="clus.html#principe" id="toc-principe"><span class="toc-section-number">9.5.1</span> principe<span></span></a></li>
+<li><a href="clus.html#application-1" id="toc-application-1"><span class="toc-section-number">9.5.2</span> Application<span></span></a></li>
+<li><a href="clus.html#le-problème-de-la-détermination-du-nombre-optimal-de-groupe" id="toc-le-problème-de-la-détermination-du-nombre-optimal-de-groupe"><span class="toc-section-number">9.5.3</span> Le problème de la détermination du nombre optimal de groupe<span></span></a></li>
 </ul></li>
-<li><a href="clus.html#autres-méthodes" id="toc-autres-méthodes"><span class="toc-section-number">8.6</span> Autres méthodes<span></span></a></li>
-<li><a href="clus.html#conclusion-1" id="toc-conclusion-1"><span class="toc-section-number">8.7</span> Conclusion<span></span></a></li>
+<li><a href="clus.html#autres-méthodes" id="toc-autres-méthodes"><span class="toc-section-number">9.6</span> Autres méthodes<span></span></a></li>
+<li><a href="clus.html#conclusion-1" id="toc-conclusion-1"><span class="toc-section-number">9.7</span> Conclusion<span></span></a></li>
 </ul></li>
-<li><a href="régression.html#régression" id="toc-régression"><span class="toc-section-number">9</span> 9 - Régression<span></span></a>
+<li><a href="régression.html#régression" id="toc-régression"><span class="toc-section-number">10</span> 9 - Régression<span></span></a>
 <ul>
-<li><a href="régression.html#une-étude-de-cas-les-offres-blablacar" id="toc-une-étude-de-cas-les-offres-blablacar"><span class="toc-section-number">9.1</span> Une étude de cas : les offres Blablacar<span></span></a>
+<li><a href="régression.html#une-étude-de-cas-les-offres-blablacar" id="toc-une-étude-de-cas-les-offres-blablacar"><span class="toc-section-number">10.1</span> Une étude de cas : les offres Blablacar<span></span></a>
 <ul>
-<li><a href="régression.html#les-caractérisques-de-loffre" id="toc-les-caractérisques-de-loffre"><span class="toc-section-number">9.1.1</span> Les caractérisques de l’offre<span></span></a></li>
+<li><a href="régression.html#les-caractérisques-de-loffre" id="toc-les-caractérisques-de-loffre"><span class="toc-section-number">10.1.1</span> Les caractérisques de l’offre<span></span></a></li>
 </ul></li>
-<li><a href="régression.html#notes-prix-et-taux-doccupations" id="toc-notes-prix-et-taux-doccupations"><span class="toc-section-number">9.2</span> Notes, prix et taux d’occupations<span></span></a></li>
-<li><a href="régression.html#analyse-des-prix" id="toc-analyse-des-prix"><span class="toc-section-number">9.3</span> Analyse des prix<span></span></a></li>
-<li><a href="régression.html#analyser-la-demande-quest-ce-qui-détermine-le-taux-doccupation" id="toc-analyser-la-demande-quest-ce-qui-détermine-le-taux-doccupation"><span class="toc-section-number">9.4</span> Analyser la demande : qu’est ce qui détermine le taux d’occupation ?<span></span></a>
+<li><a href="régression.html#notes-prix-et-taux-doccupations" id="toc-notes-prix-et-taux-doccupations"><span class="toc-section-number">10.2</span> Notes, prix et taux d’occupations<span></span></a></li>
+<li><a href="régression.html#analyse-des-prix" id="toc-analyse-des-prix"><span class="toc-section-number">10.3</span> Analyse des prix<span></span></a></li>
+<li><a href="régression.html#analyser-la-demande-quest-ce-qui-détermine-le-taux-doccupation" id="toc-analyser-la-demande-quest-ce-qui-détermine-le-taux-doccupation"><span class="toc-section-number">10.4</span> Analyser la demande : qu’est ce qui détermine le taux d’occupation ?<span></span></a>
 <ul>
-<li><a href="régression.html#un-modèle-ols" id="toc-un-modèle-ols"><span class="toc-section-number">9.4.1</span> Un modèle OLS<span></span></a></li>
+<li><a href="régression.html#un-modèle-ols" id="toc-un-modèle-ols"><span class="toc-section-number">10.4.1</span> Un modèle OLS<span></span></a></li>
 </ul></li>
-<li><a href="régression.html#autres-modèles" id="toc-autres-modèles"><span class="toc-section-number">9.5</span> Autres modèles<span></span></a>
+<li><a href="régression.html#autres-modèles" id="toc-autres-modèles"><span class="toc-section-number">10.5</span> Autres modèles<span></span></a>
 <ul>
-<li><a href="régression.html#régression-logistique" id="toc-régression-logistique"><span class="toc-section-number">9.5.1</span> Régression logistique<span></span></a></li>
-<li><a href="régression.html#modèle-de-comptage" id="toc-modèle-de-comptage"><span class="toc-section-number">9.5.2</span> Modèle de comptage<span></span></a></li>
-<li><a href="régression.html#modèle-de-régression-beta" id="toc-modèle-de-régression-beta"><span class="toc-section-number">9.5.3</span> Modèle de régression beta<span></span></a></li>
-</ul></li>
-</ul></li>
-<li><a href="un-cas-danalyse-de-survie.html#un-cas-danalyse-de-survie" id="toc-un-cas-danalyse-de-survie"><span class="toc-section-number">10</span> Un cas d’analyse de survie<span></span></a></li>
-<li><a href="les-modèles-linéaires-hiérarchiques.html#les-modèles-linéaires-hiérarchiques" id="toc-les-modèles-linéaires-hiérarchiques"><span class="toc-section-number">11</span> Les modèles linéaires hiérarchiques<span></span></a>
-<ul>
-<li><a href="les-modèles-linéaires-hiérarchiques.html#en-guise-dintroduction" id="toc-en-guise-dintroduction"><span class="toc-section-number">11.1</span> en guise d’introduction<span></span></a>
-<ul>
-<li><a href="les-modèles-linéaires-hiérarchiques.html#section" id="toc-section"><span class="toc-section-number">11.1.1</span> </a></li>
+<li><a href="régression.html#régression-logistique" id="toc-régression-logistique"><span class="toc-section-number">10.5.1</span> Régression logistique<span></span></a></li>
+<li><a href="régression.html#modèle-de-comptage" id="toc-modèle-de-comptage"><span class="toc-section-number">10.5.2</span> Modèle de comptage<span></span></a></li>
+<li><a href="régression.html#modèle-de-régression-beta" id="toc-modèle-de-régression-beta"><span class="toc-section-number">10.5.3</span> Modèle de régression beta<span></span></a></li>
 </ul></li>
 </ul></li>
-<li><a href="modèle-de-survie.html#modèle-de-survie" id="toc-modèle-de-survie"><span class="toc-section-number">12</span> 10 - Modèle de survie<span></span></a></li>
-<li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#les-modèles-linéaires-hiérarchiques-hlm" id="toc-les-modèles-linéaires-hiérarchiques-hlm"><span class="toc-section-number">13</span> Les modèles linéaires hiérarchiques (HLM)<span></span></a>
+<li><a href="modèle-de-survie.html#modèle-de-survie" id="toc-modèle-de-survie"><span class="toc-section-number">11</span> 10 - Modèle de survie<span></span></a></li>
+<li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#les-modèles-linéaires-hiérarchiques-hlm" id="toc-les-modèles-linéaires-hiérarchiques-hlm"><span class="toc-section-number">12</span> Les modèles linéaires hiérarchiques (HLM)<span></span></a>
 <ul>
-<li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#en-guise-dintroduction-1" id="toc-en-guise-dintroduction-1"><span class="toc-section-number">13.1</span> en guise d’introduction<span></span></a></li>
-<li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#une-application" id="toc-une-application"><span class="toc-section-number">13.2</span> Une application<span></span></a></li>
-<li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#sem-avec-lavaan" id="toc-sem-avec-lavaan"><span class="toc-section-number">13.3</span> Sem avec Lavaan<span></span></a></li>
+<li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#en-guise-dintroduction" id="toc-en-guise-dintroduction"><span class="toc-section-number">12.1</span> en guise d’introduction<span></span></a></li>
+<li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#une-application" id="toc-une-application"><span class="toc-section-number">12.2</span> Une application<span></span></a></li>
+<li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#sem-avec-lavaan" id="toc-sem-avec-lavaan"><span class="toc-section-number">12.3</span> Sem avec Lavaan<span></span></a></li>
 </ul></li>
-<li><a href="arbres-de-décision.html#arbres-de-décision" id="toc-arbres-de-décision"><span class="toc-section-number">14</span> Arbres de Décision<span></span></a>
+<li><a href="arbres-de-décision.html#arbres-de-décision" id="toc-arbres-de-décision"><span class="toc-section-number">13</span> Arbres de Décision<span></span></a>
 <ul>
-<li><a href="arbres-de-décision.html#construire-un-arbre-de-décision" id="toc-construire-un-arbre-de-décision"><span class="toc-section-number">14.1</span> Construire un arbre de décision<span></span></a></li>
-<li><a href="arbres-de-décision.html#mise-en-oeuvre-avec-partykit" id="toc-mise-en-oeuvre-avec-partykit"><span class="toc-section-number">14.2</span> Mise en oeuvre avec Partykit<span></span></a></li>
-<li><a href="arbres-de-décision.html#forêts-aléatoires" id="toc-forêts-aléatoires"><span class="toc-section-number">14.3</span> forêts aléatoires<span></span></a></li>
+<li><a href="arbres-de-décision.html#construire-un-arbre-de-décision" id="toc-construire-un-arbre-de-décision"><span class="toc-section-number">13.1</span> Construire un arbre de décision<span></span></a></li>
+<li><a href="arbres-de-décision.html#mise-en-oeuvre-avec-partykit" id="toc-mise-en-oeuvre-avec-partykit"><span class="toc-section-number">13.2</span> Mise en oeuvre avec Partykit<span></span></a></li>
+<li><a href="arbres-de-décision.html#forêts-aléatoires" id="toc-forêts-aléatoires"><span class="toc-section-number">13.3</span> forêts aléatoires<span></span></a></li>
 </ul></li>
-<li><a href="premiers-éléments-de-machine-learning.html#premiers-éléments-de-machine-learning" id="toc-premiers-éléments-de-machine-learning"><span class="toc-section-number">15</span> Premiers éléments de Machine Learning<span></span></a>
+<li><a href="premiers-éléments-de-machine-learning.html#premiers-éléments-de-machine-learning" id="toc-premiers-éléments-de-machine-learning"><span class="toc-section-number">14</span> Premiers éléments de Machine Learning<span></span></a>
 <ul>
-<li><a href="premiers-éléments-de-machine-learning.html#une-typologie-de-modèles" id="toc-une-typologie-de-modèles"><span class="toc-section-number">15.1</span> une typologie de modèles<span></span></a>
+<li><a href="premiers-éléments-de-machine-learning.html#une-typologie-de-modèles" id="toc-une-typologie-de-modèles"><span class="toc-section-number">14.1</span> une typologie de modèles<span></span></a>
 <ul>
-<li><a href="premiers-éléments-de-machine-learning.html#le-modèle-linéaire" id="toc-le-modèle-linéaire"><span class="toc-section-number">15.1.1</span> le modèle linéaire<span></span></a></li>
-<li><a href="premiers-éléments-de-machine-learning.html#le-modèle-logit" id="toc-le-modèle-logit"><span class="toc-section-number">15.1.2</span> le modèle logit<span></span></a></li>
-<li><a href="premiers-éléments-de-machine-learning.html#les-modèles-à-régularisation" id="toc-les-modèles-à-régularisation"><span class="toc-section-number">15.1.3</span> les modèles à régularisation<span></span></a></li>
-<li><a href="premiers-éléments-de-machine-learning.html#les-random-forest" id="toc-les-random-forest"><span class="toc-section-number">15.1.4</span> les random forest<span></span></a></li>
+<li><a href="premiers-éléments-de-machine-learning.html#le-modèle-linéaire" id="toc-le-modèle-linéaire"><span class="toc-section-number">14.1.1</span> le modèle linéaire<span></span></a></li>
+<li><a href="premiers-éléments-de-machine-learning.html#le-modèle-logit" id="toc-le-modèle-logit"><span class="toc-section-number">14.1.2</span> le modèle logit<span></span></a></li>
+<li><a href="premiers-éléments-de-machine-learning.html#les-modèles-à-régularisation" id="toc-les-modèles-à-régularisation"><span class="toc-section-number">14.1.3</span> les modèles à régularisation<span></span></a></li>
+<li><a href="premiers-éléments-de-machine-learning.html#les-random-forest" id="toc-les-random-forest"><span class="toc-section-number">14.1.4</span> les random forest<span></span></a></li>
 </ul></li>
-<li><a href="premiers-éléments-de-machine-learning.html#forêts-aléatoires-1" id="toc-forêts-aléatoires-1"><span class="toc-section-number">15.2</span> forêts aléatoires<span></span></a></li>
+<li><a href="premiers-éléments-de-machine-learning.html#forêts-aléatoires-1" id="toc-forêts-aléatoires-1"><span class="toc-section-number">14.2</span> forêts aléatoires<span></span></a></li>
 </ul></li>
-<li><a href="annexes.html#annexes" id="toc-annexes"><span class="toc-section-number">16</span> 20 Annexes<span></span></a>
+<li><a href="annexes.html#annexes" id="toc-annexes"><span class="toc-section-number">15</span> 20 Annexes<span></span></a>
 <ul>
-<li><a href="annexes.html#données-eric-ess" id="toc-données-eric-ess"><span class="toc-section-number">16.1</span> Données Eric-ESS<span></span></a></li>
-<li><a href="annexes.html#fichier-airbnb-bruxelles" id="toc-fichier-airbnb-bruxelles"><span class="toc-section-number">16.2</span> fichier Airbnb Bruxelles<span></span></a></li>
-<li><a href="annexes.html#section-1" id="toc-section-1"><span class="toc-section-number">16.3</span> </a></li>
+<li><a href="annexes.html#données-eric-ess" id="toc-données-eric-ess"><span class="toc-section-number">15.1</span> Données Eric-ESS<span></span></a></li>
+<li><a href="annexes.html#fichier-airbnb-bruxelles" id="toc-fichier-airbnb-bruxelles"><span class="toc-section-number">15.2</span> fichier Airbnb Bruxelles<span></span></a></li>
+<li><a href="annexes.html#section" id="toc-section"><span class="toc-section-number">15.3</span> </a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -353,7 +344,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction aux Data Sciences</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction aux Data Sciences/nAvec r</a>
           </h1>
         </div>
 
@@ -361,13 +352,13 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="clus" class="section level1 hasAnchor" number="8">
-<h1><span class="header-section-number">Chapitre 8</span> Clustering<a href="clus.html#clus" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="clus" class="section level1 hasAnchor" number="9">
+<h1><span class="header-section-number">Chapitre 9</span> Clustering<a href="clus.html#clus" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>L’objectif des méthodes de classification automatique est de regrouper des observations qui se ressemblent sur un ensemble multidimensionnel de caractéristiques.</p>
 <p>insérer image</p>
 <p>Dans ce chapitre nous examinons deux familles de méthodes qui le distingue par la procédure de calcul : hierarchique d’une part, non hiérarchique de l’autre. On garde pour le chapître suivant l’étude des modèles de décisions qui ont une longue et riche histoire en marketing et ont préparé le développement de certains modèles de machine learning.</p>
-<div id="les-méthodes-hiérarchiques-ascendantes" class="section level2 hasAnchor" number="8.1">
-<h2><span class="header-section-number">8.1</span> Les méthodes hiérarchiques ascendantes<a href="clus.html#les-méthodes-hiérarchiques-ascendantes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="les-méthodes-hiérarchiques-ascendantes" class="section level2 hasAnchor" number="9.1">
+<h2><span class="header-section-number">9.1</span> Les méthodes hiérarchiques ascendantes<a href="clus.html#les-méthodes-hiérarchiques-ascendantes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Elles trouvent leur origine en biologie où dès les années 1930 Sokal et Sneath<span class="citation">(<a href="#ref-sneath_numerical_1973" role="doc-biblioref">Sneath and Sokal 1973</a>)</span> ont proposé des méthodes pour analyser l’évolution des espèces. L’idée réside dans la comparison de specimens sur la base d’un certains nombre de caractéristiques, d’abord des caractères phénotypiques, puis dans ce domaine en s’appuyant sur les caractéristiques génétiques. Nous n’entrerons pas dans une discussion plus approfondis mais signalons que ces choix déterminent des méthodes et des hypothèses très différentes et largement débattues (cladistique etc)</p>
 <p>Prenons le cas de différences phénotypiques et le tableau suivant.</p>
 <p>tableau</p>
@@ -379,86 +370,86 @@ div.csl-indent {
 <li>le choix de la mesure de dissimilarités : Une distance euclidienne ? Son carré ? Une distance binaire comme l’indice de Jaccard?</li>
 <li>le choix de la méthode d’agrégation : que choisit-on pour calculer la distance entre deux classes A et B : la plus grande des distances entre les éléments de A et ceux de B ? La plus petite ? La distance moyennes, la médiane ?</li>
 </ul>
-<div id="mise-en-oeuvre" class="section level3 hasAnchor" number="8.1.1">
-<h3><span class="header-section-number">8.1.1</span> Mise en oeuvre<a href="clus.html#mise-en-oeuvre" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="mise-en-oeuvre" class="section level3 hasAnchor" number="9.1.1">
+<h3><span class="header-section-number">9.1.1</span> Mise en oeuvre<a href="clus.html#mise-en-oeuvre" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>On utilise l’enquête d’happydemics sur la période de fin mars.</p>
-<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="clus.html#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
-<span id="cb109-2"><a href="clus.html#cb109-2" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;./data/last.rds&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb109-3"><a href="clus.html#cb109-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date2<span class="sc">&gt;=</span><span class="fu">make_datetime</span>(<span class="at">year=</span><span class="dv">2022</span>, <span class="at">month=</span><span class="dv">3</span>, <span class="at">day =</span> <span class="dv">19</span>))</span>
-<span id="cb109-4"><a href="clus.html#cb109-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb109-5"><a href="clus.html#cb109-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb109-6"><a href="clus.html#cb109-6" aria-hidden="true" tabindex="-1"></a>n_t<span class="ot">&lt;-</span><span class="fu">nrow</span>(df)</span>
-<span id="cb109-7"><a href="clus.html#cb109-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb109-8"><a href="clus.html#cb109-8" aria-hidden="true" tabindex="-1"></a>period<span class="ot">&lt;-</span><span class="st">&quot; apres le 19 mars&quot;</span></span></code></pre></div>
+<div class="sourceCode" id="cb101"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb101-1"><a href="clus.html#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb101-2"><a href="clus.html#cb101-2" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;./data/last.rds&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb101-3"><a href="clus.html#cb101-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(date2<span class="sc">&gt;=</span><span class="fu">make_datetime</span>(<span class="at">year=</span><span class="dv">2022</span>, <span class="at">month=</span><span class="dv">3</span>, <span class="at">day =</span> <span class="dv">19</span>))</span>
+<span id="cb101-4"><a href="clus.html#cb101-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb101-5"><a href="clus.html#cb101-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb101-6"><a href="clus.html#cb101-6" aria-hidden="true" tabindex="-1"></a>n_t<span class="ot">&lt;-</span><span class="fu">nrow</span>(df)</span>
+<span id="cb101-7"><a href="clus.html#cb101-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb101-8"><a href="clus.html#cb101-8" aria-hidden="true" tabindex="-1"></a>period<span class="ot">&lt;-</span><span class="st">&quot; apres le 19 mars&quot;</span></span></code></pre></div>
 <p>Il y a un trick de traitement des données. La question QCM a été encodée en une colonne, ajoutant les chaines de caractère des 16 thématiques avec un séparateurs $ .</p>
-<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="clus.html#cb110-1" aria-hidden="true" tabindex="-1"></a>foo <span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(<span class="fu">str_split_fixed</span>(df<span class="sc">$</span>themes, <span class="st">&quot;</span><span class="sc">\\</span><span class="st">$&quot;</span>,<span class="at">n=</span><span class="dv">3</span>)) <span class="co"># On splite la colonne thème en autant de thème possibles</span></span>
-<span id="cb110-2"><a href="clus.html#cb110-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb110-3"><a href="clus.html#cb110-3" aria-hidden="true" tabindex="-1"></a>foo1<span class="ot">&lt;-</span><span class="fu">cbind</span>(df,foo)<span class="sc">%&gt;%</span></span>
-<span id="cb110-4"><a href="clus.html#cb110-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">V1=</span><span class="dv">23</span>, <span class="at">V2=</span><span class="dv">24</span>, <span class="at">V3=</span><span class="dv">25</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb110-5"><a href="clus.html#cb110-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(id,V1,V2,V3)<span class="sc">%&gt;%</span> </span>
-<span id="cb110-6"><a href="clus.html#cb110-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">!</span>id,<span class="at">names_to=</span><span class="st">&quot;rank&quot;</span>,<span class="at">values_to=</span><span class="st">&quot;theme&quot;</span>)<span class="sc">%&gt;%</span> </span>
-<span id="cb110-7"><a href="clus.html#cb110-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rank=</span><span class="fu">ifelse</span>(rank<span class="sc">==</span><span class="st">&quot;V1&quot;</span>, <span class="dv">3</span>,<span class="fu">ifelse</span>(rank<span class="sc">==</span><span class="st">&quot;V2&quot;</span>, <span class="dv">2</span>, <span class="fu">ifelse</span>(rank<span class="sc">==</span><span class="st">&quot;V3&quot;</span>,<span class="dv">1</span>, <span class="dv">0</span>)))) <span class="sc">%&gt;%</span> <span class="co">#on recode les rangs par un facteur d&#39;importance de à 0 à 3</span></span>
-<span id="cb110-8"><a href="clus.html#cb110-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(theme<span class="sc">!=</span><span class="st">&quot;&quot;</span>)<span class="sc">%&gt;%</span>  </span>
-<span id="cb110-9"><a href="clus.html#cb110-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">theme=</span><span class="fu">str_trim</span>(theme))<span class="sc">%&gt;%</span></span>
-<span id="cb110-10"><a href="clus.html#cb110-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">r=</span><span class="fu">as.numeric</span>(rank))<span class="sc">%&gt;%</span></span>
-<span id="cb110-11"><a href="clus.html#cb110-11" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>rank)</span>
-<span id="cb110-12"><a href="clus.html#cb110-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb110-13"><a href="clus.html#cb110-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb110-14"><a href="clus.html#cb110-14" aria-hidden="true" tabindex="-1"></a>n1<span class="ot">&lt;-</span><span class="fu">nrow</span>(df) <span class="co"># le nombre d&#39;individus</span></span>
-<span id="cb110-15"><a href="clus.html#cb110-15" aria-hidden="true" tabindex="-1"></a>n2<span class="ot">&lt;-</span><span class="fu">nrow</span>(foo1) <span class="co">#le nombre de mentions</span></span></code></pre></div>
+<div class="sourceCode" id="cb102"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb102-1"><a href="clus.html#cb102-1" aria-hidden="true" tabindex="-1"></a>foo <span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(<span class="fu">str_split_fixed</span>(df<span class="sc">$</span>themes, <span class="st">&quot;</span><span class="sc">\\</span><span class="st">$&quot;</span>,<span class="at">n=</span><span class="dv">3</span>)) <span class="co"># On splite la colonne thème en autant de thème possibles</span></span>
+<span id="cb102-2"><a href="clus.html#cb102-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-3"><a href="clus.html#cb102-3" aria-hidden="true" tabindex="-1"></a>foo1<span class="ot">&lt;-</span><span class="fu">cbind</span>(df,foo)<span class="sc">%&gt;%</span></span>
+<span id="cb102-4"><a href="clus.html#cb102-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">V1=</span><span class="dv">23</span>, <span class="at">V2=</span><span class="dv">24</span>, <span class="at">V3=</span><span class="dv">25</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb102-5"><a href="clus.html#cb102-5" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(id,V1,V2,V3)<span class="sc">%&gt;%</span> </span>
+<span id="cb102-6"><a href="clus.html#cb102-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">!</span>id,<span class="at">names_to=</span><span class="st">&quot;rank&quot;</span>,<span class="at">values_to=</span><span class="st">&quot;theme&quot;</span>)<span class="sc">%&gt;%</span> </span>
+<span id="cb102-7"><a href="clus.html#cb102-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">rank=</span><span class="fu">ifelse</span>(rank<span class="sc">==</span><span class="st">&quot;V1&quot;</span>, <span class="dv">3</span>,<span class="fu">ifelse</span>(rank<span class="sc">==</span><span class="st">&quot;V2&quot;</span>, <span class="dv">2</span>, <span class="fu">ifelse</span>(rank<span class="sc">==</span><span class="st">&quot;V3&quot;</span>,<span class="dv">1</span>, <span class="dv">0</span>)))) <span class="sc">%&gt;%</span> <span class="co">#on recode les rangs par un facteur d&#39;importance de à 0 à 3</span></span>
+<span id="cb102-8"><a href="clus.html#cb102-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(theme<span class="sc">!=</span><span class="st">&quot;&quot;</span>)<span class="sc">%&gt;%</span>  </span>
+<span id="cb102-9"><a href="clus.html#cb102-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">theme=</span><span class="fu">str_trim</span>(theme))<span class="sc">%&gt;%</span></span>
+<span id="cb102-10"><a href="clus.html#cb102-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">r=</span><span class="fu">as.numeric</span>(rank))<span class="sc">%&gt;%</span></span>
+<span id="cb102-11"><a href="clus.html#cb102-11" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>rank)</span>
+<span id="cb102-12"><a href="clus.html#cb102-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-13"><a href="clus.html#cb102-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb102-14"><a href="clus.html#cb102-14" aria-hidden="true" tabindex="-1"></a>n1<span class="ot">&lt;-</span><span class="fu">nrow</span>(df) <span class="co"># le nombre d&#39;individus</span></span>
+<span id="cb102-15"><a href="clus.html#cb102-15" aria-hidden="true" tabindex="-1"></a>n2<span class="ot">&lt;-</span><span class="fu">nrow</span>(foo1) <span class="co">#le nombre de mentions</span></span></code></pre></div>
 <p>Dans une première étape faisons le bilan global</p>
-<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="clus.html#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="co">#on calcule la proportion et la pénétration des items</span></span>
-<span id="cb111-2"><a href="clus.html#cb111-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb111-3"><a href="clus.html#cb111-3" aria-hidden="true" tabindex="-1"></a>foo2 <span class="ot">&lt;-</span>foo1<span class="sc">%&gt;%</span> </span>
-<span id="cb111-4"><a href="clus.html#cb111-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">m=</span><span class="dv">1</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb111-5"><a href="clus.html#cb111-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(theme)<span class="sc">%&gt;%</span></span>
-<span id="cb111-6"><a href="clus.html#cb111-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">frequence=</span><span class="fu">sum</span>(m),</span>
-<span id="cb111-7"><a href="clus.html#cb111-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">proportion=</span>frequence<span class="sc">/</span>n2,</span>
-<span id="cb111-8"><a href="clus.html#cb111-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">penetration=</span>frequence<span class="sc">/</span>n1)</span>
-<span id="cb111-9"><a href="clus.html#cb111-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb111-10"><a href="clus.html#cb111-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb111-11"><a href="clus.html#cb111-11" aria-hidden="true" tabindex="-1"></a>col<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;#F1BB7B&quot;</span>,</span>
-<span id="cb111-12"><a href="clus.html#cb111-12" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;#FD6467&quot;</span>,</span>
-<span id="cb111-13"><a href="clus.html#cb111-13" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;#FD6467&quot;</span>,</span>
-<span id="cb111-14"><a href="clus.html#cb111-14" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;#FD6467&quot;</span>,</span>
-<span id="cb111-15"><a href="clus.html#cb111-15" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;#5B1A18&quot;</span>,</span>
-<span id="cb111-16"><a href="clus.html#cb111-16" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;#5B1A18&quot;</span>,</span>
-<span id="cb111-17"><a href="clus.html#cb111-17" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;#5B1A18&quot;</span>,</span>
-<span id="cb111-18"><a href="clus.html#cb111-18" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;#F1BB7B&quot;</span>,</span>
-<span id="cb111-19"><a href="clus.html#cb111-19" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;#FD6467&quot;</span>,</span>
-<span id="cb111-20"><a href="clus.html#cb111-20" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;#F1BB7B&quot;</span>,</span>
-<span id="cb111-21"><a href="clus.html#cb111-21" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;#F1BB7B&quot;</span>,</span>
-<span id="cb111-22"><a href="clus.html#cb111-22" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;#F1BB7B&quot;</span>,</span>
-<span id="cb111-23"><a href="clus.html#cb111-23" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;#F1BB7B&quot;</span>,</span>
-<span id="cb111-24"><a href="clus.html#cb111-24" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;#5B1A18&quot;</span>,</span>
-<span id="cb111-25"><a href="clus.html#cb111-25" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;#FD6467&quot;</span>,</span>
-<span id="cb111-26"><a href="clus.html#cb111-26" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;#F1BB7B&quot;</span>,</span>
-<span id="cb111-27"><a href="clus.html#cb111-27" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;#F1BB7B&quot;</span></span>
-<span id="cb111-28"><a href="clus.html#cb111-28" aria-hidden="true" tabindex="-1"></a>       )</span>
-<span id="cb111-29"><a href="clus.html#cb111-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb111-30"><a href="clus.html#cb111-30" aria-hidden="true" tabindex="-1"></a>brks<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.3</span>,<span class="fl">0.4</span>,<span class="fl">0.5</span>,<span class="fl">0.6</span>)</span>
-<span id="cb111-31"><a href="clus.html#cb111-31" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(foo2,<span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(theme, frequence), <span class="at">y=</span>penetration))<span class="sc">+</span></span>
-<span id="cb111-32"><a href="clus.html#cb111-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="fu">aes</span>(<span class="at">fill=</span>theme))<span class="sc">+</span></span>
-<span id="cb111-33"><a href="clus.html#cb111-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()<span class="sc">+</span></span>
-<span id="cb111-34"><a href="clus.html#cb111-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span>col)<span class="sc">+</span></span>
-<span id="cb111-35"><a href="clus.html#cb111-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Pénétration des thèmes dans la population&quot;</span>,</span>
-<span id="cb111-36"><a href="clus.html#cb111-36" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="cn">NULL</span>, </span>
-<span id="cb111-37"><a href="clus.html#cb111-37" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span> <span class="st">&quot;% de la population&quot;</span>, </span>
-<span id="cb111-38"><a href="clus.html#cb111-38" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">&quot;data @happydemics dataviz @benavent&quot;</span>)<span class="sc">+</span></span>
-<span id="cb111-39"><a href="clus.html#cb111-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
-<span id="cb111-40"><a href="clus.html#cb111-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)<span class="sc">+</span> </span>
-<span id="cb111-41"><a href="clus.html#cb111-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> brks, <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent</span>(brks))</span></code></pre></div>
+<div class="sourceCode" id="cb103"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb103-1"><a href="clus.html#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="co">#on calcule la proportion et la pénétration des items</span></span>
+<span id="cb103-2"><a href="clus.html#cb103-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-3"><a href="clus.html#cb103-3" aria-hidden="true" tabindex="-1"></a>foo2 <span class="ot">&lt;-</span>foo1<span class="sc">%&gt;%</span> </span>
+<span id="cb103-4"><a href="clus.html#cb103-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">m=</span><span class="dv">1</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb103-5"><a href="clus.html#cb103-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(theme)<span class="sc">%&gt;%</span></span>
+<span id="cb103-6"><a href="clus.html#cb103-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">frequence=</span><span class="fu">sum</span>(m),</span>
+<span id="cb103-7"><a href="clus.html#cb103-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">proportion=</span>frequence<span class="sc">/</span>n2,</span>
+<span id="cb103-8"><a href="clus.html#cb103-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">penetration=</span>frequence<span class="sc">/</span>n1)</span>
+<span id="cb103-9"><a href="clus.html#cb103-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-10"><a href="clus.html#cb103-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-11"><a href="clus.html#cb103-11" aria-hidden="true" tabindex="-1"></a>col<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">&quot;#F1BB7B&quot;</span>,</span>
+<span id="cb103-12"><a href="clus.html#cb103-12" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;#FD6467&quot;</span>,</span>
+<span id="cb103-13"><a href="clus.html#cb103-13" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;#FD6467&quot;</span>,</span>
+<span id="cb103-14"><a href="clus.html#cb103-14" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;#FD6467&quot;</span>,</span>
+<span id="cb103-15"><a href="clus.html#cb103-15" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;#5B1A18&quot;</span>,</span>
+<span id="cb103-16"><a href="clus.html#cb103-16" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;#5B1A18&quot;</span>,</span>
+<span id="cb103-17"><a href="clus.html#cb103-17" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;#5B1A18&quot;</span>,</span>
+<span id="cb103-18"><a href="clus.html#cb103-18" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;#F1BB7B&quot;</span>,</span>
+<span id="cb103-19"><a href="clus.html#cb103-19" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;#FD6467&quot;</span>,</span>
+<span id="cb103-20"><a href="clus.html#cb103-20" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;#F1BB7B&quot;</span>,</span>
+<span id="cb103-21"><a href="clus.html#cb103-21" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;#F1BB7B&quot;</span>,</span>
+<span id="cb103-22"><a href="clus.html#cb103-22" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;#F1BB7B&quot;</span>,</span>
+<span id="cb103-23"><a href="clus.html#cb103-23" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;#F1BB7B&quot;</span>,</span>
+<span id="cb103-24"><a href="clus.html#cb103-24" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;#5B1A18&quot;</span>,</span>
+<span id="cb103-25"><a href="clus.html#cb103-25" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;#FD6467&quot;</span>,</span>
+<span id="cb103-26"><a href="clus.html#cb103-26" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;#F1BB7B&quot;</span>,</span>
+<span id="cb103-27"><a href="clus.html#cb103-27" aria-hidden="true" tabindex="-1"></a>       <span class="st">&quot;#F1BB7B&quot;</span></span>
+<span id="cb103-28"><a href="clus.html#cb103-28" aria-hidden="true" tabindex="-1"></a>       )</span>
+<span id="cb103-29"><a href="clus.html#cb103-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb103-30"><a href="clus.html#cb103-30" aria-hidden="true" tabindex="-1"></a>brks<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.3</span>,<span class="fl">0.4</span>,<span class="fl">0.5</span>,<span class="fl">0.6</span>)</span>
+<span id="cb103-31"><a href="clus.html#cb103-31" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(foo2,<span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(theme, frequence), <span class="at">y=</span>penetration))<span class="sc">+</span></span>
+<span id="cb103-32"><a href="clus.html#cb103-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="fu">aes</span>(<span class="at">fill=</span>theme))<span class="sc">+</span></span>
+<span id="cb103-33"><a href="clus.html#cb103-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()<span class="sc">+</span></span>
+<span id="cb103-34"><a href="clus.html#cb103-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span>col)<span class="sc">+</span></span>
+<span id="cb103-35"><a href="clus.html#cb103-35" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Pénétration des thèmes dans la population&quot;</span>,</span>
+<span id="cb103-36"><a href="clus.html#cb103-36" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="cn">NULL</span>, </span>
+<span id="cb103-37"><a href="clus.html#cb103-37" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span> <span class="st">&quot;% de la population&quot;</span>, </span>
+<span id="cb103-38"><a href="clus.html#cb103-38" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption =</span> <span class="st">&quot;data @happydemics dataviz @benavent&quot;</span>)<span class="sc">+</span></span>
+<span id="cb103-39"><a href="clus.html#cb103-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb103-40"><a href="clus.html#cb103-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)<span class="sc">+</span> </span>
+<span id="cb103-41"><a href="clus.html#cb103-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> brks, <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent</span>(brks))</span></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/0812-1.png" width="672" /></p>
-<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="clus.html#cb112-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="fu">paste0</span>(<span class="st">&quot;./plot/theme_&quot;</span>,period,<span class="st">&quot;.jpg&quot;</span>),<span class="at">plot=</span><span class="fu">last_plot</span>(), <span class="at">width =</span> <span class="dv">27</span>, <span class="at">height =</span> <span class="dv">17</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb104"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb104-1"><a href="clus.html#cb104-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="fu">paste0</span>(<span class="st">&quot;./plot/theme_&quot;</span>,period,<span class="st">&quot;.jpg&quot;</span>),<span class="at">plot=</span><span class="fu">last_plot</span>(), <span class="at">width =</span> <span class="dv">27</span>, <span class="at">height =</span> <span class="dv">17</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>)</span></code></pre></div>
 </div>
 </div>
-<div id="segmentation-simplifiée" class="section level2 hasAnchor" number="8.2">
-<h2><span class="header-section-number">8.2</span> segmentation simplifiée<a href="clus.html#segmentation-simplifiée" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="segmentation-simplifiée" class="section level2 hasAnchor" number="9.2">
+<h2><span class="header-section-number">9.2</span> segmentation simplifiée<a href="clus.html#segmentation-simplifiée" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>On commence va reconstruire un tableaux des individus x les thèmes. On garde les rangs comme indicateurs de l’importance .</p>
-<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="clus.html#cb113-1" aria-hidden="true" tabindex="-1"></a>foo3<span class="ot">&lt;-</span>foo1<span class="sc">%&gt;%</span>  </span>
-<span id="cb113-2"><a href="clus.html#cb113-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from=</span><span class="st">&quot;theme&quot;</span>, <span class="at">values_from=</span><span class="st">&quot;r&quot;</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb113-3"><a href="clus.html#cb113-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">replace</span>(<span class="fu">is.na</span>(.), <span class="dv">0</span>)</span>
-<span id="cb113-4"><a href="clus.html#cb113-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(foo3, <span class="dv">8</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb105"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb105-1"><a href="clus.html#cb105-1" aria-hidden="true" tabindex="-1"></a>foo3<span class="ot">&lt;-</span>foo1<span class="sc">%&gt;%</span>  </span>
+<span id="cb105-2"><a href="clus.html#cb105-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from=</span><span class="st">&quot;theme&quot;</span>, <span class="at">values_from=</span><span class="st">&quot;r&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb105-3"><a href="clus.html#cb105-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">replace</span>(<span class="fu">is.na</span>(.), <span class="dv">0</span>)</span>
+<span id="cb105-4"><a href="clus.html#cb105-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(foo3, <span class="dv">8</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 8 x 17
 ##       id L&#39;imm~1 Le po~2 L&#39;édu~3 L&#39;éga~4 Les r~5 L&#39;env~6 Le se~7 L&#39;ins~8 La sa~9
 ##    &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
@@ -476,235 +467,234 @@ div.csl-indent {
 ## #   `La culture` &lt;dbl&gt;, and abbreviated variable names 1: `L&#39;immigration`,
 ## #   2: `Le pouvoir d&#39;achat`, 3: `L&#39;éducation`, 4: `L&#39;égalité Homme/Femme`,
 ## #   5: `Les retraites`, 6: `L&#39;environnement`, 7: `Le service public`,
-## #   8: `L&#39;insécurité`, 9: `La santé`
-## # i Use `colnames()` to see all variable names</code></pre>
+## #   8: `L&#39;insécurité`, 9: `La santé`</code></pre>
 <p>On calcule un tableau de distance et on performe la classification automatique. dans cet essai on tente un modèle à 8 groupes.</p>
-<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="clus.html#cb115-1" aria-hidden="true" tabindex="-1"></a>foo4<span class="ot">&lt;-</span>foo3[,<span class="dv">2</span><span class="sc">:</span><span class="dv">17</span>]</span>
-<span id="cb115-2"><a href="clus.html#cb115-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb115-3"><a href="clus.html#cb115-3" aria-hidden="true" tabindex="-1"></a><span class="co">#distance</span></span>
-<span id="cb115-4"><a href="clus.html#cb115-4" aria-hidden="true" tabindex="-1"></a>d<span class="ot">&lt;-</span><span class="fu">dist</span>(foo4)</span>
-<span id="cb115-5"><a href="clus.html#cb115-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb115-6"><a href="clus.html#cb115-6" aria-hidden="true" tabindex="-1"></a><span class="co">#clustering</span></span>
-<span id="cb115-7"><a href="clus.html#cb115-7" aria-hidden="true" tabindex="-1"></a>h.D  <span class="ot">&lt;-</span> <span class="fu">hclust</span>(d, <span class="at">method=</span><span class="st">&quot;ward.D&quot;</span>)</span>
-<span id="cb115-8"><a href="clus.html#cb115-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb115-9"><a href="clus.html#cb115-9" aria-hidden="true" tabindex="-1"></a><span class="co">#dendogramme</span></span>
-<span id="cb115-10"><a href="clus.html#cb115-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(h.D,  <span class="at">hang=</span><span class="sc">-</span><span class="dv">1</span>)</span>
-<span id="cb115-11"><a href="clus.html#cb115-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb115-12"><a href="clus.html#cb115-12" aria-hidden="true" tabindex="-1"></a><span class="co">#identification des clusters</span></span>
-<span id="cb115-13"><a href="clus.html#cb115-13" aria-hidden="true" tabindex="-1"></a><span class="fu">rect.hclust</span>(h.D , <span class="at">k =</span> <span class="dv">8</span>, <span class="at">border =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb107"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb107-1"><a href="clus.html#cb107-1" aria-hidden="true" tabindex="-1"></a>foo4<span class="ot">&lt;-</span>foo3[,<span class="dv">2</span><span class="sc">:</span><span class="dv">17</span>]</span>
+<span id="cb107-2"><a href="clus.html#cb107-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb107-3"><a href="clus.html#cb107-3" aria-hidden="true" tabindex="-1"></a><span class="co">#distance</span></span>
+<span id="cb107-4"><a href="clus.html#cb107-4" aria-hidden="true" tabindex="-1"></a>d<span class="ot">&lt;-</span><span class="fu">dist</span>(foo4)</span>
+<span id="cb107-5"><a href="clus.html#cb107-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb107-6"><a href="clus.html#cb107-6" aria-hidden="true" tabindex="-1"></a><span class="co">#clustering</span></span>
+<span id="cb107-7"><a href="clus.html#cb107-7" aria-hidden="true" tabindex="-1"></a>h.D  <span class="ot">&lt;-</span> <span class="fu">hclust</span>(d, <span class="at">method=</span><span class="st">&quot;ward.D&quot;</span>)</span>
+<span id="cb107-8"><a href="clus.html#cb107-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb107-9"><a href="clus.html#cb107-9" aria-hidden="true" tabindex="-1"></a><span class="co">#dendogramme</span></span>
+<span id="cb107-10"><a href="clus.html#cb107-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(h.D,  <span class="at">hang=</span><span class="sc">-</span><span class="dv">1</span>)</span>
+<span id="cb107-11"><a href="clus.html#cb107-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb107-12"><a href="clus.html#cb107-12" aria-hidden="true" tabindex="-1"></a><span class="co">#identification des clusters</span></span>
+<span id="cb107-13"><a href="clus.html#cb107-13" aria-hidden="true" tabindex="-1"></a><span class="fu">rect.hclust</span>(h.D , <span class="at">k =</span> <span class="dv">8</span>, <span class="at">border =</span> <span class="dv">2</span><span class="sc">:</span><span class="dv">6</span>)</span></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/0814-1.png" width="672" /></p>
-<div class="sourceCode" id="cb116"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb116-1"><a href="clus.html#cb116-1" aria-hidden="true" tabindex="-1"></a><span class="co">#attribution des clusters</span></span>
-<span id="cb116-2"><a href="clus.html#cb116-2" aria-hidden="true" tabindex="-1"></a>memb <span class="ot">&lt;-</span> <span class="fu">cutree</span>(h.D, <span class="at">k =</span> <span class="dv">8</span>)</span>
-<span id="cb116-3"><a href="clus.html#cb116-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb116-4"><a href="clus.html#cb116-4" aria-hidden="true" tabindex="-1"></a><span class="co">#maj du fichier de données avec l&#39;appartenace des individus aux groupes</span></span>
-<span id="cb116-5"><a href="clus.html#cb116-5" aria-hidden="true" tabindex="-1"></a>foo5<span class="ot">&lt;-</span><span class="fu">cbind</span>(foo4, memb)</span></code></pre></div>
+<div class="sourceCode" id="cb108"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb108-1"><a href="clus.html#cb108-1" aria-hidden="true" tabindex="-1"></a><span class="co">#attribution des clusters</span></span>
+<span id="cb108-2"><a href="clus.html#cb108-2" aria-hidden="true" tabindex="-1"></a>memb <span class="ot">&lt;-</span> <span class="fu">cutree</span>(h.D, <span class="at">k =</span> <span class="dv">8</span>)</span>
+<span id="cb108-3"><a href="clus.html#cb108-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb108-4"><a href="clus.html#cb108-4" aria-hidden="true" tabindex="-1"></a><span class="co">#maj du fichier de données avec l&#39;appartenace des individus aux groupes</span></span>
+<span id="cb108-5"><a href="clus.html#cb108-5" aria-hidden="true" tabindex="-1"></a>foo5<span class="ot">&lt;-</span><span class="fu">cbind</span>(foo4, memb)</span></code></pre></div>
 <p>Il reste à décrire les différents types sur les 16 variables qui les décrivent. On choisit une méthode de barre ordonnée avec un facetting par groupe.</p>
-<div class="sourceCode" id="cb117"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb117-1"><a href="clus.html#cb117-1" aria-hidden="true" tabindex="-1"></a>foo6<span class="ot">&lt;-</span>foo5 <span class="sc">%&gt;%</span> </span>
-<span id="cb117-2"><a href="clus.html#cb117-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(memb) <span class="sc">%&gt;%</span></span>
-<span id="cb117-3"><a href="clus.html#cb117-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>memb,<span class="at">names_to=</span><span class="st">&quot;Thèmes&quot;</span>,<span class="at">values_to=</span><span class="st">&quot;Valeurs&quot;</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb117-4"><a href="clus.html#cb117-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(memb,Thèmes)<span class="sc">%&gt;%</span></span>
-<span id="cb117-5"><a href="clus.html#cb117-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Valeurs=</span><span class="fu">mean</span>(Valeurs))</span>
-<span id="cb117-6"><a href="clus.html#cb117-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-7"><a href="clus.html#cb117-7" aria-hidden="true" tabindex="-1"></a>foo6<span class="sc">$</span>group[foo6<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">1</span>]<span class="ot">&lt;-</span><span class="st">&quot;multicritère&quot;</span></span>
-<span id="cb117-8"><a href="clus.html#cb117-8" aria-hidden="true" tabindex="-1"></a>foo6<span class="sc">$</span>group[foo6<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">2</span>]<span class="ot">&lt;-</span><span class="st">&quot;Santé/Educ&quot;</span></span>
-<span id="cb117-9"><a href="clus.html#cb117-9" aria-hidden="true" tabindex="-1"></a>foo6<span class="sc">$</span>group[foo6<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">3</span>]<span class="ot">&lt;-</span><span class="st">&quot;Pouvoir d&#39;achat/nretraites&quot;</span></span>
-<span id="cb117-10"><a href="clus.html#cb117-10" aria-hidden="true" tabindex="-1"></a>foo6<span class="sc">$</span>group[foo6<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">5</span>]<span class="ot">&lt;-</span><span class="st">&quot;Immigration/nInsécurité &quot;</span></span>
-<span id="cb117-11"><a href="clus.html#cb117-11" aria-hidden="true" tabindex="-1"></a>foo6<span class="sc">$</span>group[foo6<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">4</span>]<span class="ot">&lt;-</span><span class="st">&quot;égalité h/F&quot;</span></span>
-<span id="cb117-12"><a href="clus.html#cb117-12" aria-hidden="true" tabindex="-1"></a>foo6<span class="sc">$</span>group[foo6<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">6</span>]<span class="ot">&lt;-</span><span class="st">&quot;Pouvoir d&#39;achat/nSanté&quot;</span></span>
-<span id="cb117-13"><a href="clus.html#cb117-13" aria-hidden="true" tabindex="-1"></a>foo6<span class="sc">$</span>group[foo6<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">7</span>]<span class="ot">&lt;-</span><span class="st">&quot;Economie&quot;</span></span>
-<span id="cb117-14"><a href="clus.html#cb117-14" aria-hidden="true" tabindex="-1"></a>foo6<span class="sc">$</span>group[foo6<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">8</span>]<span class="ot">&lt;-</span><span class="st">&quot;Environnement&quot;</span></span>
-<span id="cb117-15"><a href="clus.html#cb117-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-16"><a href="clus.html#cb117-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
-<span id="cb117-17"><a href="clus.html#cb117-17" aria-hidden="true" tabindex="-1"></a>brks<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">0.5</span>,<span class="dv">1</span>,<span class="fl">1.5</span>,<span class="dv">2</span>, <span class="fl">2.5</span>,<span class="dv">3</span>)</span>
-<span id="cb117-18"><a href="clus.html#cb117-18" aria-hidden="true" tabindex="-1"></a>p2<span class="ot">&lt;-</span> <span class="fu">ggplot</span>(foo6, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(Thèmes, Valeurs), <span class="at">y=</span>Valeurs))<span class="sc">+</span></span>
-<span id="cb117-19"><a href="clus.html#cb117-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="fu">aes</span>(<span class="at">fill=</span><span class="fu">as.factor</span>(Thèmes)))<span class="sc">+</span></span>
-<span id="cb117-20"><a href="clus.html#cb117-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(group), <span class="at">ncol=</span><span class="dv">4</span>)<span class="sc">+</span></span>
-<span id="cb117-21"><a href="clus.html#cb117-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()<span class="sc">+</span></span>
-<span id="cb117-22"><a href="clus.html#cb117-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span>col)<span class="sc">+</span></span>
-<span id="cb117-23"><a href="clus.html#cb117-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
-<span id="cb117-24"><a href="clus.html#cb117-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks=</span>brks)<span class="sc">+</span> </span>
-<span id="cb117-25"><a href="clus.html#cb117-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>, <span class="at">axis.text=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">7</span>),<span class="at">axis.text.x=</span><span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>, <span class="at">size=</span><span class="dv">2</span>))<span class="sc">+</span> </span>
-<span id="cb117-26"><a href="clus.html#cb117-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Profils des segments</span><span class="sc">\n</span><span class="st">par importance des thématiques&quot;</span>, <span class="at">x=</span><span class="cn">NULL</span>, <span class="at">y=</span><span class="st">&quot;importance moyenne (de 0 à 3)&quot;</span>) </span>
-<span id="cb117-27"><a href="clus.html#cb117-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb117-28"><a href="clus.html#cb117-28" aria-hidden="true" tabindex="-1"></a>p2</span></code></pre></div>
+<div class="sourceCode" id="cb109"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb109-1"><a href="clus.html#cb109-1" aria-hidden="true" tabindex="-1"></a>foo6<span class="ot">&lt;-</span>foo5 <span class="sc">%&gt;%</span> </span>
+<span id="cb109-2"><a href="clus.html#cb109-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(memb) <span class="sc">%&gt;%</span></span>
+<span id="cb109-3"><a href="clus.html#cb109-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_longer</span>(<span class="sc">-</span>memb,<span class="at">names_to=</span><span class="st">&quot;Thèmes&quot;</span>,<span class="at">values_to=</span><span class="st">&quot;Valeurs&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb109-4"><a href="clus.html#cb109-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(memb,Thèmes)<span class="sc">%&gt;%</span></span>
+<span id="cb109-5"><a href="clus.html#cb109-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">Valeurs=</span><span class="fu">mean</span>(Valeurs))</span>
+<span id="cb109-6"><a href="clus.html#cb109-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-7"><a href="clus.html#cb109-7" aria-hidden="true" tabindex="-1"></a>foo6<span class="sc">$</span>group[foo6<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">1</span>]<span class="ot">&lt;-</span><span class="st">&quot;multicritère&quot;</span></span>
+<span id="cb109-8"><a href="clus.html#cb109-8" aria-hidden="true" tabindex="-1"></a>foo6<span class="sc">$</span>group[foo6<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">2</span>]<span class="ot">&lt;-</span><span class="st">&quot;Santé/Educ&quot;</span></span>
+<span id="cb109-9"><a href="clus.html#cb109-9" aria-hidden="true" tabindex="-1"></a>foo6<span class="sc">$</span>group[foo6<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">3</span>]<span class="ot">&lt;-</span><span class="st">&quot;Pouvoir d&#39;achat/nretraites&quot;</span></span>
+<span id="cb109-10"><a href="clus.html#cb109-10" aria-hidden="true" tabindex="-1"></a>foo6<span class="sc">$</span>group[foo6<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">5</span>]<span class="ot">&lt;-</span><span class="st">&quot;Immigration/nInsécurité &quot;</span></span>
+<span id="cb109-11"><a href="clus.html#cb109-11" aria-hidden="true" tabindex="-1"></a>foo6<span class="sc">$</span>group[foo6<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">4</span>]<span class="ot">&lt;-</span><span class="st">&quot;égalité h/F&quot;</span></span>
+<span id="cb109-12"><a href="clus.html#cb109-12" aria-hidden="true" tabindex="-1"></a>foo6<span class="sc">$</span>group[foo6<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">6</span>]<span class="ot">&lt;-</span><span class="st">&quot;Pouvoir d&#39;achat/nSanté&quot;</span></span>
+<span id="cb109-13"><a href="clus.html#cb109-13" aria-hidden="true" tabindex="-1"></a>foo6<span class="sc">$</span>group[foo6<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">7</span>]<span class="ot">&lt;-</span><span class="st">&quot;Economie&quot;</span></span>
+<span id="cb109-14"><a href="clus.html#cb109-14" aria-hidden="true" tabindex="-1"></a>foo6<span class="sc">$</span>group[foo6<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">8</span>]<span class="ot">&lt;-</span><span class="st">&quot;Environnement&quot;</span></span>
+<span id="cb109-15"><a href="clus.html#cb109-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-16"><a href="clus.html#cb109-16" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb109-17"><a href="clus.html#cb109-17" aria-hidden="true" tabindex="-1"></a>brks<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="fl">0.5</span>,<span class="dv">1</span>,<span class="fl">1.5</span>,<span class="dv">2</span>, <span class="fl">2.5</span>,<span class="dv">3</span>)</span>
+<span id="cb109-18"><a href="clus.html#cb109-18" aria-hidden="true" tabindex="-1"></a>p2<span class="ot">&lt;-</span> <span class="fu">ggplot</span>(foo6, <span class="fu">aes</span>(<span class="at">x=</span><span class="fu">reorder</span>(Thèmes, Valeurs), <span class="at">y=</span>Valeurs))<span class="sc">+</span></span>
+<span id="cb109-19"><a href="clus.html#cb109-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="fu">aes</span>(<span class="at">fill=</span><span class="fu">as.factor</span>(Thèmes)))<span class="sc">+</span></span>
+<span id="cb109-20"><a href="clus.html#cb109-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(group), <span class="at">ncol=</span><span class="dv">4</span>)<span class="sc">+</span></span>
+<span id="cb109-21"><a href="clus.html#cb109-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()<span class="sc">+</span></span>
+<span id="cb109-22"><a href="clus.html#cb109-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span>col)<span class="sc">+</span></span>
+<span id="cb109-23"><a href="clus.html#cb109-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb109-24"><a href="clus.html#cb109-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks=</span>brks)<span class="sc">+</span> </span>
+<span id="cb109-25"><a href="clus.html#cb109-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>, <span class="at">axis.text=</span><span class="fu">element_text</span>(<span class="at">size=</span><span class="dv">7</span>),<span class="at">axis.text.x=</span><span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>, <span class="at">size=</span><span class="dv">2</span>))<span class="sc">+</span> </span>
+<span id="cb109-26"><a href="clus.html#cb109-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Profils des segments</span><span class="sc">\n</span><span class="st">par importance des thématiques&quot;</span>, <span class="at">x=</span><span class="cn">NULL</span>, <span class="at">y=</span><span class="st">&quot;importance moyenne (de 0 à 3)&quot;</span>) </span>
+<span id="cb109-27"><a href="clus.html#cb109-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb109-28"><a href="clus.html#cb109-28" aria-hidden="true" tabindex="-1"></a>p2</span></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/0815-1.png" width="672" /></p>
-<div class="sourceCode" id="cb118"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb118-1"><a href="clus.html#cb118-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;./plot/g_segment_p2.jpg&quot;</span>,<span class="at">plot=</span><span class="fu">last_plot</span>(), <span class="at">width =</span> <span class="dv">27</span>, <span class="at">height =</span> <span class="dv">17</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>)</span>
-<span id="cb118-2"><a href="clus.html#cb118-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb118-3"><a href="clus.html#cb118-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wesanderson)</span>
-<span id="cb118-4"><a href="clus.html#cb118-4" aria-hidden="true" tabindex="-1"></a>seg_col<span class="ot">&lt;-</span><span class="fu">wes_palette</span>(<span class="st">&quot;Zissou1&quot;</span>, <span class="dv">8</span>, <span class="at">type =</span> <span class="st">&quot;continuous&quot;</span>)</span>
-<span id="cb118-5"><a href="clus.html#cb118-5" aria-hidden="true" tabindex="-1"></a>n<span class="ot">&lt;-</span><span class="fu">nrow</span>(foo5)</span>
-<span id="cb118-6"><a href="clus.html#cb118-6" aria-hidden="true" tabindex="-1"></a>foo6<span class="ot">&lt;-</span>foo5 <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">n=</span><span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb118-7"><a href="clus.html#cb118-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(memb)<span class="sc">%&gt;%</span></span>
-<span id="cb118-8"><a href="clus.html#cb118-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">freq=</span><span class="fu">sum</span>(n, <span class="at">na.rm=</span><span class="cn">TRUE</span>))<span class="sc">%&gt;%</span> <span class="fu">mutate</span>( <span class="at">freq=</span>freq<span class="sc">/</span>n)</span>
-<span id="cb118-9"><a href="clus.html#cb118-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb118-10"><a href="clus.html#cb118-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb118-11"><a href="clus.html#cb118-11" aria-hidden="true" tabindex="-1"></a>foo6<span class="sc">$</span>group[foo6<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">1</span>]<span class="ot">&lt;-</span><span class="st">&quot;multicritère&quot;</span></span>
-<span id="cb118-12"><a href="clus.html#cb118-12" aria-hidden="true" tabindex="-1"></a>foo6<span class="sc">$</span>group[foo6<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">2</span>]<span class="ot">&lt;-</span><span class="st">&quot;Santé/Educ&quot;</span></span>
-<span id="cb118-13"><a href="clus.html#cb118-13" aria-hidden="true" tabindex="-1"></a>foo6<span class="sc">$</span>group[foo6<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">3</span>]<span class="ot">&lt;-</span><span class="st">&quot;Pouvoir d&#39;achat/nretraites&quot;</span></span>
-<span id="cb118-14"><a href="clus.html#cb118-14" aria-hidden="true" tabindex="-1"></a>foo6<span class="sc">$</span>group[foo6<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">5</span>]<span class="ot">&lt;-</span><span class="st">&quot;Immigration/nInsécurité &quot;</span></span>
-<span id="cb118-15"><a href="clus.html#cb118-15" aria-hidden="true" tabindex="-1"></a>foo6<span class="sc">$</span>group[foo6<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">4</span>]<span class="ot">&lt;-</span><span class="st">&quot;égalité h/F&quot;</span></span>
-<span id="cb118-16"><a href="clus.html#cb118-16" aria-hidden="true" tabindex="-1"></a>foo6<span class="sc">$</span>group[foo6<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">6</span>]<span class="ot">&lt;-</span><span class="st">&quot;Pouvoir d&#39;achat/nSanté&quot;</span></span>
-<span id="cb118-17"><a href="clus.html#cb118-17" aria-hidden="true" tabindex="-1"></a>foo6<span class="sc">$</span>group[foo6<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">7</span>]<span class="ot">&lt;-</span><span class="st">&quot;Economie&quot;</span></span>
-<span id="cb118-18"><a href="clus.html#cb118-18" aria-hidden="true" tabindex="-1"></a>foo6<span class="sc">$</span>group[foo6<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">8</span>]<span class="ot">&lt;-</span><span class="st">&quot;Environnement&quot;</span></span>
-<span id="cb118-19"><a href="clus.html#cb118-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb118-20"><a href="clus.html#cb118-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb118-21"><a href="clus.html#cb118-21" aria-hidden="true" tabindex="-1"></a>p1<span class="ot">&lt;-</span> <span class="fu">ggplot</span>(foo6, <span class="fu">aes</span>(<span class="at">x=</span>group, <span class="at">y=</span>freq))<span class="sc">+</span></span>
-<span id="cb118-22"><a href="clus.html#cb118-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="fu">aes</span>(<span class="at">fill=</span>group))<span class="sc">+</span></span>
-<span id="cb118-23"><a href="clus.html#cb118-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span>seg_col) <span class="sc">+</span> </span>
-<span id="cb118-24"><a href="clus.html#cb118-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span> </span>
-<span id="cb118-25"><a href="clus.html#cb118-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Poids des segments&quot;</span>, <span class="at">x=</span><span class="cn">NULL</span>, <span class="at">y=</span><span class="st">&quot;Proportion&quot;</span>)<span class="sc">+</span>  </span>
-<span id="cb118-26"><a href="clus.html#cb118-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks=</span>brks,<span class="at">labels=</span>percent)<span class="sc">+</span>  </span>
-<span id="cb118-27"><a href="clus.html#cb118-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span>
-<span id="cb118-28"><a href="clus.html#cb118-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb118-29"><a href="clus.html#cb118-29" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;./plot/g_segment_p1.jpg&quot;</span>,<span class="at">plot=</span><span class="fu">last_plot</span>(), <span class="at">width =</span> <span class="dv">27</span>, <span class="at">height =</span> <span class="dv">17</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>)</span>
-<span id="cb118-30"><a href="clus.html#cb118-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb118-31"><a href="clus.html#cb118-31" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_grid</span>(p1, p2, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&#39;A&#39;</span>, <span class="st">&#39;B&#39;</span>), <span class="at">label_size =</span> <span class="dv">12</span>, <span class="at">ncol=</span><span class="dv">1</span>,<span class="at">rel_heights =</span>  <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb110"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb110-1"><a href="clus.html#cb110-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;./plot/g_segment_p2.jpg&quot;</span>,<span class="at">plot=</span><span class="fu">last_plot</span>(), <span class="at">width =</span> <span class="dv">27</span>, <span class="at">height =</span> <span class="dv">17</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>)</span>
+<span id="cb110-2"><a href="clus.html#cb110-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-3"><a href="clus.html#cb110-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wesanderson)</span>
+<span id="cb110-4"><a href="clus.html#cb110-4" aria-hidden="true" tabindex="-1"></a>seg_col<span class="ot">&lt;-</span><span class="fu">wes_palette</span>(<span class="st">&quot;Zissou1&quot;</span>, <span class="dv">8</span>, <span class="at">type =</span> <span class="st">&quot;continuous&quot;</span>)</span>
+<span id="cb110-5"><a href="clus.html#cb110-5" aria-hidden="true" tabindex="-1"></a>n<span class="ot">&lt;-</span><span class="fu">nrow</span>(foo5)</span>
+<span id="cb110-6"><a href="clus.html#cb110-6" aria-hidden="true" tabindex="-1"></a>foo6<span class="ot">&lt;-</span>foo5 <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">n=</span><span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb110-7"><a href="clus.html#cb110-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(memb)<span class="sc">%&gt;%</span></span>
+<span id="cb110-8"><a href="clus.html#cb110-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">freq=</span><span class="fu">sum</span>(n, <span class="at">na.rm=</span><span class="cn">TRUE</span>))<span class="sc">%&gt;%</span> <span class="fu">mutate</span>( <span class="at">freq=</span>freq<span class="sc">/</span>n)</span>
+<span id="cb110-9"><a href="clus.html#cb110-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-10"><a href="clus.html#cb110-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-11"><a href="clus.html#cb110-11" aria-hidden="true" tabindex="-1"></a>foo6<span class="sc">$</span>group[foo6<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">1</span>]<span class="ot">&lt;-</span><span class="st">&quot;multicritère&quot;</span></span>
+<span id="cb110-12"><a href="clus.html#cb110-12" aria-hidden="true" tabindex="-1"></a>foo6<span class="sc">$</span>group[foo6<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">2</span>]<span class="ot">&lt;-</span><span class="st">&quot;Santé/Educ&quot;</span></span>
+<span id="cb110-13"><a href="clus.html#cb110-13" aria-hidden="true" tabindex="-1"></a>foo6<span class="sc">$</span>group[foo6<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">3</span>]<span class="ot">&lt;-</span><span class="st">&quot;Pouvoir d&#39;achat/nretraites&quot;</span></span>
+<span id="cb110-14"><a href="clus.html#cb110-14" aria-hidden="true" tabindex="-1"></a>foo6<span class="sc">$</span>group[foo6<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">5</span>]<span class="ot">&lt;-</span><span class="st">&quot;Immigration/nInsécurité &quot;</span></span>
+<span id="cb110-15"><a href="clus.html#cb110-15" aria-hidden="true" tabindex="-1"></a>foo6<span class="sc">$</span>group[foo6<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">4</span>]<span class="ot">&lt;-</span><span class="st">&quot;égalité h/F&quot;</span></span>
+<span id="cb110-16"><a href="clus.html#cb110-16" aria-hidden="true" tabindex="-1"></a>foo6<span class="sc">$</span>group[foo6<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">6</span>]<span class="ot">&lt;-</span><span class="st">&quot;Pouvoir d&#39;achat/nSanté&quot;</span></span>
+<span id="cb110-17"><a href="clus.html#cb110-17" aria-hidden="true" tabindex="-1"></a>foo6<span class="sc">$</span>group[foo6<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">7</span>]<span class="ot">&lt;-</span><span class="st">&quot;Economie&quot;</span></span>
+<span id="cb110-18"><a href="clus.html#cb110-18" aria-hidden="true" tabindex="-1"></a>foo6<span class="sc">$</span>group[foo6<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">8</span>]<span class="ot">&lt;-</span><span class="st">&quot;Environnement&quot;</span></span>
+<span id="cb110-19"><a href="clus.html#cb110-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-20"><a href="clus.html#cb110-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-21"><a href="clus.html#cb110-21" aria-hidden="true" tabindex="-1"></a>p1<span class="ot">&lt;-</span> <span class="fu">ggplot</span>(foo6, <span class="fu">aes</span>(<span class="at">x=</span>group, <span class="at">y=</span>freq))<span class="sc">+</span></span>
+<span id="cb110-22"><a href="clus.html#cb110-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>, <span class="fu">aes</span>(<span class="at">fill=</span>group))<span class="sc">+</span></span>
+<span id="cb110-23"><a href="clus.html#cb110-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span>seg_col) <span class="sc">+</span> </span>
+<span id="cb110-24"><a href="clus.html#cb110-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span> </span>
+<span id="cb110-25"><a href="clus.html#cb110-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Poids des segments&quot;</span>, <span class="at">x=</span><span class="cn">NULL</span>, <span class="at">y=</span><span class="st">&quot;Proportion&quot;</span>)<span class="sc">+</span>  </span>
+<span id="cb110-26"><a href="clus.html#cb110-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks=</span>brks,<span class="at">labels=</span>percent)<span class="sc">+</span>  </span>
+<span id="cb110-27"><a href="clus.html#cb110-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span>
+<span id="cb110-28"><a href="clus.html#cb110-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-29"><a href="clus.html#cb110-29" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;./plot/g_segment_p1.jpg&quot;</span>,<span class="at">plot=</span><span class="fu">last_plot</span>(), <span class="at">width =</span> <span class="dv">27</span>, <span class="at">height =</span> <span class="dv">17</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>)</span>
+<span id="cb110-30"><a href="clus.html#cb110-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb110-31"><a href="clus.html#cb110-31" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_grid</span>(p1, p2, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&#39;A&#39;</span>, <span class="st">&#39;B&#39;</span>), <span class="at">label_size =</span> <span class="dv">12</span>, <span class="at">ncol=</span><span class="dv">1</span>,<span class="at">rel_heights =</span>  <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))</span></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/0815-2.png" width="672" /></p>
-<div class="sourceCode" id="cb119"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb119-1"><a href="clus.html#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;./plot/g_segment.jpg&quot;</span>,<span class="at">plot=</span><span class="fu">last_plot</span>(), <span class="at">width =</span> <span class="dv">27</span>, <span class="at">height =</span> <span class="dv">17</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb111"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb111-1"><a href="clus.html#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;./plot/g_segment.jpg&quot;</span>,<span class="at">plot=</span><span class="fu">last_plot</span>(), <span class="at">width =</span> <span class="dv">27</span>, <span class="at">height =</span> <span class="dv">17</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>)</span></code></pre></div>
 </div>
-<div id="tableaux-croisés-de-la-typologie-et-des-critères-sociaux-démos" class="section level2 hasAnchor" number="8.3">
-<h2><span class="header-section-number">8.3</span> tableaux croisés de la typologie et des critères sociaux démos<a href="clus.html#tableaux-croisés-de-la-typologie-et-des-critères-sociaux-démos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="tableaux-croisés-de-la-typologie-et-des-critères-sociaux-démos" class="section level2 hasAnchor" number="9.3">
+<h2><span class="header-section-number">9.3</span> tableaux croisés de la typologie et des critères sociaux démos<a href="clus.html#tableaux-croisés-de-la-typologie-et-des-critères-sociaux-démos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>On revient à une approche descriptive, on croisant successivement notre variable typologie avec les critères socio-demo qui ont été mesurés dans l’enquête.</p>
 <p>( une boucle simplifierait ! )</p>
-<div class="sourceCode" id="cb120"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb120-1"><a href="clus.html#cb120-1" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">cbind</span>(df,foo5)</span>
-<span id="cb120-2"><a href="clus.html#cb120-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-3"><a href="clus.html#cb120-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>group[df<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">1</span>]<span class="ot">&lt;-</span><span class="st">&quot;multicritère&quot;</span></span>
-<span id="cb120-4"><a href="clus.html#cb120-4" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>group[df<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">2</span>]<span class="ot">&lt;-</span><span class="st">&quot;Santé/Educ&quot;</span></span>
-<span id="cb120-5"><a href="clus.html#cb120-5" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>group[df<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">3</span>]<span class="ot">&lt;-</span><span class="st">&quot;Pouvoir d&#39;achat/nretraites&quot;</span></span>
-<span id="cb120-6"><a href="clus.html#cb120-6" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>group[df<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">5</span>]<span class="ot">&lt;-</span><span class="st">&quot;Immigration/nInsécurité &quot;</span></span>
-<span id="cb120-7"><a href="clus.html#cb120-7" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>group[df<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">4</span>]<span class="ot">&lt;-</span><span class="st">&quot;égalité h/F&quot;</span></span>
-<span id="cb120-8"><a href="clus.html#cb120-8" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>group[df<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">6</span>]<span class="ot">&lt;-</span><span class="st">&quot;Pouvoir d&#39;achat/nSanté&quot;</span></span>
-<span id="cb120-9"><a href="clus.html#cb120-9" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>group[df<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">7</span>]<span class="ot">&lt;-</span><span class="st">&quot;Economie&quot;</span></span>
-<span id="cb120-10"><a href="clus.html#cb120-10" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>group[df<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">8</span>]<span class="ot">&lt;-</span><span class="st">&quot;Environnement&quot;</span></span>
-<span id="cb120-11"><a href="clus.html#cb120-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-12"><a href="clus.html#cb120-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-13"><a href="clus.html#cb120-13" aria-hidden="true" tabindex="-1"></a>foo<span class="ot">&lt;-</span>df <span class="sc">%&gt;%</span> </span>
-<span id="cb120-14"><a href="clus.html#cb120-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(group, Sensibilité) <span class="sc">%&gt;%</span> </span>
-<span id="cb120-15"><a href="clus.html#cb120-15" aria-hidden="true" tabindex="-1"></a>   <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">n</span>())<span class="sc">%&gt;%</span></span>
-<span id="cb120-16"><a href="clus.html#cb120-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop=</span><span class="fu">round</span>(n<span class="sc">/</span><span class="fu">sum</span>(n),<span class="dv">3</span>), <span class="at">cum=</span><span class="dv">1</span> <span class="sc">-</span> (<span class="fu">cumsum</span>(prop)<span class="sc">-</span>prop<span class="sc">/</span><span class="dv">2</span>))</span>
-<span id="cb120-17"><a href="clus.html#cb120-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-18"><a href="clus.html#cb120-18" aria-hidden="true" tabindex="-1"></a>g01<span class="ot">&lt;-</span><span class="fu">ggplot</span>(foo,<span class="fu">aes</span>(<span class="at">x=</span>group, <span class="at">y=</span>prop, <span class="at">group=</span>Sensibilité))<span class="sc">+</span></span>
-<span id="cb120-19"><a href="clus.html#cb120-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="fu">aes</span>(<span class="at">y =</span> prop, <span class="at">fill=</span>Sensibilité)) <span class="sc">+</span> </span>
-<span id="cb120-20"><a href="clus.html#cb120-20" aria-hidden="true" tabindex="-1"></a> <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> brks, <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent</span>(brks)) <span class="sc">+</span></span>
-<span id="cb120-21"><a href="clus.html#cb120-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span>SensiP2) <span class="sc">+</span> </span>
-<span id="cb120-22"><a href="clus.html#cb120-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> prop, <span class="at">y=</span>cum),<span class="at">size=</span><span class="dv">2</span>,<span class="at">color=</span><span class="st">&quot;white&quot;</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>)<span class="sc">+</span></span>
-<span id="cb120-23"><a href="clus.html#cb120-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()<span class="sc">+</span></span>
-<span id="cb120-24"><a href="clus.html#cb120-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Types d&#39;attentes par sensibilité politique &quot;</span>, </span>
-<span id="cb120-25"><a href="clus.html#cb120-25" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="cn">NULL</span>, <span class="at">y=</span><span class="cn">NULL</span>,)<span class="sc">+</span></span>
-<span id="cb120-26"><a href="clus.html#cb120-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">7</span>), <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">7</span>)) </span>
-<span id="cb120-27"><a href="clus.html#cb120-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-28"><a href="clus.html#cb120-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-29"><a href="clus.html#cb120-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-30"><a href="clus.html#cb120-30" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;./plot/g_segment01.jpg&quot;</span>,<span class="at">plot=</span><span class="fu">last_plot</span>(), <span class="at">width =</span> <span class="dv">27</span>, <span class="at">height =</span> <span class="dv">17</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>)</span>
-<span id="cb120-31"><a href="clus.html#cb120-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-32"><a href="clus.html#cb120-32" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-33"><a href="clus.html#cb120-33" aria-hidden="true" tabindex="-1"></a>foo<span class="ot">&lt;-</span>df <span class="sc">%&gt;%</span> </span>
-<span id="cb120-34"><a href="clus.html#cb120-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(group, Age) <span class="sc">%&gt;%</span> </span>
-<span id="cb120-35"><a href="clus.html#cb120-35" aria-hidden="true" tabindex="-1"></a>   <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">n</span>())<span class="sc">%&gt;%</span></span>
-<span id="cb120-36"><a href="clus.html#cb120-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop=</span><span class="fu">round</span>(n<span class="sc">/</span><span class="fu">sum</span>(n),<span class="dv">3</span>), <span class="at">cum=</span><span class="dv">1</span> <span class="sc">-</span> (<span class="fu">cumsum</span>(prop)<span class="sc">-</span>prop<span class="sc">/</span><span class="dv">2</span>))</span>
-<span id="cb120-37"><a href="clus.html#cb120-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-38"><a href="clus.html#cb120-38" aria-hidden="true" tabindex="-1"></a>g02<span class="ot">&lt;-</span><span class="fu">ggplot</span>(foo,<span class="fu">aes</span>(<span class="at">x=</span>group, <span class="at">y=</span>prop, <span class="at">group=</span>Age))<span class="sc">+</span></span>
-<span id="cb120-39"><a href="clus.html#cb120-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="fu">aes</span>(<span class="at">y =</span> prop, <span class="at">fill=</span>Age)) <span class="sc">+</span> </span>
-<span id="cb120-40"><a href="clus.html#cb120-40" aria-hidden="true" tabindex="-1"></a> <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> brks, <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent</span>(brks)) <span class="sc">+</span></span>
-<span id="cb120-41"><a href="clus.html#cb120-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Spectral&quot;</span>) <span class="sc">+</span> <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> prop, <span class="at">y=</span>cum),<span class="at">size=</span><span class="dv">2</span>,<span class="at">color=</span><span class="st">&quot;white&quot;</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>)<span class="sc">+</span></span>
-<span id="cb120-42"><a href="clus.html#cb120-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()<span class="sc">+</span></span>
-<span id="cb120-43"><a href="clus.html#cb120-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Types d&#39;attentes par classe d&#39;âge &quot;</span>, </span>
-<span id="cb120-44"><a href="clus.html#cb120-44" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="cn">NULL</span>, <span class="at">y=</span><span class="cn">NULL</span>,)<span class="sc">+</span><span class="fu">theme_bw</span>()  <span class="sc">+</span></span>
-<span id="cb120-45"><a href="clus.html#cb120-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">7</span>), <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">7</span>)) </span>
-<span id="cb120-46"><a href="clus.html#cb120-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-47"><a href="clus.html#cb120-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-48"><a href="clus.html#cb120-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-49"><a href="clus.html#cb120-49" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;./plot/g_segment02.jpg&quot;</span>,<span class="at">plot=</span><span class="fu">last_plot</span>(), <span class="at">width =</span> <span class="dv">27</span>, <span class="at">height =</span> <span class="dv">17</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>)</span>
-<span id="cb120-50"><a href="clus.html#cb120-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-51"><a href="clus.html#cb120-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-52"><a href="clus.html#cb120-52" aria-hidden="true" tabindex="-1"></a>foo<span class="ot">&lt;-</span>df <span class="sc">%&gt;%</span> </span>
-<span id="cb120-53"><a href="clus.html#cb120-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(group, Sexe) <span class="sc">%&gt;%</span> </span>
-<span id="cb120-54"><a href="clus.html#cb120-54" aria-hidden="true" tabindex="-1"></a>   <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">n</span>())<span class="sc">%&gt;%</span></span>
-<span id="cb120-55"><a href="clus.html#cb120-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop=</span><span class="fu">round</span>(n<span class="sc">/</span><span class="fu">sum</span>(n),<span class="dv">3</span>), <span class="at">cum=</span><span class="dv">1</span> <span class="sc">-</span> (<span class="fu">cumsum</span>(prop)<span class="sc">-</span>prop<span class="sc">/</span><span class="dv">2</span>))</span>
-<span id="cb120-56"><a href="clus.html#cb120-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-57"><a href="clus.html#cb120-57" aria-hidden="true" tabindex="-1"></a>g03<span class="ot">&lt;-</span><span class="fu">ggplot</span>(foo,<span class="fu">aes</span>(<span class="at">x=</span>group, <span class="at">y=</span>prop, <span class="at">group=</span>Sexe))<span class="sc">+</span></span>
-<span id="cb120-58"><a href="clus.html#cb120-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="fu">aes</span>(<span class="at">y =</span> prop, <span class="at">fill=</span>Sexe)) <span class="sc">+</span> </span>
-<span id="cb120-59"><a href="clus.html#cb120-59" aria-hidden="true" tabindex="-1"></a> <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> brks, <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent</span>(brks)) <span class="sc">+</span></span>
-<span id="cb120-60"><a href="clus.html#cb120-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Spectral&quot;</span>) <span class="sc">+</span> <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> prop, <span class="at">y=</span>cum),<span class="at">size=</span><span class="dv">2</span>,<span class="at">color=</span><span class="st">&quot;white&quot;</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>)<span class="sc">+</span></span>
-<span id="cb120-61"><a href="clus.html#cb120-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()<span class="sc">+</span>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
-<span id="cb120-62"><a href="clus.html#cb120-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Types d&#39;attentes par genre &quot;</span>, </span>
-<span id="cb120-63"><a href="clus.html#cb120-63" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="cn">NULL</span>, <span class="at">y=</span><span class="cn">NULL</span>,)<span class="sc">+</span></span>
-<span id="cb120-64"><a href="clus.html#cb120-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">7</span>), <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">7</span>))</span>
-<span id="cb120-65"><a href="clus.html#cb120-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-66"><a href="clus.html#cb120-66" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;./plot/g_segment03.jpg&quot;</span>,<span class="at">plot=</span><span class="fu">last_plot</span>(), <span class="at">width =</span> <span class="dv">27</span>, <span class="at">height =</span> <span class="dv">17</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>)</span>
-<span id="cb120-67"><a href="clus.html#cb120-67" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-68"><a href="clus.html#cb120-68" aria-hidden="true" tabindex="-1"></a>foo<span class="ot">&lt;-</span>df <span class="sc">%&gt;%</span> </span>
-<span id="cb120-69"><a href="clus.html#cb120-69" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(group, Education) <span class="sc">%&gt;%</span> </span>
-<span id="cb120-70"><a href="clus.html#cb120-70" aria-hidden="true" tabindex="-1"></a>   <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">n</span>())<span class="sc">%&gt;%</span></span>
-<span id="cb120-71"><a href="clus.html#cb120-71" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop=</span><span class="fu">round</span>(n<span class="sc">/</span><span class="fu">sum</span>(n),<span class="dv">3</span>), <span class="at">cum=</span><span class="dv">1</span> <span class="sc">-</span> (<span class="fu">cumsum</span>(prop)<span class="sc">-</span>prop<span class="sc">/</span><span class="dv">2</span>))</span>
-<span id="cb120-72"><a href="clus.html#cb120-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-73"><a href="clus.html#cb120-73" aria-hidden="true" tabindex="-1"></a>g04<span class="ot">&lt;-</span><span class="fu">ggplot</span>(foo,<span class="fu">aes</span>(<span class="at">x=</span>group, <span class="at">y=</span>prop, <span class="at">group=</span>Education))<span class="sc">+</span></span>
-<span id="cb120-74"><a href="clus.html#cb120-74" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="fu">aes</span>(<span class="at">y =</span> prop, <span class="at">fill=</span>Education)) <span class="sc">+</span> </span>
-<span id="cb120-75"><a href="clus.html#cb120-75" aria-hidden="true" tabindex="-1"></a> <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> brks, <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent</span>(brks)) <span class="sc">+</span></span>
-<span id="cb120-76"><a href="clus.html#cb120-76" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Spectral&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb120-77"><a href="clus.html#cb120-77" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> prop, <span class="at">y=</span>cum),<span class="at">size=</span><span class="fl">1.5</span>,<span class="at">color=</span><span class="st">&quot;white&quot;</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>)<span class="sc">+</span></span>
-<span id="cb120-78"><a href="clus.html#cb120-78" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()<span class="sc">+</span><span class="fu">theme_bw</span>()<span class="sc">+</span></span>
-<span id="cb120-79"><a href="clus.html#cb120-79" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Types d&#39;attentes par niveau d&#39;éducation &quot;</span>, </span>
-<span id="cb120-80"><a href="clus.html#cb120-80" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="cn">NULL</span>, <span class="at">y=</span><span class="cn">NULL</span>,)<span class="sc">+</span></span>
-<span id="cb120-81"><a href="clus.html#cb120-81" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">7</span>), <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">7</span>)) </span>
-<span id="cb120-82"><a href="clus.html#cb120-82" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb120-83"><a href="clus.html#cb120-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-84"><a href="clus.html#cb120-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-85"><a href="clus.html#cb120-85" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;./plot/g_segment04.jpg&quot;</span>,<span class="at">plot=</span><span class="fu">last_plot</span>(), <span class="at">width =</span> <span class="dv">27</span>, <span class="at">height =</span> <span class="dv">17</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>)</span>
-<span id="cb120-86"><a href="clus.html#cb120-86" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-87"><a href="clus.html#cb120-87" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb120-88"><a href="clus.html#cb120-88" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_grid</span>(g01, g02, g04,g03,  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&#39;A&#39;</span>, <span class="st">&#39;B&#39;</span>, <span class="st">&#39;C&#39;</span>, <span class="st">&#39;D&#39;</span>), <span class="at">label_size =</span> <span class="dv">11</span>, <span class="at">ncol=</span><span class="dv">2</span>,<span class="at">rel_widths =</span>  <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb112"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb112-1"><a href="clus.html#cb112-1" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">cbind</span>(df,foo5)</span>
+<span id="cb112-2"><a href="clus.html#cb112-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-3"><a href="clus.html#cb112-3" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>group[df<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">1</span>]<span class="ot">&lt;-</span><span class="st">&quot;multicritère&quot;</span></span>
+<span id="cb112-4"><a href="clus.html#cb112-4" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>group[df<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">2</span>]<span class="ot">&lt;-</span><span class="st">&quot;Santé/Educ&quot;</span></span>
+<span id="cb112-5"><a href="clus.html#cb112-5" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>group[df<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">3</span>]<span class="ot">&lt;-</span><span class="st">&quot;Pouvoir d&#39;achat/nretraites&quot;</span></span>
+<span id="cb112-6"><a href="clus.html#cb112-6" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>group[df<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">5</span>]<span class="ot">&lt;-</span><span class="st">&quot;Immigration/nInsécurité &quot;</span></span>
+<span id="cb112-7"><a href="clus.html#cb112-7" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>group[df<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">4</span>]<span class="ot">&lt;-</span><span class="st">&quot;égalité h/F&quot;</span></span>
+<span id="cb112-8"><a href="clus.html#cb112-8" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>group[df<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">6</span>]<span class="ot">&lt;-</span><span class="st">&quot;Pouvoir d&#39;achat/nSanté&quot;</span></span>
+<span id="cb112-9"><a href="clus.html#cb112-9" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>group[df<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">7</span>]<span class="ot">&lt;-</span><span class="st">&quot;Economie&quot;</span></span>
+<span id="cb112-10"><a href="clus.html#cb112-10" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>group[df<span class="sc">$</span>memb<span class="sc">==</span><span class="dv">8</span>]<span class="ot">&lt;-</span><span class="st">&quot;Environnement&quot;</span></span>
+<span id="cb112-11"><a href="clus.html#cb112-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-12"><a href="clus.html#cb112-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-13"><a href="clus.html#cb112-13" aria-hidden="true" tabindex="-1"></a>foo<span class="ot">&lt;-</span>df <span class="sc">%&gt;%</span> </span>
+<span id="cb112-14"><a href="clus.html#cb112-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(group, Sensibilité) <span class="sc">%&gt;%</span> </span>
+<span id="cb112-15"><a href="clus.html#cb112-15" aria-hidden="true" tabindex="-1"></a>   <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">n</span>())<span class="sc">%&gt;%</span></span>
+<span id="cb112-16"><a href="clus.html#cb112-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop=</span><span class="fu">round</span>(n<span class="sc">/</span><span class="fu">sum</span>(n),<span class="dv">3</span>), <span class="at">cum=</span><span class="dv">1</span> <span class="sc">-</span> (<span class="fu">cumsum</span>(prop)<span class="sc">-</span>prop<span class="sc">/</span><span class="dv">2</span>))</span>
+<span id="cb112-17"><a href="clus.html#cb112-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-18"><a href="clus.html#cb112-18" aria-hidden="true" tabindex="-1"></a>g01<span class="ot">&lt;-</span><span class="fu">ggplot</span>(foo,<span class="fu">aes</span>(<span class="at">x=</span>group, <span class="at">y=</span>prop, <span class="at">group=</span>Sensibilité))<span class="sc">+</span></span>
+<span id="cb112-19"><a href="clus.html#cb112-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="fu">aes</span>(<span class="at">y =</span> prop, <span class="at">fill=</span>Sensibilité)) <span class="sc">+</span> </span>
+<span id="cb112-20"><a href="clus.html#cb112-20" aria-hidden="true" tabindex="-1"></a> <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> brks, <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent</span>(brks)) <span class="sc">+</span></span>
+<span id="cb112-21"><a href="clus.html#cb112-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span>SensiP2) <span class="sc">+</span> </span>
+<span id="cb112-22"><a href="clus.html#cb112-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> prop, <span class="at">y=</span>cum),<span class="at">size=</span><span class="dv">2</span>,<span class="at">color=</span><span class="st">&quot;white&quot;</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>)<span class="sc">+</span></span>
+<span id="cb112-23"><a href="clus.html#cb112-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()<span class="sc">+</span></span>
+<span id="cb112-24"><a href="clus.html#cb112-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Types d&#39;attentes par sensibilité politique &quot;</span>, </span>
+<span id="cb112-25"><a href="clus.html#cb112-25" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="cn">NULL</span>, <span class="at">y=</span><span class="cn">NULL</span>,)<span class="sc">+</span></span>
+<span id="cb112-26"><a href="clus.html#cb112-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">7</span>), <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">7</span>)) </span>
+<span id="cb112-27"><a href="clus.html#cb112-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-28"><a href="clus.html#cb112-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-29"><a href="clus.html#cb112-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-30"><a href="clus.html#cb112-30" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;./plot/g_segment01.jpg&quot;</span>,<span class="at">plot=</span><span class="fu">last_plot</span>(), <span class="at">width =</span> <span class="dv">27</span>, <span class="at">height =</span> <span class="dv">17</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>)</span>
+<span id="cb112-31"><a href="clus.html#cb112-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-32"><a href="clus.html#cb112-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-33"><a href="clus.html#cb112-33" aria-hidden="true" tabindex="-1"></a>foo<span class="ot">&lt;-</span>df <span class="sc">%&gt;%</span> </span>
+<span id="cb112-34"><a href="clus.html#cb112-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(group, Age) <span class="sc">%&gt;%</span> </span>
+<span id="cb112-35"><a href="clus.html#cb112-35" aria-hidden="true" tabindex="-1"></a>   <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">n</span>())<span class="sc">%&gt;%</span></span>
+<span id="cb112-36"><a href="clus.html#cb112-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop=</span><span class="fu">round</span>(n<span class="sc">/</span><span class="fu">sum</span>(n),<span class="dv">3</span>), <span class="at">cum=</span><span class="dv">1</span> <span class="sc">-</span> (<span class="fu">cumsum</span>(prop)<span class="sc">-</span>prop<span class="sc">/</span><span class="dv">2</span>))</span>
+<span id="cb112-37"><a href="clus.html#cb112-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-38"><a href="clus.html#cb112-38" aria-hidden="true" tabindex="-1"></a>g02<span class="ot">&lt;-</span><span class="fu">ggplot</span>(foo,<span class="fu">aes</span>(<span class="at">x=</span>group, <span class="at">y=</span>prop, <span class="at">group=</span>Age))<span class="sc">+</span></span>
+<span id="cb112-39"><a href="clus.html#cb112-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="fu">aes</span>(<span class="at">y =</span> prop, <span class="at">fill=</span>Age)) <span class="sc">+</span> </span>
+<span id="cb112-40"><a href="clus.html#cb112-40" aria-hidden="true" tabindex="-1"></a> <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> brks, <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent</span>(brks)) <span class="sc">+</span></span>
+<span id="cb112-41"><a href="clus.html#cb112-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Spectral&quot;</span>) <span class="sc">+</span> <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> prop, <span class="at">y=</span>cum),<span class="at">size=</span><span class="dv">2</span>,<span class="at">color=</span><span class="st">&quot;white&quot;</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>)<span class="sc">+</span></span>
+<span id="cb112-42"><a href="clus.html#cb112-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()<span class="sc">+</span></span>
+<span id="cb112-43"><a href="clus.html#cb112-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Types d&#39;attentes par classe d&#39;âge &quot;</span>, </span>
+<span id="cb112-44"><a href="clus.html#cb112-44" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="cn">NULL</span>, <span class="at">y=</span><span class="cn">NULL</span>,)<span class="sc">+</span><span class="fu">theme_bw</span>()  <span class="sc">+</span></span>
+<span id="cb112-45"><a href="clus.html#cb112-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">7</span>), <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">7</span>)) </span>
+<span id="cb112-46"><a href="clus.html#cb112-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-47"><a href="clus.html#cb112-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-48"><a href="clus.html#cb112-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-49"><a href="clus.html#cb112-49" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;./plot/g_segment02.jpg&quot;</span>,<span class="at">plot=</span><span class="fu">last_plot</span>(), <span class="at">width =</span> <span class="dv">27</span>, <span class="at">height =</span> <span class="dv">17</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>)</span>
+<span id="cb112-50"><a href="clus.html#cb112-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-51"><a href="clus.html#cb112-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-52"><a href="clus.html#cb112-52" aria-hidden="true" tabindex="-1"></a>foo<span class="ot">&lt;-</span>df <span class="sc">%&gt;%</span> </span>
+<span id="cb112-53"><a href="clus.html#cb112-53" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(group, Sexe) <span class="sc">%&gt;%</span> </span>
+<span id="cb112-54"><a href="clus.html#cb112-54" aria-hidden="true" tabindex="-1"></a>   <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">n</span>())<span class="sc">%&gt;%</span></span>
+<span id="cb112-55"><a href="clus.html#cb112-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop=</span><span class="fu">round</span>(n<span class="sc">/</span><span class="fu">sum</span>(n),<span class="dv">3</span>), <span class="at">cum=</span><span class="dv">1</span> <span class="sc">-</span> (<span class="fu">cumsum</span>(prop)<span class="sc">-</span>prop<span class="sc">/</span><span class="dv">2</span>))</span>
+<span id="cb112-56"><a href="clus.html#cb112-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-57"><a href="clus.html#cb112-57" aria-hidden="true" tabindex="-1"></a>g03<span class="ot">&lt;-</span><span class="fu">ggplot</span>(foo,<span class="fu">aes</span>(<span class="at">x=</span>group, <span class="at">y=</span>prop, <span class="at">group=</span>Sexe))<span class="sc">+</span></span>
+<span id="cb112-58"><a href="clus.html#cb112-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="fu">aes</span>(<span class="at">y =</span> prop, <span class="at">fill=</span>Sexe)) <span class="sc">+</span> </span>
+<span id="cb112-59"><a href="clus.html#cb112-59" aria-hidden="true" tabindex="-1"></a> <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> brks, <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent</span>(brks)) <span class="sc">+</span></span>
+<span id="cb112-60"><a href="clus.html#cb112-60" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Spectral&quot;</span>) <span class="sc">+</span> <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> prop, <span class="at">y=</span>cum),<span class="at">size=</span><span class="dv">2</span>,<span class="at">color=</span><span class="st">&quot;white&quot;</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>)<span class="sc">+</span></span>
+<span id="cb112-61"><a href="clus.html#cb112-61" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()<span class="sc">+</span>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
+<span id="cb112-62"><a href="clus.html#cb112-62" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Types d&#39;attentes par genre &quot;</span>, </span>
+<span id="cb112-63"><a href="clus.html#cb112-63" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="cn">NULL</span>, <span class="at">y=</span><span class="cn">NULL</span>,)<span class="sc">+</span></span>
+<span id="cb112-64"><a href="clus.html#cb112-64" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">7</span>), <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">7</span>))</span>
+<span id="cb112-65"><a href="clus.html#cb112-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-66"><a href="clus.html#cb112-66" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;./plot/g_segment03.jpg&quot;</span>,<span class="at">plot=</span><span class="fu">last_plot</span>(), <span class="at">width =</span> <span class="dv">27</span>, <span class="at">height =</span> <span class="dv">17</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>)</span>
+<span id="cb112-67"><a href="clus.html#cb112-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-68"><a href="clus.html#cb112-68" aria-hidden="true" tabindex="-1"></a>foo<span class="ot">&lt;-</span>df <span class="sc">%&gt;%</span> </span>
+<span id="cb112-69"><a href="clus.html#cb112-69" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(group, Education) <span class="sc">%&gt;%</span> </span>
+<span id="cb112-70"><a href="clus.html#cb112-70" aria-hidden="true" tabindex="-1"></a>   <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">n</span>())<span class="sc">%&gt;%</span></span>
+<span id="cb112-71"><a href="clus.html#cb112-71" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop=</span><span class="fu">round</span>(n<span class="sc">/</span><span class="fu">sum</span>(n),<span class="dv">3</span>), <span class="at">cum=</span><span class="dv">1</span> <span class="sc">-</span> (<span class="fu">cumsum</span>(prop)<span class="sc">-</span>prop<span class="sc">/</span><span class="dv">2</span>))</span>
+<span id="cb112-72"><a href="clus.html#cb112-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-73"><a href="clus.html#cb112-73" aria-hidden="true" tabindex="-1"></a>g04<span class="ot">&lt;-</span><span class="fu">ggplot</span>(foo,<span class="fu">aes</span>(<span class="at">x=</span>group, <span class="at">y=</span>prop, <span class="at">group=</span>Education))<span class="sc">+</span></span>
+<span id="cb112-74"><a href="clus.html#cb112-74" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat=</span><span class="st">&quot;identity&quot;</span>,<span class="fu">aes</span>(<span class="at">y =</span> prop, <span class="at">fill=</span>Education)) <span class="sc">+</span> </span>
+<span id="cb112-75"><a href="clus.html#cb112-75" aria-hidden="true" tabindex="-1"></a> <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> brks, <span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent</span>(brks)) <span class="sc">+</span></span>
+<span id="cb112-76"><a href="clus.html#cb112-76" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette=</span><span class="st">&quot;Spectral&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb112-77"><a href="clus.html#cb112-77" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> prop, <span class="at">y=</span>cum),<span class="at">size=</span><span class="fl">1.5</span>,<span class="at">color=</span><span class="st">&quot;white&quot;</span>, <span class="at">vjust =</span> <span class="fl">0.5</span>)<span class="sc">+</span></span>
+<span id="cb112-78"><a href="clus.html#cb112-78" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()<span class="sc">+</span><span class="fu">theme_bw</span>()<span class="sc">+</span></span>
+<span id="cb112-79"><a href="clus.html#cb112-79" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&quot;Types d&#39;attentes par niveau d&#39;éducation &quot;</span>, </span>
+<span id="cb112-80"><a href="clus.html#cb112-80" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="cn">NULL</span>, <span class="at">y=</span><span class="cn">NULL</span>,)<span class="sc">+</span></span>
+<span id="cb112-81"><a href="clus.html#cb112-81" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">7</span>), <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">7</span>)) </span>
+<span id="cb112-82"><a href="clus.html#cb112-82" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb112-83"><a href="clus.html#cb112-83" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-84"><a href="clus.html#cb112-84" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-85"><a href="clus.html#cb112-85" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;./plot/g_segment04.jpg&quot;</span>,<span class="at">plot=</span><span class="fu">last_plot</span>(), <span class="at">width =</span> <span class="dv">27</span>, <span class="at">height =</span> <span class="dv">17</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>)</span>
+<span id="cb112-86"><a href="clus.html#cb112-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-87"><a href="clus.html#cb112-87" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb112-88"><a href="clus.html#cb112-88" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_grid</span>(g01, g02, g04,g03,  <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&#39;A&#39;</span>, <span class="st">&#39;B&#39;</span>, <span class="st">&#39;C&#39;</span>, <span class="st">&#39;D&#39;</span>), <span class="at">label_size =</span> <span class="dv">11</span>, <span class="at">ncol=</span><span class="dv">2</span>,<span class="at">rel_widths =</span>  <span class="fu">c</span>(<span class="dv">3</span>, <span class="dv">2</span>))</span></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/0817-1.png" width="672" /></p>
-<div class="sourceCode" id="cb121"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb121-1"><a href="clus.html#cb121-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;./plot/g_segment05.jpg&quot;</span>,<span class="at">plot=</span><span class="fu">last_plot</span>(), <span class="at">width =</span> <span class="dv">27</span>, <span class="at">height =</span> <span class="dv">17</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb113"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb113-1"><a href="clus.html#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">&quot;./plot/g_segment05.jpg&quot;</span>,<span class="at">plot=</span><span class="fu">last_plot</span>(), <span class="at">width =</span> <span class="dv">27</span>, <span class="at">height =</span> <span class="dv">17</span>, <span class="at">units =</span> <span class="st">&quot;cm&quot;</span>)</span></code></pre></div>
 </div>
-<div id="afcm-pour-une-synthèse" class="section level2 hasAnchor" number="8.4">
-<h2><span class="header-section-number">8.4</span> AFCM pour une synthèse<a href="clus.html#afcm-pour-une-synthèse" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="afcm-pour-une-synthèse" class="section level2 hasAnchor" number="9.4">
+<h2><span class="header-section-number">9.4</span> AFCM pour une synthèse<a href="clus.html#afcm-pour-une-synthèse" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>C’est le bon moment de donner une seconde illustration de l’utilité de l’AFCM. Pourquoi ne pas synthétiser en une carte l’ensemble des relations statistiques.</p>
-<div class="sourceCode" id="cb122"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb122-1"><a href="clus.html#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(FactoMineR)</span>
-<span id="cb122-2"><a href="clus.html#cb122-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra)</span>
-<span id="cb122-3"><a href="clus.html#cb122-3" aria-hidden="true" tabindex="-1"></a>X<span class="ot">&lt;-</span>df <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>( group, Age, Sexe, Sensibilité, Situation2)</span>
-<span id="cb122-4"><a href="clus.html#cb122-4" aria-hidden="true" tabindex="-1"></a>res<span class="ot">&lt;-</span><span class="fu">MCA</span>(X, <span class="at">graph =</span><span class="cn">FALSE</span>)</span>
-<span id="cb122-5"><a href="clus.html#cb122-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb122-6"><a href="clus.html#cb122-6" aria-hidden="true" tabindex="-1"></a>foo<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(res<span class="sc">$</span>var<span class="sc">$</span>coord) <span class="sc">%&gt;%</span></span>
-<span id="cb122-7"><a href="clus.html#cb122-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var=</span><span class="st">&quot;var&quot;</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb122-8"><a href="clus.html#cb122-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">dim1=</span><span class="dv">2</span>, <span class="at">dim2=</span><span class="dv">3</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb122-9"><a href="clus.html#cb122-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_rownames</span>(<span class="at">var =</span> <span class="st">&quot;rowname&quot;</span>)</span>
-<span id="cb122-10"><a href="clus.html#cb122-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb122-11"><a href="clus.html#cb122-11" aria-hidden="true" tabindex="-1"></a>foo<span class="sc">$</span>rowname<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(foo<span class="sc">$</span>rowname) </span>
-<span id="cb122-12"><a href="clus.html#cb122-12" aria-hidden="true" tabindex="-1"></a>foo<span class="ot">&lt;-</span>foo <span class="sc">%&gt;%</span>   <span class="fu">mutate</span>(<span class="at">label=</span><span class="fu">ifelse</span>(rowname<span class="sc">&lt;</span><span class="dv">9</span>, <span class="st">&quot;groupe&quot;</span>, <span class="st">&quot;&quot;</span>))</span>
-<span id="cb122-13"><a href="clus.html#cb122-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb122-14"><a href="clus.html#cb122-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb122-15"><a href="clus.html#cb122-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb122-16"><a href="clus.html#cb122-16" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(foo, <span class="fu">aes</span>(<span class="at">x=</span>dim1, <span class="at">y=</span>dim2, <span class="at">label=</span> var) )<span class="sc">+</span></span>
-<span id="cb122-17"><a href="clus.html#cb122-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb122-18"><a href="clus.html#cb122-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>var, <span class="at">color=</span>label),<span class="at">size=</span><span class="dv">3</span>)<span class="sc">+</span></span>
-<span id="cb122-19"><a href="clus.html#cb122-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span><span class="fu">labs</span>( <span class="at">title=</span> <span class="st">&quot;AFCM&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb114"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb114-1"><a href="clus.html#cb114-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(FactoMineR)</span>
+<span id="cb114-2"><a href="clus.html#cb114-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra)</span>
+<span id="cb114-3"><a href="clus.html#cb114-3" aria-hidden="true" tabindex="-1"></a>X<span class="ot">&lt;-</span>df <span class="sc">%&gt;%</span> dplyr<span class="sc">::</span><span class="fu">select</span>( group, Age, Sexe, Sensibilité, Situation2)</span>
+<span id="cb114-4"><a href="clus.html#cb114-4" aria-hidden="true" tabindex="-1"></a>res<span class="ot">&lt;-</span><span class="fu">MCA</span>(X, <span class="at">graph =</span><span class="cn">FALSE</span>)</span>
+<span id="cb114-5"><a href="clus.html#cb114-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb114-6"><a href="clus.html#cb114-6" aria-hidden="true" tabindex="-1"></a>foo<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(res<span class="sc">$</span>var<span class="sc">$</span>coord) <span class="sc">%&gt;%</span></span>
+<span id="cb114-7"><a href="clus.html#cb114-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rownames_to_column</span>(<span class="at">var=</span><span class="st">&quot;var&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb114-8"><a href="clus.html#cb114-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">dim1=</span><span class="dv">2</span>, <span class="at">dim2=</span><span class="dv">3</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb114-9"><a href="clus.html#cb114-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_rownames</span>(<span class="at">var =</span> <span class="st">&quot;rowname&quot;</span>)</span>
+<span id="cb114-10"><a href="clus.html#cb114-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb114-11"><a href="clus.html#cb114-11" aria-hidden="true" tabindex="-1"></a>foo<span class="sc">$</span>rowname<span class="ot">&lt;-</span><span class="fu">as.numeric</span>(foo<span class="sc">$</span>rowname) </span>
+<span id="cb114-12"><a href="clus.html#cb114-12" aria-hidden="true" tabindex="-1"></a>foo<span class="ot">&lt;-</span>foo <span class="sc">%&gt;%</span>   <span class="fu">mutate</span>(<span class="at">label=</span><span class="fu">ifelse</span>(rowname<span class="sc">&lt;</span><span class="dv">9</span>, <span class="st">&quot;groupe&quot;</span>, <span class="st">&quot;&quot;</span>))</span>
+<span id="cb114-13"><a href="clus.html#cb114-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb114-14"><a href="clus.html#cb114-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb114-15"><a href="clus.html#cb114-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb114-16"><a href="clus.html#cb114-16" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(foo, <span class="fu">aes</span>(<span class="at">x=</span>dim1, <span class="at">y=</span>dim2, <span class="at">label=</span> var) )<span class="sc">+</span></span>
+<span id="cb114-17"><a href="clus.html#cb114-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb114-18"><a href="clus.html#cb114-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>var, <span class="at">color=</span>label),<span class="at">size=</span><span class="dv">3</span>)<span class="sc">+</span></span>
+<span id="cb114-19"><a href="clus.html#cb114-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span><span class="fu">labs</span>( <span class="at">title=</span> <span class="st">&quot;AFCM&quot;</span>)</span></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/0820-1.png" width="672" /></p>
-<div class="sourceCode" id="cb123"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb123-1"><a href="clus.html#cb123-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb115"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb115-1"><a href="clus.html#cb115-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">&quot;none&quot;</span>)</span></code></pre></div>
 <pre><code>## List of 1
 ##  $ legend.position: chr &quot;none&quot;
 ##  - attr(*, &quot;class&quot;)= chr [1:2] &quot;theme&quot; &quot;gg&quot;
 ##  - attr(*, &quot;complete&quot;)= logi FALSE
 ##  - attr(*, &quot;validate&quot;)= logi TRUE</code></pre>
-<div id="forces-et-limites" class="section level3 hasAnchor" number="8.4.1">
-<h3><span class="header-section-number">8.4.1</span> Forces et limites<a href="clus.html#forces-et-limites" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="forces-et-limites" class="section level3 hasAnchor" number="9.4.1">
+<h3><span class="header-section-number">9.4.1</span> Forces et limites<a href="clus.html#forces-et-limites" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>forces : graphiques, complète</li>
 <li>limites : petite population</li>
 </ul>
 </div>
 </div>
-<div id="les-méthodes-non-hiérarchiques" class="section level2 hasAnchor" number="8.5">
-<h2><span class="header-section-number">8.5</span> Les méthodes non-hiérarchiques<a href="clus.html#les-méthodes-non-hiérarchiques" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="les-méthodes-non-hiérarchiques" class="section level2 hasAnchor" number="9.5">
+<h2><span class="header-section-number">9.5</span> Les méthodes non-hiérarchiques<a href="clus.html#les-méthodes-non-hiérarchiques" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>La première d’entre elles est la méthode k-means dont le principe est très simple : plutôt que de calculer toutes les distances entre tous les objets, on va se concentrer sur les distances en k group supposés et les n individus. L’hyperparamètre est ici le nombre de groupes</p>
-<div id="principe" class="section level3 hasAnchor" number="8.5.1">
-<h3><span class="header-section-number">8.5.1</span> principe<a href="clus.html#principe" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="principe" class="section level3 hasAnchor" number="9.5.1">
+<h3><span class="header-section-number">9.5.1</span> principe<a href="clus.html#principe" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="application-1" class="section level3 hasAnchor" number="8.5.2">
-<h3><span class="header-section-number">8.5.2</span> Application<a href="clus.html#application-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="application-1" class="section level3 hasAnchor" number="9.5.2">
+<h3><span class="header-section-number">9.5.2</span> Application<a href="clus.html#application-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 </div>
-<div id="le-problème-de-la-détermination-du-nombre-optimal-de-groupe" class="section level3 hasAnchor" number="8.5.3">
-<h3><span class="header-section-number">8.5.3</span> Le problème de la détermination du nombre optimal de groupe<a href="clus.html#le-problème-de-la-détermination-du-nombre-optimal-de-groupe" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="le-problème-de-la-détermination-du-nombre-optimal-de-groupe" class="section level3 hasAnchor" number="9.5.3">
+<h3><span class="header-section-number">9.5.3</span> Le problème de la détermination du nombre optimal de groupe<a href="clus.html#le-problème-de-la-détermination-du-nombre-optimal-de-groupe" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ul>
 <li>méthode du coude</li>
 <li>méthode silhouette</li>
@@ -712,8 +702,8 @@ div.csl-indent {
 </ul>
 </div>
 </div>
-<div id="autres-méthodes" class="section level2 hasAnchor" number="8.6">
-<h2><span class="header-section-number">8.6</span> Autres méthodes<a href="clus.html#autres-méthodes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="autres-méthodes" class="section level2 hasAnchor" number="9.6">
+<h2><span class="header-section-number">9.6</span> Autres méthodes<a href="clus.html#autres-méthodes" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>de nombreuses variantes sont disponibles</p>
 <ul>
 <li>mediane</li>
@@ -726,8 +716,8 @@ div.csl-indent {
 </ul>
 <p>: <a href="https://link.springer.com/referenceworkentry/10.1007%2F978-0-387-30164-8_211" class="uri">https://link.springer.com/referenceworkentry/10.1007%2F978-0-387-30164-8_211</a></p>
 </div>
-<div id="conclusion-1" class="section level2 hasAnchor" number="8.7">
-<h2><span class="header-section-number">8.7</span> Conclusion<a href="clus.html#conclusion-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="conclusion-1" class="section level2 hasAnchor" number="9.7">
+<h2><span class="header-section-number">9.7</span> Conclusion<a href="clus.html#conclusion-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 
 </div>
 </div>

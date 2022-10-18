@@ -1,7 +1,5 @@
 # Analyse bi variée
 
-
-
 Comme son nom l'indique, il s'agit d'examiner la relation entre deux variables et d'étudier leur distribution conjointe. On distinguera 3 situations  et on examinera pour chaune les modes de représentations graphiques ainsi que les tests associés qui permette de s'assurer que la relation apparente est effective. 
 
 a) Deux variables quantitatives : scatterplot et corélations
@@ -12,9 +10,7 @@ a) par comparer des distribution de plusieurs groupes (variables catégorielles)
 b) par comparer des moyennes d'une variable dépendante en fonction de plusieurs variables indépendantes catégorielle
 d) mesurer l'association entre deux variables qualitatives
 
-
 ## Diagrammes xy - la magie des corrélations 
-
 
 Venons en à analyser les relations entre deux variables quantitatives. 
 
@@ -58,9 +54,7 @@ rp
 
 Améliorons le graphe On peut souhaiter ajouter une droite des moindre carrés (calculée pour chaque vague d'enquête pour évaluer la stabilité de la relation dans le temps). Les lignes sont parallèles, la corrélation ne change pas dans le temps, c'est une relation stable. Les deux formes de confiance vont dans le meme sens. On verra dans un autre chapitre comment calculer ces droites de corrélations. 
 
-
-
-```{r 415}
+```{r 0415}
 library(ggExtra)
 g32<-ggplot(foo, aes(x= trust_interpersonnel,y=trust_institut)) +
   geom_point(position = "jitter", size=0.1, color="grey")+
@@ -72,11 +66,8 @@ g32<-ggplot(foo, aes(x= trust_interpersonnel,y=trust_institut)) +
        y=" Confiance institutionnelle")
 
 ggMarginal(g32  ,type = "density", fill = "Royalblue1", alpha=.5)
-  
+
 ```
-
-
-
 Une autre façon de représenter est celle de carte de densité de probabilité.
 
 ```{r 416}
@@ -99,7 +90,6 @@ plot_grid(g32, g33, labels = c('A', 'B'), label_size = 12)
 ## Comparer les distributions et des moyennes
 
 Dans notre base on a pris les données de l'Allemagne et de la France. On va comparer leur distribution. Et tant qu'à faire, puisque qu'on a deux variables, on va faire deux comparaisons : par pays et par type de confiance.
-
 
 A cette fin, nous construisons un tableau de données spécifique.
 
@@ -238,7 +228,8 @@ On note qu'ici on introduit la méthode flextable pour présenter des tableaux a
 
 ```{r 0423}
 foo<-df %>% 
-  filter(cntry=="FR" & Year=="2018") %>% drop_na() #selection des données
+  filter(cntry=="FR" & Year=="2018") %>% 
+  drop_na() #selection des données
 
 fit<-lm(trust_institut~revenu, foo) #calcul du modèle linéaire
 
@@ -311,22 +302,18 @@ L'objet chi2 est une liste
 
 
 ```{r 0427}
-
 # On isole les éléments qui nous intéresse
 
 #library()
 chi<-round(chi2$statistic,2)
 p<-round(chi2$p.value,3)
-V<-cramerV(t, digit=3)
-
+#V<-cramerV(t, digit=3) ( le package n'est plus maintenu)
 ```
-
 
 
 #### diagramme en mosaique  
 
-Le diagramme en mosaique détermine la largeur des barres en fonction de l'effectif de la variable en abcisse et leur hauteur en fonction de la variable en ordonnée. Les couleurs permettent de mieux comparer. 
-
+Le diagramme en mosaïque détermine la largeur des barres en fonction de l'effectif de la variable en abscisse et leur hauteur en fonction de la variable en ordonnée. Les couleurs permettent de mieux comparer. 
 On s'aperçoit ici que les plus à l'aise avec leur revenu sont proportionnellement plus nombreux dans les grandes villes, et que ceux qui se débrouille sont plus fréquents dans les campagnes.
 
 ```{r 0428}
@@ -340,18 +327,15 @@ g1 <- ggplot(data = foo) +
   scale_fill_brewer(palette = "RdYlGn", direction = -1) 
 
 g1
-
 ```
 
-#### les chi2s partiel et des cartes de chaleur.
-
+#### les chi2s partiels et des cartes de chaleur.
 
 Une carte de chaleur représente une grandeur par un gradient de couleur pour chaque cellule définie par des variable x et y. 
 
 Faisons un premier essai pour représenter les effectifs, plutôt qu'avoir un tableau de nombres on va obtenir un tableau de couleurs. 
 
 L'arbre qui apparait en ligne et en colonne correspond au résultat d'une classification hiérarchique que nous développons dans le chapitre X. 
-
 
 ```{r 0429}
 
@@ -367,23 +351,18 @@ pheatmap(table2 , color = rocket(10,direction =-1))
 
 On utilise la même technique mais en représenant une grandeur différentes : les tests du chi2 partiels, pour apprécier les sous ou les sur-représentation. 
 
-
-
 ```{r 0430}
-library(RColorBrewer)
 chi2df<- as.data.frame(chi2$stdres)
 
 table2<-chi2df %>% 
   pivot_wider(names_from = Var1, values_from = Freq) %>%
   column_to_rownames( var = "Var2")
 pheatmap(table2 , color = brewer.pal(n = 9, name = "RdBu"))
-
-
 ```
 
 #### Les treemaps, c'est merveilleux
 
-D'autre graphiques et des emboitements 
+D'autre graphiques et des emboîtements 
 
 
 ```{r 0431}
@@ -396,8 +375,6 @@ g10 <- ggplot(tree1, aes(area = n, fill=genre,subgroup=cntry)) +
       geom_treemap_subgroup_text(color="white",grow = FALSE)+
   geom_treemap_subgroup_border()
 g10
-
-
 ```
 
 

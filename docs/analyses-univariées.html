@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapitre 4 Analyses univariées | Introduction aux Data Sciences</title>
+  <title>Chapitre 4 Analyses univariées | Introduction aux Data Sciences/nAvec r</title>
   <meta name="description" content="Cours d’analyse de données et de Datascience" />
   <meta name="generator" content="bookdown 0.22.3 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapitre 4 Analyses univariées | Introduction aux Data Sciences" />
+  <meta property="og:title" content="Chapitre 4 Analyses univariées | Introduction aux Data Sciences/nAvec r" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   <meta name="github-repo" content="rstudio/bookdown-demo" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapitre 4 Analyses univariées | Introduction aux Data Sciences" />
+  <meta name="twitter:title" content="Chapitre 4 Analyses univariées | Introduction aux Data Sciences/nAvec r" />
   
   <meta name="twitter:description" content="Cours d’analyse de données et de Datascience" />
   
@@ -24,7 +24,7 @@
 <meta name="author" content="Christophe Benavent - Université Paris Dauphine" />
 
 
-<meta name="date" content="2022-10-16" />
+<meta name="date" content="2022-10-18" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -166,11 +166,10 @@ div.csl-indent {
 <li><a href="index.html#plan-du-manuel" id="toc-plan-du-manuel"><span class="toc-section-number">1.1</span> Plan du manuel<span></span></a></li>
 <li><a href="index.html#les-jeux-de-données" id="toc-les-jeux-de-données"><span class="toc-section-number">1.2</span> Les jeux de données<span></span></a></li>
 <li><a href="index.html#le-cadre-technique-et-les-packages-utilisés" id="toc-le-cadre-technique-et-les-packages-utilisés"><span class="toc-section-number">1.3</span> Le cadre technique et les packages utilisés<span></span></a></li>
-<li><a href="index.html#a-faire" id="toc-a-faire"><span class="toc-section-number">1.4</span> A faire<span></span></a></li>
 </ul></li>
 <li><a href="intro.html#intro" id="toc-intro"><span class="toc-section-number">2</span> Introduction aux data sciences<span></span></a>
 <ul>
-<li><a href="intro.html#science-ou-technique" id="toc-science-ou-technique"><span class="toc-section-number">2.1</span> Science ou technique ?<span></span></a></li>
+<li><a href="intro.html#science-art-technique-et-pratiques" id="toc-science-art-technique-et-pratiques"><span class="toc-section-number">2.1</span> Science, art, technique et pratiques<span></span></a></li>
 <li><a href="intro.html#une-courte-histoires-des-logiciels-statistiques" id="toc-une-courte-histoires-des-logiciels-statistiques"><span class="toc-section-number">2.2</span> Une courte histoires des logiciels statistiques<span></span></a></li>
 <li><a href="intro.html#le-processus-de-traitement-des-données" id="toc-le-processus-de-traitement-des-données"><span class="toc-section-number">2.3</span> Le processus de traitement des données<span></span></a></li>
 <li><a href="intro.html#les-facteurs-sociaux-du-développement-des-datasciences" id="toc-les-facteurs-sociaux-du-développement-des-datasciences"><span class="toc-section-number">2.4</span> Les facteurs sociaux du développement des datasciences<span></span></a>
@@ -230,116 +229,108 @@ div.csl-indent {
 </ul></li>
 <li><a href="analyse-graphique-multivariée.html#modéliser-le-biais-du-sondeur" id="toc-modéliser-le-biais-du-sondeur"><span class="toc-section-number">6.5</span> Modéliser le biais du sondeur<span></span></a></li>
 </ul></li>
-<li><a href="analyses-factorielles.html#analyses-factorielles" id="toc-analyses-factorielles"><span class="toc-section-number">7</span> Analyses factorielles<span></span></a>
+<li><a href="données-géographique.html#données-géographique" id="toc-données-géographique"><span class="toc-section-number">7</span> Données géographique<span></span></a></li>
+<li><a href="analyses-factorielles.html#analyses-factorielles" id="toc-analyses-factorielles"><span class="toc-section-number">8</span> Analyses factorielles<span></span></a>
 <ul>
-<li><a href="analyses-factorielles.html#origine-et-histoire" id="toc-origine-et-histoire"><span class="toc-section-number">7.1</span> Origine et histoire<span></span></a>
+<li><a href="analyses-factorielles.html#origine-et-histoire" id="toc-origine-et-histoire"><span class="toc-section-number">8.1</span> Origine et histoire<span></span></a>
 <ul>
-<li><a href="analyses-factorielles.html#une-petite-histoire-de-la-psychométrie" id="toc-une-petite-histoire-de-la-psychométrie"><span class="toc-section-number">7.1.1</span> Une petite histoire de la psychométrie<span></span></a></li>
-<li><a href="analyses-factorielles.html#lécole-française-de-lanalyse-des-données-appliquée-aux-sciences-sociales" id="toc-lécole-française-de-lanalyse-des-données-appliquée-aux-sciences-sociales"><span class="toc-section-number">7.1.2</span> L’école française de l’analyse des données appliquée aux sciences sociales<span></span></a></li>
+<li><a href="analyses-factorielles.html#une-petite-histoire-de-la-psychométrie" id="toc-une-petite-histoire-de-la-psychométrie"><span class="toc-section-number">8.1.1</span> Une petite histoire de la psychométrie<span></span></a></li>
+<li><a href="analyses-factorielles.html#lécole-française-de-lanalyse-des-données-appliquée-aux-sciences-sociales" id="toc-lécole-française-de-lanalyse-des-données-appliquée-aux-sciences-sociales"><span class="toc-section-number">8.1.2</span> L’école française de l’analyse des données appliquée aux sciences sociales<span></span></a></li>
 </ul></li>
-<li><a href="analyses-factorielles.html#le-modèle-factoriel-des-tests-psychologiques" id="toc-le-modèle-factoriel-des-tests-psychologiques"><span class="toc-section-number">7.2</span> Le modèle factoriel des tests psychologiques<span></span></a>
+<li><a href="analyses-factorielles.html#le-modèle-factoriel-des-tests-psychologiques" id="toc-le-modèle-factoriel-des-tests-psychologiques"><span class="toc-section-number">8.2</span> Le modèle factoriel des tests psychologiques<span></span></a>
 <ul>
-<li><a href="analyses-factorielles.html#un-peu-de-théorie" id="toc-un-peu-de-théorie"><span class="toc-section-number">7.2.1</span> Un peu de théorie<span></span></a></li>
-<li><a href="analyses-factorielles.html#lestimation" id="toc-lestimation"><span class="toc-section-number">7.2.2</span> L’estimation<span></span></a></li>
-<li><a href="analyses-factorielles.html#ressources" id="toc-ressources"><span class="toc-section-number">7.2.3</span> Ressources<span></span></a></li>
-<li><a href="analyses-factorielles.html#cas-dapplication" id="toc-cas-dapplication"><span class="toc-section-number">7.2.4</span> Cas d’application<span></span></a></li>
+<li><a href="analyses-factorielles.html#un-peu-de-théorie" id="toc-un-peu-de-théorie"><span class="toc-section-number">8.2.1</span> Un peu de théorie<span></span></a></li>
+<li><a href="analyses-factorielles.html#lestimation" id="toc-lestimation"><span class="toc-section-number">8.2.2</span> L’estimation<span></span></a></li>
+<li><a href="analyses-factorielles.html#ressources" id="toc-ressources"><span class="toc-section-number">8.2.3</span> Ressources<span></span></a></li>
+<li><a href="analyses-factorielles.html#cas-dapplication" id="toc-cas-dapplication"><span class="toc-section-number">8.2.4</span> Cas d’application<span></span></a></li>
 </ul></li>
-<li><a href="analyses-factorielles.html#examen-de-la-matrice-de-corrélation" id="toc-examen-de-la-matrice-de-corrélation"><span class="toc-section-number">7.3</span> Examen de la matrice de corrélation<span></span></a></li>
-<li><a href="analyses-factorielles.html#modèle-factoriel" id="toc-modèle-factoriel"><span class="toc-section-number">7.4</span> Modèle factoriel<span></span></a></li>
-<li><a href="analyses-factorielles.html#lanalyse-en-composante-principale" id="toc-lanalyse-en-composante-principale"><span class="toc-section-number">7.5</span> L’analyse en composante principale<span></span></a>
+<li><a href="analyses-factorielles.html#examen-de-la-matrice-de-corrélation" id="toc-examen-de-la-matrice-de-corrélation"><span class="toc-section-number">8.3</span> Examen de la matrice de corrélation<span></span></a></li>
+<li><a href="analyses-factorielles.html#modèle-factoriel" id="toc-modèle-factoriel"><span class="toc-section-number">8.4</span> Modèle factoriel<span></span></a>
 <ul>
-<li><a href="analyses-factorielles.html#le-problème-théorique" id="toc-le-problème-théorique"><span class="toc-section-number">7.5.1</span> le problème théorique<span></span></a></li>
-<li><a href="analyses-factorielles.html#une-représentation-symbolique" id="toc-une-représentation-symbolique"><span class="toc-section-number">7.5.2</span> Une représentation symbolique<span></span></a></li>
-<li><a href="analyses-factorielles.html#application" id="toc-application"><span class="toc-section-number">7.5.3</span> Application<span></span></a></li>
+<li><a href="analyses-factorielles.html#le-problème-théorique" id="toc-le-problème-théorique"><span class="toc-section-number">8.4.1</span> le problème théorique<span></span></a></li>
+<li><a href="analyses-factorielles.html#une-représentation-symbolique" id="toc-une-représentation-symbolique"><span class="toc-section-number">8.4.2</span> Une représentation symbolique<span></span></a></li>
+<li><a href="analyses-factorielles.html#application" id="toc-application"><span class="toc-section-number">8.4.3</span> Application<span></span></a></li>
 </ul></li>
-<li><a href="analyses-factorielles.html#une-généralisation-de-lacp-lafc" id="toc-une-généralisation-de-lacp-lafc"><span class="toc-section-number">7.6</span> Une généralisation de l’ACP : l’AFC<span></span></a>
+<li><a href="analyses-factorielles.html#une-généralisation-de-lacp-lafc" id="toc-une-généralisation-de-lacp-lafc"><span class="toc-section-number">8.5</span> Une généralisation de l’ACP : l’AFC<span></span></a>
 <ul>
-<li><a href="analyses-factorielles.html#afcm-multiple" id="toc-afcm-multiple"><span class="toc-section-number">7.6.1</span> AFCM multiple<span></span></a></li>
+<li><a href="analyses-factorielles.html#afcm-multiple" id="toc-afcm-multiple"><span class="toc-section-number">8.5.1</span> AFCM multiple<span></span></a></li>
 </ul></li>
-<li><a href="analyses-factorielles.html#développements" id="toc-développements"><span class="toc-section-number">7.7</span> Développements<span></span></a>
+<li><a href="analyses-factorielles.html#développements" id="toc-développements"><span class="toc-section-number">8.6</span> Développements<span></span></a>
 <ul>
-<li><a href="analyses-factorielles.html#le-svd" id="toc-le-svd"><span class="toc-section-number">7.7.1</span> le SVD<span></span></a></li>
-<li><a href="analyses-factorielles.html#acm-analyse-canonique-analyse-discriminante" id="toc-acm-analyse-canonique-analyse-discriminante"><span class="toc-section-number">7.7.2</span> ACM , analyse canonique , analyse discriminante<span></span></a></li>
+<li><a href="analyses-factorielles.html#le-svd" id="toc-le-svd"><span class="toc-section-number">8.6.1</span> le SVD<span></span></a></li>
+<li><a href="analyses-factorielles.html#acm-analyse-canonique-analyse-discriminante" id="toc-acm-analyse-canonique-analyse-discriminante"><span class="toc-section-number">8.6.2</span> ACM , analyse canonique , analyse discriminante<span></span></a></li>
 </ul></li>
-<li><a href="analyses-factorielles.html#en-conclusion" id="toc-en-conclusion"><span class="toc-section-number">7.8</span> En conclusion<span></span></a></li>
+<li><a href="analyses-factorielles.html#en-conclusion" id="toc-en-conclusion"><span class="toc-section-number">8.7</span> En conclusion<span></span></a></li>
 </ul></li>
-<li><a href="clus.html#clus" id="toc-clus"><span class="toc-section-number">8</span> Clustering<span></span></a>
+<li><a href="clus.html#clus" id="toc-clus"><span class="toc-section-number">9</span> Clustering<span></span></a>
 <ul>
-<li><a href="clus.html#les-méthodes-hiérarchiques-ascendantes" id="toc-les-méthodes-hiérarchiques-ascendantes"><span class="toc-section-number">8.1</span> Les méthodes hiérarchiques ascendantes<span></span></a>
+<li><a href="clus.html#les-méthodes-hiérarchiques-ascendantes" id="toc-les-méthodes-hiérarchiques-ascendantes"><span class="toc-section-number">9.1</span> Les méthodes hiérarchiques ascendantes<span></span></a>
 <ul>
-<li><a href="clus.html#mise-en-oeuvre" id="toc-mise-en-oeuvre"><span class="toc-section-number">8.1.1</span> Mise en oeuvre<span></span></a></li>
+<li><a href="clus.html#mise-en-oeuvre" id="toc-mise-en-oeuvre"><span class="toc-section-number">9.1.1</span> Mise en oeuvre<span></span></a></li>
 </ul></li>
-<li><a href="clus.html#segmentation-simplifiée" id="toc-segmentation-simplifiée"><span class="toc-section-number">8.2</span> segmentation simplifiée<span></span></a></li>
-<li><a href="clus.html#tableaux-croisés-de-la-typologie-et-des-critères-sociaux-démos" id="toc-tableaux-croisés-de-la-typologie-et-des-critères-sociaux-démos"><span class="toc-section-number">8.3</span> tableaux croisés de la typologie et des critères sociaux démos<span></span></a></li>
-<li><a href="clus.html#afcm-pour-une-synthèse" id="toc-afcm-pour-une-synthèse"><span class="toc-section-number">8.4</span> AFCM pour une synthèse<span></span></a>
+<li><a href="clus.html#segmentation-simplifiée" id="toc-segmentation-simplifiée"><span class="toc-section-number">9.2</span> segmentation simplifiée<span></span></a></li>
+<li><a href="clus.html#tableaux-croisés-de-la-typologie-et-des-critères-sociaux-démos" id="toc-tableaux-croisés-de-la-typologie-et-des-critères-sociaux-démos"><span class="toc-section-number">9.3</span> tableaux croisés de la typologie et des critères sociaux démos<span></span></a></li>
+<li><a href="clus.html#afcm-pour-une-synthèse" id="toc-afcm-pour-une-synthèse"><span class="toc-section-number">9.4</span> AFCM pour une synthèse<span></span></a>
 <ul>
-<li><a href="clus.html#forces-et-limites" id="toc-forces-et-limites"><span class="toc-section-number">8.4.1</span> Forces et limites<span></span></a></li>
+<li><a href="clus.html#forces-et-limites" id="toc-forces-et-limites"><span class="toc-section-number">9.4.1</span> Forces et limites<span></span></a></li>
 </ul></li>
-<li><a href="clus.html#les-méthodes-non-hiérarchiques" id="toc-les-méthodes-non-hiérarchiques"><span class="toc-section-number">8.5</span> Les méthodes non-hiérarchiques<span></span></a>
+<li><a href="clus.html#les-méthodes-non-hiérarchiques" id="toc-les-méthodes-non-hiérarchiques"><span class="toc-section-number">9.5</span> Les méthodes non-hiérarchiques<span></span></a>
 <ul>
-<li><a href="clus.html#principe" id="toc-principe"><span class="toc-section-number">8.5.1</span> principe<span></span></a></li>
-<li><a href="clus.html#application-1" id="toc-application-1"><span class="toc-section-number">8.5.2</span> Application<span></span></a></li>
-<li><a href="clus.html#le-problème-de-la-détermination-du-nombre-optimal-de-groupe" id="toc-le-problème-de-la-détermination-du-nombre-optimal-de-groupe"><span class="toc-section-number">8.5.3</span> Le problème de la détermination du nombre optimal de groupe<span></span></a></li>
+<li><a href="clus.html#principe" id="toc-principe"><span class="toc-section-number">9.5.1</span> principe<span></span></a></li>
+<li><a href="clus.html#application-1" id="toc-application-1"><span class="toc-section-number">9.5.2</span> Application<span></span></a></li>
+<li><a href="clus.html#le-problème-de-la-détermination-du-nombre-optimal-de-groupe" id="toc-le-problème-de-la-détermination-du-nombre-optimal-de-groupe"><span class="toc-section-number">9.5.3</span> Le problème de la détermination du nombre optimal de groupe<span></span></a></li>
 </ul></li>
-<li><a href="clus.html#autres-méthodes" id="toc-autres-méthodes"><span class="toc-section-number">8.6</span> Autres méthodes<span></span></a></li>
-<li><a href="clus.html#conclusion-1" id="toc-conclusion-1"><span class="toc-section-number">8.7</span> Conclusion<span></span></a></li>
+<li><a href="clus.html#autres-méthodes" id="toc-autres-méthodes"><span class="toc-section-number">9.6</span> Autres méthodes<span></span></a></li>
+<li><a href="clus.html#conclusion-1" id="toc-conclusion-1"><span class="toc-section-number">9.7</span> Conclusion<span></span></a></li>
 </ul></li>
-<li><a href="régression.html#régression" id="toc-régression"><span class="toc-section-number">9</span> 9 - Régression<span></span></a>
+<li><a href="régression.html#régression" id="toc-régression"><span class="toc-section-number">10</span> 9 - Régression<span></span></a>
 <ul>
-<li><a href="régression.html#une-étude-de-cas-les-offres-blablacar" id="toc-une-étude-de-cas-les-offres-blablacar"><span class="toc-section-number">9.1</span> Une étude de cas : les offres Blablacar<span></span></a>
+<li><a href="régression.html#une-étude-de-cas-les-offres-blablacar" id="toc-une-étude-de-cas-les-offres-blablacar"><span class="toc-section-number">10.1</span> Une étude de cas : les offres Blablacar<span></span></a>
 <ul>
-<li><a href="régression.html#les-caractérisques-de-loffre" id="toc-les-caractérisques-de-loffre"><span class="toc-section-number">9.1.1</span> Les caractérisques de l’offre<span></span></a></li>
+<li><a href="régression.html#les-caractérisques-de-loffre" id="toc-les-caractérisques-de-loffre"><span class="toc-section-number">10.1.1</span> Les caractérisques de l’offre<span></span></a></li>
 </ul></li>
-<li><a href="régression.html#notes-prix-et-taux-doccupations" id="toc-notes-prix-et-taux-doccupations"><span class="toc-section-number">9.2</span> Notes, prix et taux d’occupations<span></span></a></li>
-<li><a href="régression.html#analyse-des-prix" id="toc-analyse-des-prix"><span class="toc-section-number">9.3</span> Analyse des prix<span></span></a></li>
-<li><a href="régression.html#analyser-la-demande-quest-ce-qui-détermine-le-taux-doccupation" id="toc-analyser-la-demande-quest-ce-qui-détermine-le-taux-doccupation"><span class="toc-section-number">9.4</span> Analyser la demande : qu’est ce qui détermine le taux d’occupation ?<span></span></a>
+<li><a href="régression.html#notes-prix-et-taux-doccupations" id="toc-notes-prix-et-taux-doccupations"><span class="toc-section-number">10.2</span> Notes, prix et taux d’occupations<span></span></a></li>
+<li><a href="régression.html#analyse-des-prix" id="toc-analyse-des-prix"><span class="toc-section-number">10.3</span> Analyse des prix<span></span></a></li>
+<li><a href="régression.html#analyser-la-demande-quest-ce-qui-détermine-le-taux-doccupation" id="toc-analyser-la-demande-quest-ce-qui-détermine-le-taux-doccupation"><span class="toc-section-number">10.4</span> Analyser la demande : qu’est ce qui détermine le taux d’occupation ?<span></span></a>
 <ul>
-<li><a href="régression.html#un-modèle-ols" id="toc-un-modèle-ols"><span class="toc-section-number">9.4.1</span> Un modèle OLS<span></span></a></li>
+<li><a href="régression.html#un-modèle-ols" id="toc-un-modèle-ols"><span class="toc-section-number">10.4.1</span> Un modèle OLS<span></span></a></li>
 </ul></li>
-<li><a href="régression.html#autres-modèles" id="toc-autres-modèles"><span class="toc-section-number">9.5</span> Autres modèles<span></span></a>
+<li><a href="régression.html#autres-modèles" id="toc-autres-modèles"><span class="toc-section-number">10.5</span> Autres modèles<span></span></a>
 <ul>
-<li><a href="régression.html#régression-logistique" id="toc-régression-logistique"><span class="toc-section-number">9.5.1</span> Régression logistique<span></span></a></li>
-<li><a href="régression.html#modèle-de-comptage" id="toc-modèle-de-comptage"><span class="toc-section-number">9.5.2</span> Modèle de comptage<span></span></a></li>
-<li><a href="régression.html#modèle-de-régression-beta" id="toc-modèle-de-régression-beta"><span class="toc-section-number">9.5.3</span> Modèle de régression beta<span></span></a></li>
-</ul></li>
-</ul></li>
-<li><a href="un-cas-danalyse-de-survie.html#un-cas-danalyse-de-survie" id="toc-un-cas-danalyse-de-survie"><span class="toc-section-number">10</span> Un cas d’analyse de survie<span></span></a></li>
-<li><a href="les-modèles-linéaires-hiérarchiques.html#les-modèles-linéaires-hiérarchiques" id="toc-les-modèles-linéaires-hiérarchiques"><span class="toc-section-number">11</span> Les modèles linéaires hiérarchiques<span></span></a>
-<ul>
-<li><a href="les-modèles-linéaires-hiérarchiques.html#en-guise-dintroduction" id="toc-en-guise-dintroduction"><span class="toc-section-number">11.1</span> en guise d’introduction<span></span></a>
-<ul>
-<li><a href="les-modèles-linéaires-hiérarchiques.html#section" id="toc-section"><span class="toc-section-number">11.1.1</span> </a></li>
+<li><a href="régression.html#régression-logistique" id="toc-régression-logistique"><span class="toc-section-number">10.5.1</span> Régression logistique<span></span></a></li>
+<li><a href="régression.html#modèle-de-comptage" id="toc-modèle-de-comptage"><span class="toc-section-number">10.5.2</span> Modèle de comptage<span></span></a></li>
+<li><a href="régression.html#modèle-de-régression-beta" id="toc-modèle-de-régression-beta"><span class="toc-section-number">10.5.3</span> Modèle de régression beta<span></span></a></li>
 </ul></li>
 </ul></li>
-<li><a href="modèle-de-survie.html#modèle-de-survie" id="toc-modèle-de-survie"><span class="toc-section-number">12</span> 10 - Modèle de survie<span></span></a></li>
-<li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#les-modèles-linéaires-hiérarchiques-hlm" id="toc-les-modèles-linéaires-hiérarchiques-hlm"><span class="toc-section-number">13</span> Les modèles linéaires hiérarchiques (HLM)<span></span></a>
+<li><a href="modèle-de-survie.html#modèle-de-survie" id="toc-modèle-de-survie"><span class="toc-section-number">11</span> 10 - Modèle de survie<span></span></a></li>
+<li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#les-modèles-linéaires-hiérarchiques-hlm" id="toc-les-modèles-linéaires-hiérarchiques-hlm"><span class="toc-section-number">12</span> Les modèles linéaires hiérarchiques (HLM)<span></span></a>
 <ul>
-<li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#en-guise-dintroduction-1" id="toc-en-guise-dintroduction-1"><span class="toc-section-number">13.1</span> en guise d’introduction<span></span></a></li>
-<li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#une-application" id="toc-une-application"><span class="toc-section-number">13.2</span> Une application<span></span></a></li>
-<li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#sem-avec-lavaan" id="toc-sem-avec-lavaan"><span class="toc-section-number">13.3</span> Sem avec Lavaan<span></span></a></li>
+<li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#en-guise-dintroduction" id="toc-en-guise-dintroduction"><span class="toc-section-number">12.1</span> en guise d’introduction<span></span></a></li>
+<li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#une-application" id="toc-une-application"><span class="toc-section-number">12.2</span> Une application<span></span></a></li>
+<li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#sem-avec-lavaan" id="toc-sem-avec-lavaan"><span class="toc-section-number">12.3</span> Sem avec Lavaan<span></span></a></li>
 </ul></li>
-<li><a href="arbres-de-décision.html#arbres-de-décision" id="toc-arbres-de-décision"><span class="toc-section-number">14</span> Arbres de Décision<span></span></a>
+<li><a href="arbres-de-décision.html#arbres-de-décision" id="toc-arbres-de-décision"><span class="toc-section-number">13</span> Arbres de Décision<span></span></a>
 <ul>
-<li><a href="arbres-de-décision.html#construire-un-arbre-de-décision" id="toc-construire-un-arbre-de-décision"><span class="toc-section-number">14.1</span> Construire un arbre de décision<span></span></a></li>
-<li><a href="arbres-de-décision.html#mise-en-oeuvre-avec-partykit" id="toc-mise-en-oeuvre-avec-partykit"><span class="toc-section-number">14.2</span> Mise en oeuvre avec Partykit<span></span></a></li>
-<li><a href="arbres-de-décision.html#forêts-aléatoires" id="toc-forêts-aléatoires"><span class="toc-section-number">14.3</span> forêts aléatoires<span></span></a></li>
+<li><a href="arbres-de-décision.html#construire-un-arbre-de-décision" id="toc-construire-un-arbre-de-décision"><span class="toc-section-number">13.1</span> Construire un arbre de décision<span></span></a></li>
+<li><a href="arbres-de-décision.html#mise-en-oeuvre-avec-partykit" id="toc-mise-en-oeuvre-avec-partykit"><span class="toc-section-number">13.2</span> Mise en oeuvre avec Partykit<span></span></a></li>
+<li><a href="arbres-de-décision.html#forêts-aléatoires" id="toc-forêts-aléatoires"><span class="toc-section-number">13.3</span> forêts aléatoires<span></span></a></li>
 </ul></li>
-<li><a href="premiers-éléments-de-machine-learning.html#premiers-éléments-de-machine-learning" id="toc-premiers-éléments-de-machine-learning"><span class="toc-section-number">15</span> Premiers éléments de Machine Learning<span></span></a>
+<li><a href="premiers-éléments-de-machine-learning.html#premiers-éléments-de-machine-learning" id="toc-premiers-éléments-de-machine-learning"><span class="toc-section-number">14</span> Premiers éléments de Machine Learning<span></span></a>
 <ul>
-<li><a href="premiers-éléments-de-machine-learning.html#une-typologie-de-modèles" id="toc-une-typologie-de-modèles"><span class="toc-section-number">15.1</span> une typologie de modèles<span></span></a>
+<li><a href="premiers-éléments-de-machine-learning.html#une-typologie-de-modèles" id="toc-une-typologie-de-modèles"><span class="toc-section-number">14.1</span> une typologie de modèles<span></span></a>
 <ul>
-<li><a href="premiers-éléments-de-machine-learning.html#le-modèle-linéaire" id="toc-le-modèle-linéaire"><span class="toc-section-number">15.1.1</span> le modèle linéaire<span></span></a></li>
-<li><a href="premiers-éléments-de-machine-learning.html#le-modèle-logit" id="toc-le-modèle-logit"><span class="toc-section-number">15.1.2</span> le modèle logit<span></span></a></li>
-<li><a href="premiers-éléments-de-machine-learning.html#les-modèles-à-régularisation" id="toc-les-modèles-à-régularisation"><span class="toc-section-number">15.1.3</span> les modèles à régularisation<span></span></a></li>
-<li><a href="premiers-éléments-de-machine-learning.html#les-random-forest" id="toc-les-random-forest"><span class="toc-section-number">15.1.4</span> les random forest<span></span></a></li>
+<li><a href="premiers-éléments-de-machine-learning.html#le-modèle-linéaire" id="toc-le-modèle-linéaire"><span class="toc-section-number">14.1.1</span> le modèle linéaire<span></span></a></li>
+<li><a href="premiers-éléments-de-machine-learning.html#le-modèle-logit" id="toc-le-modèle-logit"><span class="toc-section-number">14.1.2</span> le modèle logit<span></span></a></li>
+<li><a href="premiers-éléments-de-machine-learning.html#les-modèles-à-régularisation" id="toc-les-modèles-à-régularisation"><span class="toc-section-number">14.1.3</span> les modèles à régularisation<span></span></a></li>
+<li><a href="premiers-éléments-de-machine-learning.html#les-random-forest" id="toc-les-random-forest"><span class="toc-section-number">14.1.4</span> les random forest<span></span></a></li>
 </ul></li>
-<li><a href="premiers-éléments-de-machine-learning.html#forêts-aléatoires-1" id="toc-forêts-aléatoires-1"><span class="toc-section-number">15.2</span> forêts aléatoires<span></span></a></li>
+<li><a href="premiers-éléments-de-machine-learning.html#forêts-aléatoires-1" id="toc-forêts-aléatoires-1"><span class="toc-section-number">14.2</span> forêts aléatoires<span></span></a></li>
 </ul></li>
-<li><a href="annexes.html#annexes" id="toc-annexes"><span class="toc-section-number">16</span> 20 Annexes<span></span></a>
+<li><a href="annexes.html#annexes" id="toc-annexes"><span class="toc-section-number">15</span> 20 Annexes<span></span></a>
 <ul>
-<li><a href="annexes.html#données-eric-ess" id="toc-données-eric-ess"><span class="toc-section-number">16.1</span> Données Eric-ESS<span></span></a></li>
-<li><a href="annexes.html#fichier-airbnb-bruxelles" id="toc-fichier-airbnb-bruxelles"><span class="toc-section-number">16.2</span> fichier Airbnb Bruxelles<span></span></a></li>
-<li><a href="annexes.html#section-1" id="toc-section-1"><span class="toc-section-number">16.3</span> </a></li>
+<li><a href="annexes.html#données-eric-ess" id="toc-données-eric-ess"><span class="toc-section-number">15.1</span> Données Eric-ESS<span></span></a></li>
+<li><a href="annexes.html#fichier-airbnb-bruxelles" id="toc-fichier-airbnb-bruxelles"><span class="toc-section-number">15.2</span> fichier Airbnb Bruxelles<span></span></a></li>
+<li><a href="annexes.html#section" id="toc-section"><span class="toc-section-number">15.3</span> </a></li>
 </ul></li>
 <li class="divider"></li>
 <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
@@ -353,7 +344,7 @@ div.csl-indent {
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction aux Data Sciences</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction aux Data Sciences/nAvec r</a>
           </h1>
         </div>
 
@@ -607,13 +598,13 @@ div.csl-indent {
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="analyses-univariées.html#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mixtools)</span>
 <span id="cb23-2"><a href="analyses-univariées.html#cb23-2" aria-hidden="true" tabindex="-1"></a>trust <span class="ot">=</span> foo<span class="sc">$</span>trust_institut</span>
 <span id="cb23-3"><a href="analyses-univariées.html#cb23-3" aria-hidden="true" tabindex="-1"></a>mixmdl <span class="ot">=</span> <span class="fu">normalmixEM</span>(trust, <span class="at">k=</span><span class="dv">2</span>)</span></code></pre></div>
-<pre><code>## number of iterations= 503</code></pre>
+<pre><code>## number of iterations= 552</code></pre>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="analyses-univariées.html#cb25-1" aria-hidden="true" tabindex="-1"></a>mixmdl<span class="sc">$</span>mu</span></code></pre></div>
-<pre><code>## [1] 39.23071 56.04167</code></pre>
+<pre><code>## [1] 39.23072 56.04167</code></pre>
 <div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="analyses-univariées.html#cb27-1" aria-hidden="true" tabindex="-1"></a>mixmdl<span class="sc">$</span>sigma</span></code></pre></div>
-<pre><code>## [1] 17.90246 10.56093</code></pre>
+<pre><code>## [1] 17.90246 10.56092</code></pre>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="analyses-univariées.html#cb29-1" aria-hidden="true" tabindex="-1"></a>mixmdl<span class="sc">$</span>lambda</span></code></pre></div>
-<pre><code>## [1] 0.67195 0.32805</code></pre>
+<pre><code>## [1] 0.6719504 0.3280496</code></pre>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="analyses-univariées.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mixmdl,<span class="at">which=</span><span class="dv">2</span>)</span>
 <span id="cb31-2"><a href="analyses-univariées.html#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">density</span>(trust), <span class="at">lty=</span><span class="dv">2</span>, <span class="at">lwd=</span><span class="dv">2</span>)</span></code></pre></div>
 <p><img src="bookdown-demo_files/figure-html/307-2.png" width="672" /></p>

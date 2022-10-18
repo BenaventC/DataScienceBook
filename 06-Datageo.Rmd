@@ -1,0 +1,4 @@
+# Données géographique
+
+voir étude de cas [Airbnb](http://r.benavent.fr/map.html) avec le package sf
+

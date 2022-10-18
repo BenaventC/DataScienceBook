@@ -30,13 +30,11 @@ Celle-ci met un ordre dans les éléments qui composent un graphique et les supe
  * les templates
  * le facetting
  
- ggplot est construit selon cette structure. Voici le [book de référence](https://ggplot2-book.org/), qui est au centre de ce cours. On aura besoin de manière assez systématique de manipuler les données avant de les représenter, [dplyr](http://larmarange.github.io/analyse-R/manipuler-les-donnees-avec-dplyr.html) nous permet de le faire aisément.
-
+ggplot est construit selon cette structure. Voici le [book de référence](https://ggplot2-book.org/), qui est au centre de ce cours. On aura besoin de manière assez systématique de manipuler les données avant de les représenter, [dplyr](http://larmarange.github.io/analyse-R/manipuler-les-donnees-avec-dplyr.html) nous permet de le faire aisément.
 
 ### Une typologie des représentations
 
 Un point de départ fondamental est la [gallery de ggplot](https://www.r-graph-gallery.com/),, elle présente de manière synthétique la plupart les types de figures qui peuvent être représentées, avec du code facilement reproductible. 
-
 
 Une classification simple
 
@@ -50,12 +48,9 @@ Une classification simple
  * analyse d'arbres
  * Diagramme de flux
 
-
 ### L'esthétique
 
 L'art des couleurs tient dans les palettes on aimera celles de Wes Anderson, on peut adorer fishualize. on trouvera
-
-
 
 ## Une étude de cas
 
@@ -65,14 +60,14 @@ On fait quelques opérations de recodage et on renomme les variables avoir une l
 
 L'analyse univarié, comme son nom l'indique, ne s'intéresse qu'à une seule variable. Celle-ci peut être **quantitative** ou **qualitative** etne comporter qu'un nombre limité de modalités entre lesquels aucune comparaison de grandeur ne peut être faite. Les premières ont le plus souvent dans r un format numeric, les autres correspondent au format *factor*.
 
-
 (Un exercice peut être de le réécrire avec  dplyr.)
 
 ```{r 301, include=TRUE}
 df<-readRDS("./data/trustFrAll.rds")
 
 #quelques recodages
-#on renomme pour plus de clarte
+#on renomme pour plus de clarté
+
 names(df)[names(df)=="trstun"] <- "NationsUnies" 
 names(df)[names(df)=="trstep"] <- "ParlementEurop" 
 names(df)[names(df)=="trstlgl"] <- "Justice" 
@@ -149,8 +144,8 @@ df$age[df$agea>65 & df$agea<76]<-"66-75"
 df$age[df$agea>75]<-"75>"
 df$age<-factor(df$age,levels=c("25<","26-35","36-45","46-65","66-75", "75>"))
 
-saveRDS(df, "./data/dfTrust.rds)")
-
+saveRDS(df, "./data/dfTrust.rds")
+readRDS("./data/dfTrust.rds")
 foo<-df%>%
   dplyr::select(Year,cntry, trust_institut, trust_interpersonnel)%>%
   group_by(Year,cntry)%>%
