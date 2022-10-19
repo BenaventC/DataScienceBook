@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.10.16)  18 OCT 2022 17:26
+This is XeTeX, Version 3.141592653-2.6-0.999994 (TeX Live 2022) (preloaded format=xelatex 2022.10.16)  19 OCT 2022 12:22
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -986,7 +986,7 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 (Font)              scaled to size 4.99947pt on input line 2.
 [3]
-Underfull \hbox (badness 1824) in paragraph at lines 96--96
+Underfull \hbox (badness 1824) in paragraph at lines 93--93
  [][] [][]\TU/lmr/m/n/10 Analyser la demande : qu’est ce qui détermine le taux 
  []
 
@@ -1010,11 +1010,7 @@ Package natbib Warning: Citation `allaire_rmarkdown_2021' on page 9 undefined on
 
 Package natbib Warning: Citation `R-bookdown' on page 9 undefined on input line 243.
 
-[9]
-Overfull \vbox (2.01997pt too high) detected at line 309
- []
-
-[10] [11] [12
+[9] [10] [11] [12
 
 ]
 Chapter 2.
@@ -1031,58 +1027,58 @@ Chapter 3.
 [19
 
 ]
-Overfull \hbox (90.75pt too wide) in paragraph at lines 597--597
+Overfull \hbox (90.75pt too wide) in paragraph at lines 601--601
 []\TU/lmtt/m/n/10 ##      id name       host_id host_~1 neigh~2 neigh~3 latit~4 longi~5 room_~6 price[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 597--597
+Overfull \hbox (90.75pt too wide) in paragraph at lines 601--601
 []\TU/lmtt/m/n/10 ##   <dbl> <chr>        <dbl> <chr>   <lgl>   <chr>     <dbl>   <dbl> <chr>   <dbl>[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 597--597
+Overfull \hbox (90.75pt too wide) in paragraph at lines 601--601
 []\TU/lmtt/m/n/10 ## 1  2352 Triplex-2~    2582 Oda     NA      Molenb~    50.9    4.31 Entire~    91[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 597--597
+Overfull \hbox (90.75pt too wide) in paragraph at lines 601--601
 []\TU/lmtt/m/n/10 ## 2  2354 COURT/Lon~    2582 Oda     NA      Molenb~    50.9    4.31 Entire~    74[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 597--597
+Overfull \hbox (90.75pt too wide) in paragraph at lines 601--601
 []\TU/lmtt/m/n/10 ## 3 45145 B&B Welco~  199370 <NA>    NA      Bruxel~    50.9    4.37 Hotel ~   120[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 597--597
+Overfull \hbox (90.75pt too wide) in paragraph at lines 601--601
 []\TU/lmtt/m/n/10 ## 4 48180 Top Apart~  219560 Ahmet   NA      Woluwe~    50.8    4.41 Entire~   200[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 597--597
+Overfull \hbox (90.75pt too wide) in paragraph at lines 601--601
 []\TU/lmtt/m/n/10 ## 5 52796 Bright ap~  244722 Pierre  NA      Ixelles    50.8    4.36 Entire~    74[] 
  []
 
 
-Overfull \hbox (64.5pt too wide) in paragraph at lines 597--597
+Overfull \hbox (64.5pt too wide) in paragraph at lines 601--601
 []\TU/lmtt/m/n/10 ## # ... with 6 more variables: minimum_nights <dbl>, number_of_reviews <dbl>,[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 597--597
+Overfull \hbox (33.0pt too wide) in paragraph at lines 601--601
 []\TU/lmtt/m/n/10 ## #   calculated_host_listings_count <dbl>, availability_365 <dbl>, and[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 597--597
+Overfull \hbox (27.75pt too wide) in paragraph at lines 601--601
 []\TU/lmtt/m/n/10 ## #   abbreviated variable names 1: host_name, 2: neighbourhood_group,[] 
  []
 
 [20]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <14.4> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 630.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 634.
 [21]
 File: bookdown-demo_files/figure-latex/0203-1.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/0203-1.pdf>
@@ -1144,7 +1140,7 @@ Package fontspec Info: Font family 'Arial(0)' created for font 'Arial' with
 (fontspec)             <->s*[1]"Arial/BI/OT:script=latn;language=dflt;+smcp;mapping=tex-text;"
 
 LaTeX Font Info:    Font shape `TU/Arial(0)/m/n' will be
-(Font)              scaled to size 11.0pt on input line 737.
+(Font)              scaled to size 11.0pt on input line 741.
 
 Package fontspec Info: Arial scale = 0.9999973249515148.
 
@@ -1197,13 +1193,13 @@ Package fontspec Info: Font family 'Arial(1)' created for font 'Arial' with
 (fontspec)             <->s*[0.9999973249515148]"Arial/BI/OT:script=latn;language=dflt;+smcp;"
 
 LaTeX Font Info:    Overwriting math alphabet `\mathrm' in version `normal'
-(Font)                  TU/lmr/m/n --> TU/Arial(1)/m/n on input line 737.
+(Font)                  TU/lmr/m/n --> TU/Arial(1)/m/n on input line 741.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
-(Font)                  TU/lmr/m/it --> TU/Arial(1)/m/it on input line 737.
+(Font)                  TU/lmr/m/it --> TU/Arial(1)/m/it on input line 741.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
-(Font)                  TU/lmr/bx/n --> TU/Arial(1)/b/n on input line 737.
+(Font)                  TU/lmr/bx/n --> TU/Arial(1)/b/n on input line 741.
 LaTeX Font Info:    Font shape `TU/Arial(0)/b/n' will be
-(Font)              scaled to size 11.0pt on input line 737.
+(Font)              scaled to size 11.0pt on input line 741.
 
 Package fontspec Info: Arial scale = 0.8311536146592658.
 
@@ -1217,7 +1213,7 @@ Package fontspec Info: Arial scale = 0.8311536146592658.
 Package fontspec Info: Arial scale = 0.8311531205759555.
 
 LaTeX Font Info:    Font shape `TU/Arial(0)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 751.
+(Font)              scaled to size 9.0pt on input line 755.
 
 Package fontspec Info: Arial scale = 0.8311531205759555.
 
@@ -1566,25 +1562,57 @@ File: ./Images/join_diagram.png Graphic file (type bmp)
 Chapter 4.
 File: ./Images/graphiclayers.png Graphic file (type bmp)
 <./Images/graphiclayers.png>
-[33] [34]
-
-Package hyperref Warning: Suppressing link with empty target on input line 1300.
-
-[35]
-Underfull \vbox (badness 10000) detected at line 1413
- []
-
-
-Underfull \vbox (badness 10000) detected at line 1413
- []
-
-[36]
-File: bookdown-demo_files/figure-latex/301-1.pdf Graphic file (type pdf)
-<use bookdown-demo_files/figure-latex/301-1.pdf>
+[33]
+File: ./Images/ggplotGallery1.jpg Graphic file (type bmp)
+<./Images/ggplotGallery1.jpg>
+File: ./Images/ggplotGallery2.jpg Graphic file (type bmp)
+<./Images/ggplotGallery2.jpg>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[37] [38]
+
+Overfull \hbox (72.28122pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 34 \TU/lmr/m/sl/10 CHAPTER 4.  INTRODUCTION À LA GRAMMAIRE DES GRAPHIQUES ET À GGPLOT
+ []
+
+[34]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[35]
+Underfull \vbox (badness 6380) has occurred while \output is active []
+
+
+Overfull \hbox (72.28122pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 36 \TU/lmr/m/sl/10 CHAPTER 4.  INTRODUCTION À LA GRAMMAIRE DES GRAPHIQUES ET À GGPLOT
+ []
+
+[36]
+File: ./Images/Bigmacindex.png Graphic file (type bmp)
+<./Images/Bigmacindex.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 1309--1311
+[][]
+ []
+
+
+Package hyperref Warning: Suppressing link with empty target on input line 1312.
+
+File: bookdown-demo_files/figure-latex/301-1.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/301-1.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 1314--1316
+[][]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[37]
+Overfull \hbox (72.28122pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 38 \TU/lmr/m/sl/10 CHAPTER 4.  INTRODUCTION À LA GRAMMAIRE DES GRAPHIQUES ET À GGPLOT
+ []
+
+[38]
 File: bookdown-demo_files/figure-latex/302-1.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/302-1.pdf>
 File: bookdown-demo_files/figure-latex/302-2.pdf Graphic file (type pdf)
@@ -1592,19 +1620,28 @@ File: bookdown-demo_files/figure-latex/302-2.pdf Graphic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[39] [40]
+[39]
+Overfull \hbox (72.28122pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 40 \TU/lmr/m/sl/10 CHAPTER 4.  INTRODUCTION À LA GRAMMAIRE DES GRAPHIQUES ET À GGPLOT
+ []
+
+[40]
 File: bookdown-demo_files/figure-latex/303-1.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/303-1.pdf>
+[41]
 File: bookdown-demo_files/figure-latex/304-1.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/304-1.pdf>
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \hbox (badness 10000) in paragraph at lines 1418--1420
+[][]
+ []
 
-[41]
 File: bookdown-demo_files/figure-latex/305-1.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/305-1.pdf>
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Overfull \hbox (72.28122pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 42 \TU/lmr/m/sl/10 CHAPTER 4.  INTRODUCTION À LA GRAMMAIRE DES GRAPHIQUES ET À GGPLOT
+ []
 
 [42]
 File: bookdown-demo_files/figure-latex/306-1.pdf Graphic file (type pdf)
@@ -1618,6 +1655,11 @@ File: bookdown-demo_files/figure-latex/307-1.pdf Graphic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
+
+Overfull \hbox (72.28122pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 44 \TU/lmr/m/sl/10 CHAPTER 4.  INTRODUCTION À LA GRAMMAIRE DES GRAPHIQUES ET À GGPLOT
+ []
+
 [44]
 File: bookdown-demo_files/figure-latex/307-2.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/307-2.pdf>
@@ -1626,6 +1668,11 @@ File: bookdown-demo_files/figure-latex/308a-1.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/308a-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (72.28122pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 46 \TU/lmr/m/sl/10 CHAPTER 4.  INTRODUCTION À LA GRAMMAIRE DES GRAPHIQUES ET À GGPLOT
+ []
 
 [46]
 File: bookdown-demo_files/figure-latex/308-1.pdf Graphic file (type pdf)
@@ -1639,39 +1686,60 @@ File: bookdown-demo_files/figure-latex/309-1.pdf Graphic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
+
+Overfull \hbox (72.28122pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 48 \TU/lmr/m/sl/10 CHAPTER 4.  INTRODUCTION À LA GRAMMAIRE DES GRAPHIQUES ET À GGPLOT
+ []
+
 [48]
+File: bookdown-demo_files/figure-latex/309-2.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/309-2.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[49]
 File: bookdown-demo_files/figure-latex/310-1.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/310-1.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 1701--1703
+Underfull \hbox (badness 10000) in paragraph at lines 1626--1628
 [][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1701--1703
+Underfull \hbox (badness 10000) in paragraph at lines 1626--1628
 []$[][][][][] [] [] [] [][][][] [] [] [][] [][][][][][][] [] [][][] [] [][][] [] [][][][][][][][] [] [][][][][][][][][][] [] [][][][][][][][][] [] [][][][][][][][][][][][] [][]
  []
 
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[49]
+
+Overfull \hbox (72.28122pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 50 \TU/lmr/m/sl/10 CHAPTER 4.  INTRODUCTION À LA GRAMMAIRE DES GRAPHIQUES ET À GGPLOT
+ []
+
+[50]
 File: bookdown-demo_files/figure-latex/311-1.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/311-1.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[50] [51] [52
+[51]
+Overfull \hbox (72.28122pt too wide) has occurred while \output is active
+\TU/lmr/m/n/10 52 \TU/lmr/m/sl/10 CHAPTER 4.  INTRODUCTION À LA GRAMMAIRE DES GRAPHIQUES ET À GGPLOT
+ []
 
-]
+[52]
 Chapter 5.
 File: bookdown-demo_files/figure-latex/412-1.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/412-1.pdf>
-[53] [54]
+[53
+
+] [54]
 File: bookdown-demo_files/figure-latex/0415-1.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/0415-1.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 1833--1835
+Underfull \hbox (badness 10000) in paragraph at lines 1758--1760
 [][]
  []
 
@@ -1693,11 +1761,11 @@ Underfull \vbox (badness 1546) has occurred while \output is active []
 File: bookdown-demo_files/figure-latex/0420-1.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/0420-1.pdf>
 [60]
-Underfull \vbox (badness 10000) detected at line 2020
+Underfull \vbox (badness 10000) detected at line 1945
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2020
+Underfull \vbox (badness 10000) detected at line 1945
  []
 
 [61]
@@ -1723,7 +1791,7 @@ Package fontspec Info: Arial scale = 0.8311536146592658.
 Package fontspec Info: Arial scale = 0.8311536146592658.
 
 
-Overfull \hbox (46.854pt too wide) in alignment at lines 2069--2079
+Overfull \hbox (46.854pt too wide) in alignment at lines 1994--2004
  [] [] [] [] [] [] 
  []
 
@@ -1746,7 +1814,7 @@ Package fontspec Info: Arial scale = 0.8311536146592658.
 Package fontspec Info: Arial scale = 0.8311536146592658.
 
 
-Overfull \hbox (46.854pt too wide) in alignment at lines 2079--2085
+Overfull \hbox (46.854pt too wide) in alignment at lines 2004--2010
  [] [] [] [] [] [] 
  []
 
@@ -1787,57 +1855,57 @@ Package fontspec Info: Arial scale = 0.8311536146592658.
 Package fontspec Info: Arial scale = 0.8311536146592658.
 
 
-Overfull \hbox (46.854pt too wide) in alignment at lines 2085--2101
+Overfull \hbox (46.854pt too wide) in alignment at lines 2010--2026
  [] [] [] [] [] [] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 2127--2127
+Overfull \hbox (54.0pt too wide) in paragraph at lines 2052--2052
 []\TU/lmtt/m/n/10 ##                                 Big city Suburbs Town Village Countryside[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 2127--2127
+Overfull \hbox (54.0pt too wide) in paragraph at lines 2052--2052
 []\TU/lmtt/m/n/10 ##   Vie confortable                    118      82  161     142          31[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 2127--2127
+Overfull \hbox (54.0pt too wide) in paragraph at lines 2052--2052
 []\TU/lmtt/m/n/10 ##   Se débrouille avec son revenu      120     109  275     227          58[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 2127--2127
+Overfull \hbox (54.0pt too wide) in paragraph at lines 2052--2052
 []\TU/lmtt/m/n/10 ##   Revenu insuffisant                  48      38  129      88          22[] 
  []
 
 
-Overfull \hbox (54.0pt too wide) in paragraph at lines 2127--2127
+Overfull \hbox (54.0pt too wide) in paragraph at lines 2052--2052
 []\TU/lmtt/m/n/10 ##   Revenu très insuffisant              9       5   18      10           0[] 
  []
 
 [63]
-Overfull \hbox (64.5pt too wide) in paragraph at lines 2148--2148
+Overfull \hbox (64.5pt too wide) in paragraph at lines 2073--2073
 []\TU/lmtt/m/n/10 ##                                   Big city    Suburbs       Town    Village[] 
  []
 
 
-Overfull \hbox (64.5pt too wide) in paragraph at lines 2148--2148
+Overfull \hbox (64.5pt too wide) in paragraph at lines 2073--2073
 []\TU/lmtt/m/n/10 ##   Vie confortable               0.40000000 0.35042735 0.27615780 0.30406852[] 
  []
 
 
-Overfull \hbox (64.5pt too wide) in paragraph at lines 2148--2148
+Overfull \hbox (64.5pt too wide) in paragraph at lines 2073--2073
 []\TU/lmtt/m/n/10 ##   Se débrouille avec son revenu 0.40677966 0.46581197 0.47169811 0.48608137[] 
  []
 
 
-Overfull \hbox (64.5pt too wide) in paragraph at lines 2148--2148
+Overfull \hbox (64.5pt too wide) in paragraph at lines 2073--2073
 []\TU/lmtt/m/n/10 ##   Revenu insuffisant            0.16271186 0.16239316 0.22126930 0.18843683[] 
  []
 
 
-Overfull \hbox (64.5pt too wide) in paragraph at lines 2148--2148
+Overfull \hbox (64.5pt too wide) in paragraph at lines 2073--2073
 []\TU/lmtt/m/n/10 ##   Revenu très insuffisant       0.03050847 0.02136752 0.03087479 0.02141328[] 
  []
 
@@ -1872,7 +1940,7 @@ Package fontspec Info: Arial scale = 0.8311536146592658.
 Package fontspec Info: Arial scale = 0.8311536146592658.
 
 
-Overfull \hbox (430.37314pt too wide) in alignment at lines 2167--2181
+Overfull \hbox (430.37314pt too wide) in alignment at lines 2092--2106
  [] [] [] [] [] [] [] [] 
  []
 
@@ -1907,262 +1975,7 @@ Package fontspec Info: Arial scale = 0.8311536146592658.
 Package fontspec Info: Arial scale = 0.8311536146592658.
 
 
-Overfull \hbox (430.37314pt too wide) in alignment at lines 2181--2193
- [] [] [] [] [] [] [] [] 
- []
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Overfull \hbox (430.37314pt too wide) in alignment at lines 2193--2245
- [] [] [] [] [] [] [] [] 
- []
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Overfull \hbox (420.97768pt too wide) in alignment at lines 2262--2276
- [] [] [] [] [] [] [] [] 
- []
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Package fontspec Info: Arial scale = 0.8311536146592658.
-
-
-Overfull \hbox (420.97768pt too wide) in alignment at lines 2276--2288
+Overfull \hbox (430.37314pt too wide) in alignment at lines 2106--2118
  [] [] [] [] [] [] [] [] 
  []
 
@@ -2347,6 +2160,46 @@ Package fontspec Info: Arial scale = 0.8311536146592658.
 Package fontspec Info: Arial scale = 0.8311536146592658.
 
 
+Overfull \hbox (430.37314pt too wide) in alignment at lines 2118--2170
+ [] [] [] [] [] [] [] [] 
+ []
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Overfull \hbox (420.97768pt too wide) in alignment at lines 2187--2201
+ [] [] [] [] [] [] [] [] 
+ []
+
+
 Package fontspec Info: Arial scale = 0.8311536146592658.
 
 
@@ -2371,7 +2224,222 @@ Package fontspec Info: Arial scale = 0.8311536146592658.
 Package fontspec Info: Arial scale = 0.8311536146592658.
 
 
-Overfull \hbox (420.97768pt too wide) in alignment at lines 2288--2346
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Overfull \hbox (420.97768pt too wide) in alignment at lines 2201--2213
+ [] [] [] [] [] [] [] [] 
+ []
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Package fontspec Info: Arial scale = 0.8311536146592658.
+
+
+Overfull \hbox (420.97768pt too wide) in alignment at lines 2213--2271
  [] [] [] [] [] [] [] [] 
  []
 
@@ -2421,7 +2489,7 @@ Underfull \vbox (badness 3612) has occurred while \output is active []
 
 [74]
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 2609.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 2533.
 [75] [76]
 File: bookdown-demo_files/figure-latex/0510-1.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/0510-1.pdf>
@@ -2434,1207 +2502,1207 @@ Overfull \hbox (110.69904pt too wide) has occurred while \output is active
  []
 
 [77] [78]
-Overfull \hbox (17.25pt too wide) in paragraph at lines 2756--2756
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2680--2680
 []\TU/lmtt/m/n/10 ## candidat                 7 122735 17533.6 12742.2074 < 2.2e-16 ***[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 2756--2756
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2680--2680
 []\TU/lmtt/m/n/10 ## tps                      2     25    12.7     9.2428  0.000101 ***[] 
  []
 
 
-Overfull \hbox (6.75pt too wide) in paragraph at lines 2756--2756
+Overfull \hbox (6.75pt too wide) in paragraph at lines 2680--2680
 []\TU/lmtt/m/n/10 ## nom_institut            10     25     2.5     1.8283  0.051096 .[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 2756--2756
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2680--2680
 []\TU/lmtt/m/n/10 ## candidat:tps            14   4534   323.9   235.3684 < 2.2e-16 ***[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 2756--2756
+Overfull \hbox (17.25pt too wide) in paragraph at lines 2680--2680
 []\TU/lmtt/m/n/10 ## candidat:nom_institut   70    633     9.0     6.5768 < 2.2e-16 ***[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 2823--2823
+Overfull \hbox (27.75pt too wide) in paragraph at lines 2747--2747
 []\TU/lmtt/m/n/10 ##                                 Estimate Std. Error t value Pr(>|t|)[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 2823--2823
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2747--2747
 []\TU/lmtt/m/n/10 ## (Intercept)                       3.1765     0.1792  17.726  < 2e-16 ***[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 2823--2823
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2747--2747
 []\TU/lmtt/m/n/10 ## candidatEmmanuel Macron          21.5392     0.2534  84.992  < 2e-16 ***[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 2823--2823
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2747--2747
 []\TU/lmtt/m/n/10 ## candidatEric Zemmour              9.7549     0.2534  38.492  < 2e-16 ***[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 2823--2823
+Overfull \hbox (43.5pt too wide) in paragraph at lines 2747--2747
 []\TU/lmtt/m/n/10 ## candidatFabien Roussel           -0.8039     0.2534  -3.172 0.001535 **[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 2823--2823
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2747--2747
 []\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon        6.4118     0.2534  25.300  < 2e-16 ***[] 
  []
 
 [79]
-Overfull \hbox (48.75pt too wide) in paragraph at lines 2823--2823
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2747--2747
 []\TU/lmtt/m/n/10 ## candidatMarine Le Pen            13.7353     0.2534  54.198  < 2e-16 ***[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 2823--2823
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2747--2747
 []\TU/lmtt/m/n/10 ## candidatValérie Pécresse         13.2255     0.2534  52.187  < 2e-16 ***[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 2823--2823
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2747--2747
 []\TU/lmtt/m/n/10 ## candidatYannick Jadot             2.7255     0.2534  10.755  < 2e-16 ***[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 2823--2823
+Overfull \hbox (43.5pt too wide) in paragraph at lines 2747--2747
 []\TU/lmtt/m/n/10 ## tps2                             -0.6765     0.2342  -2.888 0.003915 **[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 2823--2823
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2747--2747
 []\TU/lmtt/m/n/10 ## tps3                             -0.9765     0.2089  -4.674 3.14e-06 ***[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 2823--2823
+Overfull \hbox (38.25pt too wide) in paragraph at lines 2747--2747
 []\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:tps2      0.6844     0.3312   2.066 0.038934 *[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 2823--2823
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2747--2747
 []\TU/lmtt/m/n/10 ## candidatEric Zemmour:tps2         2.0645     0.3312   6.233 5.52e-10 ***[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 2823--2823
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2747--2747
 []\TU/lmtt/m/n/10 ## candidatFabien Roussel:tps2       2.1511     0.3312   6.494 1.04e-10 ***[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 2823--2823
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2747--2747
 []\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:tps2   1.6438     0.3312   4.963 7.52e-07 ***[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 2823--2823
+Overfull \hbox (38.25pt too wide) in paragraph at lines 2747--2747
 []\TU/lmtt/m/n/10 ## candidatMarine Le Pen:tps2        0.5842     0.3312   1.764 0.077955 .[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 2823--2823
+Overfull \hbox (43.5pt too wide) in paragraph at lines 2747--2747
 []\TU/lmtt/m/n/10 ## candidatValérie Pécresse:tps2    -0.9616     0.3312  -2.903 0.003734 **[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 2823--2823
+Overfull \hbox (27.75pt too wide) in paragraph at lines 2747--2747
 []\TU/lmtt/m/n/10 ## candidatYannick Jadot:tps2       -0.1630     0.3312  -0.492 0.622725[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 2823--2823
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2747--2747
 []\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:tps3      4.6819     0.2955  15.847  < 2e-16 ***[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 2823--2823
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2747--2747
 []\TU/lmtt/m/n/10 ## candidatEric Zemmour:tps3        -1.0570     0.2955  -3.578 0.000355 ***[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 2823--2823
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2747--2747
 []\TU/lmtt/m/n/10 ## candidatFabien Roussel:tps3       2.0919     0.2955   7.080 1.95e-12 ***[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 2823--2823
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2747--2747
 []\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:tps3   5.1319     0.2955  17.370  < 2e-16 ***[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 2823--2823
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2747--2747
 []\TU/lmtt/m/n/10 ## candidatMarine Le Pen:tps3        3.4154     0.2955  11.560  < 2e-16 ***[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 2823--2823
+Overfull \hbox (48.75pt too wide) in paragraph at lines 2747--2747
 []\TU/lmtt/m/n/10 ## candidatValérie Pécresse:tps3    -4.8670     0.2955 -16.473  < 2e-16 ***[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 2823--2823
+Overfull \hbox (27.75pt too wide) in paragraph at lines 2747--2747
 []\TU/lmtt/m/n/10 ## candidatYannick Jadot:tps3        0.4724     0.2955   1.599 0.109995[] 
  []
 
 
-Overfull \hbox (22.5pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (22.5pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## lm(formula = intentions ~ candidat * tps + candidat * nom_institut,[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ##                                                           Estimate Std. Error[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## (Intercept)                                                3.39409    1.18971[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEmmanuel Macron                                   20.60082    1.68251[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEric Zemmour                                      10.59844    1.68251[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatFabien Roussel                                    -2.19508    1.68251[] 
  []
 
 [80]
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon                                11.04593    1.68251[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatMarine Le Pen                                     15.30968    1.68251[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatValérie Pécresse                                   7.55835    1.68251[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatYannick Jadot                                      2.30826    1.68251[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## tps2                                                      -0.68106    0.21565[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## tps3                                                      -0.99409    0.19847[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## nom_institutBVA                                           -0.30224    1.23753[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## nom_institutCluster17                                     -0.84531    1.21657[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## nom_institutElabe                                         -0.71509    1.21215[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## nom_institutHarris Interactive                            -0.18347    1.21291[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## nom_institutIfop                                          -0.18249    1.18474[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## nom_institutIpsos                                         -0.08904    1.19038[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## nom_institutKantar Public                                 -0.47826    1.31223[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## nom_institutOdoxa                                         -0.67101    1.35576[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## nom_institutOpinion Way                                   -0.04925    1.18126[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## nom_institutYouGov                                        -1.40000    1.65893[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:tps2                               0.73921    0.30498[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEric Zemmour:tps2                                  2.12294    0.30498[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatFabien Roussel:tps2                                2.12788    0.30498[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:tps2                            1.71555    0.30498[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatMarine Le Pen:tps2                                 0.60025    0.30498[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatValérie Pécresse:tps2                             -0.97779    0.30498[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatYannick Jadot:tps2                                -0.15932    0.30498[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:tps3                               4.79918    0.28068[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEric Zemmour:tps3                                 -0.99844    0.28068[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatFabien Roussel:tps3                                2.09508    0.28068[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:tps3                            5.15407    0.28068[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatMarine Le Pen:tps3                                 3.59032    0.28068[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatValérie Pécresse:tps3                             -4.65835    0.28068[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatYannick Jadot:tps3                                 0.29174    0.28068[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutBVA                    0.75768    1.75014[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutBVA                      -0.46013    1.75014[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutBVA                     1.43661    1.75014[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutBVA                -4.47432    1.75014[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutBVA                     -1.61439    1.75014[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutBVA                   5.43117    1.75014[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutBVA                      0.47709    1.75014[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutCluster17              0.21696    1.72049[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutCluster17                 0.93708    1.72049[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutCluster17               1.75386    1.72049[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutCluster17          -1.72026    1.72049[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutCluster17               -2.63348    1.72049[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutCluster17             5.22876    1.72049[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutCluster17                0.59139    1.72049[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutElabe                  1.38103    1.71424[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutElabe                    -1.35629    1.71424[] 
  []
 
 [81]
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutElabe                   1.64477    1.71424[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutElabe              -3.52444    1.71424[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutElabe                   -0.78677    1.71424[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutElabe                 5.34773    1.71424[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutElabe                    0.80139    1.71424[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutHarris Interactive     1.05598    1.71531[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutHarris Interactive       -0.57494    1.71531[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutHarris Interactive      0.83821    1.71531[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutHarris Interactive -3.70231    1.71531[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutHarris Interactive      -0.96863    1.71531[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutHarris Interactive    4.65034    1.71531[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutHarris Interactive       0.56962    1.71531[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutIfop                   1.34434    1.67547[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutIfop                     -0.55201    1.67547[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutIfop                    1.38693    1.67547[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutIfop               -4.84893    1.67547[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutIfop                    -1.37146    1.67547[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutIfop                  5.78598    1.67547[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutIfop                     0.22809    1.67547[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutIpsos                  0.79936    1.68345[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutIpsos                    -0.87532    1.68345[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutIpsos                   1.26446    1.68345[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutIpsos              -4.62283    1.68345[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutIpsos                   -2.71909    1.68345[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutIpsos                 4.63358    1.68345[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutIpsos                    1.44225    1.68345[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutKantar Public          1.11499    1.85577[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutKantar Public             0.49465    1.85577[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutKantar Public           1.34180    1.85577[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutKantar Public      -4.09037    1.85577[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutKantar Public           -1.02748    1.85577[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutKantar Public         4.67986    1.85577[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutKantar Public           -0.11224    1.85577[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutOdoxa                  1.45332    1.91734[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutOdoxa                    -1.47379    1.91734[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutOdoxa                   1.92240    1.91734[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutOdoxa              -4.05383    1.91734[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutOdoxa                    0.76336    1.91734[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutOdoxa                 4.03981    1.91734[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutOdoxa                    0.55035    1.91734[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutOpinion Way            0.50026    1.67056[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutOpinion Way              -1.46076    1.67056[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutOpinion Way             1.44706    1.67056[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutOpinion Way        -5.45426    1.67056[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutOpinion Way             -1.84075    1.67056[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutOpinion Way           6.12136    1.67056[] 
  []
 
 [82]
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutOpinion Way              0.33856    1.67056[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutYouGov                 0.60000    2.34608[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutYouGov                   -1.60000    2.34608[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutYouGov                  1.10000    2.34608[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutYouGov             -2.20000    2.34608[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutYouGov                   5.10000    2.34608[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutYouGov                4.10000    2.34608[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutYouGov                   2.40000    2.34608[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ##                                                           t value Pr(>|t|)[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## (Intercept)                                                 2.853 0.004377 **[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (80.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEmmanuel Macron                                    12.244  < 2e-16 ***[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (80.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEric Zemmour                                        6.299 3.66e-10 ***[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatFabien Roussel                                     -1.305 0.192163[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (80.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon                                  6.565 6.59e-11 ***[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (80.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatMarine Le Pen                                       9.099  < 2e-16 ***[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (80.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatValérie Pécresse                                    4.492 7.44e-06 ***[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatYannick Jadot                                       1.372 0.170242[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## tps2                                                       -3.158 0.001611 **[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (80.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## tps3                                                       -5.009 5.96e-07 ***[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## nom_institutBVA                                            -0.244 0.807081[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## nom_institutCluster17                                      -0.695 0.487241[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## nom_institutElabe                                          -0.590 0.555298[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## nom_institutHarris Interactive                             -0.151 0.879779[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## nom_institutIfop                                           -0.154 0.877598[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## nom_institutIpsos                                          -0.075 0.940383[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## nom_institutKantar Public                                  -0.364 0.715551[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## nom_institutOdoxa                                          -0.495 0.620703[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## nom_institutOpinion Way                                    -0.042 0.966747[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## nom_institutYouGov                                         -0.844 0.398816[] 
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (69.75pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:tps2                                2.424 0.015445 *[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (80.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEric Zemmour:tps2                                   6.961 4.55e-12 ***[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (80.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatFabien Roussel:tps2                                 6.977 4.07e-12 ***[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (80.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:tps2                             5.625 2.11e-08 ***[] 
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (69.75pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatMarine Le Pen:tps2                                  1.968 0.049184 *[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatValérie Pécresse:tps2                              -3.206 0.001367 **[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatYannick Jadot:tps2                                 -0.522 0.601458[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (80.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:tps3                               17.098  < 2e-16 ***[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (80.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEric Zemmour:tps3                                  -3.557 0.000383 ***[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (80.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatFabien Roussel:tps3                                 7.464 1.24e-13 ***[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (80.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:tps3                            18.363  < 2e-16 ***[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (80.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatMarine Le Pen:tps3                                 12.791  < 2e-16 ***[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (80.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatValérie Pécresse:tps3                             -16.597  < 2e-16 ***[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatYannick Jadot:tps3                                  1.039 0.298749[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutBVA                     0.433 0.665115[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutBVA                       -0.263 0.792645[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutBVA                      0.821 0.411826[] 
  []
 
 [83]
-Overfull \hbox (69.75pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (69.75pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutBVA                 -2.557 0.010644 *[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutBVA                      -0.922 0.356411[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutBVA                    3.103 0.001940 **[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutBVA                       0.273 0.785186[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutCluster17               0.126 0.899664[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutCluster17                  0.545 0.586049[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutCluster17                1.019 0.308139[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutCluster17           -1.000 0.317496[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutCluster17                -1.531 0.126012[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutCluster17              3.039 0.002403 **[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutCluster17                 0.344 0.731085[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutElabe                   0.806 0.420553[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutElabe                     -0.791 0.428924[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutElabe                    0.959 0.337434[] 
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (69.75pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutElabe               -2.056 0.039913 *[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutElabe                    -0.459 0.646309[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutElabe                  3.120 0.001837 **[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutElabe                     0.467 0.640200[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutHarris Interactive      0.616 0.538214[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutHarris Interactive        -0.335 0.737521[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutHarris Interactive       0.489 0.625133[] 
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (69.75pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutHarris Interactive  -2.158 0.031015 *[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutHarris Interactive       -0.565 0.572343[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutHarris Interactive     2.711 0.006763 **[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutHarris Interactive        0.332 0.739863[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutIfop                    0.802 0.422437[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutIfop                      -0.329 0.741837[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutIfop                     0.828 0.407892[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutIfop                -2.894 0.003844 **[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutIfop                     -0.819 0.413138[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (80.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutIfop                   3.453 0.000565 ***[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutIfop                      0.136 0.891729[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutIpsos                   0.475 0.634955[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutIpsos                     -0.520 0.603149[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutIpsos                    0.751 0.452670[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutIpsos               -2.746 0.006085 **[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutIpsos                    -1.615 0.106425[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutIpsos                  2.752 0.005968 **[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutIpsos                     0.857 0.391697[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutKantar Public           0.601 0.548025[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutKantar Public              0.267 0.789843[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutKantar Public            0.723 0.469738[] 
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (69.75pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutKantar Public       -2.204 0.027628 *[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutKantar Public            -0.554 0.579867[] 
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (69.75pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutKantar Public          2.522 0.011753 *[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutKantar Public            -0.060 0.951779[] 
  []
 
 [84]
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutOdoxa                   0.758 0.448546[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutOdoxa                     -0.769 0.442182[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutOdoxa                    1.003 0.316155[] 
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (69.75pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutOdoxa               -2.114 0.034612 *[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutOdoxa                     0.398 0.690574[] 
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (69.75pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutOdoxa                  2.107 0.035242 *[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutOdoxa                     0.287 0.774112[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutOpinion Way             0.299 0.764623[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutOpinion Way               -0.874 0.381997[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutOpinion Way              0.866 0.386475[] 
  []
 
 
-Overfull \hbox (75.0pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (75.0pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutOpinion Way         -3.265 0.001113 **[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutOpinion Way              -1.102 0.270647[] 
  []
 
 
-Overfull \hbox (80.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (80.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutOpinion Way            3.664 0.000254 ***[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutOpinion Way               0.203 0.839420[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEmmanuel Macron:nom_institutYouGov                  0.256 0.798174[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatEric Zemmour:nom_institutYouGov                    -0.682 0.495325[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatFabien Roussel:nom_institutYouGov                   0.469 0.639216[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatJean-Luc Mélenchon:nom_institutYouGov              -0.938 0.348494[] 
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (69.75pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatMarine Le Pen:nom_institutYouGov                    2.174 0.029834 *[] 
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (69.75pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatValérie Pécresse:nom_institutYouGov                 1.748 0.080687 .[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 3058--3058
+Overfull \hbox (59.25pt too wide) in paragraph at lines 2982--2982
 []\TU/lmtt/m/n/10 ## candidatYannick Jadot:nom_institutYouGov                    1.023 0.306439[] 
  []
 
@@ -3658,12 +3726,20 @@ Chapter 8.
 Missing character: There is no 𝜀 (U+1D700) in font [lmroman10-regular]:mapping=tex-text;!
 File: ./Images/FA01.jpg Graphic file (type bmp)
 <./Images/FA01.jpg>
-[90] [91]
-Underfull \vbox (badness 10000) detected at line 3231
+
+Underfull \hbox (badness 10000) in paragraph at lines 3053--3055
+[][]
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3231
+Underfull \vbox (badness 6461) has occurred while \output is active []
+
+[90] [91]
+Underfull \vbox (badness 10000) detected at line 3134
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 3134
  []
 
 [92] [93] [94]
@@ -3727,7 +3803,7 @@ Package fontspec Info: Font family 'TimesNewRoman(0)' created for font 'Times
 (fontspec)             Roman/BI/OT:script=latn;language=dflt;+smcp;mapping=tex-text;"
 
 LaTeX Font Info:    Font shape `TU/TimesNewRoman(0)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 3379.
+(Font)              scaled to size 10.0pt on input line 3283.
 
 Package fontspec Info: Times New Roman scale = 0.963629354430423.
 
@@ -3750,7 +3826,7 @@ Package fontspec Info: Times New Roman scale = 0.963629354430423.
 Package fontspec Info: Times New Roman scale = 0.963629354430423.
 
 
-Overfull \hbox (4.75879pt too wide) in alignment at lines 3373--3383
+Overfull \hbox (4.75879pt too wide) in alignment at lines 3277--3287
  [] [] [] [] [] [] [] [] 
  []
 
@@ -3779,7 +3855,7 @@ Package fontspec Info: Times New Roman scale = 0.963629354430423.
 Package fontspec Info: Times New Roman scale = 0.963629354430423.
 
 
-Overfull \hbox (4.75879pt too wide) in alignment at lines 3383--3389
+Overfull \hbox (4.75879pt too wide) in alignment at lines 3287--3293
  [] [] [] [] [] [] [] [] 
  []
 
@@ -4288,7 +4364,7 @@ Package fontspec Info: Times New Roman scale = 0.963629354430423.
 Package fontspec Info: Times New Roman scale = 0.963629354430423.
 
 
-Overfull \hbox (4.75879pt too wide) in alignment at lines 3389--3519
+Overfull \hbox (4.75879pt too wide) in alignment at lines 3293--3423
  [] [] [] [] [] [] [] [] 
  []
 
@@ -4398,19 +4474,27 @@ Package fontspec Info: Times New Roman scale = 0.963629354430423.
 
 Package fontspec Info: Times New Roman scale = 0.963629354430423.
 
-[96] [97]
+[96]
 File: bookdown-demo_files/figure-latex/0605-1.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/0605-1.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 3628--3630
+Underfull \hbox (badness 10000) in paragraph at lines 3529--3531
 [][]
  []
 
+
+Underfull \vbox (badness 6157) has occurred while \output is active []
+
+[97]
 File: ./Images/ACp_poisson.jpg Graphic file (type bmp)
 <./Images/ACp_poisson.jpg>
-[98] [99] [100]
+[98] [99]
 File: bookdown-demo_files/figure-latex/0607-1.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/0607-1.pdf>
+
+Underfull \vbox (badness 1303) has occurred while \output is active []
+
+[100]
 File: bookdown-demo_files/figure-latex/0609-1.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/0609-1.pdf>
 
@@ -4419,7 +4503,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 [101]
 
 LaTeX Font Warning: Font shape `TU/lmtt/bx/it' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 3724.
+(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 3625.
 
 File: bookdown-demo_files/figure-latex/0609-2.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/0609-2.pdf>
@@ -4443,77 +4527,77 @@ Chapter 9.
 File: bookdown-demo_files/figure-latex/0812-1.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/0812-1.pdf>
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 4027--4027
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3928--3928
 []\TU/lmtt/m/n/10 ##       id L'imm~1 Le po~2 L'édu~3 L'éga~4 Les r~5 L'env~6 Le se~7 L'ins~8 La sa~9[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 4027--4027
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3928--3928
 []\TU/lmtt/m/n/10 ##    <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 4027--4027
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3928--3928
 []\TU/lmtt/m/n/10 ## 1 2.36e8       3       0       0       0       0       0       0       0       0[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 4027--4027
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3928--3928
 []\TU/lmtt/m/n/10 ## 2 2.36e8       0       3       2       1       0       0       0       0       0[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 4027--4027
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3928--3928
 []\TU/lmtt/m/n/10 ## 3 2.36e8       0       3       0       0       2       0       0       0       0[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 4027--4027
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3928--3928
 []\TU/lmtt/m/n/10 ## 4 2.36e8       0       0       0       0       3       2       1       0       0[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 4027--4027
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3928--3928
 []\TU/lmtt/m/n/10 ## 5 2.36e8       0       1       0       0       3       0       2       0       0[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 4027--4027
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3928--3928
 []\TU/lmtt/m/n/10 ## 6 2.36e8       0       2       3       0       0       1       0       0       0[] 
  []
 
 [110]
-Overfull \hbox (90.75pt too wide) in paragraph at lines 4027--4027
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3928--3928
 []\TU/lmtt/m/n/10 ## 7 2.36e8       0       0       3       2       0       1       0       0       0[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 4027--4027
+Overfull \hbox (90.75pt too wide) in paragraph at lines 3928--3928
 []\TU/lmtt/m/n/10 ## 8 2.36e8       1       2       0       0       0       0       0       3       0[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 4027--4027
+Overfull \hbox (27.75pt too wide) in paragraph at lines 3928--3928
 []\TU/lmtt/m/n/10 ## # ... with 7 more variables: `Le chômage` <dbl>, `L'économie` <dbl>,[] 
  []
 
 
-Overfull \hbox (43.5pt too wide) in paragraph at lines 4027--4027
+Overfull \hbox (43.5pt too wide) in paragraph at lines 3928--3928
 []\TU/lmtt/m/n/10 ## #   `La science et la technologie` <dbl>, `L'identité nationale` <dbl>,[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 4027--4027
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3928--3928
 []\TU/lmtt/m/n/10 ## #   `La culture` <dbl>, and abbreviated variable names 1: `L'immigration`,[] 
  []
 
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 4027--4027
+Overfull \hbox (59.25pt too wide) in paragraph at lines 3928--3928
 []\TU/lmtt/m/n/10 ## #   2: `Le pouvoir d'achat`, 3: `L'éducation`, 4: `L'égalité Homme/Femme`,[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 4027--4027
+Overfull \hbox (33.0pt too wide) in paragraph at lines 3928--3928
 []\TU/lmtt/m/n/10 ## #   5: `Les retraites`, 6: `L'environnement`, 7: `Le service public`,[] 
  []
 
@@ -4532,7 +4616,7 @@ File: bookdown-demo_files/figure-latex/0815-2.pdf Graphic file (type pdf)
 Underfull \vbox (badness 5563) has occurred while \output is active []
 
 [114]
-Underfull \hbox (badness 1558) in paragraph at lines 4143--4143
+Underfull \hbox (badness 1558) in paragraph at lines 4044--4044
 []\TU/lmr/bx/n/14.4 tableaux croisés de la typologie et des
  []
 
@@ -4542,11 +4626,11 @@ Overfull \hbox (70.84012pt too wide) has occurred while \output is active
  []
 
 [115]
-Underfull \vbox (badness 10000) detected at line 4240
+Underfull \vbox (badness 10000) detected at line 4141
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4240
+Underfull \vbox (badness 10000) detected at line 4141
  []
 
 [116]
@@ -4559,86 +4643,105 @@ File: bookdown-demo_files/figure-latex/0820-1.pdf Graphic file (type pdf)
 
 ]
 Chapter 10.
+Missing character: There is no ∈ (U+2208) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no ε (U+03B5) in font [lmroman10-regular]:mapping=tex-text;!
+
+Underfull \hbox (badness 1038) in paragraph at lines 4268--4270
+\TU/lmr/m/n/10 où εi est l’erreur du modèle qui exprime l’information manquante dans
+ []
+
 [121]
+Missing character: There is no ε (U+03B5) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no ∀ (U+2200) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no ≠ (U+2260) in font [lmroman10-regular]:mapping=tex-text;!
+Missing character: There is no ε (U+03B5) in font [lmroman10-regular]:mapping=tex-text;!
+[122] [123]
 File: bookdown-demo_files/figure-latex/0902-1.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/0902-1.pdf>
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[122] [123]
-Underfull \vbox (badness 10000) detected at line 4505
+Underfull \hbox (badness 10000) in paragraph at lines 4392--4394
+[][]
  []
 
-
-Underfull \vbox (badness 10000) detected at line 4505
- []
-
-[124]
+[124] [125]
 File: bookdown-demo_files/figure-latex/0903-1.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/0903-1.pdf>
-[125]
+[126]
 File: bookdown-demo_files/figure-latex/0904-1.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/0904-1.pdf>
-[126]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[127]
 File: bookdown-demo_files/figure-latex/0905-1.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/0905-1.pdf>
-[127]
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[128]
 File: bookdown-demo_files/figure-latex/0906-1.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/0906-1.pdf>
-[128]
+[129]
 File: bookdown-demo_files/figure-latex/0907-1.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/0907-1.pdf>
-[129]
+
+Underfull \hbox (badness 10000) in paragraph at lines 4583--4585
+[][]
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[130] [131]
 File: bookdown-demo_files/figure-latex/0908-1.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/0908-1.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-[130]
 File: bookdown-demo_files/figure-latex/0909-1.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/0909-1.pdf>
-
-Overfull \hbox (104.79907pt too wide) has occurred while \output is active
-\TU/lmr/m/sl/10 10.4.  ANALYSER LA DEMANDE : QU’EST CE QUI DÉTERMINE LE TAUX D’OCCUPATION ? \TU/lmr/m/n/10 131
- []
-
-[131]
-
-LaTeX Warning: Float too large for page by 248.4pt on input line 5006.
-
-File: bookdown-demo_files/figure-latex/0910-1.pdf Graphic file (type pdf)
-<use bookdown-demo_files/figure-latex/0910-1.pdf>
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
 [132]
-Overfull \vbox (1.26402pt too high) detected at line 5065
- []
-
-
 Overfull \hbox (104.79907pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 10.4.  ANALYSER LA DEMANDE : QU’EST CE QUI DÉTERMINE LE TAUX D’OCCUPATION ? \TU/lmr/m/n/10 133
  []
 
 [133]
+
+LaTeX Warning: Float too large for page by 248.4pt on input line 4971.
+
+File: bookdown-demo_files/figure-latex/0910-1.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/0910-1.pdf>
+[134]
 File: bookdown-demo_files/figure-latex/0911-1.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/0911-1.pdf>
 
-Overfull \vbox (0.694pt too high) detected at line 5093
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[134]
-File: bookdown-demo_files/figure-latex/0911-2.pdf Graphic file (type pdf)
-<use bookdown-demo_files/figure-latex/0911-2.pdf>
 
 Overfull \hbox (104.79907pt too wide) has occurred while \output is active
 \TU/lmr/m/sl/10 10.4.  ANALYSER LA DEMANDE : QU’EST CE QUI DÉTERMINE LE TAUX D’OCCUPATION ? \TU/lmr/m/n/10 135
  []
 
-[135] [136]
+[135]
+File: bookdown-demo_files/figure-latex/0911-2.pdf Graphic file (type pdf)
+<use bookdown-demo_files/figure-latex/0911-2.pdf>
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+[136]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+Overfull \hbox (104.79907pt too wide) has occurred while \output is active
+\TU/lmr/m/sl/10 10.4.  ANALYSER LA DEMANDE : QU’EST CE QUI DÉTERMINE LE TAUX D’OCCUPATION ? \TU/lmr/m/n/10 137
+ []
+
+[137] [138]
 File: ./images/GLM.jpg Graphic file (type bmp)
 <./images/GLM.jpg>
-[137]
+
+Underfull \hbox (badness 10000) in paragraph at lines 5116--5118
+[][]
+ []
+
+[139]
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
@@ -4651,185 +4754,185 @@ LaTeX Warning: `!h' float specifier changed to `!ht'.
 File: bookdown-demo_files/figure-latex/0912-1.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/0912-1.pdf>
 
-Underfull \vbox (badness 2922) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[138]
+[140]
 File: bookdown-demo_files/figure-latex/0912-2.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/0912-2.pdf>
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[139] [140]
+[141] [142]
 File: bookdown-demo_files/figure-latex/0913-1.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/0913-1.pdf>
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 5369--5369
+Overfull \hbox (12.0pt too wide) in paragraph at lines 5322--5322
 []\TU/lmtt/m/n/10 ## glm(formula = Places ~ Age + log(Distance + 1) + prix_km + Flex +[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 5369--5369
+Overfull \hbox (27.75pt too wide) in paragraph at lines 5322--5322
 []\TU/lmtt/m/n/10 ##     Detour + Autoroute + log(Nombre + 1) * Note, family = "poisson",[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 5369--5369
+Overfull \hbox (17.25pt too wide) in paragraph at lines 5322--5322
 []\TU/lmtt/m/n/10 ##                               Estimate Std. Error z value Pr(>|z|)[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 5369--5369
+Overfull \hbox (38.25pt too wide) in paragraph at lines 5322--5322
 []\TU/lmtt/m/n/10 ## (Intercept)                  0.6879101  0.1897188   3.626 0.000288 ***[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 5369--5369
+Overfull \hbox (38.25pt too wide) in paragraph at lines 5322--5322
 []\TU/lmtt/m/n/10 ## Age                          0.0019560  0.0005095   3.839 0.000123 ***[] 
  []
 
-[141]
-Overfull \hbox (38.25pt too wide) in paragraph at lines 5369--5369
+[143]
+Overfull \hbox (38.25pt too wide) in paragraph at lines 5322--5322
 []\TU/lmtt/m/n/10 ## log(Distance + 1)           -0.0513430  0.0137967  -3.721 0.000198 ***[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 5369--5369
+Overfull \hbox (38.25pt too wide) in paragraph at lines 5322--5322
 []\TU/lmtt/m/n/10 ## prix_km                      7.6872057  0.9123308   8.426  < 2e-16 ***[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 5369--5369
+Overfull \hbox (27.75pt too wide) in paragraph at lines 5322--5322
 []\TU/lmtt/m/n/10 ## FlexPas d'indication        -0.0236138  0.0140880  -1.676 0.093704 .[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 5369--5369
+Overfull \hbox (17.25pt too wide) in paragraph at lines 5322--5322
 []\TU/lmtt/m/n/10 ## FlexVoir avec le conducteur -0.0109685  0.0595949  -0.184 0.853974[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 5369--5369
+Overfull \hbox (17.25pt too wide) in paragraph at lines 5322--5322
 []\TU/lmtt/m/n/10 ## DetourDe 15 minutes max      0.0023592  0.0137864   0.171 0.864125[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 5369--5369
+Overfull \hbox (27.75pt too wide) in paragraph at lines 5322--5322
 []\TU/lmtt/m/n/10 ## DetourPlus de 15 mn          0.1349013  0.0620044   2.176 0.029580 *[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 5369--5369
+Overfull \hbox (38.25pt too wide) in paragraph at lines 5322--5322
 []\TU/lmtt/m/n/10 ## AutorouteOui                -0.2434932  0.0347369  -7.010 2.39e-12 ***[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 5369--5369
+Overfull \hbox (38.25pt too wide) in paragraph at lines 5322--5322
 []\TU/lmtt/m/n/10 ## log(Nombre + 1)              0.2883459  0.0713807   4.040 5.36e-05 ***[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 5369--5369
+Overfull \hbox (17.25pt too wide) in paragraph at lines 5322--5322
 []\TU/lmtt/m/n/10 ## Note                        -0.0088294  0.0362270  -0.244 0.807444[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 5369--5369
+Overfull \hbox (38.25pt too wide) in paragraph at lines 5322--5322
 []\TU/lmtt/m/n/10 ## log(Nombre + 1):Note        -0.0592471  0.0159474  -3.715 0.000203 ***[] 
  []
 
 
-LaTeX Warning: Float too large for page by 119.4pt on input line 5666.
+LaTeX Warning: Float too large for page by 119.4pt on input line 5619.
 
-[142]
+[144]
 File: bookdown-demo_files/figure-latex/0915-1.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/0915-1.pdf>
 
-Overfull \hbox (59.25pt too wide) in paragraph at lines 5742--5742
+Overfull \hbox (59.25pt too wide) in paragraph at lines 5695--5695
 []\TU/lmtt/m/n/10 ## betareg(formula = Occup ~ AgeClasse + log(Distance + 1) + prix_km + Flex +[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 5742--5742
+Overfull \hbox (17.25pt too wide) in paragraph at lines 5695--5695
 []\TU/lmtt/m/n/10 ##                               Estimate Std. Error z value Pr(>|z|)[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 5742--5742
+Overfull \hbox (17.25pt too wide) in paragraph at lines 5695--5695
 []\TU/lmtt/m/n/10 ## (Intercept)                   0.477618   0.346880   1.377  0.16854[] 
  []
 
-[143]
-Overfull \hbox (27.75pt too wide) in paragraph at lines 5742--5742
+[145]
+Overfull \hbox (27.75pt too wide) in paragraph at lines 5695--5695
 []\TU/lmtt/m/n/10 ## AgeClasse30                  -0.055681   0.030938  -1.800  0.07189 .[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 5742--5742
+Overfull \hbox (38.25pt too wide) in paragraph at lines 5695--5695
 []\TU/lmtt/m/n/10 ## AgeClasse40                  -0.305290   0.035616  -8.572  < 2e-16 ***[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 5742--5742
+Overfull \hbox (38.25pt too wide) in paragraph at lines 5695--5695
 []\TU/lmtt/m/n/10 ## AgeClasse50                  -0.196017   0.039618  -4.948 7.51e-07 ***[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 5742--5742
+Overfull \hbox (33.0pt too wide) in paragraph at lines 5695--5695
 []\TU/lmtt/m/n/10 ## AgeClasse60                  -0.134592   0.044980  -2.992  0.00277 **[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 5742--5742
+Overfull \hbox (27.75pt too wide) in paragraph at lines 5695--5695
 []\TU/lmtt/m/n/10 ## AgeClasse70                  -0.220373   0.099999  -2.204  0.02754 *[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 5742--5742
+Overfull \hbox (38.25pt too wide) in paragraph at lines 5695--5695
 []\TU/lmtt/m/n/10 ## log(Distance + 1)             0.119285   0.024997   4.772 1.82e-06 ***[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 5742--5742
+Overfull \hbox (38.25pt too wide) in paragraph at lines 5695--5695
 []\TU/lmtt/m/n/10 ## prix_km                     -17.809578   1.675785 -10.628  < 2e-16 ***[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 5742--5742
+Overfull \hbox (17.25pt too wide) in paragraph at lines 5695--5695
 []\TU/lmtt/m/n/10 ## FlexPas d'indication          0.029596   0.025342   1.168  0.24285[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 5742--5742
+Overfull \hbox (17.25pt too wide) in paragraph at lines 5695--5695
 []\TU/lmtt/m/n/10 ## FlexVoir avec le conducteur  -0.060868   0.108458  -0.561  0.57465[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 5742--5742
+Overfull \hbox (17.25pt too wide) in paragraph at lines 5695--5695
 []\TU/lmtt/m/n/10 ## DetourDe 15 minutes max      -0.008982   0.024985  -0.360  0.71922[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 5742--5742
+Overfull \hbox (27.75pt too wide) in paragraph at lines 5695--5695
 []\TU/lmtt/m/n/10 ## DetourPlus de 15 mn          -0.284942   0.119009  -2.394  0.01665 *[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 5742--5742
+Overfull \hbox (38.25pt too wide) in paragraph at lines 5695--5695
 []\TU/lmtt/m/n/10 ## AutorouteOui                  0.540004   0.068146   7.924 2.30e-15 ***[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 5742--5742
+Overfull \hbox (38.25pt too wide) in paragraph at lines 5695--5695
 []\TU/lmtt/m/n/10 ## log(Nombre + 1)              -0.846267   0.132436  -6.390 1.66e-10 ***[] 
  []
 
 
-Overfull \hbox (17.25pt too wide) in paragraph at lines 5742--5742
+Overfull \hbox (17.25pt too wide) in paragraph at lines 5695--5695
 []\TU/lmtt/m/n/10 ## Note                         -0.049875   0.066261  -0.753  0.45163[] 
  []
 
 
-Overfull \hbox (38.25pt too wide) in paragraph at lines 5742--5742
+Overfull \hbox (38.25pt too wide) in paragraph at lines 5695--5695
 []\TU/lmtt/m/n/10 ## log(Nombre + 1):Note          0.179977   0.029493   6.102 1.04e-09 ***[] 
  []
 
@@ -4842,110 +4945,110 @@ Missing character: There is no ϕ (U+03D5) in font [lmroman10-regular]:mapping=t
 Missing character: There is no ϕ (U+03D5) in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no μ (U+03BC) in font [lmroman10-regular]:mapping=tex-text;!
 Missing character: There is no ϕ (U+03D5) in font [lmroman10-regular]:mapping=tex-text;!
-[144]
-Overfull \hbox (59.25pt too wide) in paragraph at lines 5797--5797
+
+Overfull \hbox (59.25pt too wide) in paragraph at lines 5749--5749
 []\TU/lmtt/m/n/10 ## betareg(formula = Occup ~ AgeClasse + log(Distance + 1) + prix_km + Flex +[] 
  []
 
-
-Overfull \hbox (33.0pt too wide) in paragraph at lines 5797--5797
+[146]
+Overfull \hbox (33.0pt too wide) in paragraph at lines 5749--5749
 []\TU/lmtt/m/n/10 ##     Detour + Autoroute + log(Nombre + 1) * Note | prix_km, data = df)[] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 5797--5797
+Overfull \hbox (12.0pt too wide) in paragraph at lines 5749--5749
 []\TU/lmtt/m/n/10 ##                              Estimate Std. Error z value Pr(>|z|)[] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 5797--5797
+Overfull \hbox (12.0pt too wide) in paragraph at lines 5749--5749
 []\TU/lmtt/m/n/10 ## (Intercept)                   0.36456    0.34639   1.052  0.29259[] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 5797--5797
+Overfull \hbox (12.0pt too wide) in paragraph at lines 5749--5749
 []\TU/lmtt/m/n/10 ## AgeClasse30                  -0.04898    0.03093  -1.583  0.11332[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 5797--5797
+Overfull \hbox (33.0pt too wide) in paragraph at lines 5749--5749
 []\TU/lmtt/m/n/10 ## AgeClasse40                  -0.30011    0.03558  -8.436  < 2e-16 ***[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 5797--5797
+Overfull \hbox (33.0pt too wide) in paragraph at lines 5749--5749
 []\TU/lmtt/m/n/10 ## AgeClasse50                  -0.19509    0.03957  -4.930 8.20e-07 ***[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 5797--5797
+Overfull \hbox (27.75pt too wide) in paragraph at lines 5749--5749
 []\TU/lmtt/m/n/10 ## AgeClasse60                  -0.13058    0.04488  -2.909  0.00362 **[] 
  []
 
 
-Overfull \hbox (22.5pt too wide) in paragraph at lines 5797--5797
+Overfull \hbox (22.5pt too wide) in paragraph at lines 5749--5749
 []\TU/lmtt/m/n/10 ## AgeClasse70                  -0.21690    0.09991  -2.171  0.02992 *[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 5797--5797
+Overfull \hbox (33.0pt too wide) in paragraph at lines 5749--5749
 []\TU/lmtt/m/n/10 ## log(Distance + 1)             0.12737    0.02497   5.100 3.39e-07 ***[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 5797--5797
+Overfull \hbox (33.0pt too wide) in paragraph at lines 5749--5749
 []\TU/lmtt/m/n/10 ## prix_km                     -16.90573    1.66364 -10.162  < 2e-16 ***[] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 5797--5797
+Overfull \hbox (12.0pt too wide) in paragraph at lines 5749--5749
 []\TU/lmtt/m/n/10 ## FlexPas d'indication          0.03339    0.02530   1.320  0.18690[] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 5797--5797
+Overfull \hbox (12.0pt too wide) in paragraph at lines 5749--5749
 []\TU/lmtt/m/n/10 ## FlexVoir avec le conducteur  -0.06949    0.10821  -0.642  0.52076[] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 5797--5797
+Overfull \hbox (12.0pt too wide) in paragraph at lines 5749--5749
 []\TU/lmtt/m/n/10 ## DetourDe 15 minutes max      -0.00998    0.02496  -0.400  0.68922[] 
  []
 
 
-Overfull \hbox (27.75pt too wide) in paragraph at lines 5797--5797
+Overfull \hbox (27.75pt too wide) in paragraph at lines 5749--5749
 []\TU/lmtt/m/n/10 ## DetourPlus de 15 mn          -0.30605    0.11831  -2.587  0.00969 **[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 5797--5797
+Overfull \hbox (33.0pt too wide) in paragraph at lines 5749--5749
 []\TU/lmtt/m/n/10 ## AutorouteOui                  0.52620    0.06900   7.627 2.41e-14 ***[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 5797--5797
+Overfull \hbox (33.0pt too wide) in paragraph at lines 5749--5749
 []\TU/lmtt/m/n/10 ## log(Nombre + 1)              -0.84903    0.13213  -6.426 1.31e-10 ***[] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 5797--5797
+Overfull \hbox (12.0pt too wide) in paragraph at lines 5749--5749
 []\TU/lmtt/m/n/10 ## Note                         -0.04752    0.06600  -0.720  0.47155[] 
  []
 
 
-Overfull \hbox (33.0pt too wide) in paragraph at lines 5797--5797
+Overfull \hbox (33.0pt too wide) in paragraph at lines 5749--5749
 []\TU/lmtt/m/n/10 ## log(Nombre + 1):Note          0.18104    0.02943   6.152 7.64e-10 ***[] 
  []
 
-[145] [146] [147] [148]
+[147] [148] [149] [150]
 Chapter 11.
-[149
+[151
 
-] [150
+] [152
 
 ]
 Chapter 12.
-[151]
+[153]
 File: bookdown-demo_files/figure-latex/1101-1.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/1101-1.pdf>
 File: bookdown-demo_files/figure-latex/1101-2.pdf Graphic file (type pdf)
@@ -4953,7 +5056,7 @@ File: bookdown-demo_files/figure-latex/1101-2.pdf Graphic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[152] [153] [154]
+[154] [155] [156]
 File: bookdown-demo_files/figure-latex/1103-1.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/1103-1.pdf>
 File: bookdown-demo_files/figure-latex/1103-2.pdf Graphic file (type pdf)
@@ -4961,161 +5064,177 @@ File: bookdown-demo_files/figure-latex/1103-2.pdf Graphic file (type pdf)
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[155]
+[157]
 File: bookdown-demo_files/figure-latex/1103-3.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/1103-3.pdf>
-[156]
+[158]
 File: bookdown-demo_files/figure-latex/1103-4.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/1103-4.pdf>
 
-LaTeX Warning: Float too large for page by 635.4pt on input line 6606.
+LaTeX Warning: Float too large for page by 635.4pt on input line 6558.
 
 File: bookdown-demo_files/figure-latex/1103-5.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/1103-5.pdf>
 
 Underfull \vbox (badness 3271) has occurred while \output is active []
 
-[157]
-Overfull \hbox (59.25pt too wide) in paragraph at lines 6661--6661
+[159]
+Overfull \hbox (59.25pt too wide) in paragraph at lines 6613--6613
 []\TU/lmtt/m/n/10 ## Formula: satisfaction_vie ~ satisfaction_care + satisfaction_institution +[] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 6661--6661
+Overfull \hbox (12.0pt too wide) in paragraph at lines 6613--6613
 []\TU/lmtt/m/n/10 ##     trust_institution + trust_personne + (1 | Year) + (1 | age) +[] 
  []
 
 
-Overfull \hbox (1.5pt too wide) in paragraph at lines 6661--6661
+Overfull \hbox (1.5pt too wide) in paragraph at lines 6613--6613
 []\TU/lmtt/m/n/10 ## Number of obs: 15082, groups:  Year, 9; OP, 7; age, 6; genre, 2[] 
  []
 
-[158] [159] [160]
+[160] [161] [162]
 Chapter 13.
-[161
+[163
 
 ]
-Overfull \hbox (468.75pt too wide) in paragraph at lines 6768--6768
+Overfull \hbox (468.75pt too wide) in paragraph at lines 6720--6720
 []\TU/lmtt/m/n/10 ## |   |   |   |   [5] Education in Sans diplôme, Brevet des collèges, Bac +5 (Master, école d'ingénieurs, d'arts...):  Amelioration (n = 725, err = 29.2%)[] 
  []
 
 
-Overfull \hbox (768.0pt too wide) in paragraph at lines 6768--6768
+Overfull \hbox (768.0pt too wide) in paragraph at lines 6720--6720
 []\TU/lmtt/m/n/10 ## |   |   |   |   [6] Education in CAP/BEP, Bac (général, pro et technologique), Bac +2 (BTS ou autre), Bac +3/4 (Licence, Maîtrise), Bac +7 et plus (doctorat, thèse, etc.):  Amelioration (n = 1710, err = 36.2%)[] 
  []
 
 
-Overfull \hbox (48.75pt too wide) in paragraph at lines 6768--6768
+Overfull \hbox (48.75pt too wide) in paragraph at lines 6720--6720
 []\TU/lmtt/m/n/10 ## |   |   |   [7] Sexe in Une femme:  Amelioration (n = 3963, err = 38.3%)[] 
  []
 
 
-Overfull \hbox (610.5pt too wide) in paragraph at lines 6768--6768
+Overfull \hbox (610.5pt too wide) in paragraph at lines 6720--6720
 []\TU/lmtt/m/n/10 ## |   |   |   [9] Education in Sans diplôme, CAP/BEP, Bac (général, pro et technologique), Bac +2 (BTS ou autre), Bac +3/4 (Licence, Maîtrise):  Amelioration (n = 4956, err = 43.9%)[] 
  []
 
 
-Overfull \hbox (594.75pt too wide) in paragraph at lines 6768--6768
+Overfull \hbox (594.75pt too wide) in paragraph at lines 6720--6720
 []\TU/lmtt/m/n/10 ## |   |   |   [10] Education in Brevet des collèges, Bac +5 (Master, école d'ingénieurs, d'arts...), Bac +7 et plus (doctorat, thèse, etc.):  Amelioration (n = 1347, err = 37.2%)[] 
  []
 
-[162]
-Overfull \hbox (33.0pt too wide) in paragraph at lines 6768--6768
+[164]
+Overfull \hbox (33.0pt too wide) in paragraph at lines 6720--6720
 []\TU/lmtt/m/n/10 ## |   [11] Age in 35 - 44 ans, 45 - 54 ans, 55 - 64 ans, 65 ans et plus[] 
  []
 
 
-Overfull \hbox (411.0pt too wide) in paragraph at lines 6768--6768
+Overfull \hbox (411.0pt too wide) in paragraph at lines 6720--6720
 []\TU/lmtt/m/n/10 ## |   |   |   [13] Education in Sans diplôme, CAP/BEP, Bac (général, pro et technologique), Bac +2 (BTS ou autre), Bac +3/4 (Licence, Maîtrise)[] 
  []
 
 
-Overfull \hbox (69.75pt too wide) in paragraph at lines 6768--6768
+Overfull \hbox (69.75pt too wide) in paragraph at lines 6720--6720
 []\TU/lmtt/m/n/10 ## |   |   |   |   [14] Sexe in Un homme:  Amelioration (n = 2588, err = 47.6%)[] 
  []
 
 
-Overfull \hbox (64.5pt too wide) in paragraph at lines 6768--6768
+Overfull \hbox (64.5pt too wide) in paragraph at lines 6720--6720
 []\TU/lmtt/m/n/10 ## |   |   |   |   [15] Sexe in Une femme: degradation (n = 4926, err = 48.8%)[] 
  []
 
 
-Overfull \hbox (594.75pt too wide) in paragraph at lines 6768--6768
+Overfull \hbox (594.75pt too wide) in paragraph at lines 6720--6720
 []\TU/lmtt/m/n/10 ## |   |   |   [16] Education in Brevet des collèges, Bac +5 (Master, école d'ingénieurs, d'arts...), Bac +7 et plus (doctorat, thèse, etc.):  Amelioration (n = 1323, err = 41.3%)[] 
  []
 
 
-Overfull \hbox (836.25pt too wide) in paragraph at lines 6768--6768
+Overfull \hbox (836.25pt too wide) in paragraph at lines 6720--6720
 []\TU/lmtt/m/n/10 ## |   |   |   |   [19] Education in Sans diplôme, CAP/BEP, Bac (général, pro et technologique), Bac +2 (BTS ou autre), Bac +3/4 (Licence, Maîtrise), Bac +7 et plus (doctorat, thèse, etc.): degradation (n = 5675, err = 48.3%)[] 
  []
 
 
-Overfull \hbox (405.75pt too wide) in paragraph at lines 6768--6768
+Overfull \hbox (405.75pt too wide) in paragraph at lines 6720--6720
 []\TU/lmtt/m/n/10 ## |   |   |   |   [20] Education in Brevet des collèges, Bac +5 (Master, école d'ingénieurs, d'arts...):  Amelioration (n = 1282, err = 45.6%)[] 
  []
 
 
-Overfull \hbox (626.25pt too wide) in paragraph at lines 6768--6768
+Overfull \hbox (626.25pt too wide) in paragraph at lines 6720--6720
 []\TU/lmtt/m/n/10 ## |   |   |   |   [22] Education in Sans diplôme, Brevet des collèges, Bac +3/4 (Licence, Maîtrise), Bac +5 (Master, école d'ingénieurs, d'arts...): degradation (n = 4250, err = 45.6%)[] 
  []
 
 
-Overfull \hbox (411.0pt too wide) in paragraph at lines 6768--6768
+Overfull \hbox (411.0pt too wide) in paragraph at lines 6720--6720
 []\TU/lmtt/m/n/10 ## |   |   |   |   [23] Education in CAP/BEP, Bac (général, pro et technologique), Bac +2 (BTS ou autre), Bac +7 et plus (doctorat, thèse, etc.)[] 
  []
 
 
-Overfull \hbox (90.75pt too wide) in paragraph at lines 6768--6768
+Overfull \hbox (90.75pt too wide) in paragraph at lines 6720--6720
 []\TU/lmtt/m/n/10 ## |   |   |   |   |   [24] Age in 45 - 54 ans: degradation (n = 2929, err = 43.3%)[] 
  []
 
 
-Overfull \hbox (174.75pt too wide) in paragraph at lines 6768--6768
+Overfull \hbox (174.75pt too wide) in paragraph at lines 6720--6720
 []\TU/lmtt/m/n/10 ## |   |   |   |   |   [25] Age in 55 - 64 ans, 65 ans et plus: degradation (n = 3724, err = 39.4%)[] 
  []
 
-[163]
+[165]
 File: bookdown-demo_files/figure-latex/1201-1.pdf Graphic file (type pdf)
 <use bookdown-demo_files/figure-latex/1201-1.pdf>
-[164]
+[166]
 Chapter 14.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
-[165
-
-] [166]
-Chapter 15.
 [167
 
+] [168]
+Chapter 15.
+[169
+
 ]
-Underfull \vbox (badness 10000) detected at line 6969
+Underfull \vbox (badness 10000) detected at line 7009
  []
 
 
-Underfull \vbox (badness 10000) detected at line 6969
+Underfull \vbox (badness 10000) detected at line 7009
  []
 
-[168] (./bookdown-demo.bbl [169] [170
+[170]
+Underfull \vbox (badness 10000) detected at line 7009
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 7009
+ []
+
+[171]
+Underfull \vbox (badness 10000) detected at line 7009
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 7009
+ []
+
+[172] (./bookdown-demo.bbl [173] [174
 
 ])
 
 Package natbib Warning: There were undefined citations.
 
-[171] (./bookdown-demo.aux)
+[175] (./bookdown-demo.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
 Package rerunfilecheck Info: File `bookdown-demo.out' has not changed.
-(rerunfilecheck)             Checksum: 6562F93B9A92CBFB3F802DD63C46A089;12842.
+(rerunfilecheck)             Checksum: A7104B9E7E220D22474681AA667D695C;12742.
  ) 
 Here is how much of TeX's memory you used:
- 25085 strings out of 477743
- 514022 string characters out of 5842429
- 1011152 words of memory out of 5000000
- 45654 multiletter control sequences out of 15000+600000
- 476096 words of font info for 117 fonts, out of 8000000 for 9000
+ 25120 strings out of 477743
+ 515246 string characters out of 5842429
+ 1014500 words of memory out of 5000000
+ 45683 multiletter control sequences out of 15000+600000
+ 476104 words of font info for 118 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  86i,13n,128p,1875b,914s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on bookdown-demo.pdf (171 pages).
+Output written on bookdown-demo.pdf (175 pages).

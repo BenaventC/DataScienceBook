@@ -1,10 +1,66 @@
-# 9 - Régression
+# Régression
 
 
+## Quelques éléments de théorie
+
+En statistique, la régression linéaire multiple est une méthode qui étend la régression linéaire simple pour décrire les variations d'une variable endogène associée aux variations de plusieurs variables exogènes. 
+
+Modèle théorique
+Étant donné un échantillon (Yi, Xi1, ..., Xip) avec i ∈ {1, n} , on cherche à expliquer, avec le plus de précision possible, les valeurs prises par Yi, dite variable endogène, à partir d'une série de variables explicatives Xi1, ..., Xip. Le modèle théorique, formulé en termes de variables aléatoires, prend la forme suivante. 
+
+$${y_{i}=a_{0}+a_{1}x_{i1}+a_{2}x_{i2}+\ldots +a_{p}x_{ip}+\varepsilon _{i},\qquad i=1,\ldots,n}$$
+où εi est l'erreur du modèle qui exprime l'information manquante dans l'explication linéaire, c'est la partie stochastique, la relation linéaire capturant la partie déterministe. Les enjeux sont :
+
+
+* estimer les paramètres a0, a1, ..., ap en exploitant les observations ;
+* évaluer la précision de ces estimateurs ;
+* mesurer le pouvoir explicatif du modèle ;
+* évaluer l'influence des variables dans le modèle :globalement  et pour chacune des variables ;
+* évaluer la qualité du modèle lors de la prédiction (intervalle de prédiction) ;
+* détecter les observations qui peuvent influencer exagérément les résultats (points atypiques).
+
+Soit de manière compacte en notation matricielle, on peut écrire plus simplement :
+
+$$y=Xa+\varepsilon$$
+où
+
+y est de dimension (n, 1). C'est le vecteur des valeurs des n individu i que l'on cherche à prédire.
+X est de dimension (n, p+1) où p est le nombre de variable. (le +1 correspond au terme constant)
+a est de dimension (p+1, 1), c'est le tableau des paramètres associés que l'on cherche à estimer.La première colonne de la matrice X sert à indiquer que la régression est effectuée avec constante (ici $a_{0}$.
+ε est de dimension (n, 1); c'est l'écart entre les valeurs observées et les valeur calculée.
+
+Un certain nombre d'hypothèses sont ajoutées pour déterminer les propriétés des estimateurs (biais, convergence) ; et leurs lois de distributions (pour les estimations par intervalle et les tests d'hypothèses). 
+
+Il existe principalement deux catégories d'hypothèses :
+
+* Hypothèses stochastiques
+H1 : Les $X_j$ sont déterminées sans erreurs ( pas d'erreur de mesure)
+H2 : ${\mathbb{E}(\varepsilon_{i})=0}$ Le modèle est bien spécifié en moyenne
+H3 : ${\text{Var}(\varepsilon_{i})}=\sigma^{2}$$ avec $$\forall{i}\ne{j} $$. C'est l'hypothèse d'homoscédasticité des erreurs (variance constante)
+H4 : ${\mathrm{cov}(\varepsilon _{i},\varepsilon _{j})}=0$ avec $\forall{i}\ne{j} $. Pas d'autocorrélation des erreurs.
+H5 : ${\mathrm {cov} (X_{i},\varepsilon _{j})}=0$ avec $\forall{i}\ne{j}$ Les erreurs sont linéairement indépendantes des variables exogènes.
+H6 : $\varepsilon\sim{\mathcal{N}}_{n}(0,\sigma^{2})$ Les erreurs suivent une loi normale multidimensionnelle 
+
+(H6 implique les hypothèses H2, H3 et H4, la réciproque étant fausse car les trois hypothèses réunies n'impliquent pas que ε soit un vecteur gaussien).
+
+Hypothèses structurelles
+H7 : absence de colinéarité entre les variables explicatives, 
+H8 : ${{\frac {1}{n}}X^{T}X}$ tend vers une matrice finie non singulière Q lorsque n → +∞ ;
+H9 : ${n>p+1\,}$ Le nombre d'observations est strictement supérieur au nombre de variables + 1 (la constante). S'il y avait égalité, le nombre d'équations serait égal au nombre d'inconnues aj, la droite de régression passerait par tous les points.
+
+
+La méthode d'estimation des paramètres est celle des moindres carrés ordinaires. Elle consiste à Minimiser la somme des carrés des erreurs
+ la somme des carrés des résidus.
+
+$\displaystyle \min \sum _{i=1}^{n}{\hat {\epsilon }}_{i}^{2}=\min _{{\hat {a}}_{0},.,{\hat {a}}_{p}}\sum _{i=1}^{n}(y_{i}-{\hat {a}}_{0}-{\hat {a}}_{1}x_{i,1}-\cdots -{\hat {a}}_{p}x_{i,p})^{2}$
+
+La solution est trouvée en dérivant cette quantité par rapport à chacun des paramètres et en l'égalant à 0. La solution obtenue est l'estimateur des moindres carrés ordinaires, il s'écrit :
+
+$\displaystyle{\hat{a}}=(X^{T}X)^{-1}X^{T}Y\qquad$ est l'estimateur qui minimise la somme des carrés des résidus. Ici la solution est analytique, d'autre méthodes d'estimation demandent des procédures itératives. 
 
 ## Une étude de cas : les offres Blablacar
 
-C’est un jeu de données scrappées sur un site de covoiturage constitué de 13000 offres proposées sur différents types de trajet à un moment donné (au cours de 2016). Le but va être de tester l’effet des signaux de qualité sur les taux de réservation, et de mieux comprendre la nature d'une plateforme qui étant de fait une place de marché se propose d'être collaborative.
+C’est un jeu de données scrappé sur un site de covoiturage constitué de 13000 offres proposées sur différents types de trajet à un moment donné (au cours de 2016). Le but va être de tester l’effet des signaux de qualité sur les taux de réservation, et de mieux comprendre la nature d'une plateforme qui étant de fait une place de marché se propose d'être collaborative.
 
 Si elles ne sont plus d'actualité, elle permettent cependant une étude intéressante des facteurs qui encourage la demande dans un moment où le modèle DREAMS de Blablacar était mis en avant pour résoudre le problème de la confiance dans le monde digital : comment échanger avec  des inconnus.
 
@@ -20,7 +76,8 @@ df<- df%>% dplyr::rename(Places=`Places Restantes`,
 df<-df %>% 
   filter( Distance<1200)
 
-#on recode le nombre de places restantes par une approximation du taux de réservation
+#on recode le nombre de places restantes par une approximation 
+#du taux de réservation
 df$Occup<- NA
 df$Occup[df$Places==0]<-1
 df$Occup[df$Places==1]<-.75
@@ -31,8 +88,6 @@ df$Occup[df$Places>=4]<-0
 
 #l'expérience peut se capter par le nombre de voyages
 df$Nombre[is.na(df$Nombre)]<-0
-
-
 ```
 
 Voici la liste des requêtes et le nombre d'offres obtenues pour chacune d'elle. On observe la domination des trajet inter-régionaux avec Nantes-Rennes, Toulouse-Montpellier et Bordeaux-Toulouse. Les trajets ont été échantillonnés pour représenter différents niveaux d'échelle de distance, les courts trajets, les trajets de 100 à 200 km, ceux à 300-400 et une minorité de distances plus longues, ce qui explique la concentration à certains niveaux. 
@@ -54,16 +109,16 @@ g01<-ggplot(foo,aes(x=reorder(trajet,n), y=n))+
 
 g02<-ggplot(df, aes(x=Distance))+
   geom_histogram(fill="Chartreuse4",binwidth = 25) +
-  labs(title = "Distribution de la distance des trajets", y="Fréquence", x= "Distance (en km)")
+  labs(title = "Distribution de la distance des trajets", 
+       y="Fréquence", 
+       x= "Distance (en km)")
 
 plot_grid(
   g01, g02,
   labels = "AUTO", ncol = 2
 )
 ```
-
 ### Les caractérisques de l'offre
-
 
 l'offre se détermine par  plusieurs éléments
 
@@ -78,7 +133,6 @@ Rôle de la marque et du standing du véhicule mérite plus de recodage. Il est 
 ```{r 0903}
 df$Marque[df$Marque=="Alfa-romeo"]<-"Alfa Romeo, Lancia"
 df$Marque[df$Marque=="Alfa Romeo"]<-"Alfa Romeo, Lancia"
-
 df$Marque[df$Marque=="Lancia"]<-"Alfa Romeo, Lancia"
 df$Marque[df$Marque=="Volvo"]<-"Volvo, Saab"
 df$Marque[df$Marque=="Zx"]<-"Citroen"
@@ -106,24 +160,19 @@ df$Marque[df$Marque=="Abarth"]<-"Rover, jaguar, mini"
 df$Marque[df$Marque=="Ldv"]<-"Rover, jaguar, mini"
 df$Marque[df$Marque=="Austin"]<-"Rover, jaguar, mini"
 df$Marque[df$Marque=="Mini"]<-"Rover, jaguar, mini"
-
-
 df$Marque[df$Marque=="Chevrolet"]<-"Autres US"
 df$Marque[df$Marque=="Chrysler"]<-"Autres US"
 df$Marque[df$Marque=="Jeep"]<-"Autres US"
 df$Marque[df$Marque=="Dodge"]<-"Autres US"
-
 df$Marque[df$Marque=="Lamborghini"]<-"Sport"
 df$Marque[df$Marque=="Maserati"]<-"Sport"
 df$Marque[df$Marque=="Porsche"]<-"Sport"
-
 df$Marque[df$Marque=="Ac"]<-"Autres"
 df$Marque[df$Marque=="Acura"]<-"Autres"
 df$Marque[df$Marque=="eacute"]<-"Autres"
 df$Marque[df$Marque=="Iveco"]<-"Autres"
 df$Marque[df$Marque=="Camping-car"]<-"Autres"
 df$Marque[df$Marque=="Infiniti"]<-"Autres"
-
 df$Marque[df$Marque=="Admiral"]<-"Autres"
 df$Marque[df$Marque=="Sport"]<-"Autres"
 
@@ -181,7 +230,6 @@ L'expérience se distribue de manière très inégale, une minorité de conducte
 Examinons le statut et notamment en comparant l'expérience et l'évaluation. 
 
 ```{r 0905}
-
 foo<-df %>% 
   group_by(Statut)%>%
   summarise(Note=mean(Note,na.rm=TRUE),
@@ -202,7 +250,6 @@ ggplot(foo, aes(x=Statut, y=Moyenne,group=variable))+
 #### Le trajet
 
 Le conducteur peut être flexible dans l'horaire de départ ou pas. Un recodage est cependant nécessaire.Le trajet peut être strict ou comporter des détours. Là aussi besoin d'un peu de recodage.
-
 
 ```{r 0906}
 df$Flex[df$Flex!="Depart pile a l'heure" & df$Flex!="Pas d'indication"]<-"Voir avec le conducteur"
@@ -234,8 +281,6 @@ ggplot(df, aes(x=Note))+
   theme_bw() +
   labs(title = "Distribution des notes des conducteurs", subtitle =paste0("Moyenne=", mean))
 ```
-
-
 ## Analyse des prix
 
 Au premier examen la distribution des prix semble être multimodale, elle est étroitement associée à la distribution des distance et de notre stratégie d'échantillonage des paires départ/destination. 
@@ -243,8 +288,6 @@ Au premier examen la distribution des prix semble être multimodale, elle est é
 Le prix est une multiplication de la distance par un tarif kilométrique, même si la relation ne semble pas tout à faire linéaire. La convexité de la courbe signale une sorte de rendement croissant avec la distance (incorporation du prix des péages ou effet de rareté ?). 
 
 C'est pourquoi on calcule un tarif au km, qui lui n'est plus corrélé ou à peine à la distance parcourue. Voici les résultats principaux.
-
-
 
 ```{r 0908}
 g20<-ggplot(df, aes(x=Prix))+geom_bar(fill="firebrick2")  +
@@ -278,14 +321,12 @@ plot_grid(
 
 On utilise la variable nombre de place restante qu'on traduit par un indicateur codé de 0 (tout est libre) à 1 (la voiture est pleine). En voici la distribution.
 
-
 ```{r 0909}
 ggplot(df, aes(x=Occup))+
   geom_bar(fill="gold3")  +
   labs(title="Distribution du taux d'occupation des véhicules", 
        y="Nombre d'offres", x= "Taux d'occupation")
 ```
-
 
 ### Un modèle OLS
 
@@ -294,7 +335,6 @@ On commence par un modèle simple et linéaire où l'on cherche à expliquer, pr
 
 Le remplissage des voiture est une affaire de loto. Ce qui se comprend, car la probabilité qu'une offre et une demande coïncide est relativement faible si on retient une plage horaire étroite pour le passager qui l'élargira pour accroître le choix au prix d'un effort de recherche supplémentaire. 
 
-
 ```{r 0910}
 df$AgeClasse<- round(df$Age/10,0)*10
 df$AgeClasse[df$AgeClasse==80]<-70
@@ -302,10 +342,12 @@ df$AgeClasse[df$AgeClasse==90]<-70
 df$AgeClasse[df$AgeClasse==100]<-70
 df$AgeClasse<-as.factor(df$AgeClasse)
 
-
-fit0<-lm(Occup~AgeClasse+log(Distance+1)+prix_km+Flex+Detour+Autoroute+log(Nombre+1)+Note, data=df)
-fit1<-lm(Occup~AgeClasse+log(Distance+1)+prix_km+Flex+Detour+Autoroute+log(Nombre+1)*Note, data=df)
-fit_logit<-lm(Occup~AgeClasse+ Marque+log(Distance+1)+prix_km+Flex+Detour+Autoroute+log(Nombre+1)*Note, data=df)
+fit0<-lm(Occup~AgeClasse+log(Distance+1)+prix_km+
+           Flex+Detour+Autoroute+log(Nombre+1)+Note, data=df)
+fit1<-lm(Occup~AgeClasse+log(Distance+1)+prix_km+
+           Flex+Detour+Autoroute+log(Nombre+1)*Note, data=df)
+fit_logit<-lm(Occup~AgeClasse+ Marque+log(Distance+1)+prix_km+
+                Flex+Detour+Autoroute+log(Nombre+1)*Note, data=df)
 
 export_summs(fit0, fit1,plot.distributions = TRUE,scale = FALSE, digits = 3)
 plot_summs(fit0, fit1,plot.distributions = TRUE,  
@@ -321,12 +363,8 @@ plot_summs(fit0, fit1,plot.distributions = TRUE,
                         "MarquePeugeot","MarqueRenault ",
                         "MarqueRover, jaguar, mini",
                         "MarqueSeat",
-                        "MarqueSkoda","MarqueToyota","MarqueVolkswagen","MarqueVolvo", "Saab"))
-
-  
-              
-
-
+                        "MarqueSkoda","MarqueToyota",
+                        "MarqueVolkswagen","MarqueVolvo", "Saab"))
 ```
 
 Le modèle tient même s'il explique très peu de variance. Les tests sont cependant significatifs et même si l'effet est faible il est notable.  
@@ -334,25 +372,20 @@ Le modèle tient même s'il explique très peu de variance. Les tests sont cepen
 Voici des diagrammes d'effets qui représentent la valeur de la variable dépendante pour une plage de variation des variables indépendantes prises une à une, en fonction du modèle. On voit ainsi plus clairement que le taux d'occupation passe de 20% environ quand la note est de 3 (les notes inférieures sont rares!) à 45% quand la moyenne du conducteur frôle les 5.
 
 ```{r 0911}
-
 g10<-effect_plot(fit1, pred=AgeClasse,interval = TRUE ,data=df)+
   geom_line(color="gold3",size=2)+
   labs(title="Effet de l'âge sur le taux d'occupation",
        x="Classe d'âge",
        y="Taux d'occupation"
        )
-
 g11<-effect_plot(fit1, pred=Flex,interval = TRUE  ,data=df)+
   geom_line(color="gold3",size=2)+
   labs(title="Effet de la flexibilité au départ",
        y="Taux d'occupation")
-
-
 g12<-effect_plot(fit1, pred=Autoroute,interval = TRUE  ,data=df)+
   geom_line(color="gold3",size=2)+
   labs(title="Effet de l'autoroute",
        y="Taux d'occupation")
-
 
 g13<-effect_plot(fit1, pred=Detour, interval = TRUE ,data=df)+
   geom_line(color="gold3",size=2)+
@@ -385,21 +418,15 @@ plot_grid(
   g16, g17,g18,g19,
   labels = "AUTO", ncol = 2
 )
-
 ```
-
 
 La particularité du modèle est le terme d'interaction. L'expérience du conducteur traduite par le nombre de trajets qu'il a effectué est gage de sécurité, de confiance, pourvu que ses notes soient bonnes. On s'attend à ce que si elle sont moins bonnes, le nombre de voyages réalisés en amplifiera l'impact négatif. L'expérience signale aussi la crédibilité de la note, et on peut raisonnablement penser que plus ce nombre est grand et plus le signal, positif ou négatif est crédible. Ici la note module l'effet de crédibilité.
 
-L'analyse de l'interaction est claire : quand les contenus sont négatifs , l'expérience du conducteur aggrave la réticence et le taux d'occupation se réduit. Quand les notes vont meilleures que la moyenne.L'amplification par l'expérience de l'effet des notes sur la réservation est moindre. L'interaction est significative (t=8.76). Reste à comprendre pourquoi la tendance générale reste à une relation négative entre le taux de remplissage et le nombre de trajet effectué . Est-ce le résultat d'une participation fréquente à la plateforme, à un comportement particulier des conducteurs très actifs (opportunisme) ? Une explication complémentaire peut venir de ceux qui pratique occasionnellement le covoiturage, leur activité étant plus rare , elle est peut être plus planifiée, et les offres sont présentes depuis plus longtemps que celles des utilisateurs fréquents qui publieraient leurs annonces de la veille au lendemain.  Ceci mérite une analyse plus approfondie que nous ne ménerons pas ici. 
-
-
+L'analyse de l'interaction est claire : quand les contenus sont négatifs , l'expérience du conducteur aggrave la réticence et le taux d'occupation se réduit. Quand les notes vont meilleures que la moyenne.L'amplification par l'expérience de l'effet des notes sur la réservation est moindre. L'interaction est significative (t=8.76). Reste à comprendre pourquoi la tendance générale reste à une relation négative entre le taux de remplissage et le nombre de trajet effectué . Est-ce le résultat d'une participation fréquente à la plateforme, à un comportement particulier des conducteurs très actifs (opportunisme) ? Une explication complémentaire peut venir de ceux qui pratique occasionnellement le covoiturage, leur activité étant plus rare , elle est peut être plus planifiée, et les offres sont présentes depuis plus longtemps que celles des utilisateurs fréquents qui publieraient leurs annonces de la veille au lendemain.  Ceci mérite une analyse plus approfondie que nous ne mènerons pas ici. 
 
 ## Autres modèles 
 
-
 Dans la pratique la construction d'un modèle de régression dépend de trois éléments :
-
 
  * la spécification fonctionnelle qui définit f(y, X) autrement dit ce qui relie ce qu'on observe à ce qui peut lui être corrélé de manière linéaires ou moins linéaires.  La forme fonctionnelle dépend largement de la variable dépendante et de sa distribution :
 
@@ -423,20 +450,17 @@ $$g(\mu_{y})=\eta$$
 Par exemple, pour les données de comptage :
 
 $$log(\mu_{y})=\eta$$
-ou dans le cas de données binaire ( modèle de régression logistique)
+ou dans le cas de données binaire (modèle de régression logistique)
 
 $$log(\frac{\mu_{y}}{1-\mu_{y}})=\eta$$
 
 Le but de la fonction de lien est de contraindre les valeurs prédites à être dans l’échelle des valeurs observées. Ainsi, dans le cas des données de comptage, qui sont obligatoirement positives, ou nulles, la fonction de lien log contraint les valeurs prédites par le prédicteur linéaire à devenir également positives ou nulles après l’emploi de la fonction inverse du log.
-
 
 * La structure d'erreur : A une fonction de lien donnée, correspond généralement une structure d’erreur particulière.Il s’agit d’une famille de distribution des erreurs. Par exemple, pour les données de comptage, la fonction de lien est le log et la structure d’erreur correspondante est la distribution de Poisson. Cette structure d’erreur, permet notamment de spécifier correctement la relation entre la moyenne et la variance. Cette relation est utilisée par l’approche de maximum de vraisemblance pour estimer les coefficients des paramètres (les beta) du GLM.
 
 Ici un tableau récapitulatif des structures d’erreurs, fonctions de lien, fonctions de moyennes et fonctions de variance des données de type numériques continues non bornée, de comptage et binaire.
 
 ![](./images/GLM.jpg)
-
-
 * Estimation par une méthode de maximum de vraisemblance et de  déviance qui est en quelque sorte une généralisation de la variance.
 
 
@@ -444,18 +468,14 @@ Ici un tableau récapitulatif des structures d’erreurs, fonctions de lien, fon
 
 Sur les même données mais en considérant le taux d'occupation plus sérieusement : il est compris entre 0 et 1 et se prête don à un modèle  logistique, car le taux d'occupation va de 0 à 100% même si nous n'avons que 4 niveaux. ça fait un modèle plus réaliste qui ajuste la valeur prédite entre 0 et 1.
  
-Pour mieux prendre en compte l'hétérogénéité du set de données (composée par un échantillon de requêtes) on introduit les trajets comme composante aléatoire. 
+Pour mieux prendre en compte l'hétérogénéité du set de données (composée par un échantillon de requêtes) on introduit les trajets comme composante aléatoire. l'estimation est réalisée avec `lme4`
  
- l'estimation est réalisée avec `lme4`
- 
- Les effets semblent être ici plus pertinent et sensibles mais surtout l'effet d'interaction semble renforcé. L'effet de la note est là clairement amplifié pour les notes négatives mais aussi pour les notes positives.
+Les effets semblent être ici plus pertinent et sensibles mais surtout l'effet d'interaction semble renforcé. L'effet de la note est là clairement amplifié pour les notes négatives mais aussi pour les notes positives.
 
 ```{r 0912}
 fit_logit<-glm(Occup~Age+log(Distance+1)+prix_km+Flex+Detour+Autoroute+log(Nombre+1)*Note,family="binomial", data=df)
 
-
 summ(fit_logit)
-
 
 g10<-effect_plot(fit_logit, pred=AgeClasse,interval = TRUE ,data=df)+
   geom_line(color="gold3",size=2)+
@@ -472,7 +492,6 @@ g12<-effect_plot(fit_logit, pred=Autoroute,interval = TRUE  ,data=df)+
   geom_line(color="gold3",size=2)+
   labs(title="Effet de l'autoroute sur le taux d'occupation",
        y="Taux d'occupation")
-
 
 g13<-effect_plot(fit_logit, pred=Detour, interval = TRUE ,data=df)+
   geom_line(color="gold3",size=2)+
@@ -506,7 +525,6 @@ plot_grid(
   labels = "AUTO", ncol = 2
 )
 
-
 ```
 
 ### Modèle de comptage
@@ -514,7 +532,7 @@ plot_grid(
 et un dernier qui revient aux données originelles : le comptage des place disponibles. Dans ce type de situation (données de comptage), on considère que ce type de variable se distribue selon une loi de poisson, dont la propriété est l'égalité de la moyenne et de l'écart-type.
 
 
-On s'assure qu'il n'y ait pas de surdispersion en calculant le ratio de la variance résiduelle par le nombre de degré de liberté. Il est ici de l'ordre de 1 et donc on conclura à une absence de surdispersion, même si en comparant la distribution empiriques du nombre de places restantes à la distribution théorique d'une loi de poisson, l'ajustement n'est pas parfait.
+On s'assure qu'il n'y ait pas de sur-dispersion en calculant le ratio de la variance résiduelle par le nombre de degré de liberté. Il est ici de l'ordre de 1 et donc on conclura à une absence de sur-dispersion, même si en comparant la distribution empiriques du nombre de places restantes à la distribution théorique d'une loi de poisson, l'ajustement n'est pas parfait.
 
 ```{r 0913}
 
@@ -547,17 +565,14 @@ summary(fit_poisson)
 
 fit_poisson2 <- glm(Places~Age+log(Distance+1)+prix_km+Flex+Detour+Autoroute+log(Nombre+1)*Note, family="quasipoisson",data = df)
 
-export_summs(fit_logit,fit_poisson2, fit_poisson2)
+export_summs(fit_logit,fit_poisson, fit_poisson2)
 ```
 
 ### Modèle de régression beta
 
-
 Encore une autre variation avec le modèle de regression beta qui s'attache à modéliser des variables de proportion par une loi de distribution beta dont la caractéristiques est d'être souple et de s'adapter à toute forme de distribution en respectant la contrainte de varier entre presque 0 et presque 1. Elle dépend de deux paramètres $\alpha$ et $\beta$
 
-
 ```{r 0915}
-
 curve(dbeta(x, 4, 12),
       col = "pink1", 
       lwd = 2)
@@ -574,14 +589,12 @@ La spécificité de la régression beta est de modéliser les deux paramètre de
 
 
 ```{r 0916}
-
 #recodage
 df$Occup[df$Occup==1]<-.999
 df$Occup[df$Occup==0]<-.001
 
 fit_beta1 <- betareg(Occup~AgeClasse+log(Distance+1)+prix_km+Flex+Detour+Autoroute+log(Nombre+1)*Note, data = df)
 summary(fit_beta1)
-
 ```
 
 Dans une régression bêta, a variable dépendante est distribuée selon la loi  bêta avec une espérance μ et une variance μ⋅(1-μ)/(1+ϕ). Ainsi, ϕ est un paramètre de précision : plus ϕ est élevé, plus la variance est faible pour une moyenne μ donnée. Le paramètre de précision ϕ peut dépendre des régresseurs comme la moyenne. 
@@ -589,13 +602,8 @@ Dans une régression bêta, a variable dépendante est distribuée selon la loi 
 C'est ce qui est spécifié ci-dessous, en reliant le px au km à ce paramètre de dispersion. La valeur est élevée, la valeur p extrêmement faible, on en déduit qu'effectivement, plus le prix au kilomètre est élevé et plus faible est la variance de la distribution.
 
 ```{r 0917}
-
-
 fit_beta2 <- betareg(Occup~AgeClasse+log(Distance+1)+prix_km+Flex+Detour+Autoroute+log(Nombre+1)*Note|prix_km, data = df)
-
 
 summary(fit_beta2)
 
-
 ```
-

@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapitre 4 Introduction à la grammaire des graphiques et à ggplot | Introduction aux Data Sciences/nAvec r</title>
+  <meta name="description" content="Cours d’analyse de données et de Datascience" />
+  <meta name="generator" content="bookdown 0.22.3 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapitre 4 Introduction à la grammaire des graphiques et à ggplot | Introduction aux Data Sciences/nAvec r" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="Cours d’analyse de données et de Datascience" />
+  <meta name="github-repo" content="rstudio/bookdown-demo" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapitre 4 Introduction à la grammaire des graphiques et à ggplot | Introduction aux Data Sciences/nAvec r" />
+  
+  <meta name="twitter:description" content="Cours d’analyse de données et de Datascience" />
+  
+
+<meta name="author" content="Christophe Benavent - Université Paris Dauphine" />
+
+
+<meta name="date" content="2022-10-19" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="prise-en-main-de-r.html"/>
+<link rel="next" href="analyse-bi-variée.html"/>
+<script src="libs/header-attrs-2.17/header-attrs.js"></script>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+<link href="libs/tabwid-1.0.0/tabwid.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Data Science Book</a></li>
+
+<li class="divider"></li>
+<li><a href="index.html#avant-propos" id="toc-avant-propos"><span class="toc-section-number">1</span> Avant propos<span></span></a>
+<ul>
+<li><a href="index.html#plan-du-manuel" id="toc-plan-du-manuel"><span class="toc-section-number">1.1</span> Plan du manuel<span></span></a></li>
+<li><a href="index.html#les-jeux-de-données" id="toc-les-jeux-de-données"><span class="toc-section-number">1.2</span> Les jeux de données<span></span></a></li>
+<li><a href="index.html#le-cadre-technique-et-les-packages-utilisés" id="toc-le-cadre-technique-et-les-packages-utilisés"><span class="toc-section-number">1.3</span> Le cadre technique et les packages utilisés<span></span></a></li>
+</ul></li>
+<li><a href="intro.html#intro" id="toc-intro"><span class="toc-section-number">2</span> Introduction aux data sciences<span></span></a>
+<ul>
+<li><a href="intro.html#science-art-technique-et-pratiques" id="toc-science-art-technique-et-pratiques"><span class="toc-section-number">2.1</span> Science, art, technique et pratiques<span></span></a></li>
+<li><a href="intro.html#une-courte-histoires-des-logiciels-statistiques" id="toc-une-courte-histoires-des-logiciels-statistiques"><span class="toc-section-number">2.2</span> Une courte histoires des logiciels statistiques<span></span></a></li>
+<li><a href="intro.html#le-processus-de-traitement-des-données" id="toc-le-processus-de-traitement-des-données"><span class="toc-section-number">2.3</span> Le processus de traitement des données<span></span></a></li>
+<li><a href="intro.html#les-facteurs-sociaux-du-développement-des-datasciences" id="toc-les-facteurs-sociaux-du-développement-des-datasciences"><span class="toc-section-number">2.4</span> Les facteurs sociaux du développement des datasciences<span></span></a>
+<ul>
+<li><a href="intro.html#une-lingua-franca" id="toc-une-lingua-franca"><span class="toc-section-number">2.4.1</span> Une lingua franca<span></span></a></li>
+<li><a href="intro.html#une-communauté" id="toc-une-communauté"><span class="toc-section-number">2.4.2</span> Une communauté<span></span></a></li>
+<li><a href="intro.html#la-multiplication-des-sources-de-données." id="toc-la-multiplication-des-sources-de-données."><span class="toc-section-number">2.4.3</span> La multiplication des sources de données.<span></span></a></li>
+<li><a href="intro.html#de-la-statistique-à-lia" id="toc-de-la-statistique-à-lia"><span class="toc-section-number">2.4.4</span> de la statistique à l’IA<span></span></a></li>
+</ul></li>
+<li><a href="intro.html#conclusion" id="toc-conclusion"><span class="toc-section-number">2.5</span> Conclusion<span></span></a></li>
+</ul></li>
+<li><a href="prise-en-main-de-r.html#prise-en-main-de-r" id="toc-prise-en-main-de-r"><span class="toc-section-number">3</span> Prise en main de r<span></span></a>
+<ul>
+<li><a href="prise-en-main-de-r.html#la-convention-du-rmarkdown" id="toc-la-convention-du-rmarkdown"><span class="toc-section-number">3.1</span> La convention du Rmarkdown<span></span></a></li>
+<li><a href="prise-en-main-de-r.html#lire-les-données" id="toc-lire-les-données"><span class="toc-section-number">3.2</span> Lire les données<span></span></a>
+<ul>
+<li><a href="prise-en-main-de-r.html#la-diversité-des-formats" id="toc-la-diversité-des-formats"><span class="toc-section-number">3.2.1</span> La diversité des formats<span></span></a></li>
+</ul></li>
+<li><a href="prise-en-main-de-r.html#dplyr-pour-manipuler-les-données" id="toc-dplyr-pour-manipuler-les-données"><span class="toc-section-number">3.3</span> <code>Dplyr</code> pour manipuler les données<span></span></a>
+<ul>
+<li><a href="prise-en-main-de-r.html#des-pipes" id="toc-des-pipes"><span class="toc-section-number">3.3.1</span> Des pipes %&gt;%<span></span></a></li>
+<li><a href="prise-en-main-de-r.html#des-verbes" id="toc-des-verbes"><span class="toc-section-number">3.3.2</span> Des verbes<span></span></a></li>
+<li><a href="prise-en-main-de-r.html#fusionner-les-données" id="toc-fusionner-les-données"><span class="toc-section-number">3.3.3</span> Fusionner les données<span></span></a></li>
+</ul></li>
+</ul></li>
+<li><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#introduction-à-la-grammaire-des-graphiques-et-à-ggplot" id="toc-introduction-à-la-grammaire-des-graphiques-et-à-ggplot"><span class="toc-section-number">4</span> Introduction à la grammaire des graphiques et à ggplot<span></span></a>
+<ul>
+<li><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#la-grammaire-des-graphiques" id="toc-la-grammaire-des-graphiques"><span class="toc-section-number">4.1</span> La grammaire des graphiques<span></span></a>
+<ul>
+<li><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#un-modèle-en-couche" id="toc-un-modèle-en-couche"><span class="toc-section-number">4.1.1</span> Un modèle en couche<span></span></a></li>
+<li><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#une-typologie-des-représentations" id="toc-une-typologie-des-représentations"><span class="toc-section-number">4.1.2</span> Une typologie des représentations<span></span></a></li>
+<li><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#lesthétique" id="toc-lesthétique"><span class="toc-section-number">4.1.3</span> L’esthétique<span></span></a></li>
+<li><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#le-cas-des-variables-quantitatives" id="toc-le-cas-des-variables-quantitatives"><span class="toc-section-number">4.1.4</span> Le cas des variables quantitatives<span></span></a></li>
+<li><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#dautres-méthodes" id="toc-dautres-méthodes"><span class="toc-section-number">4.1.5</span> D’autres méthodes<span></span></a></li>
+<li><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#quand-la-variable-est-qualitative" id="toc-quand-la-variable-est-qualitative"><span class="toc-section-number">4.1.6</span> Quand la variable est qualitative<span></span></a></li>
+</ul></li>
+</ul></li>
+<li><a href="analyse-bi-variée.html#analyse-bi-variée" id="toc-analyse-bi-variée"><span class="toc-section-number">5</span> Analyse bi variée<span></span></a>
+<ul>
+<li><a href="analyse-bi-variée.html#diagrammes-xy---la-magie-des-corrélations" id="toc-diagrammes-xy---la-magie-des-corrélations"><span class="toc-section-number">5.1</span> Diagrammes xy - la magie des corrélations<span></span></a></li>
+<li><a href="analyse-bi-variée.html#comparer-les-distributions-et-des-moyennes" id="toc-comparer-les-distributions-et-des-moyennes"><span class="toc-section-number">5.2</span> Comparer les distributions et des moyennes<span></span></a>
+<ul>
+<li><a href="analyse-bi-variée.html#comparaison-de-moyennes" id="toc-comparaison-de-moyennes"><span class="toc-section-number">5.2.1</span> Comparaison de moyennes<span></span></a></li>
+<li><a href="analyse-bi-variée.html#deux-variables-qualitatives" id="toc-deux-variables-qualitatives"><span class="toc-section-number">5.2.2</span> Deux variables qualitatives<span></span></a></li>
+</ul></li>
+</ul></li>
+<li><a href="analyse-graphique-multivariée.html#analyse-graphique-multivariée" id="toc-analyse-graphique-multivariée"><span class="toc-section-number">6</span> Analyse graphique multivariée<span></span></a>
+<ul>
+<li><a href="analyse-graphique-multivariée.html#la-confiance-institutionnelle-en-détail" id="toc-la-confiance-institutionnelle-en-détail"><span class="toc-section-number">6.1</span> La confiance institutionnelle, en détail<span></span></a></li>
+<li><a href="analyse-graphique-multivariée.html#table-de-corrélation" id="toc-table-de-corrélation"><span class="toc-section-number">6.2</span> Table de corrélation<span></span></a></li>
+<li><a href="analyse-graphique-multivariée.html#un-cas-plus-complexe-présidentielle2020" id="toc-un-cas-plus-complexe-présidentielle2020"><span class="toc-section-number">6.3</span> Un cas plus complexe : présidentielle2020<span></span></a></li>
+<li><a href="analyse-graphique-multivariée.html#une-boucle-pour-produire-de-multiple-graphe-en-variant-un-paramètre" id="toc-une-boucle-pour-produire-de-multiple-graphe-en-variant-un-paramètre"><span class="toc-section-number">6.4</span> une boucle pour produire de multiple graphe en variant un paramètre<span></span></a>
+<ul>
+<li><a href="analyse-graphique-multivariée.html#effet-sondeur" id="toc-effet-sondeur"><span class="toc-section-number">6.4.1</span> effet sondeur<span></span></a></li>
+</ul></li>
+<li><a href="analyse-graphique-multivariée.html#modéliser-le-biais-du-sondeur" id="toc-modéliser-le-biais-du-sondeur"><span class="toc-section-number">6.5</span> Modéliser le biais du sondeur<span></span></a></li>
+</ul></li>
+<li><a href="données-géographique.html#données-géographique" id="toc-données-géographique"><span class="toc-section-number">7</span> Données géographique<span></span></a></li>
+<li><a href="analyses-factorielles-exploratoires.html#analyses-factorielles-exploratoires" id="toc-analyses-factorielles-exploratoires"><span class="toc-section-number">8</span> Analyses factorielles exploratoires<span></span></a>
+<ul>
+<li><a href="analyses-factorielles-exploratoires.html#origine-et-histoire" id="toc-origine-et-histoire"><span class="toc-section-number">8.1</span> Origine et histoire<span></span></a>
+<ul>
+<li><a href="analyses-factorielles-exploratoires.html#une-petite-histoire-de-la-psychométrie" id="toc-une-petite-histoire-de-la-psychométrie"><span class="toc-section-number">8.1.1</span> Une petite histoire de la psychométrie<span></span></a></li>
+<li><a href="analyses-factorielles-exploratoires.html#lécole-française-de-lanalyse-des-données-appliquée-aux-sciences-sociales" id="toc-lécole-française-de-lanalyse-des-données-appliquée-aux-sciences-sociales"><span class="toc-section-number">8.1.2</span> L’école française de l’analyse des données appliquée aux sciences sociales<span></span></a></li>
+</ul></li>
+<li><a href="analyses-factorielles-exploratoires.html#le-modèle-en-facteurs-communs-et-spécifiques" id="toc-le-modèle-en-facteurs-communs-et-spécifiques"><span class="toc-section-number">8.2</span> Le modèle en facteurs communs et spécifiques<span></span></a>
+<ul>
+<li><a href="analyses-factorielles-exploratoires.html#un-peu-de-théorie" id="toc-un-peu-de-théorie"><span class="toc-section-number">8.2.1</span> Un peu de théorie<span></span></a></li>
+<li><a href="analyses-factorielles-exploratoires.html#ressources" id="toc-ressources"><span class="toc-section-number">8.2.2</span> Ressources<span></span></a></li>
+</ul></li>
+<li><a href="analyses-factorielles-exploratoires.html#cas-dapplication" id="toc-cas-dapplication"><span class="toc-section-number">8.3</span> Cas d’application<span></span></a>
+<ul>
+<li><a href="analyses-factorielles-exploratoires.html#examen-de-la-matrice-de-corrélation" id="toc-examen-de-la-matrice-de-corrélation"><span class="toc-section-number">8.3.1</span> Examen de la matrice de corrélation<span></span></a></li>
+<li><a href="analyses-factorielles-exploratoires.html#modèle-factoriel" id="toc-modèle-factoriel"><span class="toc-section-number">8.3.2</span> Modèle factoriel<span></span></a></li>
+<li><a href="analyses-factorielles-exploratoires.html#le-problème-théorique" id="toc-le-problème-théorique"><span class="toc-section-number">8.3.3</span> le problème théorique<span></span></a></li>
+<li><a href="analyses-factorielles-exploratoires.html#une-représentation-symbolique" id="toc-une-représentation-symbolique"><span class="toc-section-number">8.3.4</span> Une représentation symbolique<span></span></a></li>
+<li><a href="analyses-factorielles-exploratoires.html#application" id="toc-application"><span class="toc-section-number">8.3.5</span> Application<span></span></a></li>
+</ul></li>
+<li><a href="analyses-factorielles-exploratoires.html#une-généralisation-de-lacp-lafc" id="toc-une-généralisation-de-lacp-lafc"><span class="toc-section-number">8.4</span> Une généralisation de l’ACP : l’AFC<span></span></a>
+<ul>
+<li><a href="analyses-factorielles-exploratoires.html#afcm-multiple" id="toc-afcm-multiple"><span class="toc-section-number">8.4.1</span> AFCM multiple<span></span></a></li>
+</ul></li>
+<li><a href="analyses-factorielles-exploratoires.html#développements" id="toc-développements"><span class="toc-section-number">8.5</span> Développements<span></span></a>
+<ul>
+<li><a href="analyses-factorielles-exploratoires.html#le-svd" id="toc-le-svd"><span class="toc-section-number">8.5.1</span> le SVD<span></span></a></li>
+<li><a href="analyses-factorielles-exploratoires.html#acm-analyse-canonique-analyse-discriminante" id="toc-acm-analyse-canonique-analyse-discriminante"><span class="toc-section-number">8.5.2</span> ACM , analyse canonique , analyse discriminante<span></span></a></li>
+</ul></li>
+<li><a href="analyses-factorielles-exploratoires.html#en-conclusion" id="toc-en-conclusion"><span class="toc-section-number">8.6</span> En conclusion<span></span></a></li>
+</ul></li>
+<li><a href="clus.html#clus" id="toc-clus"><span class="toc-section-number">9</span> Clustering<span></span></a>
+<ul>
+<li><a href="clus.html#les-méthodes-hiérarchiques-ascendantes" id="toc-les-méthodes-hiérarchiques-ascendantes"><span class="toc-section-number">9.1</span> Les méthodes hiérarchiques ascendantes<span></span></a>
+<ul>
+<li><a href="clus.html#mise-en-oeuvre" id="toc-mise-en-oeuvre"><span class="toc-section-number">9.1.1</span> Mise en oeuvre<span></span></a></li>
+</ul></li>
+<li><a href="clus.html#segmentation-simplifiée" id="toc-segmentation-simplifiée"><span class="toc-section-number">9.2</span> segmentation simplifiée<span></span></a></li>
+<li><a href="clus.html#tableaux-croisés-de-la-typologie-et-des-critères-sociaux-démos" id="toc-tableaux-croisés-de-la-typologie-et-des-critères-sociaux-démos"><span class="toc-section-number">9.3</span> tableaux croisés de la typologie et des critères sociaux démos<span></span></a></li>
+<li><a href="clus.html#afcm-pour-une-synthèse" id="toc-afcm-pour-une-synthèse"><span class="toc-section-number">9.4</span> AFCM pour une synthèse<span></span></a>
+<ul>
+<li><a href="clus.html#forces-et-limites" id="toc-forces-et-limites"><span class="toc-section-number">9.4.1</span> Forces et limites<span></span></a></li>
+</ul></li>
+<li><a href="clus.html#les-méthodes-non-hiérarchiques" id="toc-les-méthodes-non-hiérarchiques"><span class="toc-section-number">9.5</span> Les méthodes non-hiérarchiques<span></span></a>
+<ul>
+<li><a href="clus.html#principe" id="toc-principe"><span class="toc-section-number">9.5.1</span> principe<span></span></a></li>
+<li><a href="clus.html#application-1" id="toc-application-1"><span class="toc-section-number">9.5.2</span> Application<span></span></a></li>
+<li><a href="clus.html#le-problème-de-la-détermination-du-nombre-optimal-de-groupe" id="toc-le-problème-de-la-détermination-du-nombre-optimal-de-groupe"><span class="toc-section-number">9.5.3</span> Le problème de la détermination du nombre optimal de groupe<span></span></a></li>
+</ul></li>
+<li><a href="clus.html#autres-méthodes" id="toc-autres-méthodes"><span class="toc-section-number">9.6</span> Autres méthodes<span></span></a></li>
+<li><a href="clus.html#conclusion-1" id="toc-conclusion-1"><span class="toc-section-number">9.7</span> Conclusion<span></span></a></li>
+</ul></li>
+<li><a href="régression.html#régression" id="toc-régression"><span class="toc-section-number">10</span> Régression<span></span></a>
+<ul>
+<li><a href="régression.html#quelques-éléments-de-théorie" id="toc-quelques-éléments-de-théorie"><span class="toc-section-number">10.1</span> Quelques éléments de théorie<span></span></a></li>
+<li><a href="régression.html#une-étude-de-cas-les-offres-blablacar" id="toc-une-étude-de-cas-les-offres-blablacar"><span class="toc-section-number">10.2</span> Une étude de cas : les offres Blablacar<span></span></a></li>
+<li><a href="régression.html#notes-prix-et-taux-doccupations" id="toc-notes-prix-et-taux-doccupations"><span class="toc-section-number">10.3</span> Notes, prix et taux d’occupations<span></span></a></li>
+<li><a href="régression.html#analyser-la-demande-quest-ce-qui-détermine-le-taux-doccupation" id="toc-analyser-la-demande-quest-ce-qui-détermine-le-taux-doccupation"><span class="toc-section-number">10.4</span> Analyser la demande : qu’est ce qui détermine le taux d’occupation ?<span></span></a>
+<ul>
+<li><a href="régression.html#un-modèle-ols" id="toc-un-modèle-ols"><span class="toc-section-number">10.4.1</span> Un modèle OLS<span></span></a></li>
+</ul></li>
+<li><a href="régression.html#autres-modèles" id="toc-autres-modèles"><span class="toc-section-number">10.5</span> Autres modèles<span></span></a>
+<ul>
+<li><a href="régression.html#régression-logistique" id="toc-régression-logistique"><span class="toc-section-number">10.5.1</span> Régression logistique<span></span></a></li>
+<li><a href="régression.html#modèle-de-comptage" id="toc-modèle-de-comptage"><span class="toc-section-number">10.5.2</span> Modèle de comptage<span></span></a></li>
+<li><a href="régression.html#modèle-de-régression-beta" id="toc-modèle-de-régression-beta"><span class="toc-section-number">10.5.3</span> Modèle de régression beta<span></span></a></li>
+</ul></li>
+</ul></li>
+<li><a href="modèle-de-survie.html#modèle-de-survie" id="toc-modèle-de-survie"><span class="toc-section-number">11</span> Modèle de survie<span></span></a></li>
+<li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#les-modèles-linéaires-hiérarchiques-hlm" id="toc-les-modèles-linéaires-hiérarchiques-hlm"><span class="toc-section-number">12</span> Les modèles linéaires hiérarchiques (HLM)<span></span></a>
+<ul>
+<li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#en-guise-dintroduction" id="toc-en-guise-dintroduction"><span class="toc-section-number">12.1</span> en guise d’introduction<span></span></a></li>
+<li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#une-application" id="toc-une-application"><span class="toc-section-number">12.2</span> Une application<span></span></a></li>
+<li><a href="les-modèles-linéaires-hiérarchiques-hlm.html#sem-avec-lavaan" id="toc-sem-avec-lavaan"><span class="toc-section-number">12.3</span> Sem avec Lavaan<span></span></a></li>
+</ul></li>
+<li><a href="arbres-de-décision.html#arbres-de-décision" id="toc-arbres-de-décision"><span class="toc-section-number">13</span> Arbres de Décision<span></span></a>
+<ul>
+<li><a href="arbres-de-décision.html#construire-un-arbre-de-décision" id="toc-construire-un-arbre-de-décision"><span class="toc-section-number">13.1</span> Construire un arbre de décision<span></span></a></li>
+<li><a href="arbres-de-décision.html#mise-en-oeuvre-avec-partykit" id="toc-mise-en-oeuvre-avec-partykit"><span class="toc-section-number">13.2</span> Mise en oeuvre avec Partykit<span></span></a></li>
+<li><a href="arbres-de-décision.html#forêts-aléatoires" id="toc-forêts-aléatoires"><span class="toc-section-number">13.3</span> forêts aléatoires<span></span></a></li>
+</ul></li>
+<li><a href="premiers-éléments-de-machine-learning.html#premiers-éléments-de-machine-learning" id="toc-premiers-éléments-de-machine-learning"><span class="toc-section-number">14</span> Premiers éléments de Machine Learning<span></span></a>
+<ul>
+<li><a href="premiers-éléments-de-machine-learning.html#une-typologie-de-modèles" id="toc-une-typologie-de-modèles"><span class="toc-section-number">14.1</span> une typologie de modèles<span></span></a>
+<ul>
+<li><a href="premiers-éléments-de-machine-learning.html#le-modèle-linéaire" id="toc-le-modèle-linéaire"><span class="toc-section-number">14.1.1</span> le modèle linéaire<span></span></a></li>
+<li><a href="premiers-éléments-de-machine-learning.html#le-modèle-logit" id="toc-le-modèle-logit"><span class="toc-section-number">14.1.2</span> le modèle logit<span></span></a></li>
+<li><a href="premiers-éléments-de-machine-learning.html#les-modèles-à-régularisation" id="toc-les-modèles-à-régularisation"><span class="toc-section-number">14.1.3</span> les modèles à régularisation<span></span></a></li>
+<li><a href="premiers-éléments-de-machine-learning.html#les-random-forest" id="toc-les-random-forest"><span class="toc-section-number">14.1.4</span> les random forest<span></span></a></li>
+</ul></li>
+<li><a href="premiers-éléments-de-machine-learning.html#forêts-aléatoires-1" id="toc-forêts-aléatoires-1"><span class="toc-section-number">14.2</span> forêts aléatoires<span></span></a></li>
+</ul></li>
+<li><a href="annexes.html#annexes" id="toc-annexes"><span class="toc-section-number">15</span> 20 Annexes<span></span></a>
+<ul>
+<li><a href="annexes.html#données-eric-ess" id="toc-données-eric-ess"><span class="toc-section-number">15.1</span> Données Eric-ESS<span></span></a></li>
+<li><a href="annexes.html#fichier-airbnb-bruxelles" id="toc-fichier-airbnb-bruxelles"><span class="toc-section-number">15.2</span> fichier Airbnb Bruxelles<span></span></a></li>
+<li><a href="annexes.html#section" id="toc-section"><span class="toc-section-number">15.3</span> </a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Introduction aux Data Sciences/nAvec r</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="introduction-à-la-grammaire-des-graphiques-et-à-ggplot" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">Chapitre 4</span> Introduction à la grammaire des graphiques et à ggplot<a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#introduction-à-la-grammaire-des-graphiques-et-à-ggplot" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Nous avons appris à lire des données, à les manipuler, Nous allons nous intéresser à la manière de les représenter en introduisant le concept de grammaire des graphiques et en appliquant ggplot au traitement des données univariées.</p>
+<div id="la-grammaire-des-graphiques" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> La grammaire des graphiques<a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#la-grammaire-des-graphiques" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>C’est sans doute une des percées conceptuelles la plus intéressante des data sciences. La représentation graphiques des données fait l’objet à la fois d’une explosion créative mais aussi d’une synthèse théorique. C’est l’apport de la grammaire des graphiques.</p>
+<p>Ces outils s’appuient sur l’idée de <a href="https://www.goodreads.com/book/show/2549408.The_Grammar_of_Graphics">grammaire des graphiques</a>. En voici un <a href="https://cfss.uchicago.edu/notes/grammar-of-graphics/">clair résumé</a>.En français il y a toujours le <a href="http://larmarange.github.io/analyse-R/intro-ggplot2.html">larmarange</a></p>
+<div id="un-modèle-en-couche" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Un modèle en couche<a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#un-modèle-en-couche" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Celle-ci met un ordre dans les éléments qui composent un graphique et les superpose.</p>
+<div class="figure">
+<img src="Images/graphiclayers.png" alt="" />
+<p class="caption">layers</p>
+</div>
+<ul>
+<li>l’aesthetic definit les éléments que l’on veut représenter : ce qu’on met en abscisse, ce qu’on met en ordonnné, les groupes que l’on veut distinguer.</li>
+<li>la geométrie (geom_x)qui définit la forme de représentation</li>
+<li>les échelles (scale_x)</li>
+<li>Labelisation (labs)</li>
+<li>les templates</li>
+<li>le facetting</li>
+</ul>
+<p>ggplot est construit selon cette structure. Voici le <a href="https://ggplot2-book.org/">book de référence</a>, qui est au centre de ce cours. On aura besoin de manière assez systématique de manipuler les données avant de les représenter, <a href="http://larmarange.github.io/analyse-R/manipuler-les-donnees-avec-dplyr.html">dplyr</a> nous permet de le faire aisément.</p>
+</div>
+<div id="une-typologie-des-représentations" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Une typologie des représentations<a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#une-typologie-des-représentations" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Un point de départ fondamental est la <a href="https://www.r-graph-gallery.com/">gallery de ggplot</a>,, elle présente de manière synthétique la plupart les types de figures qui peuvent être représentées, avec du code facilement reproductible.</p>
+<p><img src="Images/ggplotGallery1.JPG" alt="layers" />
+<img src="Images/ggplotGallery2.JPG" alt="layers" />
+Une classification simple</p>
+<ul>
+<li>Analyse univariée : une seule variable quantitative ou qualitative.</li>
+<li>Analyse bivariée : deux variables quali ou quanti/</li>
+<li>Analyse multivariée
+<ul>
+<li>les variables sont quantitatives : on analyse des matrices de corrélations</li>
+<li>les variables sont qualitatives : on analyse des tableaux croisés</li>
+</ul></li>
+<li>Analyse temporelles :</li>
+<li>Analyse géospatiale : les chloroplèthes.</li>
+<li>Analyse de réseaux : représenter des noeuds et les arcs qui les relient. Depuis Moreno,</li>
+<li>analyse d’arbres : ils sont des sortes de réseaux mais avec une structure hiérarchiques. le dendogramme est le plus connus.</li>
+<li>Diagramme de flux</li>
+</ul>
+</div>
+<div id="lesthétique" class="section level3 hasAnchor" number="4.1.3">
+<h3><span class="header-section-number">4.1.3</span> L’esthétique<a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#lesthétique" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>L’art des couleurs tient dans les palettes on aimera celles de <a href="https://github.com/karthik/wesanderson">Wes Anderson</a>, on peut adorer <a href="https://nschiett.github.io/fishualize/index.html"><code>fishualize</code></a> si on a un faible pour les poissons tropicaux.</p>
+<p>Pour la théorie voir …</p>
+<p>Si l’on est pas créatif on se reportera à des modèles, certains étant fameux. On laisse le lecteur les rechercher ici ou là . A titre d’exemple, <a href="https://rpubs.com/ysittaa/BMIsitta">une belle leçon</a>, pour reproduire le célèbre <a href="https://www.economist.com/big-mac-index">BigMac index</a> de The Economist.</p>
+<p><img src="Images/Bigmacindex.png" alt="layers" />
+## Application à l’analyse univariée</p>
+<p>Les données sont extraites de l’ESS, une sélection est disponible <a href="">ici</a>. Elle couvre les 9 vagues et concernent la France et L’Allemagne. Les variables dépendantes (celles que l’on veut étudier et expliquer) sont les 9 items de la confiance, les variable considérées comme indépendantes (ou explicatives) sont une sélection de variables socio-démographiques : âge, genre, perception du pouvoir d’achat, orientation politique, type d’habitat.</p>
+<p><img src="bookdown-demo_files/figure-html/301-1.png" width="672" />
+L’analyse univarié, comme son nom l’indique, ne s’intéresse qu’à une seule variable. Celle-ci peut être <strong>quantitative</strong> ou <strong>qualitative</strong> et ne comporter qu’un nombre limité de modalités entre lesquels aucune comparaison de grandeur ne peut être faite. Les premières ont le plus souvent dans r un format numérique, les autres correspondent au format <em>factor</em>.</p>
+</div>
+<div id="le-cas-des-variables-quantitatives" class="section level3 hasAnchor" number="4.1.4">
+<h3><span class="header-section-number">4.1.4</span> Le cas des variables quantitatives<a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#le-cas-des-variables-quantitatives" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Les variables quantitatives décrivent une variable dont les valeurs décrivent les quantités d’une grandeur. Elle peuvent être discrètes (dénombrement du d’un nombre d’unités) - le nombre d’habitant), ou continue (le nombre de km parcourus). l’<strong>histogramme</strong> est l’outil de base pour représenter la distribution d’une telle variable. Il représente pour des intervalles de valeurs donnés, la fréquence des observations.</p>
+<p>Sa syntaxe simple comporte d’abord la définition de la variable et de la source de données, puis une des “géométrie” de ggplot : la fonction <code>geom_histogram</code>. Dans notre exemple, on va représenter le score de confiance institutionnelle pour la France en se concentrant sur la dernière vague d’enquête.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb13-1" aria-hidden="true" tabindex="-1"></a>df<span class="ot">&lt;-</span><span class="fu">readRDS</span>(<span class="st">&quot;./data/dfTrust.rds)&quot;</span>)</span>
+<span id="cb13-2"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co">#filtrage sur 2018 et la France.</span></span>
+<span id="cb13-4"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb13-5" aria-hidden="true" tabindex="-1"></a>foo<span class="ot">&lt;-</span>df<span class="sc">%&gt;%</span></span>
+<span id="cb13-6"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Year<span class="sc">==</span><span class="st">&quot;2018&quot;</span> <span class="sc">&amp;</span> cntry<span class="sc">==</span><span class="st">&quot;FR&quot;</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(trust_institut)) </span>
+<span id="cb13-7"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb13-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-8"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb13-8" aria-hidden="true" tabindex="-1"></a><span class="co"># on stocke le diagramme dans l&#39;objet g00, </span></span>
+<span id="cb13-9"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># pour le réutiliser ultérieurement et pouvoir le compléter.</span></span>
+<span id="cb13-10"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb13-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-11"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb13-11" aria-hidden="true" tabindex="-1"></a>g00<span class="ot">&lt;-</span><span class="fu">ggplot</span>(foo,<span class="fu">aes</span>(<span class="at">x=</span>trust_institut))<span class="sc">+</span></span>
+<span id="cb13-12"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb13-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>()</span>
+<span id="cb13-13"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-14"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb13-14" aria-hidden="true" tabindex="-1"></a>g00</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/302-1.png" width="672" /></p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb14-1" aria-hidden="true" tabindex="-1"></a>g00<span class="sc">+</span><span class="fu">labs</span>(<span class="at">title=</span><span class="st">&quot;Distribution de la confiance institutionnelle en France et en 2018&quot;</span>,</span>
+<span id="cb14-2"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb14-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">x=</span><span class="st">&quot;Confiance institutionnelle&quot;</span>, <span class="at">y=</span><span class="st">&quot;Fréquence&quot;</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/302-2.png" width="672" /></p>
+<p>On va améliorer l’aspect en</p>
+<ol style="list-style-type: decimal">
+<li>modifiant la couleur et la largeur des barres,</li>
+<li>ajoutant un thème,</li>
+<li>en précisant les éléments textuels (titres, label)</li>
+<li>en calculant et en représentant la valeur moyenne et l’écart-type . Pour ces statistiques, on emploie les fonction de base : mean, sd et round.</li>
+</ol>
+<p>On notera que le titre est défini par la concaténation de plusieurs chaines de caractères avec la fonction <code>paste0</code>. On peut ainsi injecter dans le graphique des éléments externes au jeu de données.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#on calcule la moyenne</span></span>
+<span id="cb15-2"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb15-2" aria-hidden="true" tabindex="-1"></a>moy<span class="ot">=</span><span class="fu">mean</span>(foo<span class="sc">$</span>trust_institut, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
+<span id="cb15-3"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb15-3" aria-hidden="true" tabindex="-1"></a>sd<span class="ot">=</span><span class="fu">sd</span>(foo<span class="sc">$</span>trust_institut, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
+<span id="cb15-4"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co">#avec tous les éléments</span></span>
+<span id="cb15-6"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb15-6" aria-hidden="true" tabindex="-1"></a>g01 <span class="ot">&lt;-</span><span class="fu">ggplot</span>(foo,<span class="fu">aes</span>(<span class="at">x=</span>trust_institut))<span class="sc">+</span></span>
+<span id="cb15-7"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_histogram</span>(<span class="at">binwidth=</span><span class="dv">5</span>,<span class="at">fill=</span><span class="st">&quot;pink&quot;</span>)<span class="sc">+</span></span>
+<span id="cb15-8"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span> <span class="st">&quot;Distribution de la confiance institutionnelle&quot;</span>, </span>
+<span id="cb15-9"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb15-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle=</span> <span class="fu">paste0</span>(<span class="st">&quot;moyenne = &quot;</span>,<span class="fu">round</span>(moy,<span class="dv">2</span>), <span class="st">&quot; - écart-type = &quot;</span>, <span class="fu">round</span>(sd,<span class="dv">2</span>)),</span>
+<span id="cb15-10"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb15-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span><span class="st">&quot;ESS2002-2018&quot;</span>,</span>
+<span id="cb15-11"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb15-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span> <span class="st">&quot;Fréquence&quot;</span>,</span>
+<span id="cb15-12"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb15-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="st">&quot;Confiance (index de 0 à 100)&quot;</span>)<span class="sc">+</span></span>
+<span id="cb15-13"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb15-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_vline</span>(<span class="at">xintercept=</span>moy, <span class="at">color=</span><span class="st">&quot;red&quot;</span>,<span class="at">size=</span><span class="fl">1.5</span>)<span class="sc">+</span></span>
+<span id="cb15-14"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb15-14" aria-hidden="true" tabindex="-1"></a>        <span class="fu">geom_segment</span>(<span class="at">y =</span> <span class="dv">0</span>, <span class="at">yend=</span><span class="dv">0</span>,<span class="at">x=</span>moy<span class="sc">-</span>sd,<span class="at">xend=</span>moy<span class="sc">+</span>sd, <span class="at">color=</span><span class="st">&quot;orange&quot;</span>,<span class="at">size=</span><span class="fl">1.5</span>)</span>
+<span id="cb15-15"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb15-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-16"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb15-16" aria-hidden="true" tabindex="-1"></a>g01</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/303-1.png" width="672" /></p>
+<p>On peut souhaiter normaliser un tel graphe et prendre pour convention que la surface soit égale à 1. On représentera donc une fonction de densité de probabilité, à laquelle on peut associer une fonction cumulée de la distribution.</p>
+<p>On en profite pour introduire l’usage de <a href="https://cran.r-project.org/web/packages/cowplot/vignettes/introduction.html"><code>cowplot</code></a> qui permet d’associer des graphiques en un seul document.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb16-1" aria-hidden="true" tabindex="-1"></a>g04<span class="ot">&lt;-</span><span class="fu">ggplot</span>(foo,<span class="fu">aes</span>(<span class="at">x=</span>trust_institut))<span class="sc">+</span> </span>
+<span id="cb16-2"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill=</span><span class="st">&quot;pink2&quot;</span>) <span class="sc">+</span></span>
+<span id="cb16-3"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span> <span class="st">&quot;Fonction de densité de probabilité&quot;</span>, </span>
+<span id="cb16-4"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb16-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span><span class="st">&quot;ESS2002-2018&quot;</span>,</span>
+<span id="cb16-5"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb16-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span> <span class="st">&quot;Fréquence&quot;</span>,</span>
+<span id="cb16-6"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb16-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="st">&quot;Confiance (index de 1 à 100)&quot;</span>) </span>
+<span id="cb16-7"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb16-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-8"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb16-8" aria-hidden="true" tabindex="-1"></a>g05<span class="ot">&lt;-</span><span class="fu">ggplot</span>(foo,<span class="fu">aes</span>(<span class="at">x=</span>trust_institut))<span class="sc">+</span> </span>
+<span id="cb16-9"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_ecdf</span>(<span class="at">geom =</span> <span class="st">&quot;step&quot;</span>)<span class="sc">+</span></span>
+<span id="cb16-10"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span> <span class="st">&quot;Fonction de distribution empirique cumulée&quot;</span>, </span>
+<span id="cb16-11"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb16-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span><span class="st">&quot;ESS2002-2018&quot;</span>,</span>
+<span id="cb16-12"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb16-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span> <span class="st">&quot;Fréquence&quot;</span>,</span>
+<span id="cb16-13"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb16-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="st">&quot;Confiance (index de 1 à 100)&quot;</span>) </span>
+<span id="cb16-14"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb16-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-15"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_grid</span>(g04, g05, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&#39;A&#39;</span>, <span class="st">&#39;B&#39;</span>), <span class="at">label_size =</span> <span class="dv">12</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/304-1.png" width="672" />
+Enfin on peut examiner par rapport à une distribution théorique, en l’occurrence une distribution gaussienne, ou normale, de paramètres égaux à la moyenne et la variance empirique de la distribution. C’est ce que <code>stat_function</code> permet de réaliser.</p>
+<p>L’ajustement est convenable même si on observe une déviation sur la droite. C’est pourquoi on calcule aussi la Kurtosis et le skewness de la distribution.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">#On a déjà calculé la moyenne : mean</span></span>
+<span id="cb17-2"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co">#il nous manque l&#39;écart-type et </span></span>
+<span id="cb17-3"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb17-3" aria-hidden="true" tabindex="-1"></a>sd<span class="ot">&lt;-</span><span class="fu">sd</span>(foo<span class="sc">$</span>trust_institut, <span class="at">na.rm=</span><span class="cn">TRUE</span>)</span>
+<span id="cb17-4"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(moments)</span>
+<span id="cb17-5"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb17-5" aria-hidden="true" tabindex="-1"></a>sk<span class="ot">&lt;-</span><span class="fu">skewness</span>(foo<span class="sc">$</span>trust_institut)</span>
+<span id="cb17-6"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb17-6" aria-hidden="true" tabindex="-1"></a>ks<span class="ot">&lt;-</span><span class="fu">kurtosis</span>(foo<span class="sc">$</span>trust_institut)</span>
+<span id="cb17-7"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-9"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb17-9" aria-hidden="true" tabindex="-1"></a>g05<span class="ot">&lt;-</span><span class="fu">ggplot</span>(foo,<span class="fu">aes</span>(<span class="at">x=</span>trust_institut))<span class="sc">+</span>   </span>
+<span id="cb17-10"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb17-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span> <span class="st">&quot;Distribution de la confiance institutionnelle&quot;</span>, <span class="at">caption=</span><span class="st">&quot;ESS2002-2018&quot;</span>,<span class="at">y=</span> <span class="st">&quot;frequence&quot;</span>,<span class="at">x=</span><span class="st">&quot;confiance (index de 0 à 100)&quot;</span>) <span class="sc">+</span></span>
+<span id="cb17-11"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb17-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill=</span><span class="st">&quot;pink2&quot;</span>)<span class="sc">+</span></span>
+<span id="cb17-12"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb17-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_function</span>(<span class="at">fun =</span> dnorm,<span class="at">color=</span><span class="st">&quot;red&quot;</span>,<span class="at">size=</span><span class="fl">1.2</span>, <span class="at">args =</span> <span class="fu">list</span>(<span class="at">mean =</span>moy, <span class="at">sd=</span>sd))</span>
+<span id="cb17-13"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb17-13" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb17-14"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb17-14" aria-hidden="true" tabindex="-1"></a>g05</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/305-1.png" width="672" /></p>
+<p>Un grand classique du test de normalité d’une distribution est le diagramme QQ.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb18-1" aria-hidden="true" tabindex="-1"></a>g06 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(foo, <span class="fu">aes</span>(<span class="at">sample =</span> trust_institut)) <span class="sc">+</span> </span>
+<span id="cb18-2"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_qq</span>() <span class="sc">+</span> <span class="fu">stat_qq_line</span>()<span class="sc">+</span> </span>
+<span id="cb18-3"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span> <span class="st">&quot;QQplot confiance interpersonnelle&quot;</span>, </span>
+<span id="cb18-4"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb18-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span><span class="st">&quot;ESS2002-2018&quot;</span>,</span>
+<span id="cb18-5"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb18-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span> <span class="st">&quot;Echantillon&quot;</span>,<span class="at">x=</span><span class="st">&quot;Théorique&quot;</span>) </span>
+<span id="cb18-6"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb18-6" aria-hidden="true" tabindex="-1"></a>g06</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/306-1.png" width="672" /></p>
+<p>On finit cette étude détaillée par l’ajustement d’abord d’un modèle (loi normale) aux données. Ensuite d’un modèle de mélange ( Mixture model) par lequel on définit la loi de distribution sous-jascente, comme un mélange entre deux populations normale de paramètres distincts.</p>
+<p><a href="https://tinyheero.github.io/2015/10/13/mixture-model.html" class="uri">https://tinyheero.github.io/2015/10/13/mixture-model.html</a></p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb19-1" aria-hidden="true" tabindex="-1"></a>df0<span class="ot">&lt;-</span>df <span class="sc">%&gt;%</span> </span>
+<span id="cb19-2"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>() </span>
+<span id="cb19-3"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb19-3" aria-hidden="true" tabindex="-1"></a><span class="co">#library(MASS)</span></span>
+<span id="cb19-4"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb19-4" aria-hidden="true" tabindex="-1"></a>fit<span class="ot">&lt;-</span><span class="fu">fitdistr</span>(df0<span class="sc">$</span>trust_interpersonnel,<span class="st">&quot;normal&quot;</span>) </span>
+<span id="cb19-5"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb19-5" aria-hidden="true" tabindex="-1"></a>param<span class="ot">&lt;-</span><span class="fu">as.data.frame</span>(fit<span class="sc">$</span>estimate)</span>
+<span id="cb19-6"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb19-6" aria-hidden="true" tabindex="-1"></a>mean<span class="ot">&lt;-</span>param[,<span class="dv">1</span>]</span>
+<span id="cb19-7"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb19-7" aria-hidden="true" tabindex="-1"></a>sd<span class="ot">&lt;-</span>param[,<span class="dv">1</span>]</span>
+<span id="cb19-8"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb19-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-9"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb19-9" aria-hidden="true" tabindex="-1"></a>g07<span class="ot">&lt;-</span> g05<span class="sc">+</span><span class="fu">stat_function</span>(<span class="at">fun =</span>  dnorm ,<span class="at">color=</span><span class="st">&quot;orange&quot;</span>,<span class="at">size=</span><span class="fl">1.2</span>, <span class="at">args =</span> <span class="fu">list</span>( <span class="at">mean=</span>mean,  <span class="at">sd=</span>sd))</span>
+<span id="cb19-10"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb19-10" aria-hidden="true" tabindex="-1"></a>g07</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/307-1.png" width="672" /></p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(mixtools)</span>
+<span id="cb20-2"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb20-2" aria-hidden="true" tabindex="-1"></a>trust <span class="ot">=</span> foo<span class="sc">$</span>trust_institut</span>
+<span id="cb20-3"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb20-3" aria-hidden="true" tabindex="-1"></a>mixmdl <span class="ot">=</span> <span class="fu">normalmixEM</span>(trust, <span class="at">k=</span><span class="dv">2</span>)</span></code></pre></div>
+<pre><code>## number of iterations= 237</code></pre>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb22-1" aria-hidden="true" tabindex="-1"></a>mixmdl<span class="sc">$</span>mu</span></code></pre></div>
+<pre><code>## [1] 20.77247 50.86798</code></pre>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb24-1" aria-hidden="true" tabindex="-1"></a>mixmdl<span class="sc">$</span>sigma</span></code></pre></div>
+<pre><code>## [1] 10.37739 13.51802</code></pre>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb26-1" aria-hidden="true" tabindex="-1"></a>mixmdl<span class="sc">$</span>lambda</span></code></pre></div>
+<pre><code>## [1] 0.2034332 0.7965668</code></pre>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mixmdl,<span class="at">which=</span><span class="dv">2</span>)</span>
+<span id="cb28-2"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">density</span>(trust), <span class="at">lty=</span><span class="dv">2</span>, <span class="at">lwd=</span><span class="dv">2</span>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/307-2.png" width="672" /></p>
+<p>Finalement si notre distribution est univariée, car n’étudiant qu’une variable, on peut quand distinguer deux population distinctes.</p>
+</div>
+<div id="dautres-méthodes" class="section level3 hasAnchor" number="4.1.5">
+<h3><span class="header-section-number">4.1.5</span> D’autres méthodes<a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#dautres-méthodes" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Il n’y a pas que l’histogramme ou le diagramme de densité, d’autres méthodes sont utiles, surtout quand on veut comparer des groupes (ce sera l’objet du prochain chapitre). Il s’agit du diagramme à moustache et du diagramme en violon.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb29-1" aria-hidden="true" tabindex="-1"></a>g0306 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(foo, <span class="fu">aes</span>(<span class="at">y =</span> trust_institut, <span class="at">x=</span><span class="dv">1</span>)) <span class="sc">+</span> </span>
+<span id="cb29-2"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_boxplot</span>(<span class="at">fill=</span><span class="st">&quot;Grey&quot;</span>) </span>
+<span id="cb29-3"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb29-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-4"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb29-4" aria-hidden="true" tabindex="-1"></a>g0307 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(foo, <span class="fu">aes</span>(<span class="at">x=</span><span class="dv">1</span>,<span class="at">y =</span> trust_institut)) <span class="sc">+</span> </span>
+<span id="cb29-5"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="fu">geom_violin</span>(<span class="at">fill=</span><span class="st">&quot;Gold&quot;</span>) <span class="sc">+</span> <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;density&quot;</span>)</span>
+<span id="cb29-6"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-7"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_grid</span>(g0306, g0307, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">&quot;Boxplot&quot;</span>,<span class="st">&quot;Violin plot&quot;</span>),</span>
+<span id="cb29-8"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb29-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">label_size =</span> <span class="dv">12</span></span>
+<span id="cb29-9"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb29-9" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/308a-1.png" width="672" /></p>
+</div>
+<div id="quand-la-variable-est-qualitative" class="section level3 hasAnchor" number="4.1.6">
+<h3><span class="header-section-number">4.1.6</span> Quand la variable est qualitative<a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#quand-la-variable-est-qualitative" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Quand la variable est qualitative, que ses modalités sont discrètes, la manière de représenter la plus commune est le fameux <em>camembert</em> que les experts abhorrent, n diagramme en barre représente mieux les proportions.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb30-1" aria-hidden="true" tabindex="-1"></a>g08<span class="ot">&lt;-</span><span class="fu">ggplot</span>(df,<span class="fu">aes</span>(<span class="at">x=</span>age))<span class="sc">+</span></span>
+<span id="cb30-2"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">fill=</span><span class="st">&quot;skyblue&quot;</span>)<span class="sc">+</span></span>
+<span id="cb30-3"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span> <span class="st">&quot;Distribution par classe d&#39;âge&quot;</span>, </span>
+<span id="cb30-4"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb30-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span><span class="st">&quot;ESS2002-2018&quot;</span>,</span>
+<span id="cb30-5"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb30-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span> <span class="st">&quot;fréquence&quot;</span>,</span>
+<span id="cb30-6"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb30-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="st">&quot;Classes d&#39;âge&quot;</span>) </span>
+<span id="cb30-7"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb30-7" aria-hidden="true" tabindex="-1"></a>g08</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/308-1.png" width="672" /></p>
+<p>Avec quelques améliorations : contrôle de la couleurs des barres, ajout des % et pivot pour une meilleure lecture.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb31-1" aria-hidden="true" tabindex="-1"></a>foo<span class="ot">&lt;-</span>df <span class="sc">%&gt;%</span></span>
+<span id="cb31-2"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(age))</span>
+<span id="cb31-3"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb31-4" aria-hidden="true" tabindex="-1"></a>g10<span class="ot">&lt;-</span><span class="fu">ggplot</span>(foo,<span class="fu">aes</span>(<span class="at">x=</span>age, <span class="at">y =</span> <span class="fu">prop.table</span>(<span class="fu">stat</span>(count)),<span class="at">label =</span> scales<span class="sc">::</span><span class="fu">percent</span>(<span class="fu">prop.table</span>(<span class="fu">stat</span>(count)))))<span class="sc">+</span></span>
+<span id="cb31-5"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">fill =</span> age)) <span class="sc">+</span>  </span>
+<span id="cb31-6"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()<span class="sc">+</span> </span>
+<span id="cb31-7"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb31-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span> <span class="st">&quot;Répartition de la population par classe d&#39;âge&quot;</span>, <span class="at">caption=</span><span class="st">&quot;ESS2002-2018&quot;</span>,<span class="at">y=</span> <span class="st">&quot;%&quot;</span>,<span class="at">x=</span><span class="st">&quot;classes d&#39;age&quot;</span>) <span class="sc">+</span></span>
+<span id="cb31-8"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb31-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span>percent)<span class="sc">+</span> <span class="co">#contrôle de l&#39;échelle des % et du format</span></span>
+<span id="cb31-9"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb31-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>()<span class="sc">+</span></span>
+<span id="cb31-10"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb31-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">stat =</span> <span class="st">&#39;count&#39;</span>,<span class="at">position =</span> <span class="fu">position_dodge</span>(.<span class="dv">9</span>),  <span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">3</span>)</span>
+<span id="cb31-11"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb31-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-12"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb31-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-13"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb31-13" aria-hidden="true" tabindex="-1"></a>g10</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/309-1.png" width="672" /></p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb32-1" aria-hidden="true" tabindex="-1"></a>g11<span class="ot">&lt;-</span><span class="fu">ggplot</span>(foo,<span class="fu">aes</span>(<span class="at">x=</span><span class="fu">factor</span>(<span class="dv">1</span>),<span class="at">fill=</span>age, <span class="at">y =</span> <span class="fu">prop.table</span>(<span class="fu">stat</span>(count)),<span class="at">label =</span>scales<span class="sc">::</span><span class="fu">percent</span>(<span class="fu">prop.table</span>(<span class="fu">stat</span>(count)))))<span class="sc">+</span></span>
+<span id="cb32-2"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">width=</span><span class="dv">1</span>) <span class="sc">+</span>  </span>
+<span id="cb32-3"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()<span class="sc">+</span> </span>
+<span id="cb32-4"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span> <span class="st">&quot;Répartition de la population par classe d&#39;âge&quot;</span>, <span class="at">caption=</span><span class="st">&quot;ESS2002-2018&quot;</span>,<span class="at">y=</span> <span class="st">&quot;%&quot;</span>,<span class="at">x=</span><span class="st">&quot;classes d&#39;age&quot;</span>) <span class="sc">+</span></span>
+<span id="cb32-5"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">stat =</span> <span class="st">&#39;count&#39;</span>,<span class="at">position =</span> <span class="fu">position_dodge</span>(.<span class="dv">9</span>),  <span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">3</span>)</span>
+<span id="cb32-6"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb32-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-7"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb32-7" aria-hidden="true" tabindex="-1"></a>g11</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/309-2.png" width="672" /></p>
+<p>si on tient au diagramme en secteur</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb33-1" aria-hidden="true" tabindex="-1"></a>foo<span class="ot">&lt;-</span>df <span class="sc">%&gt;%</span><span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(age))</span>
+<span id="cb33-2"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb33-2" aria-hidden="true" tabindex="-1"></a>g10<span class="ot">&lt;-</span><span class="fu">ggplot</span>(foo,<span class="fu">aes</span>(<span class="at">x=</span><span class="st">&quot;&quot;</span>, <span class="at">y =</span> <span class="fu">prop.table</span>(<span class="fu">stat</span>(count)),</span>
+<span id="cb33-3"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb33-3" aria-hidden="true" tabindex="-1"></a>                    <span class="at">label =</span> scales<span class="sc">::</span><span class="fu">percent</span>(<span class="fu">prop.table</span>(<span class="fu">stat</span>(count)))))<span class="sc">+</span></span>
+<span id="cb33-4"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="fu">aes</span>(<span class="at">fill =</span> age)) <span class="sc">+</span>  </span>
+<span id="cb33-5"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb33-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span> <span class="st">&quot;Répartition de la population par classe d&#39;âge&quot;</span>, </span>
+<span id="cb33-6"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb33-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">caption=</span><span class="st">&quot;ESS2002-2018&quot;</span>,<span class="at">y=</span> <span class="st">&quot;%&quot;</span>,<span class="at">x=</span><span class="st">&quot;classes d&#39;age&quot;</span>) <span class="sc">+</span></span>
+<span id="cb33-7"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb33-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="at">stat =</span> <span class="st">&#39;count&#39;</span>,<span class="at">position =</span> <span class="fu">position_dodge</span>(.<span class="dv">9</span>),  <span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
+<span id="cb33-8"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb33-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_polar</span>(<span class="st">&quot;y&quot;</span>, <span class="at">start=</span><span class="dv">0</span>)</span>
+<span id="cb33-9"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb33-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-10"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb33-10" aria-hidden="true" tabindex="-1"></a>g10</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/310-1.png" width="672" />
+<a href="https://cran.r-project.org/web/packages/treemapify/vignettes/introduction-to-treemapify.html" class="uri">https://cran.r-project.org/web/packages/treemapify/vignettes/introduction-to-treemapify.html</a></p>
+<p>si on tient au diagramme en cercle, autant opter pour un treemap avec la bibliothèque treemapifi</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(treemapify)</span>
+<span id="cb34-2"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb34-2" aria-hidden="true" tabindex="-1"></a>tree1<span class="ot">&lt;-</span>df <span class="sc">%&gt;%</span> </span>
+<span id="cb34-3"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">n=</span><span class="dv">1</span>)<span class="sc">%&gt;%</span><span class="fu">group_by</span>(age) <span class="sc">%&gt;%</span> </span>
+<span id="cb34-4"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">sum</span>(n)) <span class="sc">%&gt;%</span></span>
+<span id="cb34-5"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb34-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(age))</span>
+<span id="cb34-6"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb34-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-7"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb34-7" aria-hidden="true" tabindex="-1"></a>g11 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(tree1, <span class="fu">aes</span>(<span class="at">area =</span> n, <span class="at">fill=</span>n),<span class="at">label=</span>age) <span class="sc">+</span></span>
+<span id="cb34-8"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb34-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_treemap</span>() <span class="sc">+</span></span>
+<span id="cb34-9"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb34-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_treemap_text</span>(<span class="fu">aes</span>(<span class="at">label=</span>age),<span class="at">colour =</span> <span class="st">&quot;white&quot;</span>, <span class="at">place =</span> <span class="st">&quot;centre&quot;</span>,<span class="at">grow =</span> <span class="cn">FALSE</span>)<span class="sc">+</span></span>
+<span id="cb34-10"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb34-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span> <span class="st">&quot;Répartition de la population par classe d&#39;âge&quot;</span>, <span class="at">caption=</span><span class="st">&quot;ESS2002-2018&quot;</span>,<span class="at">y=</span> <span class="cn">NULL</span>,<span class="at">x=</span><span class="cn">NULL</span>) </span>
+<span id="cb34-11"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb34-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-12"><a href="introduction-à-la-grammaire-des-graphiques-et-à-ggplot.html#cb34-12" aria-hidden="true" tabindex="-1"></a>g11</span></code></pre></div>
+<p><img src="bookdown-demo_files/figure-html/311-1.png" width="672" /></p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="prise-en-main-de-r.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="analyse-bi-variée.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/rstudio/bookdown-demo/edit/master/03-GGplotUnivar.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["bookdown-demo.pdf", "bookdown-demo.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

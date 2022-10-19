@@ -1,18 +1,23 @@
-# Analyses factorielles
+# Analyses factorielles exploratoires
+
+
 
 ## Origine et histoire
 
-Par analyse factorielle, on entend finalement un ensemble de méthodes dont l'objectifs est d'extraire d'un ensemble multivariée de données, un petit nombre de dimensions, les facteurs, qui rendent compte l'essentiel des variations. Elles partagent aussi une même structure mathématique qui permet de décomposer et de réduire une matrice de données en un ensemble de matrice de dimensions réduite.
-
-On peut en distinguer deux écoles, l'une alimentée par des questions de psychométrie a nourrit plusieurs decennies de recherche en traitant les tests psychométriques. L'autre française s'intéressent aux variables qualitatives, et a une perspective plus descriptive. 
+Par analyse factorielle, on entend finalement un ensemble de méthodes dont l'objectif est d'extraire d'un ensemble multivariée de données, un petit nombre de dimensions, les facteurs, qui rendent compte de l'essentiel des variations. On peut en distinguer deux écoles, l'une alimentée par des questions de psychométrie, plutôt américaine,  et l'autre française s'intéresse aux variables qualitatives, et à une perspective plus descriptive. 
 
 ### Une petite histoire de la psychométrie
 
-L'analyse factorielle trouve son origine, en psychologie, dans l'intuition que dans des épreuves multiples un facteur principal contrôle les variation des items (les performance à différents tests). Mais c'est avec Thurstone @thurstone_multiple_1931 que l'idée prend toute son ampleur en permettant que plusieurs facteurs traduisent la structure de la matrice de corrélations entre les tests. Spearman, hotelling,.
+L'analyse factorielle trouve son origine, en psychologie, dans l'intuition que dans des épreuves multiples un facteur principal contrôle les variation des items (les performance à différents tests). Mais c'est avec @thurstone_multiple_1931 que l'idée prend toute son ampleur en permettant que plusieurs facteurs traduisent la structure de la matrice de corrélations entre les tests. Spearman, Hotelling,.
 
-Dans le monde de la gestion et en particulier de la GRH et du marketing, largement inspirés par la psychologie et la psychologie sociale, ces méthodes se sont propagées et ont formalisé un processus d'étude largement fondé sur ces techniques. Il est bien connu par de processus de Churchill qui a synthésisé une manière de construire et de développé des instruments de mesure par questionnaire. C'est l' article de historique de Churchill ( ref).
+Dans le monde de la gestion et en particulier de la GRH et du marketing, largement inspirés par la psychologie et la psychologie sociale, ces méthodes se sont propagées et ont formalisé un processus d'étude largement fondé sur ces techniques. Il est bien connu sous le terme de paradigme de Churchill qui synthésise une manière de construire et de développer des échelles multi-items de mesure par questionnaire.
+
+Un grand virage c'est produit avec les méthodes d'équations structurelles qui ont permis le développement de méthodes à variables latente, dont la finalité est confirmatoire.
+
 
 ### L'école française de l'analyse des données appliquée aux sciences sociales
+
+dès le début des années 60
 
 Un personnage : Emile Benzekri
 
@@ -23,38 +28,26 @@ Une école Française : pagès, escoffier, morisseau, Husson a repris le flamble
 Une série de logiciels : Alceste, Statitcf
 
 
-
-## Le modèle factoriel des tests psychologiques
+## Le modèle en facteurs communs et spécifiques
 
 ### Un peu de théorie
 
 La première historiquement est celle des psychologues et en particulier le modèle en terme de facteurs communs et spécifiques. Elle vise à partir de l'analyse d'une matrice de corrélation à identifier des éléments de structures sous-jascents.
 
-La structure du modèle factoriel peut être présentée de manière simple. On supposera que chaque variables observées peut être décrites comme composées de facteurs généraux ($F_{ik}$ ) et de facteurs spécifiques  $ \varepsilon_{i}$. Le modèle suppose ainsi que la valeur de l'individu i pour la variable j, dépend de k facteurs sousjacents, les facteurs communs, et d'un terme spécifique à l'item et à l'individu.
+La structure du modèle factoriel peut être présentée de manière simple. On supposera que chaque variables observées peut être décrites comme composées de facteurs généraux ($F_{ik}$) et de facteurs spécifiques $ \varepsilon_{i}$. Le modèle suppose ainsi que la valeur de l'individu i pour la variable j, dépend de k facteurs sous-jacents, les facteurs communs, et d'un terme spécifique à l'item.
 
 $$x_{ij}= a_{1j}F_{i1} + a_{2j}F_{i2} + \cdots + a_{jk}F_{ik}+\varepsilon_{ij}$$
-
-On peut représenter celà de manière plus graphique, en utilisant les conventions symboliques des modèles structurels qu'on examine dans le chapitre 9. On y verra d'ailleurs comment ce modèle peut être spécifié de manière confirmatoire.
-
-On remarquera dans cette structure que les facteurs peuvent être corrélés. 
-
+On peut représenter cela de manière graphique, en utilisant les conventions symboliques des modèles structurels qu'on examine dans le chapitre SEM. On y verra d'ailleurs comment ce modèle peut être spécifié de manière confirmatoire. On remarquera que dans cette structure les facteurs peuvent être corrélés. 
 
 ![Modèle Factoriel exploratoire - EFA](./Images/FA01.jpg)
-
-
-
-### L'estimation
-
 Certains lecteurs seront surpris de cette présentation, ils sont sans doute plus habitués à factoriser en employant une méthode de l' ACP. Effectivement cette méthode sur laquelle on va revenir avec plus de détail dans la seconde section de ce chapitre, est une des techniques qui permettent d'approcher le modèle théorique que l'on vient de présenter. Elle n'est pas la seule.
 
-L'estimation du modèle requierts deux décisions : l'une sur la méthode d'extraction des facteurs, et l'autres sur la méthode de rotation.
+L'estimation du modèle requiert deux décisions : l'une sur la méthode d'extraction des facteurs, et l'autre sur la méthode de rotation.
 
-les méthodes d'extraction
+Les méthodes d'extraction : 
+* ACP
+* ML
 
- * ACP
- * ML
- * analyse en facteur principaux et spécifiques
- 
 Les méthodes de rotation. 
 
  * Varimax
@@ -64,18 +57,13 @@ Les méthodes de rotation.
  
 L'objectif des méthodes d'analyses factorielles est de réduire un ensemble de variables à un petit nombre de dimensions qui résument l'essentiel de l'information.
 
-
-
 ### Ressources
 
-On utilise principalement le package  `psych` développé par Revelle et dédié à la psychométrie. Il couvre le plus complétement le champs de l'analyse factorielle et de la psychométrie.
+On utilise principalement le package  `psych` développé par Revelle et dédié à la psychométrie. Il couvre le plus complètement le champs de l'analyse factorielle et de la psychométrie.
 
 S'y ajoutent deux fonctions très utiles pour représenter les résultats des analyses sous une forme lisible et au standard des publications scientifiques. Elles utilisent les ressources de `flextable`.
 
 ```{r 0601 }
-#library(psych)
-#library(flextable)
-
 # Une fonction utile pour créer 
 
 flex <- function(data, title=NULL) {
@@ -95,8 +83,7 @@ flex <- function(data, title=NULL) {
   font(fontname="Times New Roman", part="all")
 }
 
-# et une seconde fonction pour le tableaux des loadings
-
+#Une seconde fonction pour le tableaux des loadings
 
 fa_table <- function(x, cut) {
   #get sorted loadings
@@ -124,10 +111,9 @@ fa_table <- function(x, cut) {
     mutate(across(where(is.numeric), round, 3))
 }
 ```
+## Cas d'application
 
-### Cas d'application
-
-Pour appliquer la méthode on va s'interesser à l'échelle des valeurs de kahle qui sont mesurée dan différents pays au cours des différentes vagues de l'enquête ESS? 
+Pour appliquer la méthode on va s’intéresser à l'échelle des valeurs de @schwartz_les_2006, qui sont mesurées dan différents pays au cours des différentes vagues de l'enquête European Social Survey. 
 
 Les variables mesurées sont un ensemble de 21 questions qui proposent des niveaux d'importances accordées à 21 questions, ou items, dont voici les formulation en anglais. Les répondants ont le choix sur une échelle de 0 à 10  qui va de "pas du tout important" à "très important".  On se concentre sur les observations de la dernière vague.
 
@@ -157,11 +143,9 @@ En voici les items dans leur formulation anglaise.
  * IMPTRAD Important to follow traditions and customs
  * IMPFUN Important to seek fun and things that give pleasure
 
-
-
-
 ```{r 0602}
-# On renomme les variables pour une meilleure lecture et on selectionne le tableau de données utile à l'analyse.
+# On renomme les variables pour une meilleure lecture et on selectionne 
+# le tableau de données utile à l'analyse.
 
 df <- read_csv("./Data/ESS1-9e01_1.csv") %>%
   rename(
@@ -191,7 +175,7 @@ foo1<-df %>% filter(essround==9)%>%
   dplyr::select(matches("V_.*"), cntry) %>% #notons la selection fondée sur des regex
   drop_na()
 ```
-## Examen de la matrice de corrélation
+### Examen de la matrice de corrélation
 
 Calculons la matrice de corrélation, et présentons là en organisant l'ordre des variables selon leur corrélation. A ce stade indiquons qu'il s'agit de mettre un ordre dans les variables, tel que des variables fortement corrélées soient adjascentes (on revient sur la méthode utilisée dans le chapitre suivant).
 
@@ -205,20 +189,18 @@ On s'aperçoit qu'une structure émerge. Quatre groupes de variables peuvent êt
 
 
 ```{r 0603b}
-
 foo<- foo1 %>% 
   dplyr::select(matches("V_.*"))
 
-M = cor(foo)
+M <- cor(foo)
 
 ggcorrplot(M, hc.order = TRUE, type = "lower",
    outline.col = "white",
    ggtheme = ggplot2::theme_gray,
    colors = c("#6D9EC1", "white", "#E46726"), lab = TRUE, lab_size = 4)
-
 ```
 
-## Modèle factoriel
+### Modèle factoriel
 
 Testons un modèle d'analyse factorielle à 4 dimensions. Nous l'augmentons d'un procédure de rotation oblimin pour un meilleur ajustement. 
 
@@ -233,9 +215,6 @@ fa[["Vaccounted"]] %>%
   rownames_to_column("Property") %>%
     mutate(across(where(is.numeric), round, 3)) %>%
     flex("Eigenvalues and Variance Explained for Oblimin Factor Solution")
-
-
-
 ```
 
 Le set de données que nous avons traité est composé de 15 échantillons venant d'autant de pays. Puisque nous avons réduits les 22 mesures initiales à 4 grands facteurs, il est temps d'analyser les différences entre les pays.
@@ -244,12 +223,10 @@ On va d'abord récupérer les scores de chaque observation sur les quatre dimens
 
 ```{r 0605}
 #récupérer les scores
-
 scores<-fa$scores
 scores<-as.data.frame(unclass(scores))
 
 #matcher pour récupérer la variable pays et renommer pour plus de lisibilité
-
 df_typo<-cbind(foo1, scores) %>% 
   rename(F_Altruisme = MR1, 
         F_Conservatisme=MR2,
@@ -267,7 +244,6 @@ df_g <- df_typo %>%
             se=sd(value)/sqrt(n))
 
 #on représente les résultats
-
 ggplot(df_g,aes(x=variable, y=mean))+
   geom_bar(stat="identity",aes(fill=cntry), size=1.5)+ 
   coord_flip()+
